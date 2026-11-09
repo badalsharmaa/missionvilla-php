@@ -115,6 +115,77 @@ return [
                 ],
             ],
         ],
+        [
+            // Section 02, approved mockups (2026-11-09): default front faces +
+            // hover-flipped Memory Care card. Copy condensed from the React
+            // reference CareOptionsSection / CARE_PROGRAMS (lib/mission-villa-data.ts).
+            'key' => 'care-options',
+            'type' => 'care.options',
+            'enabled' => true,
+            'data' => [
+                'eyebrow' => 'Our Care Options',
+                'heading' => 'Two Paths. <em>One Commitment to Care.</em>',
+                'subheading' => 'Specialized care and short-term support, all in a welcoming residential setting in Daly City.',
+                'cards' => [
+                    [
+                        'id' => 'memory-care',
+                        'icon' => 'brain',
+                        'kicker' => 'Legacies™',
+                        'title' => 'Memory Care',
+                        'summary' => 'Specialized, personalized support for seniors living with Alzheimer’s disease and other forms of dementia.',
+                        'image' => [
+                            'src' => '/images/care/memory-care-companion-1122.webp',
+                            'src_mobile' => '/images/care/memory-care-companion-720.webp',
+                            'alt' => 'An older woman folding linen napkins at a dining table while a caregiver sits beside her and smiles',
+                            'provenance' => 'illustrative',
+                            'source_url' => null,
+                            'position' => '50% 26%',
+                        ],
+                        'cta' => ['label' => 'Explore Memory Care', 'href' => '/memory-care', 'style' => 'terracotta'],
+                        'back' => [
+                            'kicker' => 'Legacies™ Memory Care',
+                            'statement' => 'Specialized, personalized support for seniors living with Alzheimer’s disease and other forms of dementia.',
+                            'benefits' => [
+                                ['icon' => 'brain', 'text' => 'Care built around each life story and routine'],
+                                ['icon' => 'heart', 'text' => 'Calm, predictable rhythms that feel familiar'],
+                                ['icon' => 'people', 'text' => 'Compassionate support that preserves dignity'],
+                            ],
+                            'audience_label' => 'Who this supports',
+                            'audience' => 'Seniors living with Alzheimer’s disease or other forms of dementia.',
+                        ],
+                    ],
+                    [
+                        'id' => 'respite-care',
+                        'icon' => 'calendar',
+                        'kicker' => 'Short-Term Stays',
+                        'title' => 'Respite Care',
+                        'summary' => 'A welcoming short-term stay that provides caring support and gives family caregivers peace of mind.',
+                        'image' => [
+                            'src' => '/images/care/respite-care-welcome-1402.webp',
+                            'src_mobile' => '/images/care/respite-care-welcome-900.webp',
+                            'alt' => 'An older woman placing a family photo on a dresser in a bright suite while her daughter embraces her',
+                            'provenance' => 'illustrative',
+                            'source_url' => null,
+                            'position' => '72% 40%',
+                        ],
+                        'cta' => ['label' => 'Explore Respite Care', 'href' => '/respite-care', 'style' => 'cream'],
+                        'back' => [
+                            'kicker' => 'Short-Term Respite Care',
+                            'statement' => 'Welcoming short-term support in the same compassionate, homelike Daly City community.',
+                            'benefits' => [
+                                ['icon' => 'bed', 'text' => 'A comfortable suite with a private bathroom'],
+                                ['icon' => 'dining', 'text' => 'Chef-prepared meals and daily activities'],
+                                ['icon' => 'hands', 'text' => 'Personal attention from our care team'],
+                            ],
+                            'audience_label' => 'Who this supports',
+                            'audience' => 'Families who need a short-term stay while a caregiver rests or travels.',
+                        ],
+                    ],
+                ],
+                'visit_cta' => 'Schedule a Visit',
+                'care_guide_cta' => 'Not sure which fits? Ask our Care Guide',
+            ],
+        ],
         // Future approved sections are appended here (see docs/SECTION_STATUS.md).
     ],
 ];

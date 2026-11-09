@@ -6,6 +6,7 @@ use App\Content\Contracts\ContentRepository;
 use App\Content\DatabaseContentRepository;
 use App\Content\FileContentRepository;
 use App\Content\SectionRegistry;
+use App\Content\Sections\CareOptionsSection;
 use App\Content\Sections\HeroCinematicSection;
 use App\Content\Sections\IntroShuttersSection;
 use App\Integrations\Leads\LeadDestination;
@@ -23,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(SectionRegistry::class, fn () => new SectionRegistry([
             new IntroShuttersSection,
             new HeroCinematicSection,
+            new CareOptionsSection,
         ]));
 
         $this->app->singleton(ContentRepository::class, function ($app) {

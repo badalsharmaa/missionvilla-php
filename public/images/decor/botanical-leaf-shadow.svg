@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 640" fill="#2B1A22">
+  <!-- Mission Villa: botanical branch silhouette used as a soft, blurred leaf
+       shadow (blur + opacity applied in CSS). Decorative only. -->
+  <defs>
+    <path id="leaf" d="M0 0C26-30 92-40 150-6 160 0 160 4 150 8 92 40 26 30 0 0Z"/>
+    <path id="leaf-sm" d="M0 0C20-22 66-28 108-4 116 0 116 3 108 6 66 28 20 22 0 0Z"/>
+  </defs>
+  <!-- main stem, entering from the top-right corner -->
+  <path d="M640 30C560 70 470 120 400 190 330 260 280 340 240 430 215 488 200 545 192 600" fill="none" stroke="#2B1A22" stroke-width="7" stroke-linecap="round"/>
+  <path d="M470 120C440 70 430 40 432 0M330 262C290 230 250 214 200 210M262 384C300 400 330 430 350 476" fill="none" stroke="#2B1A22" stroke-width="5" stroke-linecap="round"/>
+  <use xlink:href="#leaf" transform="translate(600 50) rotate(200)"/>
+  <use xlink:href="#leaf" transform="translate(560 72) rotate(-60)"/>
+  <use xlink:href="#leaf" transform="translate(500 104) rotate(160)"/>
+  <use xlink:href="#leaf-sm" transform="translate(452 60) rotate(-100)"/>
+  <use xlink:href="#leaf-sm" transform="translate(438 20) rotate(-150)"/>
+  <use xlink:href="#leaf" transform="translate(430 160) rotate(-30)"/>
+  <use xlink:href="#leaf" transform="translate(400 190) rotate(190)"/>
+  <use xlink:href="#leaf-sm" transform="translate(280 228) rotate(170)"/>
+  <use xlink:href="#leaf" transform="translate(240 214) rotate(205)"/>
+  <use xlink:href="#leaf" transform="translate(340 260) rotate(20)"/>
+  <use xlink:href="#leaf" transform="translate(300 320) rotate(170)"/>
+  <use xlink:href="#leaf-sm" transform="translate(312 420) rotate(50)"/>
+  <use xlink:href="#leaf" transform="translate(340 464) rotate(80)"/>
+  <use xlink:href="#leaf" transform="translate(262 386) rotate(-20)"/>
+  <use xlink:href="#leaf" transform="translate(236 440) rotate(200)"/>
+  <use xlink:href="#leaf-sm" transform="translate(212 520) rotate(-10)"/>
+  <use xlink:href="#leaf-sm" transform="translate(200 560) rotate(185)"/>
+</svg>

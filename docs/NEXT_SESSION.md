@@ -5,8 +5,8 @@ _Written 2026-11-09 at the end of Phase 1._
 ## Current state
 
 - **PHP site:** Laravel 13 app with the opening conservatory-shutter scene, a global transparent
-  header and the approved cinematic hero. The
-  homepage has no other sections, by design. 20 automated tests pass.
+  header, the approved cinematic hero and **Section 02 · Care Options** (two flip cards, added
+  2026-11-09). The homepage has no other sections, by design. 30 automated tests pass.
 - **React reference:** untouched (`feat/mission-villa-v1-baseline` @ `82a9d23`, clean). Served on :3000.
 - **Database:** local MariaDB 11.4 container `missionvilla-php-db` on 127.0.0.1:3307. Migrations applied.
 - **Deployment:** none. No production target defined (`.deploy-policy.yml`).
@@ -24,7 +24,19 @@ php artisan test
 
 ## Decisions needed from the client/agency
 
-1. **Next homepage section.** Review React's Care Options section and decide keep / modify / redesign.
+1. **Next homepage section.** Review React's `ApproachAndLifeSection` and decide keep / modify / redesign.
+   Care Options is done (see `SECTION_STATUS.md`).
+1a. **Care Options follow-ups.** (a) Benefit wording on the Memory Care back face was taken from the
+   React data, not the mockup's "dementia-informed / secure / experienced caregivers" wording, which
+   has no source there. Confirm or supply verified claims. (b) The Respite back face was designed to mirror the
+   Memory mockup (no mockup existed). (c) A small corner toggle (+/×) was added for keyboard and touch
+   access; the mockups show none. (d) A quiet "Ask our Care Guide" link sits beside Schedule a Visit.
+   (e) Card photos are AI-illustrative (from React); swap for facility photos when available.
+   (f) "Explore" buttons link to `/memory-care` and `/respite-care`, which are not built in PHP yet
+   (same as the header nav).
+   (g) The referenced `mission_villa_care_options_claude_handoff.zip` (with `CLAUDE_TASK.md` and a
+   botanical SVG) was not on disk, so the section was built from the two mockup PNGs and the written brief, and
+   the botanical SVG was drawn locally. If the ZIP turns up, diff its SVG and task list against this build.
 2. **Header utility ribbon.** React has a top ribbon (address, license, Text Comfort A/A+/A++ size
    control, and the **Replay Intro** button). Phase 1 omitted it because the hero already shows address and license in its chapter
    bar. Should the Text Comfort control return, and where?

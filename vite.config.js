@@ -13,6 +13,8 @@ export default defineConfig({
                 'resources/js/sections/intro-shutters.js',
                 'resources/css/sections/hero-cinematic.css',
                 'resources/js/sections/hero-cinematic.js',
+                'resources/css/sections/care-options.css',
+                'resources/js/sections/care-options.js',
             ],
             refresh: true,
         }),
