@@ -1,0 +1,18 @@
+# Local development database only. Mirrors the MySQL-family database
+# available on Hostinger shared hosting. Never used in production.
+services:
+  db:
+    image: mariadb:11.4
+    container_name: missionvilla-php-db
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: missionvilla
+      MARIADB_USER: missionvilla
+      MARIADB_PASSWORD: ${DB_PASSWORD:-missionvilla_local}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-missionvilla_root_local}
+    ports:
+      - "127.0.0.1:${DB_PORT:-3307}:3306"
+    volumes:
+      - missionvilla_db:/var/lib/mysql
+volumes:
+  missionvilla_db:

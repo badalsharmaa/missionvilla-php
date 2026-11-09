@@ -1,0 +1,402 @@
+/* ==========================================================================
+   APPROVED CINEMATIC HERO — section styles
+   Ported verbatim from mission_villa_cinematic_hero_final.html.
+   Removed only: unused .aperture-* rules (no markup references them) and the
+   developer safe-zone banner. Tokens and global rules live in app.css.
+   Do not redesign; changes require design approval (docs/SECTION_STATUS.md).
+   ========================================================================== */
+
+/* ==========================================================================
+   1. HERO SHELL & STRICT 100SVH DESKTOP GEOMETRY
+   ========================================================================== */
+.hero-viewport {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  background-color: var(--plum-abyss);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+@media (min-width: 1024px) {
+  .hero-viewport {
+    height: 100svh;
+    max-height: 100svh;
+    padding-top: var(--header-safe-desktop);
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero-viewport {
+    padding-top: 5.25rem;
+    height: auto;
+    min-height: 100svh;
+    overflow-y: auto;
+  }
+}
+
+/* ==========================================================================
+   2. PLANE 1: FULL-BLEED BACKGROUND STAGE (z-index: 1)
+   ========================================================================== */
+.bg-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  background-color: var(--plum-abyss);
+}
+
+.bg-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  will-change: clip-path, transform;
+  overflow: hidden;
+}
+
+.bg-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 55% 45%;
+  filter: contrast(1.03) saturate(0.96) brightness(0.95);
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Editorial framing for new landscape (3:2) photo selections. */
+.bg-slide[data-index="0"] img { object-position: 57% 44%; }
+.bg-slide[data-index="1"] img { object-position: 52% 44%; }
+.bg-slide[data-index="2"] img { object-position: 60% 48%; }
+@media (max-width: 767px) {
+  .bg-slide[data-index="0"] img { object-position: 55% 34%; }
+  .bg-slide[data-index="1"] img { object-position: 55% 33%; }
+  .bg-slide[data-index="2"] img { object-position: 62% 38%; }
+}
+
+/* ==========================================================================
+   3. CRITICAL FIX: MULTI-STOP DARK-PLUM SCRIM OVERLAY (z-index: 5)
+   Explicitly stacked ABOVE all .bg-slide layers (z-index: 1..3)
+   and BELOW foreground .hero-grid content (z-index: 10).
+   Guarantees effortless readability across bright outdoor greenery & interiors.
+   ========================================================================== */
+.editorial-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background:
+    /* Primary Horizontal Dark-Plum-to-Transparent Protection */
+    linear-gradient(
+      90deg,
+      rgba(24, 15, 23, 0.96) 0%,
+      rgba(24, 15, 23, 0.93) 25%,
+      rgba(24, 15, 23, 0.81) 40%,
+      rgba(24, 15, 23, 0.56) 52%,
+      rgba(24, 15, 23, 0.34) 65%,
+      rgba(24, 15, 23, 0.06) 85%,
+      rgba(24, 15, 23, 0.00) 100%
+    ),
+    /* Subtle Top Header Protection & Bottom Chapter Ledger Vignette */
+    linear-gradient(
+      180deg,
+      rgba(20, 12, 19, 0.48) 0%,
+      rgba(20, 12, 19, 0.00) 20%,
+      rgba(20, 12, 19, 0.00) 64%,
+      rgba(20, 12, 19, 0.25) 82%,
+      rgba(20, 12, 19, 0.84) 100%
+    );
+}
+
+@media (max-width: 1023px) {
+  .editorial-scrim {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(24, 15, 23, 0.82) 0%,
+        rgba(24, 15, 23, 0.92) 48%,
+        rgba(24, 15, 23, 0.96) 100%
+      );
+  }
+}
+
+/* Subtle Architectural Grid Hairlines (z-index: 6) */
+.architectural-hairlines {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  padding: 0 var(--pad-x);
+}
+
+.architectural-hairlines-inner {
+  width: 100%;
+  height: 100%;
+  border-left: 1px solid rgba(249, 245, 240, 0.07);
+  border-right: 1px solid rgba(249, 245, 240, 0.07);
+}
+
+/* ==========================================================================
+   4. FOREGROUND STAGE & REFINED HEADLINE TYPOGRAPHY (z-index: 10)
+   Desktop Headline sized to 46px–54px (clamp(2.45rem, 3.4vw, 3.35rem))
+   with substantial 600 weight and warm italic accent.
+   ========================================================================== */
+.hero-grid {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  padding: clamp(0.5rem, 1.5svh, 1.25rem) var(--pad-x);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 6.8fr) minmax(0, 5.2fr);
+    gap: clamp(2rem, 4vw, 4.5rem);
+  }
+}
+
+.headline-mask {
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.04em;
+}
+
+.hero-headline {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(2.25rem, 3.4vw, 3.35rem); /* ~46px at 1366px, ~49-54px at 1440px+ */
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--text-ivory);
+  max-width: 21ch;
+  text-shadow: 0 2px 24px rgba(15, 8, 14, 0.45);
+}
+
+.hero-headline em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent-peach);
+}
+
+.hero-body-copy {
+  font-size: clamp(0.95rem, 1.05vw, 1.0625rem);
+  line-height: 1.62;
+  font-weight: 400;
+  color: var(--text-body);
+  max-width: 52ch;
+  text-shadow: 0 1px 14px rgba(15, 8, 14, 0.55);
+}
+
+/* ==========================================================================
+   5. CONSISTENT ROUNDED CORNERS FOR CTAS, CARDS & CONTROLS
+   ========================================================================== */
+.btn-primary-visit {
+  background-color: var(--accent-terracotta);
+  color: #FAF6F0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-btn); /* 9px */
+  padding: clamp(0.75rem, 1.4svh, 0.92rem) 1.5rem;
+  font-size: 0.925rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 10px 28px -8px rgba(200, 109, 81, 0.55);
+}
+
+.btn-primary-visit:hover {
+  background-color: var(--accent-terracotta-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px -8px rgba(200, 109, 81, 0.7);
+}
+
+.btn-primary-visit .cta-arrow {
+  transition: transform 0.25s ease;
+}
+
+.btn-primary-visit:hover .cta-arrow {
+  transform: translate(2px, -2px);
+}
+
+.btn-secondary-phone {
+  background-color: rgba(249, 245, 240, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-ivory);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-btn); /* 9px */
+  padding: clamp(0.75rem, 1.4svh, 0.92rem) 1.3rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.btn-secondary-phone:hover {
+  background-color: rgba(249, 245, 240, 0.15);
+  border-color: rgba(249, 245, 240, 0.48);
+  transform: translateY(-1px);
+}
+
+/* Slider Arrow & Pause Controls (8px radius) */
+.slider-ctrl-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-control); /* 8px */
+  border: 1px solid rgba(249, 245, 240, 0.2);
+  background-color: rgba(249, 245, 240, 0.06);
+  color: var(--text-ivory);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.slider-ctrl-btn:hover {
+  background-color: rgba(249, 245, 240, 0.16);
+  border-color: rgba(249, 245, 240, 0.42);
+  transform: translateY(-1px);
+}
+
+/* Bottom Chapter Navigation Bar */
+.chapter-tab {
+  position: relative;
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-control);
+  transition: background-color 0.25s ease;
+  cursor: pointer;
+}
+
+.chapter-tab:hover {
+  background-color: rgba(249, 245, 240, 0.06);
+}
+
+.chapter-progress-track {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(249, 245, 240, 0.16);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 0.45rem;
+}
+
+.chapter-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--accent-peach);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+/* Modals & Dialogs (14px Card Radius, 9px Inputs/Buttons) */
+.modal-card {
+  border-radius: var(--radius-card);
+  background-color: var(--linen-warm);
+  color: #241522;
+  border: 1px solid rgba(36, 21, 34, 0.15);
+  box-shadow: 0 28px 64px -16px rgba(10, 5, 10, 0.65);
+}
+
+.concierge-option-btn {
+  width: 100%;
+  text-align: left;
+  padding: 0.85rem 1.05rem;
+  border-radius: var(--radius-btn);
+  border: 1px solid rgba(36, 21, 34, 0.16);
+  background-color: #FFFFFF;
+  color: #241522;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.concierge-option-btn:hover {
+  border-color: var(--plum-deep);
+  background-color: #FAF6F0;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px -8px rgba(36, 21, 34, 0.18);
+}
+
+/* ========================================================================
+   COMPACT CARE GUIDE CARD & EXPANDED CONVERSATIONAL PREVIEW
+   The right-hand editorial photo card has been replaced rather than stacked
+   with more UI. Keeps the approved full-bleed cinematography unobstructed.
+   ======================================================================== */
+.care-guide-preview {
+  width: 100%; max-width: 390px; margin-left: auto;
+  padding: clamp(17px, 2vw, 23px);
+  background: linear-gradient(145deg, rgba(40,25,38,.97), rgba(25,15,24,.96));
+  border: 1px solid rgba(249,245,240,.26);
+  border-radius: 16px;
+  box-shadow: 0 22px 65px rgba(8,4,8,.48), 0 1px 0 rgba(255,255,255,.06) inset;
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+}
+.guide-mark { color: #F9F5F0; background: #486355; display: flex; align-items: center; justify-content: center; width: 39px; height: 39px; border-radius: 11px; flex-shrink:0; }
+.guide-kicker { color:#EAC2B1; font-size:9px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+.guide-brand { color:#F9F5F0; font-size:12px; font-weight:600; margin-top:2px; }
+.guide-preview-tag { color:#F2C6B3; border:1px solid rgba(243,198,182,.28); border-radius:5px; padding:3px 5px; font:600 9px 'Plus Jakarta Sans',sans-serif; letter-spacing:.1em; }
+.guide-title { font-size:clamp(1.6rem,2.2vw,1.96rem); line-height:1.08; font-weight:600; color:#FAF6F0; letter-spacing:-.012em; margin:13px 0 9px; max-width:13ch; }
+.guide-description { font-size:12px; line-height:1.6; color:rgba(249,245,240,.79); margin-bottom:15px; }
+.guide-choice-list { display:grid; gap:7px; margin-bottom:13px; }
+.guide-choice { width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px; text-align:left; padding:10px 12px; font-size:12px; font-weight:600; line-height:1.35; border:1px solid rgba(249,245,240,.16); border-radius:9px; background:rgba(249,245,240,.055); color:#FAF6F0; transition: background .2s ease,border-color .2s ease,transform .2s ease; }
+.guide-choice:hover, .guide-choice:focus-visible { background:rgba(249,245,240,.13); border-color:rgba(243,198,182,.58); transform:translateX(2px); }
+.guide-arrow { font-size:16px; color:#F3C6B6; }
+.guide-ask-row { display:flex; align-items:center; width:100%; background:#F9F5F0; border-radius:9px; border:1px solid rgba(249,245,240,.2); padding:4px 4px 4px 13px; }
+.guide-ask-row input { min-width:0; flex:1; font-size:12px; color:#241522; background:transparent; outline:none; }
+.guide-ask-row input::placeholder { color:#776E70; }
+.guide-ask-row button,.care-chat-compose button { display:flex; align-items:center; justify-content:center; width:34px; height:34px; flex-shrink:0; background:#C86D51; color:white; border-radius:7px; transition:background .2s ease; }
+.guide-ask-row button:hover,.care-chat-compose button:hover { background:#A84C38; }
+.guide-footnote { margin-top:10px; font-size:10px; color:rgba(249,245,240,.59); line-height:1.4; }
+.care-chat-backdrop { position:fixed; inset:0; z-index:100; align-items:center; justify-content:center; padding:15px; background:rgba(14,8,14,.76); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+.care-chat-backdrop.is-open { display:flex; }
+.care-chat-dialog { width:min(100%,580px); display:flex; flex-direction:column; max-height:min(760px,92svh); background:#FAF6F0; color:#241522; border-radius:18px; border:1px solid rgba(249,245,240,.55); box-shadow:0 30px 90px rgba(0,0,0,.55); overflow:hidden; }
+.care-chat-header { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:19px 22px 16px; border-bottom:1px solid rgba(36,21,34,.1); }
+.care-chat-header .guide-kicker {color:#97513D;}
+.care-chat-close { width:32px; height:32px; flex-shrink:0; border-radius:8px; border:1px solid rgba(36,21,34,.15); font-size:23px; line-height:1; color:#665C54; }
+.care-chat-close:hover { background:#EFE8DD; }
+.care-chat-note { background:#F0E9DE; color:#695A5D; padding:10px 22px; font-size:11px; line-height:1.5; }
+.care-chat-note a {text-decoration:underline;text-underline-offset:2px;}
+.care-chat-messages { flex:1; min-height:150px; overflow-y:auto; padding:19px 21px; display:flex; flex-direction:column; gap:12px; }
+.care-chat-bubble { max-width:90%; font-size:13px; line-height:1.55; padding:12px 14px; border-radius:13px; white-space:pre-wrap; }
+.care-chat-bubble.assistant { align-self:flex-start; background:#EFE8DD; color:#32282F; border-bottom-left-radius:4px; }
+.care-chat-bubble.visitor { align-self:flex-end; background:#362137; color:#FAF6F0; border-bottom-right-radius:4px; }
+.care-chat-speaker { display:block; font-size:9px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px; opacity:.7; }
+.care-chat-suggestions { display:flex; flex-wrap:wrap; gap:8px; padding:9px 20px 14px; }
+.care-chat-suggestions button { border:1px solid rgba(36,21,34,.18); color:#5A354B; background:#FFFDFC; padding:8px 10px; border-radius:8px; font-size:11px; font-weight:600; }
+.care-chat-suggestions button:hover { border-color:#A75E4B; background:#F4EAE3; }
+.care-chat-bottom { border-top:1px solid rgba(36,21,34,.1); padding:14px 20px 17px; }
+.care-chat-compose { display:flex; align-items:center; gap:9px; border:1px solid rgba(36,21,34,.22); border-radius:11px; padding:5px; background:white; }
+.care-chat-compose:focus-within { border-color:#C86D51; box-shadow:0 0 0 2px rgba(200,109,81,.1); }
+.care-chat-compose input { flex:1; min-width:0; padding:7px 10px; border:0; outline:0; background:white; color:#241522; font-size:13px; }
+@media (max-width:640px) {
+  .care-chat-backdrop {padding:0;align-items:end;}
+  .care-chat-dialog {width:100%;max-height:94svh;border-radius:18px 18px 0 0;}
+  .care-chat-header {padding:15px;}
+  .care-chat-note {padding:9px 15px;}
+  .care-chat-messages {padding:14px;}
+  .care-chat-bottom {padding:12px 14px 20px;}
+  .care-chat-suggestions {padding:10px 14px;}
+}

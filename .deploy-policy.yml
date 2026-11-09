@@ -1,0 +1,27 @@
+# Deployment manifest for the Mission Villa PHP website.
+#
+# STATUS: NO PRODUCTION TARGET IS DEFINED. This application has never been
+# deployed. Do not deploy it anywhere until a human has filled in and approved
+# every field below and the global deployment gate passes.
+#
+# The existing live site https://missionvilla.hiraya.digital/ is a STATIC
+# deployment governed by ../.deploy-policy.yml. This app must not be uploaded
+# into that document root.
+project:
+  name: missionvilla-php
+production:
+  url: null            # TBD by client/agency
+  branch: null         # TBD — main is NOT assumed to be production
+  host: null           # TBD (expected: Hostinger shared hosting, PHP 8.3+, MySQL/MariaDB)
+  document_root: null  # Must point at this app's public/ directory, never the repo root
+deployment:
+  method: null         # TBD (e.g. git pull + composer install --no-dev + uploaded public/build)
+  backup_required: true
+  dry_run_required: true
+  never_upload:
+    - .env
+    - storage/logs/
+    - node_modules/
+    - tests/
+protected:
+  - ~/domains/missionvilla.hiraya.digital/   # static live site; not this app

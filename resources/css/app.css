@@ -1,0 +1,93 @@
+@import 'tailwindcss';
+@import './components/header.css';
+
+/* Tailwind scans Blade views, JS and PHP section classes automatically. */
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: 'Newsreader', Georgia, serif;
+}
+
+/* ==========================================================================
+   Mission Villa design tokens (from the approved cinematic hero)
+   ========================================================================== */
+:root {
+    --plum-abyss: #180F17;
+    --plum-deep: #241522;
+    --plum-surface: #2E1B2B;
+    --linen-warm: #FAF6F0;
+    --linen-muted: #EFE8DD;
+    --text-ivory: #F9F5F0;
+    --text-body: rgba(245, 239, 232, 0.94);
+    --text-subtle: rgba(235, 225, 214, 0.72);
+    --accent-peach: #F3C6B6;
+    --accent-terracotta: #C86D51;
+    --accent-terracotta-hover: #D67B5F;
+    --accent-sage: #6E8F7D;
+    --border-light: rgba(249, 245, 240, 0.14);
+    --border-strong: rgba(249, 245, 240, 0.28);
+
+    --radius-card: 14px;
+    --radius-inner: 10px;
+    --radius-btn: 9px;
+    --radius-control: 8px;
+
+    --pad-x: clamp(1.5rem, 5vw, 4.75rem);
+    --header-safe-desktop: 18svh;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: var(--plum-abyss);
+    color: var(--text-ivory);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-serif-editorial {
+    font-family: 'Newsreader', Georgia, serif;
+    font-optical-sizing: auto;
+}
+
+button { cursor: pointer; }
+
+main:focus { outline: none; }
+
+.skip-link {
+    position: fixed;
+    left: 1rem;
+    top: -4rem;
+    z-index: 200;
+    padding: 0.6rem 1rem;
+    border-radius: var(--radius-btn);
+    background: var(--text-ivory);
+    color: var(--plum-deep);
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: top 0.2s ease;
+}
+.skip-link:focus { top: 1rem; }
+
+body.is-scroll-locked { overflow: hidden; }
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+    outline: 2px solid var(--accent-peach);
+    outline-offset: 2px;
+}
+
