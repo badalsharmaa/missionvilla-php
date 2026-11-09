@@ -186,6 +186,86 @@ return [
                 'care_guide_cta' => 'Not sure which fits? Ask our Care Guide',
             ],
         ],
+        [
+            // Section 03, approved mockup (2026-11-09) "Life at Mission Villa: A Closer Look".
+            // Copy condensed from verified React content (lib/mission-villa-data.ts:
+            // suites, dining, daily engagement, Legacies™ life-story approach).
+            // Films are produced separately: docs/SECTION_03_VIDEO_CONTRACT.md.
+            // Until they arrive each chapter shows its fallback still with an
+            // honest "film in production" state.
+            'key' => 'life-gallery',
+            'type' => 'life.gallery',
+            'enabled' => true,
+            'data' => [
+                'eyebrow' => 'Life at Mission Villa',
+                'heading' => 'A Closer Look at <em>Life Here</em>',
+                'subheading' => 'A welcoming community designed for comfort, engagement, and meaningful connection.',
+                'manifest' => '/media/mission-villa/life-at-mission-villa/media-manifest.json',
+                'chapters' => [
+                    [
+                        'id' => 'living-spaces',
+                        'icon' => 'home',
+                        'label' => 'Living Spaces',
+                        'kicker' => 'Living Spaces',
+                        'title' => 'Comfortable, Private, and Peaceful',
+                        'description' => 'Private and shared suites, each with a private bathroom, plus inviting lounges where residents relax and families visit.',
+                        'cta' => ['label' => 'Explore Our Suites', 'href' => '/suites-and-floor-plans', 'fallback_label' => 'See Our Suites in Person'],
+                        'media' => ['manifest_id' => 'living-spaces'],
+                        'fallback_poster' => [
+                            'src' => '/images/life/living-spaces-illustrative-1145.webp',
+                            'src_mobile' => '/images/life/living-spaces-illustrative-960.webp',
+                            'alt' => 'An older man reading in an armchair beside sunlit garden doors, a dog resting at his feet',
+                            'provenance' => 'illustrative',
+                            'position' => '50% 40%',
+                        ],
+                    ],
+                    [
+                        'id' => 'dining-daily-life',
+                        'icon' => 'dining',
+                        'label' => 'Dining & Daily Life',
+                        'kicker' => 'Dining & Daily Life',
+                        'title' => 'Everyday Moments That Matter',
+                        'description' => 'Chef-prepared meals shared in a welcoming dining room, with group and one-on-one activities woven through each day.',
+                        'cta' => ['label' => 'Explore Daily Life', 'href' => '/life-at-mission-villa', 'fallback_label' => 'See Daily Life in Person'],
+                        'media' => ['manifest_id' => 'dining-daily-life'],
+                        'fallback_poster' => [
+                            'src' => '/images/life/dining-daily-life-illustrative-1672.webp',
+                            'src_mobile' => '/images/life/dining-daily-life-illustrative-960.webp',
+                            'alt' => 'Three older adults sharing a meal at a dining table while a smiling server brings a plate',
+                            'provenance' => 'illustrative',
+                            'position' => '50% 50%',
+                        ],
+                    ],
+                    [
+                        'id' => 'meaningful-connection',
+                        'icon' => 'people',
+                        'label' => 'Meaningful Connection',
+                        'kicker' => 'Meaningful Connection',
+                        'title' => 'Connection Makes a Place Feel Like Home',
+                        'description' => 'Care shaped around each resident’s life story, with music, reminiscence, and comfortable spaces for family visits.',
+                        'cta' => ['label' => 'Explore Memory Care', 'href' => '/memory-care', 'fallback_label' => 'Meet Our Care Team'],
+                        'media' => ['manifest_id' => 'meaningful-connection'],
+                        'fallback_poster' => [
+                            'src' => '/images/life/meaningful-connection-illustrative-1402.webp',
+                            'src_mobile' => '/images/life/meaningful-connection-illustrative-960.webp',
+                            'alt' => 'An older woman and a younger woman talking warmly in armchairs in a bright lounge',
+                            'provenance' => 'illustrative',
+                            'position' => '50% 50%',
+                        ],
+                    ],
+                ],
+                'labels' => [
+                    'illustrative_video' => 'Illustrative film · not actual residents or facility',
+                    'illustrative_image' => 'Illustrative image · not actual residents',
+                    'facility_video' => 'Filmed at Mission Villa',
+                    'facility_image' => 'Mission Villa property photo',
+                    'unavailable' => 'Film in production',
+                    'unavailable_detail' => 'This chapter’s short film is in production. A preview image is shown for now.',
+                ],
+                'visit_cta' => 'Schedule a Visit',
+                'care_guide_cta' => 'Questions? Ask our Care Guide',
+            ],
+        ],
         // Future approved sections are appended here (see docs/SECTION_STATUS.md).
     ],
 ];

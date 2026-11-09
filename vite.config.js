@@ -15,6 +15,8 @@ export default defineConfig({
                 'resources/js/sections/hero-cinematic.js',
                 'resources/css/sections/care-options.css',
                 'resources/js/sections/care-options.js',
+                'resources/css/sections/life-gallery.css',
+                'resources/js/sections/life-gallery.js',
             ],
             refresh: true,
         }),

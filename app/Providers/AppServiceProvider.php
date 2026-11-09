@@ -5,10 +5,12 @@ namespace App\Providers;
 use App\Content\Contracts\ContentRepository;
 use App\Content\DatabaseContentRepository;
 use App\Content\FileContentRepository;
+use App\Content\Media\LifeGalleryManifest;
 use App\Content\SectionRegistry;
 use App\Content\Sections\CareOptionsSection;
 use App\Content\Sections\HeroCinematicSection;
 use App\Content\Sections\IntroShuttersSection;
+use App\Content\Sections\LifeGallerySection;
 use App\Integrations\Leads\LeadDestination;
 use App\Integrations\Leads\UnconfiguredLeadDestination;
 use App\Models\User;
@@ -25,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
             new IntroShuttersSection,
             new HeroCinematicSection,
             new CareOptionsSection,
+            new LifeGallerySection(new LifeGalleryManifest(public_path())),
         ]));
 
         $this->app->singleton(ContentRepository::class, function ($app) {

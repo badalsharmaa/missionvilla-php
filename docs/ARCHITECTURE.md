@@ -126,6 +126,16 @@ and service are not built yet.)*
   Choreography targets on the hero are attribute-only (`data-intro-fade`, `data-intro-portal`).
   Fonts Allura and Lora italic load only with this section, matching the React reference.
 
+- **Life gallery** (`life.gallery`, Section 03): the schema validates CMS copy and optional media
+  overrides, then resolves media through `App\Content\Media\LifeGalleryManifest`, which reads
+  `public/media/mission-villa/life-at-mission-villa/media-manifest.json` (contract:
+  `docs/SECTION_03_VIDEO_CONTRACT.md`). Resolution order: CMS override → manifest → fallback still.
+  A source is emitted only if its file exists on disk; an invalid manifest is logged and ignored.
+  The player (`resources/js/sections/life-gallery.js`) attaches `<source>`/`<track>` only on
+  Play, because Chrome downloads on `load()` even with `preload="none"`. CTA destinations that
+  are not routed yet fall back to the visit dialog via `App\Support\InternalLink`.
+  `php artisan missionvilla:life-media` validates a media delivery.
+
 ## 8. Known limitations
 
 - Short desktop viewports (< ~700px tall at ≥1024px wide): the Care Guide card sits close to the
@@ -136,5 +146,7 @@ and service are not built yet.)*
   not CMS-managed yet.
 - The concierge modal from the prototype is ported intact but, as in the prototype, has no visible trigger.
 - Google Fonts are loaded from Google, as in the prototype. Self-hosting is a recommended follow-up.
+- `php artisan serve` ignores HTTP Range requests, so seeking a Section 03 film beyond its buffered range
+  snaps back locally. Production Apache/LiteSpeed supports Range.
 - React's "Replay Intro" button lived in its utility ribbon, which is not ported yet. In PHP the
   intro replays on page load (and can be skipped).

@@ -1,12 +1,15 @@
 # Next Session
 
-_Written 2026-11-09 at the end of Phase 1._
+_Written 2026-11-09 at the end of Phase 1; updated the same day after Section 03._
 
 ## Current state
 
 - **PHP site:** Laravel 13 app with the opening conservatory-shutter scene, a global transparent
-  header, the approved cinematic hero and **Section 02 · Care Options** (two flip cards, added
-  2026-11-09). The homepage has no other sections, by design. 30 automated tests pass.
+  header, the approved cinematic hero, **Section 02 · Care Options** (two flip cards) and
+  **Section 03 · Life at Mission Villa** (three-chapter video gallery, added 2026-11-09, films
+  pending). The homepage has no other sections, by design. 55 automated tests pass.
+- **Section 03 films:** produced by a separate Motion Studio session against
+  `docs/SECTION_03_VIDEO_CONTRACT.md`. Check a delivery with `php artisan missionvilla:life-media`.
 - **React reference:** untouched (`feat/mission-villa-v1-baseline` @ `82a9d23`, clean). Served on :3000.
 - **Database:** local MariaDB 11.4 container `missionvilla-php-db` on 127.0.0.1:3307. Migrations applied.
 - **Deployment:** none. No production target defined (`.deploy-policy.yml`).
@@ -37,6 +40,19 @@ php artisan test
    (g) The referenced `mission_villa_care_options_claude_handoff.zip` (with `CLAUDE_TASK.md` and a
    botanical SVG) was not on disk, so the section was built from the two mockup PNGs and the written brief, and
    the botanical SVG was drawn locally. If the ZIP turns up, diff its SVG and task list against this build.
+1b. **Life at Mission Villa follow-ups.** (a) The films themselves (contract handed off). (b) Fallback
+   stills are AI-illustrative (React `illustrative/` set), labelled "Illustrative image · not actual
+   residents" on the player. Authentic property photos (`bedroom`, `dining-room`, `community-lounge`)
+   could replace them, but they are 899 px wide. (c) Mockup copy "Thoughtfully designed suites and inviting
+   common spaces that feel like home" was replaced with verified wording (private and shared suites with private
+   bathrooms, lounges). (d) Mockup CTA "Explore Our Living Spaces" is "Explore Our Suites" →
+   `/suites-and-floor-plans`. Until that page exists it reads "See Our Suites in Person" and opens the
+   visit dialog (same pattern for the other two chapters). (e) A visible provenance badge and a
+   "Film in production" notice were added; the mockup shows neither. (f) The mockup's nav labels and
+   button look like 700-weight sans. Plus Jakarta Sans is loaded at 400/500/600 only, so Section 03 uses
+   600. Loading 700 site-wide would also change faux-bold text in the hero and Section 02, so it
+   needs a decision. (g) Section 03 uses the mockup's deeper plum (`#380C34`), slightly more violet
+   than Section 02's `#2F1228`. Align one way or the other.
 2. **Header utility ribbon.** React has a top ribbon (address, license, Text Comfort A/A+/A++ size
    control, and the **Replay Intro** button). Phase 1 omitted it because the hero already shows address and license in its chapter
    bar. Should the Text Comfort control return, and where?

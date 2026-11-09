@@ -29,10 +29,11 @@ class HomePageTest extends TestCase
     {
         $html = $this->get('/')->getContent();
 
-        // Approved hero + its Care Guide dialog (a <section role="dialog">) + approved Care Options.
-        $this->assertSame(3, substr_count($html, '<section'));
+        // Approved hero + its Care Guide dialog (a <section role="dialog">) + approved Care Options + Life gallery.
+        $this->assertSame(4, substr_count($html, '<section'));
         $this->assertSame(1, substr_count($html, 'class="hero-viewport"'));
         $this->assertSame(1, substr_count($html, 'class="care-options"'));
+        $this->assertSame(1, substr_count($html, 'class="life-gallery"'));
         $this->assertStringNotContainsStringIgnoringCase('coming soon', $html);
         $this->assertStringNotContainsString('devSafeZoneBanner', $html);
         $this->assertStringNotContainsString('onclick=', $html);
