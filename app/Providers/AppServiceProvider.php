@@ -7,6 +7,7 @@ use App\Content\DatabaseContentRepository;
 use App\Content\FileContentRepository;
 use App\Content\SectionRegistry;
 use App\Content\Sections\HeroCinematicSection;
+use App\Content\Sections\IntroShuttersSection;
 use App\Integrations\Leads\LeadDestination;
 use App\Integrations\Leads\UnconfiguredLeadDestination;
 use App\Models\User;
@@ -20,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
         // Approved section components. Add a schema here only after the
         // section is approved (docs/SECTION_STATUS.md).
         $this->app->singleton(SectionRegistry::class, fn () => new SectionRegistry([
+            new IntroShuttersSection,
             new HeroCinematicSection,
         ]));
 

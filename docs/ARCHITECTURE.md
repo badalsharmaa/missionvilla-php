@@ -118,6 +118,14 @@ and service are not built yet.)*
 - The global header CTA opens the hero's visit dialog via `window.MissionVilla.openVisit`.
   On pages without the dialog, it links to `/contact#schedule-visit`.
 
+- **Opening scene** (`intro.shutters`): a tiny pre-paint script in `<head>` adds
+  `html.mv-intro-active`, unless reduced motion or `?skipIntro=1` applies, so the shutters cover
+  the page from first paint with no flash. Without JavaScript the overlay never shows, and a 4s
+  safety timer removes it if the intro script fails to start. The intro emits
+  `missionvilla:intro-open`, and the hero waits for it before starting chapter 1's timer.
+  Choreography targets on the hero are attribute-only (`data-intro-fade`, `data-intro-portal`).
+  Fonts Allura and Lora italic load only with this section, matching the React reference.
+
 ## 8. Known limitations
 
 - Short desktop viewports (< ~700px tall at ≥1024px wide): the Care Guide card sits close to the
@@ -128,3 +136,5 @@ and service are not built yet.)*
   not CMS-managed yet.
 - The concierge modal from the prototype is ported intact but, as in the prototype, has no visible trigger.
 - Google Fonts are loaded from Google, as in the prototype. Self-hosting is a recommended follow-up.
+- React's "Replay Intro" button lived in its utility ribbon, which is not ported yet. In PHP the
+  intro replays on page load (and can be skipped).

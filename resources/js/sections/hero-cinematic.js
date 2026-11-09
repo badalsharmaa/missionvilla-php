@@ -72,7 +72,22 @@ function initHeroCinematic(heroEl) {
       el.style.clipPath = 'inset(0% 0% 0% 0%)';
     });
 
-    startChapterProgress(0);
+    // If the opening shutters are playing, start chapter 1's timer only once they
+    // part, so the first chapter still gets its full viewing interval.
+    const introPlaying = document.documentElement.classList.contains('mv-intro-active') && !window.__mvIntroOpen;
+    if (introPlaying) {
+      $('progressFill0') && gsap.set($('progressFill0'), { scaleX: autoplayEnabled ? 0 : 1 });
+      let started = false;
+      const begin = () => {
+        if (started) return;
+        started = true;
+        if (currentSlide === 0 && !isAnimating) startChapterProgress(0);
+      };
+      window.addEventListener('missionvilla:intro-open', begin, { once: true });
+      setTimeout(begin, 5000); // safety net if the intro script never reports
+    } else {
+      startChapterProgress(0);
+    }
     setupSubtleParallax();
   }
 

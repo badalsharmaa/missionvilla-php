@@ -15,8 +15,9 @@ class ContentRepositoryTest extends TestCase
     public function test_database_repository_renders_only_published_registered_sections(): void
     {
         $home = require base_path('content/pages/home.php');
+        $hero = collect($home['sections'])->firstWhere('key', 'hero');
         $page = Page::create(['slug' => 'home', 'title' => 'Home', 'seo_published' => $home['seo'], 'published_at' => now()]);
-        $page->sections()->create(['key' => 'hero', 'type' => 'hero.cinematic', 'position' => 0, 'draft_data' => $home['sections'][0]['data'], 'published_data' => $home['sections'][0]['data'], 'published_at' => now()]);
+        $page->sections()->create(['key' => 'hero', 'type' => 'hero.cinematic', 'position' => 0, 'draft_data' => $hero['data'], 'published_data' => $hero['data'], 'published_at' => now()]);
         $page->sections()->create(['key' => 'draft-only', 'type' => 'hero.cinematic', 'position' => 1, 'draft_data' => [], 'published_data' => null]);
         $page->sections()->create(['key' => 'unknown', 'type' => 'not.registered', 'position' => 2, 'draft_data' => [], 'published_data' => ['x' => 1]]);
 

@@ -63,7 +63,7 @@
     <div class="flex flex-col justify-center max-w-2xl">
 
       {{-- Chapter Eyebrow & Service Tag --}}
-      <div class="flex flex-wrap items-center gap-2.5 mb-3 lg:mb-[1.6svh]">
+      <div class="flex flex-wrap items-center gap-2.5 mb-3 lg:mb-[1.6svh]" data-intro-fade>
         <span
           id="slideChapterPill"
           class="inline-flex items-center gap-2 px-3 py-1 rounded-md text-[11px] font-semibold uppercase tracking-[0.14em] bg-[#F9F5F0]/10 text-[#F3C6B6] border border-[#F9F5F0]/15"
@@ -90,12 +90,12 @@
       </h1>
 
       {{-- Supporting Copy with High-Contrast Protection --}}
-      <p id="slideBodyCopy" class="hero-body-copy mb-5 lg:mb-[2.8svh]">
+      <p id="slideBodyCopy" class="hero-body-copy mb-5 lg:mb-[2.8svh]" data-intro-fade>
         {!! $client[0]['body'] !!}
       </p>
 
       {{-- Primary & Secondary Conversion CTAs (Consistent 9px Radius) --}}
-      <div class="flex flex-wrap items-center gap-3.5 mb-5 lg:mb-[2.8svh]">
+      <div class="flex flex-wrap items-center gap-3.5 mb-5 lg:mb-[2.8svh]" data-intro-fade>
         <button
           type="button"
           data-hero-action="open-visit"
@@ -120,7 +120,7 @@
       </div>
 
       {{-- Subtle Conversational Entry Point --}}
-      <div class="pt-3.5 border-t border-[#F9F5F0]/15 max-w-lg">
+      <div class="pt-3.5 border-t border-[#F9F5F0]/15 max-w-lg" data-intro-fade>
         <button
           type="button"
           data-hero-action="open-care-chat"
@@ -139,7 +139,7 @@
     </div>
 
     {{-- RIGHT COLUMN: COMPACT CARE GUIDE ENTRY — not a decorative photo card --}}
-    <div class="hidden lg:flex flex-col items-end justify-center">
+    <div class="hidden lg:flex flex-col items-end justify-center" data-intro-portal>
       <aside id="careGuidePreview" class="care-guide-preview" aria-labelledby="careGuidePreviewTitle">
         <div class="flex items-center justify-between gap-3 mb-3">
           <div class="inline-flex items-center gap-2.5">
@@ -183,7 +183,7 @@
   {{-- ======================================================================
        BOTTOM ARCHITECTURAL CHAPTER BAR & FACTUAL PROVENANCE LEDGER (z-index: 10)
        ====================================================================== --}}
-  <div class="relative z-10 w-full border-t border-[#F9F5F0]/14 bg-[#180F17]/80 backdrop-blur-md px-[var(--pad-x)] py-2.5 lg:py-[1.3svh]">
+  <div class="relative z-10 w-full border-t border-[#F9F5F0]/14 bg-[#180F17]/80 backdrop-blur-md px-[var(--pad-x)] py-2.5 lg:py-[1.3svh]" data-intro-fade>
     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
 
       {{-- 3 Interactive Story Chapter Selectors --}}

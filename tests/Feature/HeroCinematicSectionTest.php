@@ -12,7 +12,7 @@ class HeroCinematicSectionTest extends TestCase
     {
         $page = require base_path('content/pages/home.php');
 
-        return $page['sections'][0]['data'];
+        return collect($page['sections'])->firstWhere('key', 'hero')['data'];
     }
 
     public function test_shipped_homepage_content_is_valid(): void

@@ -1,0 +1,19 @@
+/* ==========================================================================
+   OPENING SCENE — French conservatory shutters
+   Hidden unless the pre-paint script set html.mv-intro-active, so the page is
+   never blocked without JavaScript or for reduced-motion visitors.
+   ========================================================================== */
+#conservatory-shutters,
+#skip-intro-btn { display: none; }
+
+html.mv-intro-active #conservatory-shutters { display: flex; }
+html.mv-intro-active #skip-intro-btn { display: inline-flex; }
+
+#conservatory-shutters[data-shutter-phase="open"] { pointer-events: none; }
+
+/* French Conservatory Shutters Performance Layer (from React globals.css) */
+#shutter-left,
+#shutter-right { will-change: transform; }
+
+.shutter-script { font-family: 'Allura', cursive; }
+.shutter-serif { font-family: 'Lora', Georgia, serif; }

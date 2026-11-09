@@ -9,6 +9,8 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 // Section bundles load only on pages that include the section.
+                'resources/css/sections/intro-shutters.css',
+                'resources/js/sections/intro-shutters.js',
                 'resources/css/sections/hero-cinematic.css',
                 'resources/js/sections/hero-cinematic.js',
             ],

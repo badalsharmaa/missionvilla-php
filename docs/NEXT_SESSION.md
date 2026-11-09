@@ -4,8 +4,9 @@ _Written 2026-11-09 at the end of Phase 1._
 
 ## Current state
 
-- **PHP site:** Laravel 13 app with a global transparent header and the approved cinematic hero. The
-  homepage has no other sections, by design. 18 automated tests pass.
+- **PHP site:** Laravel 13 app with the opening conservatory-shutter scene, a global transparent
+  header and the approved cinematic hero. The
+  homepage has no other sections, by design. 20 automated tests pass.
 - **React reference:** untouched (`feat/mission-villa-v1-baseline` @ `82a9d23`, clean). Served on :3000.
 - **Database:** local MariaDB 11.4 container `missionvilla-php-db` on 127.0.0.1:3307. Migrations applied.
 - **Deployment:** none. No production target defined (`.deploy-policy.yml`).
@@ -25,15 +26,17 @@ php artisan test
 
 1. **Next homepage section.** Review React's Care Options section and decide keep / modify / redesign.
 2. **Header utility ribbon.** React has a top ribbon (address, license, Text Comfort A/A+/A++ size
-   control). Phase 1 omitted it because the hero already shows address and license in its chapter
+   control, and the **Replay Intro** button). Phase 1 omitted it because the hero already shows address and license in its chapter
    bar. Should the Text Comfort control return, and where?
 3. **Header CTA style.** The ivory "Schedule a Visit" button was chosen to stand apart from the hero's
    terracotta CTA. Approve or adjust.
 4. **Admin UI.** Approve Filament as the CMS admin framework (recommended), or choose an alternative.
 5. **Hosting target.** Confirm Hostinger plan, PHP version (≥ 8.3 required), and whether the domain
    document root can point at `public/`.
-6. **Fonts.** Self-host Newsreader and Plus Jakarta Sans (privacy and performance), or keep Google Fonts.
-7. **Imagery.** Replace illustrative Pexels hero photos with verified facility photography when available.
+6. **Skip Intro on small phones.** The centred pill overlaps the shutter footer lines at ≤390px
+   (inherited from React). Keep it, or nudge it on phones?
+7. **Fonts.** Self-host Newsreader and Plus Jakarta Sans (privacy and performance), or keep Google Fonts.
+8. **Imagery.** Replace illustrative Pexels hero photos with verified facility photography when available.
 
 ## Recommended next engineering steps (in order)
 

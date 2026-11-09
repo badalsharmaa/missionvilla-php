@@ -2,6 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Content\Contracts\ContentRepository;
+use App\Content\PageDefinition;
+use App\Content\SectionRegistry;
 use Tests\TestCase;
 
 class HomePageTest extends TestCase
@@ -33,6 +36,39 @@ class HomePageTest extends TestCase
         $this->assertStringNotContainsString('devSafeZoneBanner', $html);
         $this->assertStringNotContainsString('onclick=', $html);
         $this->assertStringNotContainsString('images.pexels.com/photos', $html, 'Hero images must be served locally.');
+    }
+
+    public function test_opening_shutters_render_before_the_hero_and_can_be_skipped(): void
+    {
+        $html = $this->get('/')->assertOk()->getContent();
+
+        $this->assertStringContainsString('id="conservatory-shutters"', $html);
+        $this->assertStringContainsString('“The honor they deserve,”', $html);
+        $this->assertStringContainsString('“the care you’ll love.”', $html);
+        $this->assertStringContainsString('id="skip-intro-btn"', $html);
+        // Pre-paint gate honours reduced motion and ?skipIntro=1.
+        $this->assertStringContainsString('prefers-reduced-motion: reduce', $html);
+        $this->assertStringContainsString("q.get('skipIntro') === '1'", $html);
+        $this->assertLessThan(strpos($html, 'data-hero-cinematic'), strpos($html, 'id="conservatory-shutters"'));
+    }
+
+    public function test_intro_can_be_disabled_through_content(): void
+    {
+        $this->app->instance(ContentRepository::class, new class implements ContentRepository
+        {
+            public function findPublishedPage(string $slug): ?PageDefinition
+            {
+                $raw = require base_path('content/pages/home.php');
+                $raw['sections'][0]['enabled'] = false;
+                $registry = app(SectionRegistry::class);
+
+                return new PageDefinition($raw['slug'], $raw['seo'], array_map(fn ($s) => $registry->instantiate($s), $raw['sections']));
+            }
+        });
+
+        $html = $this->get('/')->assertOk()->getContent();
+        $this->assertStringNotContainsString('id="conservatory-shutters"', $html);
+        $this->assertStringContainsString('data-hero-cinematic', $html);
     }
 
     public function test_security_headers_are_sent(): void

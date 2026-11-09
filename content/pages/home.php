@@ -21,6 +21,23 @@ return [
     ],
     'sections' => [
         [
+            // Opening scene from the React reference (components/ConservatoryShutters.tsx).
+            'key' => 'intro',
+            'type' => 'intro.shutters',
+            'enabled' => true,
+            'data' => [
+                'left_script' => 'A Place to Belong',
+                'left_kicker' => 'Mission Villa',
+                'left_tagline' => '“The honor they deserve,”',
+                'left_footer' => 'Dignity · Connection · Purpose',
+                'right_top' => 'Daly City, California',
+                'right_kicker' => 'Senior Living',
+                'right_tagline' => '“the care you’ll love.”',
+                'right_footer' => 'Memory Care · Respite Care',
+                'skip_label' => 'Skip Intro',
+            ],
+        ],
+        [
             'key' => 'hero',
             'type' => 'hero.cinematic',
             'enabled' => true,
