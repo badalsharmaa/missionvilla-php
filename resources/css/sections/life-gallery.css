@@ -23,7 +23,7 @@
   --lv-radius: clamp(1rem, 1.35vw, 1.5rem);
   --lv-fade: 220ms;
   /* Vertical space the heading, CTA and padding need on desktop; the player shrinks to fit the rest. */
-  --lv-chrome: 26.75rem;
+  --lv-chrome: calc(14rem + 22svh);
 
   position: relative;
   isolation: isolate;
@@ -87,16 +87,16 @@
   margin: 0;
   display: inline-flex;
   align-items: center;
-  gap: clamp(0.9rem, 2vw, 1.9rem);
-  font-size: clamp(0.78rem, 1.2vw, 1.25rem);
+  gap: clamp(1rem, 2.2vw, 2.1rem);
+  font-size: clamp(0.72rem, 0.9vw, 0.95rem);
   font-weight: 600;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
   color: var(--lv-ink);
 }
 .life-gallery__rule {
   display: block;
-  width: clamp(2.25rem, 4.6vw, 4.5rem);
+  width: clamp(2.5rem, 5.2vw, 5.5rem);
   height: 1px;
   background: var(--lv-terracotta-rule);
 }
@@ -104,22 +104,22 @@
   margin: 0;
   font-family: 'Newsreader', Georgia, serif;
   font-optical-sizing: auto;
-  font-weight: 600;
-  font-size: clamp(2.2rem, min(4.5vw, 7.4svh), 5.25rem);
-  line-height: 1.04;
-  letter-spacing: -0.022em;
+  font-weight: 500;
+  font-size: clamp(2.15rem, min(3.9vw, 7.6svh), 4.75rem);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
   color: var(--lv-ink);
   text-wrap: balance;
 }
 .life-gallery__title em {
   font-style: italic;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--lv-terracotta);
 }
 .life-gallery__sub {
   margin: 0;
-  max-width: 72rem;
-  font-size: clamp(1rem, 1.5vw, 1.6rem);
+  max-width: 62rem;
+  font-size: clamp(0.98rem, 1.25vw, 1.3rem);
   line-height: 1.55;
   color: var(--lv-ink-soft);
   text-wrap: balance;
@@ -583,9 +583,9 @@
 }
 .life-info__kicker {
   margin: 0 0 clamp(0.5rem, 1.4svh, 0.9rem);
-  font-size: clamp(0.76rem, 0.95vw, 1rem);
+  font-size: clamp(0.72rem, 0.85vw, 0.9rem);
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--lv-terracotta);
 }
@@ -593,15 +593,15 @@
   margin: 0;
   font-family: 'Newsreader', Georgia, serif;
   font-optical-sizing: auto;
-  font-weight: 600;
-  font-size: clamp(1.55rem, min(2.45vw, 4.6svh), 2.9rem);
+  font-weight: 500;
+  font-size: clamp(1.45rem, min(2vw, 3.9svh), 2.4rem);
   line-height: 1.08;
   letter-spacing: -0.01em;
   color: var(--lv-ink);
 }
 .life-info__text {
   margin: clamp(0.75rem, 2svh, 1.25rem) 0 0;
-  font-size: clamp(0.95rem, min(1.12vw, 2.1svh), 1.18rem);
+  font-size: clamp(0.95rem, 1.05vw, 1.1rem);
   line-height: 1.55;
   color: var(--lv-ink-body);
   text-wrap: pretty;
@@ -616,7 +616,7 @@
   border-radius: 0.75rem;
   background: var(--lv-terracotta);
   color: #FFF6F0;
-  font-size: clamp(0.92rem, 1.08vw, 1.15rem);
+  font-size: clamp(0.92rem, 1vw, 1.05rem);
   font-weight: 600;
   letter-spacing: -0.01em;
   white-space: nowrap;
@@ -641,14 +641,14 @@
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  padding: clamp(0.85rem, 2svh, 1.35rem) clamp(2.25rem, 5vw, 5.25rem);
+  padding: clamp(0.9rem, 1.9svh, 1.2rem) clamp(2.5rem, 4.4vw, 4rem);
   border-radius: 999px;
   border: 1.5px solid rgba(182, 99, 75, 0.32);
   background: rgba(255, 255, 255, 0.35);
   color: var(--lv-ink);
-  font-size: clamp(1.05rem, 1.5vw, 1.6rem);
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
   text-decoration: none;
   transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
@@ -668,8 +668,8 @@
   background: none;
   color: var(--lv-ink-soft);
   font: inherit;
-  font-size: clamp(0.88rem, 0.95vw, 1rem);
-  font-weight: 600;
+  font-size: 0.92rem;
+  font-weight: 500;
   text-decoration: underline;
   text-decoration-color: rgba(182, 99, 75, 0.4);
   text-underline-offset: 0.3em;
@@ -741,9 +741,13 @@
     padding-bottom: clamp(1.25rem, 3.6svh, 2.75rem);
     scroll-margin-top: 0;
   }
+  /* Short, wide screens: the player is capped by height, so cap the row too
+     (≈2.1× the player's width) and centre it. The tabs and info card keep a
+     readable width instead of leaving dead space beside the card. */
   .life-gallery__layout {
     grid-template-columns: minmax(13.5rem, 19.5fr) minmax(0, 73fr);
     align-items: center;
+    max-width: calc((100svh - var(--lv-chrome)) * 16 / 9 * 2.1 + 1.5rem);
   }
   /* Player ≈ 69% of the panel (mockup ratio), but never taller than the viewport
      leaves after the header, heading and CTA. Any width it gives up goes to the
@@ -752,8 +756,7 @@
     grid-template-columns: minmax(0, min(69%, calc((100svh - var(--lv-chrome)) * 16 / 9))) minmax(16.5rem, 1fr);
     align-items: center;
   }
-  /* Very short, wide screens free up a lot of width: keep the card at a readable measure. */
-  .life-info { max-width: 32rem; width: 100%; justify-self: start; }
+  .life-info { width: 100%; }
   .life-nav {
     grid-template-columns: 1fr;
     gap: clamp(0.85rem, 2svh, 1.25rem);
@@ -762,13 +765,13 @@
     display: grid;
     grid-template-columns: 2.4rem minmax(0, 1fr) auto;
     gap: clamp(0.75rem, 1.2vw, 1.25rem);
-    min-height: clamp(4.5rem, 10svh, 6.6rem);
-    padding: clamp(0.8rem, 1.6svh, 1.15rem) clamp(1rem, 1.6vw, 1.75rem);
-    font-size: clamp(1.02rem, 1.4vw, 1.45rem);
-    line-height: 1.2;
-    letter-spacing: -0.015em;
+    min-height: clamp(4rem, 8.5svh, 5.5rem);
+    padding: clamp(0.75rem, 1.5svh, 1.05rem) clamp(1rem, 1.5vw, 1.5rem);
+    font-size: clamp(0.98rem, 1.05vw, 1.12rem);
+    line-height: 1.25;
+    letter-spacing: -0.005em;
   }
-  .life-nav__icon svg { width: clamp(1.9rem, 2.4vw, 2.6rem); height: clamp(1.9rem, 2.4vw, 2.6rem); }
+  .life-nav__icon svg { width: clamp(1.6rem, 1.8vw, 2rem); height: clamp(1.6rem, 1.8vw, 2rem); }
   .life-nav__chevron { display: block; }
   .life-nav__tab:hover .life-nav__chevron { transform: translateX(3px); }
   .life-nav__tab:hover:not([aria-selected="true"]) { transform: translateX(2px); }
