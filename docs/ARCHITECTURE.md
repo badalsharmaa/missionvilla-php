@@ -136,6 +136,16 @@ and service are not built yet.)*
   are not routed yet fall back to the visit dialog via `App\Support\InternalLink`.
   `php artisan missionvilla:life-media` validates a media delivery.
 
+- **Why families** (`trust.why-families`, Section 04): a static composition. The schema enforces
+  exactly 4 At a Glance facts and 4 values, whitelisted icons, per-field length caps, plain text
+  everywhere except `<em>` in the heading, and site-relative/https/`#anchor` links only. The image
+  declares `provenance` (`facility|illustrative`), `source_url` and `rights` (`cleared|unconfirmed`).
+  These are emitted as `data-provenance`/`data-rights` on the `<figure>`. The optional tour CTA
+  takes a `manifest` path: the schema asks `LifeGalleryManifest` whether any Section 03 film is
+  playable and, if none is, marks the CTA `pending` (it shows `pending_note`). The only script is the
+  visit-dialog hook (`window.MissionVilla.openVisit`) plus hiding the tour link if its `#anchor`
+  target is missing.
+
 ## 8. Known limitations
 
 - Short desktop viewports (< ~700px tall at ≥1024px wide): the Care Guide card sits close to the

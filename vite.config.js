@@ -17,6 +17,8 @@ export default defineConfig({
                 'resources/js/sections/care-options.js',
                 'resources/css/sections/life-gallery.css',
                 'resources/js/sections/life-gallery.js',
+                'resources/css/sections/why-families.css',
+                'resources/js/sections/why-families.js',
             ],
             refresh: true,
         }),

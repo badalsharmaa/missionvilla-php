@@ -1,15 +1,21 @@
 # Next Session
 
-_Written 2026-11-09 at the end of Phase 1; updated the same day after Section 03._
+_Written 2026-11-09 at the end of Phase 1; updated the same day after Section 03 and Section 04._
 
 ## Current state
 
 - **PHP site:** Laravel 13 app with the opening conservatory-shutter scene, a global transparent
   header, the approved cinematic hero, **Section 02 · Care Options** (two flip cards) and
   **Section 03 · Life at Mission Villa** (three-chapter video gallery, added 2026-11-09, films
-  pending). The homepage has no other sections, by design. 55 automated tests pass.
-- **Section 03 films:** produced by a separate Motion Studio session against
+  pending) and **Section 04 · Why Families Choose Mission Villa** (courtyard composition, At a
+  Glance panel, values strip; added 2026-11-09, replaces React's ApproachAndLifeSection).
+  The homepage has no other sections, by design. 71 automated tests pass.
+- **Branch:** Section 04 was built on `feat/section-04-why-families` (branched from
+  `feat/php-foundation-hero` @ `d160d21`). Merge it back (fast-forward) when approved.
+- **Section 03 films: STILL PENDING.** Produced by a separate Motion Studio session against
   `docs/SECTION_03_VIDEO_CONTRACT.md`. Check a delivery with `php artisan missionvilla:life-media`.
+  Section 04's "Take a Quick Tour" reads "Films in production" until the manifest has a playable
+  film, then drops the note automatically (no code change).
 - **React reference:** untouched (`feat/mission-villa-v1-baseline` @ `82a9d23`, clean). Served on :3000.
 - **Database:** local MariaDB 11.4 container `missionvilla-php-db` on 127.0.0.1:3307. Migrations applied.
 - **Deployment:** none. No production target defined (`.deploy-policy.yml`).
@@ -28,7 +34,8 @@ php artisan test
 ## Decisions needed from the client/agency
 
 1. **Next homepage section.** Review React's `ApproachAndLifeSection` and decide keep / modify / redesign.
-   Care Options is done (see `SECTION_STATUS.md`).
+   Done: Care Options, Life at Mission Villa, Why Families (see `SECTION_STATUS.md`). Next candidates:
+   React `SuitesAndFamilySection`, then `VisitAndFooterSection` (footer).
 1a. **Care Options follow-ups.** (a) Benefit wording on the Memory Care back face was taken from the
    React data, not the mockup's "dementia-informed / secure / experienced caregivers" wording, which
    has no source there. Confirm or supply verified claims. (b) The Respite back face was designed to mirror the
@@ -53,6 +60,22 @@ php artisan test
    600. Loading 700 site-wide would also change faux-bold text in the hero and Section 02, so it
    needs a decision. (g) Section 03 uses the mockup's deeper plum (`#380C34`), slightly more violet
    than Section 02's `#2F1228`. Align one way or the other.
+1c. **Why Families (Section 04) follow-ups.** (a) **Courtyard photo rights:** the image is an
+   authentic Mission Villa photo, but it was retrieved from the public PurpleDoor Finders listing
+   mirror (`docs/image-sourcing-report.md`), so the content marks it `rights: unconfirmed`. Get the
+   client's permission and the original full-resolution file, then set `rights` to `cleared`. The
+   copy on disk is 1024×683, so it is upscaled ~1.4× on 1920px screens and looks slightly soft.
+   (b) The mockup's golden-hour courtyard and hydrangeas are AI-generated and were **not** used.
+   A soft-light warm wash is layered over the real daylight photo instead, and the file itself is not regraded.
+   (c) Mockup copy was replaced with verified wording. "Experienced & Caring Team",
+   "Safety & Peace of Mind", "An Intimate Community", "good meals" and "experienced team" had no
+   verified source, so the brief's facts/values were used. (d) The brief numbers the facts 01–04; the
+   build follows the mockup's icons instead of numerals. (e) Added a small "Our courtyard patio ·
+   Daly City" caption pill (not in the mockup) as an authenticity cue. Remove it via `image.caption`
+   if unwanted. (f) "Take a Quick Tour" anchors to the Section 03 gallery with a "Films in
+   production" note. Confirm this, or hide the CTA until films exist. (g) Overlay layout starts at
+   1200px. 1024–1199px uses the stacked tablet layout. (h) Strip plum is the mockup's warmer
+   `#47243D → #3A1A31`. Section 02 uses `#2F1228` and Section 03 `#380C34`. Unify in one pass with 1b(g).
 2. **Header utility ribbon.** React has a top ribbon (address, license, Text Comfort A/A+/A++ size
    control, and the **Replay Intro** button). Phase 1 omitted it because the hero already shows address and license in its chapter
    bar. Should the Text Comfort control return, and where?

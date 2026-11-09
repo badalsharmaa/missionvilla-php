@@ -266,6 +266,58 @@ return [
                 'care_guide_cta' => 'Questions? Ask our Care Guide',
             ],
         ],
+        [
+            // Section 04, approved mockup "A Trusted Partner in Care" (2026-11-09).
+            // Replaces React's ApproachAndLifeSection. Facts and values are condensed
+            // from verified React content (lib/mission-villa-data.ts: APPROACH_PILLARS,
+            // CARE_PROGRAMS, visit copy) and config/missionvilla.php. No awards,
+            // ratings, staffing claims or outcomes.
+            'key' => 'why-families',
+            'type' => 'trust.why-families',
+            'enabled' => true,
+            'data' => [
+                'eyebrow' => 'Why Families Choose Mission Villa',
+                'heading' => 'A Trusted Partner in Your Family’s <em>Next Chapter</em>',
+                'body' => 'At Mission Villa, we believe meaningful care begins with understanding each individual. Our Daly City community offers a welcoming setting where personal histories, familiar routines, and family connections are valued.',
+                'image' => [
+                    // Authentic Mission Villa courtyard (same photo as React's Approach section).
+                    // Retrieved from Mission Villa's public provider listing on PurpleDoor Finders
+                    // (docs/image-sourcing-report.md). Publication rights not yet confirmed by the client.
+                    'src' => '/images/why-families/courtyard-patio-facility-1024.webp',
+                    'src_mobile' => '/images/why-families/courtyard-patio-facility-768.webp',
+                    'alt' => 'The Mission Villa courtyard patio: a blue umbrella over wrought-iron tables, cushioned chairs and shade trees beside the dining room doors',
+                    'provenance' => 'facility',
+                    'source_url' => 'https://d3ep5zm82rva6t.cloudfront.net/provider-portal/location-images/d11kigwsmsmei1q1zoyo.jpg',
+                    'rights' => 'unconfirmed',
+                    'position' => '50% 30%',
+                    'caption' => 'Our courtyard patio · Daly City',
+                ],
+                'primary_cta' => ['label' => 'Schedule a Visit', 'href' => '/contact#schedule-visit'],
+                'tour_cta' => [
+                    'label' => 'Take a Quick Tour',
+                    'href' => '#life-at-mission-villa',
+                    // While no Section 03 film is available, the CTA reads as a preview, not a working tour.
+                    'manifest' => '/media/mission-villa/life-at-mission-villa/media-manifest.json',
+                    'pending_note' => 'Films in production',
+                ],
+                'glance' => [
+                    'kicker' => 'Mission Villa',
+                    'title' => 'At a Glance',
+                    'facts' => [
+                        ['icon' => 'pin', 'title' => 'Daly City, California', 'text' => 'Residential community at 995 East Market Street.'],
+                        ['icon' => 'hands', 'title' => 'Two Focused Care Options', 'text' => 'Legacies™ Memory Care and Short-Term Respite Care.'],
+                        ['icon' => 'book-heart', 'title' => 'A Personal Approach', 'text' => 'Respect for individual history, familiar routines, and personal preferences.'],
+                        ['icon' => 'messages', 'title' => 'Everyday Connection', 'text' => 'A welcoming environment emphasizing meaningful relationships and daily life.'],
+                    ],
+                ],
+                'values' => [
+                    ['icon' => 'heart', 'title' => 'Personalized Care', 'text' => 'Support shaped around each person’s story and preferences.'],
+                    ['icon' => 'people', 'title' => 'People & Family', 'text' => 'Open, approachable communication with loved ones.'],
+                    ['icon' => 'heart-handshake', 'title' => 'Dignity & Respect', 'text' => 'Independence encouraged, privacy and rhythms honored.'],
+                    ['icon' => 'sprout', 'title' => 'Support Through Every Step', 'text' => 'Clear, pressure-free guidance for families.'],
+                ],
+            ],
+        ],
         // Future approved sections are appended here (see docs/SECTION_STATUS.md).
     ],
 ];
