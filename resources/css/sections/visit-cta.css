@@ -1,0 +1,182 @@
+/* ==========================================================================
+   HOMEPAGE SECTION 07 · COME SEE MISSION VILLA FOR YOURSELF
+   Deep-plum closing band with a soft wave edge. Heading | divider | invitation
+   | actions + contact on wide screens; stacked on tablets and phones.
+   Static: hover/focus states only. The global footer continues the plum below.
+   ========================================================================== */
+.visit-cta {
+  --vc-wave: clamp(1.75rem, 4.2vw, 4.25rem);
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  padding-top: var(--vc-wave);
+  color: var(--mv-ivory);
+  background: var(--mv-cream);
+  scroll-margin-top: 4.5rem;
+}
+
+.vc__wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(var(--vc-wave) + 2px);
+  display: block;
+}
+.vc__wave-fill { fill: var(--mv-plum); }
+
+.vc__leaf {
+  position: absolute;
+  z-index: 0;
+  right: clamp(-5rem, -3vw, -1.5rem);
+  bottom: clamp(-5rem, -4vw, -2rem);
+  width: clamp(12rem, 22vw, 24rem);
+  height: auto;
+  opacity: 0.12;
+  filter: blur(1px) brightness(1.8) sepia(0.5);
+  transform: scaleX(-1);
+  pointer-events: none;
+  user-select: none;
+}
+
+.vc__inner {
+  position: relative;
+  z-index: 1;
+  overflow: hidden; /* keeps the leaf decor inside the plum band */
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 1.75rem);
+  padding: clamp(1.75rem, 5vw, 2.5rem) var(--mv-gutter) clamp(3rem, 8vw, 4rem);
+  background: linear-gradient(180deg, var(--mv-plum) 0%, var(--mv-plum-mid) 100%);
+  margin-top: -1px;
+}
+/* Fill the band behind the inner grid (the wave sits above it). */
+.visit-cta::before {
+  content: '';
+  position: absolute;
+  inset: var(--vc-wave) 0 0 0;
+  z-index: -1;
+  background: var(--mv-plum-mid);
+}
+
+.vc__script {
+  margin: 0;
+  font-family: 'Allura', 'Newsreader', cursive;
+  font-size: clamp(1.9rem, 2.5vw, 2.6rem);
+  line-height: 1;
+  color: var(--mv-peach);
+}
+.vc__title {
+  margin: clamp(0.4rem, 1svh, 0.7rem) 0 0;
+  max-width: 12em;
+  font-family: 'Newsreader', Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: clamp(1.9rem, min(2.6vw, 5svh), 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.012em;
+  color: var(--mv-ivory);
+  text-wrap: balance;
+}
+
+.vc__inner > :not(.vc__leaf) { position: relative; z-index: 1; }
+.vc__divider { display: none; }
+
+.vc__body {
+  margin: 0;
+  max-width: 34rem;
+  font-size: var(--mv-fs-ui);
+  line-height: 1.65;
+  color: rgba(251, 245, 239, 0.86);
+  text-wrap: pretty;
+}
+
+.vc__side { display: flex; flex-direction: column; gap: clamp(1.1rem, 2.4svh, 1.5rem); min-width: 0; }
+.vc__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.vc__btn:focus-visible { outline: 2px solid var(--mv-peach); outline-offset: 3px; }
+
+.vc__contact {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem clamp(1.25rem, 2.4vw, 2.25rem);
+}
+.vc__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: var(--mv-fs-small);
+  line-height: 1.45;
+  color: rgba(251, 245, 239, 0.9);
+}
+.vc__contact-item + .vc__contact-item {
+  padding-left: clamp(1.25rem, 2.4vw, 2.25rem);
+  border-left: 1px solid rgba(251, 245, 239, 0.22);
+}
+.vc__contact-icon { width: 1.6rem; height: 1.6rem; flex: none; color: var(--mv-peach); }
+.vc__address { display: flex; flex-direction: column; font-style: normal; }
+.vc__phone {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: var(--mv-ivory);
+  font-size: var(--mv-fs-ui);
+  font-weight: 600;
+  text-decoration: none;
+}
+.vc__phone:hover { text-decoration: underline; text-underline-offset: 0.25em; }
+.vc__phone:focus-visible { outline: 2px solid var(--mv-peach); outline-offset: 2px; }
+
+.vc__notice {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-radius: var(--mv-radius-sm);
+  background: rgba(251, 245, 239, 0.1);
+  font-size: var(--mv-fs-small);
+  line-height: 1.5;
+}
+
+/* Phones: buttons take the full width so labels never wrap awkwardly. */
+@media (max-width: 539px) {
+  .vc__actions { flex-direction: column; }
+  .vc__btn { width: 100%; }
+  .vc__contact { flex-direction: column; align-items: flex-start; }
+  .vc__contact-item + .vc__contact-item { padding-left: 0; border-left: 0; }
+}
+
+/* Tablet / small desktop: heading + invitation on one row, actions below. */
+@media (min-width: 900px) {
+  .vc__inner {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: clamp(1.75rem, 3vw, 3rem);
+  }
+  .vc__divider {
+    display: block;
+    align-self: stretch;
+    width: 1px;
+    background: rgba(251, 245, 239, 0.24);
+  }
+  .vc__side { grid-column: 1 / -1; }
+}
+
+/* Wide desktop: the mockup's single row (heading | divider | invitation | actions). */
+@media (min-width: 1600px) {
+  .vc__inner {
+    /* Actions column sizes to its buttons, so labels never clip; heading and invitation share the rest. */
+    grid-template-columns: minmax(0, 1.05fr) auto minmax(0, 0.85fr) auto;
+    column-gap: clamp(1.5rem, 2.4vw, 3rem);
+    padding-top: clamp(2rem, 4.5svh, 3rem);
+    padding-bottom: clamp(3rem, 7svh, 4.5rem);
+  }
+  .vc__side { grid-column: auto; }
+  .vc__actions { flex-wrap: nowrap; }
+}

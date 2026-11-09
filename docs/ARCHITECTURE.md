@@ -1,6 +1,6 @@
 # Architecture — Mission Villa PHP Website
 
-_Last updated: 2026-11-09 (Phase 1: foundation, header, approved hero)_
+_Last updated: 2026-11-09 (homepage complete: Sections 00–07, footer, shared inquiry form)_
 
 ## 1. Two-site model
 
@@ -146,12 +146,38 @@ and service are not built yet.)*
   visit-dialog hook (`window.MissionVilla.openVisit`) plus hiding the tour link if its `#anchor`
   target is missing.
 
+- **Suites & spaces** (`living.suites`, Section 05): exactly 3 options. Each image declares `provenance`,
+  `rights`, a visible `label`, `fit` (`cover` photo / `contain` floor plan) and `position`. ARIA tabs with
+  roving tabindex. Panels share one grid cell (stable frame) and inactive panels are `inert`. Option CTAs use
+  `InternalLink`: the real page once routed, otherwise `fallback_label` + `fallback_intent` (opens the inquiry form).
+- **Featured FAQs** (`faq.featured`, Section 06): a structured entry list (≤40) with `order`, `enabled`,
+  `featured`; the schema outputs the first 4 enabled + featured by order. Plain-text answers. Accordion
+  markup is a `<button aria-expanded aria-controls>` inside an `h3` plus a `role=region` panel. Collapse styles
+  apply only after JS sets `data-enhanced`, so no-JS visitors see every answer.
+- **Final CTA** (`visit.cta`, Section 07): copy + up to 3 intent actions; contact details always come from
+  `config/missionvilla.php`. Buttons carry `data-inquiry` and fall back to `tel:` without JS.
+- **Shared inquiry form**: `<x-inquiry.dialog />` (native `<dialog>`, rendered once by the layout) +
+  `resources/js/components/inquiry-dialog.js` (global). Exposes `window.MissionVilla.openInquiry(intent, {suite})`.
+  A delegated click handler opens it for any `[data-inquiry]`. `schedule_visit` prefers the hero's
+  `window.MissionVilla.openVisit` where present. Server: `InquiryRequest` (per-intent rules, honeypot, uuid
+  idempotency key, attribution fields) → `InquiryController` → `LeadIntake::accept()`. Throttle `inquiries`
+  (5/min + 20/day per IP). Modes: `preview` (store off), `local` (stored, no destination: "saved, not sent"),
+  `live` (destination bound: "received").
+- **Global footer**: `<x-site.footer />` in the layout. `App\Support\FooterNavigation` validates hrefs
+  (site-relative or https only) and resolves each link: routed page, else `fallback` anchor, else dropped.
+- **Shared design tokens**: `resources/css/components/editorial.css` (`--mv-*`: cream, ink, terracotta, plum
+  `#47243D → #3A1A31`, Section 02 type scale) used by Sections 05–07, the dialog and the footer.
+
 ## 8. Known limitations
 
 - Short desktop viewports (< ~700px tall at ≥1024px wide): the Care Guide card sits close to the
   chapter bar. The approved prototype has the same 100svh geometry, so this was left unchanged.
-- Navigation links point to internal pages that are not built in PHP yet. They return Laravel's
-  default 404 until each page is approved and implemented.
+- **Header** navigation links point to internal pages that are not built in PHP yet. They return Laravel's
+  default 404 until each page is approved and implemented. (The footer avoids this through `FooterNavigation`.)
+- The hero's own visit dialog is still the approved "nothing was sent" demo. Schedule a Visit buttons in
+  Sections 02–05, 07 and the footer reuse it on the homepage, so a homepage visit request is **not** stored,
+  while pricing/callback requests are. Pointing `openVisit` at `openInquiry('schedule_visit')` would unify them;
+  that changes approved Section 01 behaviour, so it awaits a decision.
 - The hero's modal copy (visit, concierge, chat) repeats business facts in template text. It is
   not CMS-managed yet.
 - The concierge modal from the prototype is ported intact but, as in the prototype, has no visible trigger.

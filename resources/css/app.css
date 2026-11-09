@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 @import './components/header.css';
+@import './components/editorial.css';
+@import './components/inquiry.css';
+@import './components/footer.css';
 
 /* Tailwind scans Blade views, JS and PHP section classes automatically. */
 @source '../../storage/framework/views/*.php';

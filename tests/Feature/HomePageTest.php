@@ -29,16 +29,35 @@ class HomePageTest extends TestCase
     {
         $html = $this->get('/')->getContent();
 
-        // Approved hero + its Care Guide dialog (a <section role="dialog">) + approved Care Options + Life gallery + Why Families.
-        $this->assertSame(5, substr_count($html, '<section'));
+        // Hero + its Care Guide dialog (a <section role="dialog">) + Care Options + Life gallery + Why Families + Suites + FAQ + Visit CTA.
+        $this->assertSame(8, substr_count($html, '<section'));
         $this->assertSame(1, substr_count($html, 'class="hero-viewport"'));
         $this->assertSame(1, substr_count($html, 'class="care-options"'));
         $this->assertSame(1, substr_count($html, 'class="life-gallery"'));
         $this->assertSame(1, substr_count($html, 'class="why-families"'));
+        $this->assertSame(1, substr_count($html, 'class="suites-spaces"'));
+        $this->assertSame(1, substr_count($html, 'class="faq-featured"'));
+        $this->assertSame(1, substr_count($html, 'class="visit-cta"'));
+        $this->assertSame(1, substr_count($html, '<footer class="site-footer"'));
+        $this->assertSame(1, substr_count($html, 'id="inquiry-dialog"'));
         $this->assertStringNotContainsStringIgnoringCase('coming soon', $html);
         $this->assertStringNotContainsString('devSafeZoneBanner', $html);
         $this->assertStringNotContainsString('onclick=', $html);
         $this->assertStringNotContainsString('images.pexels.com/photos', $html, 'Hero images must be served locally.');
+    }
+
+    public function test_sections_render_in_approved_order(): void
+    {
+        $html = $this->get('/')->getContent();
+
+        $positions = array_map(fn ($needle) => strpos($html, $needle), [
+            'class="why-families"', 'class="suites-spaces"', 'class="faq-featured"', 'class="visit-cta"', '<footer class="site-footer"',
+        ]);
+
+        $this->assertNotContains(false, $positions);
+        $sorted = $positions;
+        sort($sorted);
+        $this->assertSame($sorted, $positions);
     }
 
     public function test_opening_shutters_render_before_the_hero_and_can_be_skipped(): void

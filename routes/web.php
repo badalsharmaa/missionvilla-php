@@ -1,8 +1,14 @@
 <?php
 
+use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
+
+// Shared inquiry form: Schedule a Visit · Request Pricing · Request a Call (CSRF via the web group).
+Route::post('/inquiries', [InquiryController::class, 'store'])
+    ->middleware('throttle:inquiries')
+    ->name('inquiries.store');
 
 // Internal pages are added here as each one is approved and implemented in PHP.

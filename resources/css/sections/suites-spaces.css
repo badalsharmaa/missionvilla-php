@@ -1,0 +1,264 @@
+/* ==========================================================================
+   HOMEPAGE SECTION 05 · SUITES & LIVING SPACES
+   Cream band: narrative + three option tabs (left), one photo frame (right).
+   Desktop aims for ~55–75svh and grows rather than clips. Phones stack in
+   natural flow. The only motion is a short cross-fade between options.
+   ========================================================================== */
+.suites-spaces {
+  position: relative;
+  width: 100%;
+  color: var(--mv-ink);
+  background: var(--mv-cream);
+  scroll-margin-top: 4.5rem;
+}
+
+.ss__inner {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 3rem);
+  padding: clamp(3rem, 9vw, 4.5rem) var(--mv-gutter) clamp(3rem, 9vw, 4.5rem);
+}
+
+/* ---- Story --------------------------------------------------------------- */
+.ss__story { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
+.ss__title { margin-top: clamp(0.9rem, 2.2svh, 1.4rem); max-width: 11.5em; }
+.ss__intro {
+  margin: clamp(0.9rem, 2.2svh, 1.4rem) 0 0;
+  max-width: 34rem;
+  font-size: var(--mv-fs-body);
+  line-height: 1.6;
+  color: var(--mv-ink-soft);
+  text-wrap: pretty;
+}
+
+/* ---- Tabs ------------------------------------------------------------------ */
+.ss__tabs {
+  margin-top: clamp(1.5rem, 3.6svh, 2.25rem);
+  width: 100%;
+  max-width: 40rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.5rem, 1vw, 0.85rem);
+}
+.ss-tab {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.6rem, 0.9vw, 0.9rem);
+  min-height: 4.25rem;
+  padding: 0.8rem clamp(0.75rem, 1.2vw, 1.25rem);
+  border: 1px solid var(--mv-line);
+  border-radius: var(--mv-radius-sm);
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--mv-ink);
+  font: inherit;
+  font-size: var(--mv-fs-ui);
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: left;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+.ss-tab:hover { border-color: rgba(182, 99, 75, 0.55); background: #fff; }
+.ss-tab__icon {
+  width: clamp(1.6rem, 2vw, 2.1rem);
+  height: clamp(1.6rem, 2vw, 2.1rem);
+  flex: none;
+  color: var(--mv-terracotta);
+  transition: color 0.25s ease;
+}
+.ss-tab__label { min-width: 0; text-wrap: balance; }
+.ss-tab[aria-selected="true"] {
+  background: linear-gradient(180deg, var(--mv-plum) 0%, var(--mv-plum-mid) 100%);
+  border-color: var(--mv-plum-mid);
+  color: var(--mv-ivory);
+  box-shadow: 0 14px 28px -18px rgba(47, 18, 40, 0.75);
+}
+.ss-tab[aria-selected="true"] .ss-tab__icon { color: var(--mv-peach); }
+.ss-tab:focus-visible { outline: 2px solid var(--mv-terracotta); outline-offset: 3px; }
+
+/* ---- Stage: all panels share one grid cell, so the frame never resizes ---- */
+.ss__stage {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  border-radius: var(--mv-radius);
+  overflow: hidden;
+  background: var(--mv-plum-mid);
+  box-shadow: 0 30px 60px -40px rgba(47, 18, 40, 0.55);
+  aspect-ratio: 4 / 3;
+}
+.ss-panel {
+  grid-area: 1 / 1;
+  position: relative;
+  margin: 0;
+  min-width: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.45s ease, visibility 0s linear 0.45s;
+}
+.ss-panel[data-active="true"] {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.45s ease, visibility 0s linear 0s;
+}
+.ss-panel:focus-visible { outline: 3px solid var(--mv-peach); outline-offset: -3px; }
+
+.ss-panel__media,
+.ss-panel__media img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.ss-panel__media img { object-fit: cover; }
+
+/* Readability gradient under the caption (photographs only). */
+.ss-panel[data-fit="cover"]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(0deg, rgba(36, 14, 32, 0.82) 0%, rgba(36, 14, 32, 0.46) 32%, rgba(36, 14, 32, 0) 60%);
+}
+
+/* Floor-plan artwork: shown whole on a light sheet with the caption in ink. */
+.ss-panel[data-fit="contain"] { background: linear-gradient(180deg, #FFFFFF 0%, #FBF7F2 100%); }
+.ss-panel[data-fit="contain"] .ss-panel__media img {
+  object-fit: contain;
+  padding: clamp(1rem, 2.4vw, 2rem) clamp(1rem, 3vw, 3rem) clamp(7rem, 11vw, 8.5rem);
+}
+
+.ss-panel__badge {
+  position: absolute;
+  z-index: 2;
+  top: clamp(0.8rem, 1.4vw, 1.25rem);
+  left: clamp(0.8rem, 1.4vw, 1.25rem);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(47, 18, 40, 0.6);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: rgba(251, 245, 239, 0.95);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.ss-panel__caption {
+  position: absolute;
+  z-index: 2;
+  left: clamp(1.1rem, 2.6vw, 2.6rem);
+  right: clamp(1.1rem, 2.6vw, 2.6rem);
+  bottom: clamp(1.1rem, 2.4vw, 2.2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: var(--mv-ivory);
+}
+.ss-panel__kicker {
+  font-size: clamp(0.68rem, 0.75vw, 0.8rem);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--mv-peach);
+}
+.ss-panel__line {
+  font-family: 'Newsreader', Georgia, serif;
+  font-optical-sizing: auto;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.4rem, min(2.05vw, 3.9svh), 2.25rem);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.ss-panel__detail {
+  max-width: 36rem;
+  font-size: var(--mv-fs-small);
+  line-height: 1.5;
+  color: rgba(251, 245, 239, 0.86);
+}
+.ss-panel[data-fit="contain"] .ss-panel__caption { color: var(--mv-ink); }
+.ss-panel[data-fit="contain"] .ss-panel__kicker { color: var(--mv-terracotta-deep); }
+.ss-panel[data-fit="contain"] .ss-panel__detail { color: var(--mv-ink-soft); }
+
+.ss-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.75rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: var(--mv-ivory);
+  color: var(--mv-ink);
+  font-size: var(--mv-fs-small);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 12px 26px -16px rgba(20, 8, 18, 0.6);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.ss-cta:hover { background: #fff; color: var(--mv-terracotta-deep); }
+.ss-cta__arrow { width: 0.95em; height: 0.95em; flex: none; }
+.ss-panel[data-fit="contain"] .ss-cta { background: var(--mv-plum); color: var(--mv-ivory); }
+.ss-panel[data-fit="contain"] .ss-cta:hover { background: var(--mv-plum-mid); color: var(--mv-ivory); }
+
+/* Phones: CTA sits in flow below the caption so it never covers the text. */
+@media (max-width: 767px) {
+  .ss__stage { aspect-ratio: auto; }
+  .ss-panel { display: flex; flex-direction: column; }
+  .ss-panel__media { position: relative; inset: auto; aspect-ratio: 3 / 2; height: auto; }
+  .ss-panel__media img { position: absolute; }
+  .ss-panel[data-fit="cover"]::after { display: none; }
+  .ss-panel[data-fit="contain"] .ss-panel__media img { padding: 0.75rem; }
+  .ss-panel__caption {
+    position: static;
+    padding: 1.1rem 1.15rem 0;
+  }
+  .ss-panel[data-fit="cover"] .ss-panel__caption { color: var(--mv-ivory); }
+  .ss-panel .ss-cta { align-self: flex-start; margin: 0.9rem 1.15rem 1.2rem; }
+  .ss-panel[data-fit="contain"] { background: var(--mv-plum-mid); }
+  .ss-panel[data-fit="contain"] .ss-panel__media { background: #fff; }
+  .ss-panel[data-fit="contain"] .ss-panel__caption { color: var(--mv-ivory); }
+  .ss-panel[data-fit="contain"] .ss-panel__kicker { color: var(--mv-peach); }
+  .ss-panel[data-fit="contain"] .ss-panel__detail { color: rgba(251, 245, 239, 0.86); }
+  .ss-panel[data-fit="contain"] .ss-cta { background: var(--mv-ivory); color: var(--mv-ink); }
+}
+
+@media (max-width: 479px) {
+  .ss-tab {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 5rem;
+    padding: 0.7rem 0.4rem;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+}
+
+/* Tablet and up: CTA overlays the photo, bottom-right. */
+@media (min-width: 768px) {
+  .ss__stage { aspect-ratio: 16 / 9; }
+  .ss-panel__caption { right: calc(clamp(1.1rem, 2.6vw, 2.6rem) + 15rem); }
+  .ss-cta {
+    position: absolute;
+    z-index: 3;
+    right: clamp(1.1rem, 2.4vw, 2.2rem);
+    bottom: clamp(1.1rem, 2.4vw, 2.2rem);
+  }
+}
+
+/* Desktop: narrative beside the photograph, frame height tied to the viewport. */
+@media (min-width: 1024px) {
+  .ss__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+    align-items: center;
+    gap: clamp(2rem, 3.2vw, 4rem);
+    padding-top: clamp(3rem, 8svh, 6rem);
+    padding-bottom: clamp(3rem, 8svh, 6rem);
+  }
+  .ss__stage {
+    aspect-ratio: auto;
+    height: clamp(22rem, 56svh, 42rem);
+  }
+}

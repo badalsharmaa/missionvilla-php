@@ -46,7 +46,8 @@ php artisan test
 ## Frontend assets
 
 - Vite + Tailwind CSS v4 (`resources/css`, `resources/js`), built to `public/build/` (git-ignored).
-- Global bundle: `resources/css/app.css` (tokens, base, header) + `resources/js/app.js` (header).
+- Global bundle: `resources/css/app.css` (tokens, base, header, shared editorial tokens, inquiry dialog, footer)
+  + `resources/js/app.js` (header, inquiry dialog).
 - Section bundles load only on pages that include the section, e.g.
   `resources/css/sections/hero-cinematic.css` + `resources/js/sections/hero-cinematic.js`.
 - GSAP is installed from npm (pinned to `3.12.5`, the version the approved prototype used) and bundled locally.
@@ -62,12 +63,15 @@ Production hosting cannot run Node, so `npm run build` happens before deployment
 app/Content/                 Content model: SectionRegistry, section schemas, repositories, InlineText
 app/Content/Sections/        One schema class per approved section (fields + layout-protecting limits)
 app/Integrations/Leads/      Lead outbox + destination adapter boundary (Synergy Hub later)
+app/Http/Controllers/InquiryController  POST /inquiries: shared Visit · Pricing · Callback form (stores locally)
+app/Support/                 InternalLink (is a page built yet?), FooterNavigation (safe footer links)
 app/Integrations/Concierge/  Care Guide / Hiraya Bridge boundary (interface only)
 app/Models/                  Page, PageSection, SectionRevision, MediaAsset, AuditLog, LeadSubmission, User (roles)
 config/missionvilla.php      Verified business facts (NAP, phone, license) + content source switch
-config/navigation.php        Primary navigation (mirrors the React header)
+config/navigation.php        Primary navigation (mirrors the React header) + footer groups/legal links
 content/pages/home.php       Phase 1 homepage content (git-reviewed), validated before render
-resources/views/components/  layouts/site (document shell), site/header (global header)
+resources/views/components/  layouts/site (document shell), site/header, site/footer (global), inquiry/dialog (shared form)
+resources/views/partials/    icon (shared line icons for Sections 05–07, footer, inquiry form)
 resources/views/sections/    One folder per approved section component
 resources/views/pages/page   Generic renderer: outputs enabled sections in order
 docs/                        Architecture, section status, integration plan, next session
@@ -82,6 +86,17 @@ docs/                        Architecture, section status, integration plan, nex
 5. Append the section to `content/pages/<page>.php`.
 6. Validate desktop, mobile, interactions, accessibility and prior sections. Add or extend tests.
 7. Commit, and update `docs/SECTION_STATUS.md`.
+
+## Homepage status (2026-11-09)
+
+All homepage sections are implemented: opening shutters, 01 hero, 02 care options, 03 life gallery
+(**films pending**), 04 why families, 05 suites & spaces, 06 FAQs, 07 final CTA, plus the global footer.
+Implemented ≠ production-ready. See the readiness table in [`docs/SECTION_STATUS.md`](docs/SECTION_STATUS.md).
+
+**Inquiry form:** Schedule a Visit / Request Pricing / Request a Call share one form and one endpoint
+(`POST /inquiries`). Requests are validated, rate-limited and stored (encrypted) in `lead_submissions`.
+They are **not sent anywhere** until a Synergy Hub `LeadDestination` is built, and the confirmation tells the
+visitor so. `INQUIRIES_STORE=false` switches the form to a "design preview, nothing was sent" mode.
 
 ## Safety
 

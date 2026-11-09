@@ -1,7 +1,7 @@
 # Integration Plan — Synergy Hub, Hiraya Bridge, Email
 
-_Status 2026-11-09: boundaries and extension points only. **No integration is implemented, and no
-lead, message or email is sent anywhere.**_
+_Status 2026-11-09: a public inquiry endpoint now **stores** leads locally. **No integration is implemented,
+and no lead, message or email is sent anywhere.**_
 
 The Synergy Hub codebase and APIs were **not inspected** in this session. Nothing below assumes
 any Synergy Hub endpoint, payload or auth scheme. These must be read from Synergy Hub's own
@@ -38,7 +38,9 @@ Browser form ──POST (CSRF, rate-limited, honeypot)──▶ LeadController (
 | `LeadIntake` (idempotent accept + single delivery attempt + status rules) | Built, unit-tested |
 | `LeadDestination` interface + `DeliveryResult` (confirmed / retryLater / rejected) | Built |
 | `UnconfiguredLeadDestination` (default binding, never claims delivery) | Built, tested |
-| Public lead route / controller / queue job | **Not built.** The approved hero form intentionally remains a "nothing was sent" design preview |
+| Public lead route `POST /inquiries` + `InquiryRequest` + `InquiryController` | **Built 2026-11-09.** Shared by Request Pricing, Request a Call and Schedule a Visit (Section 07, suite CTAs; pages without the hero). CSRF, per-intent validation, honeypot, throttle 5/min + 20/day per IP, uuid idempotency key, attribution capture. Stores via `LeadIntake::accept()` and tells the visitor "saved, not sent" while the destination is unconfigured |
+| Queue job / delivery attempt | **Not built.** Nothing calls `attemptDelivery()` yet |
+| Hero visit dialog | Still the approved "nothing was sent" preview (not wired to `/inquiries`; decision pending) |
 
 ### To build (after Synergy Hub inspection)
 
@@ -55,11 +57,11 @@ Browser form ──POST (CSRF, rate-limited, honeypot)──▶ LeadController (
 
 | Field | Notes |
 |---|---|
-| `kind` | `visit_request`, `callback_request` |
+| `kind` | `visit_request`, `pricing_request`, `callback_request` (from intents `schedule_visit`, `request_pricing`, `request_callback`) |
 | `care_interest` | `Legacies Memory Care`, `Short-Term Respite Care`, `Exploring Options` |
 | `contact` | name, plus phone and/or email (encrypted at rest) |
-| `details` | preferred visit/call time. **No medical information** |
-| `consent` | `transactional: true`, `marketing: bool`, consent text version, timestamp, page URL |
+| `details` | `intent`, `suite_preference` (pricing), `contact_time` (visit/callback). No free-text field. **No medical information** |
+| `consent` | `transactional: true`, `marketing: bool` (separate unchecked box), `text_version` (`missionvilla.inquiries.consent_version`), `recorded_at`, `page_url` |
 | `attribution` | `utm_source/medium/campaign/term/content`, `gclid`/`fbclid` if present, referrer, landing page, first/last touch |
 
 ## 4. Care Guide / Hiraya Bridge

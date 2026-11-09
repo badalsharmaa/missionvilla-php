@@ -1,0 +1,111 @@
+/* ==========================================================================
+   GLOBAL SITE FOOTER
+   Continues the deep plum of the closing section (Section 07) on the
+   homepage and stands on its own on every other page. Content structure
+   follows the React reference footer; appearance follows the new design.
+   ========================================================================== */
+.site-footer {
+  position: relative;
+  width: 100%;
+  color: rgba(251, 245, 239, 0.86);
+  background: var(--mv-plum-mid);
+  font-size: var(--mv-fs-small);
+  line-height: 1.55;
+}
+
+.sf__main {
+  display: grid;
+  gap: 2rem 2.5rem;
+  padding: clamp(2.5rem, 6vw, 3.75rem) var(--mv-gutter) clamp(2rem, 5vw, 3rem);
+  border-top: 1px solid rgba(251, 245, 239, 0.12);
+}
+
+.sf__brand { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; max-width: 22rem; }
+/* The official lockup has plum lettering, so it sits on a cream plate (as in the React reference). */
+.sf__logo-plate {
+  display: inline-block;
+  padding: 0.8rem 1rem;
+  border-radius: var(--mv-radius-sm);
+  background: var(--mv-cream);
+  box-shadow: 0 14px 30px -20px rgba(0, 0, 0, 0.6);
+}
+.sf__logo-plate:focus-visible { outline: 2px solid var(--mv-peach); outline-offset: 3px; }
+.sf__logo { display: block; width: clamp(9.5rem, 12vw, 11.5rem); height: auto; }
+.sf__description { margin: 0; color: rgba(251, 245, 239, 0.75); }
+
+.sf__group { min-width: 0; }
+.sf__heading {
+  margin: 0 0 0.85rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(251, 245, 239, 0.12);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mv-peach);
+}
+.sf__links { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.15rem; }
+.sf__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  color: rgba(251, 245, 239, 0.86);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.sf__link:hover { color: var(--mv-peach); text-decoration: underline; text-underline-offset: 0.25em; }
+.sf__link:focus-visible, .sf__phone:focus-visible, .sf__visit:focus-visible { outline: 2px solid var(--mv-peach); outline-offset: 2px; }
+
+.sf__address { display: flex; flex-direction: column; gap: 0.6rem; font-style: normal; }
+.sf__line { display: flex; align-items: flex-start; gap: 0.6rem; color: rgba(251, 245, 239, 0.9); }
+.sf__icon { width: 1.15rem; height: 1.15rem; flex: none; margin-top: 0.15rem; color: var(--mv-peach); }
+.sf__phone { min-height: 2.25rem; align-items: center; font-weight: 600; text-decoration: none; }
+.sf__phone .sf__icon { margin-top: 0; }
+.sf__phone:hover { color: var(--mv-peach); }
+.sf__license { margin: 0.75rem 0 0; display: flex; gap: 0.6rem; color: rgba(251, 245, 239, 0.75); }
+.sf__visit {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid rgba(251, 245, 239, 0.45);
+  border-radius: 999px;
+  color: var(--mv-ivory);
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.sf__visit:hover { border-color: var(--mv-ivory); background: rgba(251, 245, 239, 0.08); }
+.sf__visit-arrow { width: 0.9em; height: 0.9em; }
+
+.sf__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding: 1.1rem var(--mv-gutter) 1.3rem;
+  border-top: 1px solid rgba(251, 245, 239, 0.1);
+  background: rgba(0, 0, 0, 0.18);
+  font-size: 0.8rem;
+  color: rgba(251, 245, 239, 0.65);
+}
+.sf__copy { margin: 0; }
+.sf__legal { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+.sf__legal .sf__link { min-height: 2rem; color: rgba(251, 245, 239, 0.72); }
+
+/* From small phones up, the two link groups sit side by side; brand and contact span. */
+@media (min-width: 360px) {
+  .sf__main { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1.5rem; }
+  .sf__brand, .sf__contact { grid-column: 1 / -1; }
+}
+@media (min-width: 640px) {
+  .sf__main { gap: 2rem 2.5rem; }
+  .sf__contact { grid-column: auto; }
+}
+@media (min-width: 1024px) {
+  .sf__main { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.2fr); gap: 2rem clamp(2rem, 3.5vw, 4rem); }
+  .sf__brand, .sf__contact { grid-column: auto; }
+}

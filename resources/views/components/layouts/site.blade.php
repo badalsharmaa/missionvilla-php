@@ -44,5 +44,10 @@
     <main id="main" tabindex="-1">
         {{ $slot }}
     </main>
+
+    <x-site.footer />
+
+    {{-- One shared inquiry form per page (Schedule a Visit · Request Pricing · Request a Call). --}}
+    <x-inquiry.dialog />
 </body>
 </html>

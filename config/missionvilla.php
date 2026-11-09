@@ -41,6 +41,44 @@ return [
     'visit_url' => '/contact#schedule-visit',
 
     /*
+    | Shared inquiry form (Schedule a Visit · Request Pricing · Request a Call).
+    | One form, one endpoint (POST /inquiries), one intent field. Submissions are
+    | stored in the lead_submissions outbox. They are only "delivered" once a
+    | real LeadDestination (Synergy Hub) confirms them; until then the visitor
+    | is told plainly that the request was saved but not sent.
+    */
+    'inquiries' => [
+        // false = the form never posts; it shows a "design preview, nothing was sent" notice instead.
+        'store' => env('INQUIRIES_STORE', true),
+        // Bumped whenever the consent wording in the form changes (stored with each lead).
+        'consent_version' => 'inquiry-consent-2026-11-09',
+        'intents' => [
+            'schedule_visit' => ['kind' => 'visit_request', 'label' => 'Schedule a Visit'],
+            'request_pricing' => ['kind' => 'pricing_request', 'label' => 'Request Pricing'],
+            'request_callback' => ['kind' => 'callback_request', 'label' => 'Request a Call'],
+        ],
+        'care_interests' => [
+            'memory_care' => 'Legacies™ Memory Care',
+            'respite_care' => 'Short-Term Respite Care',
+            'exploring' => 'Exploring options',
+        ],
+        'suite_preferences' => [
+            'private' => 'Private suite',
+            'shared' => 'Shared companion suite',
+            'undecided' => 'Not sure yet',
+        ],
+        'contact_times' => [
+            'weekday_morning' => 'Weekday morning',
+            'weekday_afternoon' => 'Weekday afternoon',
+            'weekend' => 'Weekend',
+            'any' => 'Any time',
+        ],
+        // Per-IP limits for POST /inquiries.
+        'per_minute' => 5,
+        'per_day' => 20,
+    ],
+
+    /*
     | Content source for public pages: "file" (content/pages/*.php, reviewed
     | in git) or "database" (CMS tables). Phase 1 ships with "file".
     */

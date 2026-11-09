@@ -1,0 +1,97 @@
+<?php
+
+namespace Tests\Feature;
+
+use App\Support\FooterNavigation;
+use Illuminate\Support\Facades\Route;
+use Tests\TestCase;
+
+class FooterTest extends TestCase
+{
+    public function test_footer_renders_brand_and_verified_facts(): void
+    {
+        $html = $this->get('/')->assertOk()->getContent();
+
+        $this->assertSame(1, substr_count($html, '<footer class="site-footer"'));
+        $this->assertStringContainsString('/images/brand/mission-villa-logo-honor-560.webp', $html);
+        $this->assertStringContainsString('width="560"', $html);
+        $this->assertStringContainsString('height="417"', $html);
+        $this->assertStringContainsString('href="tel:16507561995"', $html);
+        $this->assertStringContainsString('California RCFE License #415601046', $html);
+        $this->assertStringContainsString('© '.now()->year, $html);
+        $this->assertStringContainsString(config('missionvilla.address.street'), $html);
+    }
+
+    public function test_footer_links_never_point_to_unrouted_pages(): void
+    {
+        $html = $this->get('/')->getContent();
+        $footer = substr($html, strpos($html, '<footer class="site-footer"'));
+
+        foreach (['/memory-care', '/respite-care', '/suites-and-floor-plans', '/life-at-mission-villa', '/about', '/for-families', '/financial-planning', '/gallery', '/contact'] as $path) {
+            $this->assertStringNotContainsString('href="'.url($path).'"', $footer, $path);
+        }
+        foreach (['/#care-options', '/#suites', '/#life-at-mission-villa', '/#why-families', '/#faq', '/#visit'] as $anchor) {
+            $this->assertStringContainsString('href="'.url($anchor).'"', $footer, $anchor);
+        }
+        $this->assertStringContainsString('Family FAQs', $footer);
+        $this->assertStringNotContainsString('Financial Planning', $footer);
+    }
+
+    public function test_legal_links_are_absent_until_pages_exist(): void
+    {
+        $html = $this->get('/')->getContent();
+
+        $this->assertStringNotContainsString('Privacy Policy', $html);
+        $this->assertStringNotContainsString('Accessibility Statement', $html);
+        $this->assertStringNotContainsString('sf__legal', $html);
+    }
+
+    public function test_unsafe_hrefs_are_dropped(): void
+    {
+        $links = FooterNavigation::links([
+            ['label' => 'A', 'href' => 'javascript:alert(1)'],
+            ['label' => 'B', 'href' => '//evil.test'],
+            ['label' => 'C', 'href' => 'data:text/html,hi'],
+            ['label' => 'D', 'href' => 'javascript:alert(1)', 'fallback' => '//evil.test'],
+        ]);
+
+        $this->assertSame([], $links);
+    }
+
+    public function test_unrouted_link_uses_fallback_and_fallback_label(): void
+    {
+        $links = FooterNavigation::links([
+            ['label' => 'Real', 'href' => '/nope', 'fallback' => '/', 'fallback_label' => 'Home Fallback'],
+            ['label' => 'Plain', 'href' => '/nope', 'fallback' => '/'],
+            ['label' => 'Gone', 'href' => '/nope'],
+        ]);
+
+        $this->assertSame([
+            ['label' => 'Home Fallback', 'href' => '/', 'pending' => true],
+            ['label' => 'Plain', 'href' => '/', 'pending' => true],
+        ], $links);
+    }
+
+    public function test_group_without_links_is_dropped(): void
+    {
+        $groups = FooterNavigation::groups([
+            ['title' => 'Empty', 'links' => [['label' => 'X', 'href' => '/nope']]],
+            ['title' => 'Kept', 'links' => [['label' => 'Home', 'href' => '/']]],
+        ]);
+
+        $this->assertCount(1, $groups);
+        $this->assertSame('Kept', $groups[0]['title']);
+    }
+
+    public function test_routed_href_is_used_when_route_exists(): void
+    {
+        Route::get('/memory-care', fn () => 'ok');
+        app('router')->getRoutes()->refreshNameLookups();
+
+        $links = FooterNavigation::links([
+            ['label' => 'Memory', 'href' => '/memory-care', 'fallback' => '/', 'fallback_label' => 'Fallback'],
+        ]);
+
+        $this->assertSame([['label' => 'Memory', 'href' => '/memory-care', 'pending' => false]], $links);
+    }
+}

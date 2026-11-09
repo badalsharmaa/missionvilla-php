@@ -1,0 +1,125 @@
+/* ==========================================================================
+   SHARED EDITORIAL TOKENS · Sections 05–07, inquiry dialog, global footer
+   Palette and type scale are taken from the approved Sections 02/04 so the
+   closing sections read as one family: Section 04's cream and terracotta,
+   its warmer strip plum (#47243D → #3A1A31, sampled from the mockups) and
+   the Section 02 type scale (eyebrow 15.2 / title 60.5 / body 20.8 px at
+   1920×796). Sizes are never scaled from a mockup image.
+   ========================================================================== */
+:root {
+  --mv-cream: #FBF4EC;
+  --mv-cream-deep: #F4EAE0;
+  --mv-ink: #2F1228;
+  --mv-ink-soft: #6A5A5D;
+  --mv-line: #E6D7C8;
+  --mv-line-soft: #EFE4D8;
+  --mv-terracotta: #B6634B;
+  --mv-terracotta-deep: #A85840;
+  --mv-terracotta-rule: rgba(182, 99, 75, 0.55);
+  --mv-plum: #47243D;
+  --mv-plum-mid: #3A1A31;
+  --mv-plum-deep: #2F1228;
+  --mv-peach: #EDBE96;
+  --mv-ivory: #FBF5EF;
+  --mv-radius: clamp(1.1rem, 1.5vw, 1.6rem);
+  --mv-radius-sm: clamp(0.75rem, 0.9vw, 1rem);
+  --mv-gutter: clamp(1.25rem, 5vw, 4.75rem);
+
+  /* Shared type scale (Section 02). */
+  --mv-fs-eyebrow: clamp(0.72rem, 0.9vw, 0.95rem);
+  --mv-fs-title: clamp(2.15rem, min(3.9vw, 7.6svh), 4.75rem);
+  --mv-fs-body: clamp(0.98rem, 1.25vw, 1.3rem);
+  --mv-fs-ui: clamp(0.92rem, 1vw, 1.05rem);
+  --mv-fs-button: clamp(1rem, 1.2vw, 1.25rem);
+  --mv-fs-small: clamp(0.82rem, 0.85vw, 0.9rem);
+}
+
+.mv-eyebrow {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.85rem, 1.4vw, 1.25rem);
+  font-size: var(--mv-fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--mv-ink);
+}
+.mv-eyebrow__rule {
+  display: block;
+  flex: none;
+  width: clamp(1.75rem, 3.2vw, 3.25rem);
+  height: 1px;
+  background: var(--mv-terracotta-rule);
+}
+
+.mv-title {
+  margin: 0;
+  font-family: 'Newsreader', Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: var(--mv-fs-title);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  color: var(--mv-ink);
+  text-wrap: balance;
+}
+.mv-title em {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--mv-terracotta);
+}
+
+.mv-icon { width: 1em; height: 1em; flex: none; }
+
+/* Buttons shared by Section 07, the inquiry dialog and the footer. */
+.mv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 3rem;
+  padding: 0.8rem clamp(1.25rem, 1.8vw, 1.9rem);
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font: inherit;
+  font-size: var(--mv-fs-ui);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+.mv-btn .mv-icon { width: 1.15em; height: 1.15em; }
+.mv-btn__arrow { width: 0.95em !important; height: 0.95em !important; }
+.mv-btn--primary {
+  background: linear-gradient(180deg, #C2705A 0%, var(--mv-terracotta-deep) 100%);
+  color: #FFF8F2;
+  box-shadow: 0 16px 30px -18px rgba(140, 62, 40, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+.mv-btn--primary:hover {
+  background: linear-gradient(180deg, #CB7A63 0%, #B0614A 100%);
+}
+.mv-btn--ghost-light {
+  border-color: rgba(251, 245, 239, 0.62);
+  color: var(--mv-ivory);
+  background: transparent;
+}
+.mv-btn--ghost-light:hover {
+  border-color: var(--mv-ivory);
+  background: rgba(251, 245, 239, 0.08);
+}
+.mv-btn--plum {
+  background: var(--mv-plum);
+  color: var(--mv-ivory);
+}
+.mv-btn--plum:hover { background: var(--mv-plum-mid); }
+.mv-btn[disabled] { opacity: 0.6; cursor: progress; }
+
+/* Narrow phones: tighter tracking so long eyebrows stay on one line. */
+@media (max-width: 400px) {
+  .mv-eyebrow { letter-spacing: 0.2em; gap: 0.7rem; }
+  .mv-eyebrow__rule { width: 1.5rem; }
+}
