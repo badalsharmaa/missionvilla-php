@@ -398,7 +398,7 @@ class LifeGallerySectionTest extends TestCase
 
         $this->assertStringNotContainsString('href="/suites-and-floor-plans"', $life);
         $this->assertStringNotContainsString('Explore Our Suites', $life);
-        $this->assertMatchesRegularExpression('#<a href="[^"]*" class="life-btn" data-life-visit>\s*<span>See Our Suites in Person</span>#', $life);
+        $this->assertMatchesRegularExpression('#<a href="tel:[^"]*" class="life-btn" data-life-visit data-inquiry="schedule_visit">\s*<span>See Our Suites in Person</span>#', $life);
     }
 
     private function lifeSection(string $html): string

@@ -1,17 +1,17 @@
 @php
     /** @var array $data  Normalised by App\Content\Sections\FaqFeaturedSection */
-    $leaf = asset('images/decor/botanical-leaf-shadow.svg');
 @endphp
 @push('section-assets')
     @vite(['resources/css/sections/faq-featured.css', 'resources/js/sections/faq-featured.js'])
 @endpush
 {{--
     HOMEPAGE SECTION 06 · QUESTIONS FAMILIES OFTEN ASK
-    Approved mockup "Mission Villa Suites, FAQ & Visit CTA" (middle band, 2026-11-09).
-    Accordion: one item open at a time. Without JavaScript every answer is shown.
+    Approved mockup "Mission Villa Suites, FAQs & Visits" (middle band, corrected 2026-11-10).
+    Independent section. Accordion in one grouped card: one item open at a time.
+    Without JavaScript every answer is shown.
 --}}
 <section class="faq-featured" id="faq" aria-labelledby="faq-title" data-faq>
-  <img src="{{ $leaf }}" alt="" class="faq__leaf" aria-hidden="true" loading="lazy" decoding="async">
+  <span class="mv-leaf faq__leaf" aria-hidden="true"></span>
   <div class="faq__inner">
     <div class="faq__intro">
       <p class="mv-eyebrow">
@@ -52,6 +52,17 @@
           <div class="faq-item__panel" id="faq-a-{{ $item['id'] }}" role="region" aria-labelledby="faq-q-{{ $item['id'] }}" data-faq-panel>
             <div class="faq-item__clip">
               <p class="faq-item__answer">{{ $item['answer'] }}</p>
+              @if ($item['actions'])
+                {{-- Form actions open the shared inquiry modal (tel: without JavaScript). --}}
+                <p class="faq-item__actions">
+                  @foreach ($item['actions'] as $action)
+                    <a href="{{ config('missionvilla.phone.href') }}" class="faq-item__action" data-inquiry="{{ $action['intent'] }}" data-inquiry-source="faq">
+                      <span>{{ $action['label'] }}</span>
+                      @include('partials.icon', ['name' => 'arrow', 'class' => 'faq-item__action-arrow', 'stroke' => 2])
+                    </a>
+                  @endforeach
+                </p>
+              @endif
             </div>
           </div>
         </div>

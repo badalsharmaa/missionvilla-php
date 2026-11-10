@@ -5,13 +5,14 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * Server-side validation for the shared inquiry form
- * (Schedule a Visit · Request Pricing · Request a Call).
+ * Server-side validation for the shared inquiry form. The same rules serve the
+ * modal (opened by any form CTA) and the inline form card in Section 07.
  *
- * Collects only what the selected intent needs: a name plus a way to reply.
- * A callback needs a phone number; the other intents need a phone number or
- * an email address. There is deliberately no free-text field, so visitors are
- * never invited to type medical details into the website.
+ * Collects only what the selected intent needs: a first name (last name is
+ * optional) plus a way to reply. A callback needs a phone number; the other
+ * intents need a phone number or an email address. There is deliberately no
+ * free-text field, so visitors are never invited to type medical details
+ * into the website.
  */
 class InquiryRequest extends FormRequest
 {
@@ -20,12 +21,19 @@ class InquiryRequest extends FormRequest
         return true;
     }
 
+    /** No-JavaScript validation errors return to the inline form card (Section 07). */
+    protected function getRedirectUrl(): string
+    {
+        return strtok(url()->previous(), '#').'#visit-form';
+    }
+
     protected function prepareForValidation(): void
     {
         $trim = fn ($v) => is_string($v) ? trim(preg_replace('/\s+/u', ' ', $v)) : $v;
 
         $this->merge([
-            'name' => $trim($this->input('name')),
+            'first_name' => $trim($this->input('first_name')),
+            'last_name' => $trim($this->input('last_name')) ?: null,
             'phone' => $trim($this->input('phone')) ?: null,
             'email' => $trim($this->input('email')) ?: null,
             'marketing_opt_in' => $this->boolean('marketing_opt_in'),
@@ -40,7 +48,8 @@ class InquiryRequest extends FormRequest
 
         return [
             'intent' => ['required', 'string', $in('intents')],
-            'name' => ['required', 'string', 'min:2', 'max:80'],
+            'first_name' => ['required', 'string', 'max:60'],
+            'last_name' => ['nullable', 'string', 'max:60'],
             'phone' => [
                 $isCallback ? 'required' : 'required_without:email',
                 'nullable', 'string', 'max:30', 'regex:/^[0-9+().\-\s]+$/',
@@ -55,6 +64,8 @@ class InquiryRequest extends FormRequest
             'care_interest' => ['nullable', 'string', $in('care_interests')],
             'suite_preference' => ['nullable', 'string', $in('suite_preferences')],
             'contact_time' => ['nullable', 'string', $in('contact_times')],
+            // Non-sensitive context: the part of the site that opened the form.
+            'source' => ['nullable', 'string', 'in:'.implode(',', $cfg['sources'])],
             // Marketing consent is separate from the service request and off by default.
             'marketing_opt_in' => ['boolean'],
             // One key per opened form: double clicks and retries store a single lead.
@@ -75,15 +86,15 @@ class InquiryRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Please tell us your name.',
-            'name.min' => 'Please tell us your name.',
+            'first_name.required' => 'Please tell us your first name.',
             'phone.required' => 'Please add a phone number so we can call you back.',
             'phone.required_without' => 'Please add a phone number or an email address.',
             'phone.regex' => 'Please enter a phone number with area code.',
             'email.required_without' => 'Please add a phone number or an email address.',
             'email.email' => 'Please check the email address.',
             'company_website.prohibited' => 'We could not accept this request.',
-            'intent.*' => 'Please choose what you would like to do.',
+            'intent.*' => 'Please choose how we can help.',
+            'source.*' => 'We could not accept this request.',
         ];
     }
 }

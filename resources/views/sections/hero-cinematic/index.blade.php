@@ -271,4 +271,3 @@
 
 @include('sections.hero-cinematic.care-chat')
 @include('sections.hero-cinematic.concierge')
-@include('sections.hero-cinematic.visit')

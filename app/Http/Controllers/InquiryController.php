@@ -12,8 +12,9 @@ use Illuminate\Support\Facades\Log;
 use Throwable;
 
 /**
- * POST /inquiries: the single endpoint behind Schedule a Visit, Request
- * Pricing and Request a Call.
+ * POST /inquiries: the single endpoint behind every inquiry intent
+ * (visit, pricing, availability, callback, general), whether the visitor used
+ * the shared modal or the inline form card in Section 07.
  *
  * Order of operations follows docs/INTEGRATION_PLAN.md: validate, store in
  * the lead_submissions outbox, then (once a real destination exists) deliver.
@@ -48,14 +49,17 @@ class InquiryController extends Controller
                 'kind' => $cfg['intents'][$intent]['kind'],
                 'care_interest' => isset($v['care_interest']) ? $cfg['care_interests'][$v['care_interest']] : null,
                 'contact' => array_filter([
-                    'name' => $v['name'],
+                    'name' => trim($v['first_name'].' '.($v['last_name'] ?? '')),
+                    'first_name' => $v['first_name'],
+                    'last_name' => $v['last_name'] ?? null,
                     'phone' => $v['phone'] ?? null,
                     'email' => $v['email'] ?? null,
                 ]),
                 'details' => array_filter([
                     'intent' => $intent,
-                    'suite_preference' => $intent === 'request_pricing' ? ($v['suite_preference'] ?? null) : null,
-                    'contact_time' => $intent !== 'request_pricing' ? ($v['contact_time'] ?? null) : null,
+                    'source' => $v['source'] ?? null,
+                    'suite_preference' => in_array($intent, ['request_pricing', 'request_availability'], true) ? ($v['suite_preference'] ?? null) : null,
+                    'contact_time' => in_array($intent, ['schedule_visit', 'request_callback'], true) ? ($v['contact_time'] ?? null) : null,
                 ]),
                 'consent' => [
                     'transactional' => true,
@@ -107,7 +111,7 @@ class InquiryController extends Controller
             return response()->json($payload, $status);
         }
 
-        // No-JavaScript fallback: back to the closing section with the same honest message.
-        return redirect()->to(url('/').'#visit')->with('inquiry_notice', $payload);
+        // No-JavaScript fallback: back to the inline form card with the same honest message.
+        return redirect()->to(url('/').'#visit-form')->with('inquiry_notice', $payload);
     }
 }

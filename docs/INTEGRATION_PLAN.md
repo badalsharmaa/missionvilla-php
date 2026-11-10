@@ -38,9 +38,9 @@ Browser form ──POST (CSRF, rate-limited, honeypot)──▶ LeadController (
 | `LeadIntake` (idempotent accept + single delivery attempt + status rules) | Built, unit-tested |
 | `LeadDestination` interface + `DeliveryResult` (confirmed / retryLater / rejected) | Built |
 | `UnconfiguredLeadDestination` (default binding, never claims delivery) | Built, tested |
-| Public lead route `POST /inquiries` + `InquiryRequest` + `InquiryController` | **Built 2026-11-09.** Shared by Request Pricing, Request a Call and Schedule a Visit (Section 07, suite CTAs; pages without the hero). CSRF, per-intent validation, honeypot, throttle 5/min + 20/day per IP, uuid idempotency key, attribution capture. Stores via `LeadIntake::accept()` and tells the visitor "saved, not sent" while the destination is unconfigured |
+| Public lead route `POST /inquiries` + `InquiryRequest` + `InquiryController` | **Built 2026-11-09.** Shared by every inquiry path: the site-wide inquiry modal (all form CTAs, five intents) and the inline card in Section 07 (same form partial, same rules). CSRF, per-intent validation, honeypot, throttle 5/min + 20/day per IP, uuid idempotency key, attribution capture. Stores via `LeadIntake::accept()` and tells the visitor "saved, not sent" while the destination is unconfigured |
 | Queue job / delivery attempt | **Not built.** Nothing calls `attemptDelivery()` yet |
-| Hero visit dialog | Still the approved "nothing was sent" preview (not wired to `/inquiries`; decision pending) |
+| Hero visit dialog | **Retired 2026-11-10.** Every Schedule a Visit (hero included) opens the shared inquiry modal and posts to `/inquiries` |
 
 ### To build (after Synergy Hub inspection)
 
@@ -57,10 +57,10 @@ Browser form ──POST (CSRF, rate-limited, honeypot)──▶ LeadController (
 
 | Field | Notes |
 |---|---|
-| `kind` | `visit_request`, `pricing_request`, `callback_request` (from intents `schedule_visit`, `request_pricing`, `request_callback`) |
+| `kind` | `visit_request`, `pricing_request`, `availability_request`, `callback_request`, `general_inquiry` (from intents `schedule_visit`, `request_pricing`, `request_availability`, `request_callback`, `general_inquiry`; added availability + general 2026-11-10) |
 | `care_interest` | `Legacies Memory Care`, `Short-Term Respite Care`, `Exploring Options` |
-| `contact` | name, plus phone and/or email (encrypted at rest) |
-| `details` | `intent`, `suite_preference` (pricing), `contact_time` (visit/callback). No free-text field. **No medical information** |
+| `contact` | `name` (first + last), `first_name`, `last_name` (optional), plus phone and/or email (encrypted at rest) |
+| `details` | `intent`, `source` (site area that opened the form: header, hero, suites, faq, visit-cta, visit-form, footer, …), `suite_preference` (pricing/availability), `contact_time` (visit/callback). No free-text field. **No medical information** |
 | `consent` | `transactional: true`, `marketing: bool` (separate unchecked box), `text_version` (`missionvilla.inquiries.consent_version`), `recorded_at`, `page_url` |
 | `attribution` | `utm_source/medium/campaign/term/content`, `gclid`/`fbclid` if present, referrer, landing page, first/last touch |
 

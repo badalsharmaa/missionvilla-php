@@ -446,15 +446,10 @@ function initLifeGallery(root) {
   syncOrientation();
   desktop.addEventListener?.('change', syncOrientation);
 
-  // ---- conversion links (reuse existing dialogs) -------------------------------
+  // ---- conversion links ----------------------------------------------------------
+  // Visit links are [data-inquiry] links (the shared inquiry modal opens them); pause the film first.
   root.querySelectorAll('[data-life-visit]').forEach((link) => {
-    link.addEventListener('click', (e) => {
-      const openVisit = window.MissionVilla?.openVisit;
-      if (typeof openVisit !== 'function') return;
-      e.preventDefault();
-      video.pause();
-      openVisit();
-    });
+    link.addEventListener('click', () => video.pause());
   });
   const guide = root.querySelector('[data-life-guide]');
   if (guide && document.getElementById('careChatBackdrop')) {

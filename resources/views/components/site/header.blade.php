@@ -73,8 +73,8 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                 <span>{{ $site['phone']['display'] }}</span>
             </a>
-            {{-- Opens the on-page visit dialog when present; otherwise navigates to the contact page. --}}
-            <a href="{{ $site['visit_url'] }}" class="site-header__cta" data-open-visit>
+            {{-- Opens the shared inquiry modal (visit intent). Without JavaScript it calls the community. --}}
+            <a href="{{ $site['phone']['href'] }}" class="site-header__cta" data-inquiry="schedule_visit" data-inquiry-source="header">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path stroke-linecap="round" d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>
                 <span>Schedule a Visit</span>
             </a>
@@ -107,7 +107,7 @@
             </ul>
         </nav>
         <div class="site-mobile-nav__footer">
-            <a href="{{ $site['visit_url'] }}" class="site-header__cta site-header__cta--block" data-open-visit>Schedule a Visit</a>
+            <a href="{{ $site['phone']['href'] }}" class="site-header__cta site-header__cta--block" data-inquiry="schedule_visit" data-inquiry-source="header">Schedule a Visit</a>
             <a href="{{ $site['phone']['href'] }}" class="site-mobile-nav__phone">Call {{ $site['phone']['display'] }}</a>
             <p class="site-mobile-nav__meta">{{ $site['address']['street'] }}, {{ $site['address']['city'] }}, {{ $site['address']['region'] }} {{ $site['address']['postal_code'] }} · {{ $site['license']['label'] }} #{{ $site['license']['number'] }}</p>
         </div>

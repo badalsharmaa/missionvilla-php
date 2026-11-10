@@ -50,8 +50,12 @@
         <p class="wf__body">{{ $data['body'] }}</p>
 
         <div class="wf__actions">
-          {{-- Opens the hero's visit dialog when present (window.MissionVilla.openVisit); otherwise follows the link. --}}
+          {{-- A form CTA opens the shared inquiry modal (tel: without JavaScript); otherwise a page link. --}}
+          @if ($data['primary_cta']['intent'])
+          <a href="{{ config('missionvilla.phone.href') }}" class="wf-btn wf-btn--primary" data-wf-visit data-inquiry="{{ $data['primary_cta']['intent'] }}">
+          @else
           <a href="{{ $href($data['primary_cta']['href']) }}" class="wf-btn wf-btn--primary" data-wf-visit>
+          @endif
             <span>{{ $data['primary_cta']['label'] }}</span>
             @include('sections.why-families.icon', ['name' => 'arrow', 'class' => 'wf-btn__arrow', 'stroke' => 2])
           </a>

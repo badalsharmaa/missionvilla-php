@@ -74,15 +74,9 @@ export function initSiteHeader() {
     }
   });
 
-  // "Schedule a Visit": open the on-page visit dialog when a section provides
-  // one (the hero registers window.MissionVilla.openVisit); otherwise follow the link.
-  header.querySelectorAll('[data-open-visit]').forEach((link) => {
-    link.addEventListener('click', (e) => {
-      const openVisit = window.MissionVilla?.openVisit;
-      if (typeof openVisit !== 'function') return;
-      e.preventDefault();
-      setDrawer(false);
-      openVisit();
-    });
+  // "Schedule a Visit" is a [data-inquiry] link: the shared inquiry modal opens it.
+  // Close the mobile drawer first so the modal is not stacked over it.
+  header.querySelectorAll('[data-inquiry]').forEach((link) => {
+    link.addEventListener('click', () => setDrawer(false));
   });
 }

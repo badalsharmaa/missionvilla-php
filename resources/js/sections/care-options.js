@@ -80,13 +80,7 @@ function initCareOptions() {
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   root.querySelectorAll('[data-care-card]').forEach((card) => initCard(card, finePointer));
 
-  // Schedule a Visit: reuse the hero's visit dialog when the page has one.
-  root.querySelector('[data-care-visit]')?.addEventListener('click', (e) => {
-    const openVisit = window.MissionVilla?.openVisit;
-    if (typeof openVisit !== 'function') return;
-    e.preventDefault();
-    openVisit();
-  });
+  // Schedule a Visit is a [data-inquiry] link: the shared inquiry modal handles it.
 
   // Care Guide: the hero's delegated [data-hero-action] handler opens the
   // dialog. Only reveal the link when that dialog exists on the page.

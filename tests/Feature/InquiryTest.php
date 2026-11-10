@@ -16,7 +16,8 @@ class InquiryTest extends TestCase
     {
         return array_merge([
             'intent' => 'request_pricing',
-            'name' => 'Pat Family',
+            'first_name' => 'Pat',
+            'last_name' => 'Family',
             'email' => 'pat.family@example.test',
             'suite_preference' => 'private',
             'idempotency_key' => (string) Str::uuid(),
@@ -139,7 +140,7 @@ class InquiryTest extends TestCase
     public function test_plain_form_post_redirects_to_visit_section_with_notice(): void
     {
         $this->post('/inquiries', $this->payload())
-            ->assertRedirect(url('/').'#visit')
+            ->assertRedirect(url('/').'#visit-form')
             ->assertSessionHas('inquiry_notice.status', 'received');
     }
 }

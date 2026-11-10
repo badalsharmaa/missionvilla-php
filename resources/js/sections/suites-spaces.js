@@ -6,11 +6,15 @@
  * panel is visible (CSS cross-fade; instant with reduced motion). All panels
  * share one grid cell, so the frame keeps its size. Inactive panels are
  * `inert`. No automatic cycling and no scroll-driven behaviour.
+ *
+ * Form actions below the frame ([data-ss-suite-aware], e.g. Request
+ * Availability & Pricing) carry the selected suite to the inquiry modal.
  */
 function initSuites(root) {
   const tabs = [...root.querySelectorAll('[data-ss-tab]')];
   const panels = tabs.map((t) => document.getElementById(t.getAttribute('aria-controls')));
   if (!tabs.length || panels.some((p) => !p)) return;
+  const suiteAware = [...root.querySelectorAll('[data-ss-suite-aware]')];
 
   function select(index, { focus = false } = {}) {
     tabs.forEach((tab, i) => {
@@ -20,6 +24,7 @@ function initSuites(root) {
       panels[i].dataset.active = on ? 'true' : 'false';
       panels[i].inert = !on;
     });
+    suiteAware.forEach((a) => { a.dataset.inquirySuite = tabs[index].dataset.suite || ''; });
     if (focus) tabs[index].focus();
   }
 

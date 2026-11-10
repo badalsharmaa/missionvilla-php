@@ -1,20 +1,26 @@
 # Next Session
 
-_Written 2026-11-09 at the end of Phase 1; updated the same day after Sections 03, 04 and 05–07 + footer._
+_Written 2026-11-09 at the end of Phase 1; updated the same day after Sections 03, 04 and 05–07 + footer;
+updated 2026-11-10 after the Sections 05–07 design correction and the website-wide inquiry modal rule._
 
 ## Current state
 
 - **PHP homepage: all sections implemented.** Opening shutters → 01 cinematic hero → 02 Care Options →
   03 Life at Mission Villa (**films pending**) → 04 Why Families → **05 Suites & Living Spaces** →
-  **06 Questions Families Often Ask** → **07 Come See Mission Villa** → **global footer**. Plus a **shared inquiry form**
-  (Schedule a Visit · Request Pricing · Request a Call) behind `POST /inquiries`. 118 automated tests pass.
+  **06 Questions Families Often Ask** → **07 Come See Mission Villa** → **global footer**. 134 automated tests pass.
   Nothing is production-ready yet (see the readiness table in `SECTION_STATUS.md`).
+- **2026-11-10 correction (branch `feat/sections-05-07-modal-system`):** Sections 05–07 rebuilt to the newly approved
+  tall mockup (`~/Downloads/mission_villa_suites_faqs_visits.png`) as three independent, content-height sections
+  (1440×900: 75 / 53 / 85vh). **Website-wide rule:** every form CTA opens ONE shared inquiry modal with an intent
+  (visit · pricing · availability · callback · general); nothing scrolls to a form. Section 07 also shows the same
+  form inline. See `ARCHITECTURE.md` → "Website-wide rule". Screenshots: `../docs/sections-05-07-2026-11-10/`.
 - **Branches:** `feat/php-foundation-hero` @ `d160d21` → `feat/section-04-why-families` @ `b22d825` →
-  **`feat/sections-05-07-footer`** (Sections 05–07, footer, inquiry form; branched from `b22d825`). Each is a
-  fast-forward of the previous one. Merge order when approved: 04, then 05–07. No remote exists.
-- **Leads:** requests from the inquiry form are stored (contact encrypted) in `lead_submissions` with
-  status `received`. They are **not delivered anywhere**, and the visitor is told "saved, not yet sent". No email is sent.
-  The homepage's Schedule a Visit buttons still open the hero’s "nothing was sent" demo dialog (decision 1e).
+  `feat/sections-05-07-footer` @ `82c5d7c` → **`feat/sections-05-07-modal-system`** (this correction). Each is a
+  fast-forward of the previous one. Merge order when approved: 04, then 05–07, then the correction. No remote exists.
+- **Leads:** every inquiry path (modal from any CTA, hero included, and the Section 07 inline card) posts to
+  `POST /inquiries` and is stored (contact encrypted) in `lead_submissions` with status `received`. Leads are
+  **not delivered anywhere**, and the visitor is told "saved, not yet sent". No email is sent. The hero's
+  "nothing was sent" demo visit dialog was removed (decision 1e resolved by the 2026-11-10 brief).
 - **Section 03 films: STILL PENDING.** Produced by a separate Motion Studio session against
   `docs/SECTION_03_VIDEO_CONTRACT.md`. Check a delivery with `php artisan missionvilla:life-media`.
   Section 04's "Take a Quick Tour" reads "Films in production" until the manifest has a playable
@@ -99,9 +105,29 @@ php artisan test
    (i) The Section 07 title is set a step below section titles (max 48px vs 76px) so the mockup's single-row band
    fits. The single-row layout starts at 1600px wide; narrower desktops use two rows. (j) The Section 05 text
    column is wider than in the mockup, so the shared title size fits on two lines.
-1e. **Visit dialog unification.** The hero's visit dialog is still the approved "nothing was sent" demo, while
-   pricing/callback requests are stored. Recommended: point `window.MissionVilla.openVisit` at the shared form
-   (`openInquiry('schedule_visit')`). That is a one-line change, but it alters approved Section 01 behaviour, so approve it first.
+   _Update 2026-11-10:_ (d), (i) and (j) are superseded by the corrected layout (1g).
+1e. ~~Visit dialog unification~~ **Done 2026-11-10** (the brief requires one shared modal): every Schedule a Visit,
+   including the hero's button, Care Guide and concierge hand-offs, opens the shared inquiry modal. The hero passes
+   the chapter's care type (Memory Care / Respite) or the concierge outcome as "Care of interest".
+1g. **Sections 05–07 correction follow-ups (2026-11-10).** Review these against the mockup:
+   (a) **Floor plans:** no floor-plan page exists, so the mockup's "View Suite & Floor Plans" reads
+   **"Request Suite Floor Plans"** and opens the availability modal. It becomes the real link automatically once
+   `/suites-and-floor-plans` is routed. (b) "Request Availability & Pricing" opens the pricing modal with the selected
+   suite preselected (private/shared; nothing for Community Spaces). (c) The small provenance label ("Mission Villa
+   photo" / "Companion suite floor plan") stays on the photo although the mockup has none (honesty rule).
+   (d) The per-suite detail paragraph and in-photo CTA were removed (brief: no paragraphs in the image).
+   (e) **Form fields:** mockup marks First, Last, Phone and Email all required. Built: first name required, **last name
+   optional**, **phone OR email** (callback needs phone), following "don't require unnecessary personal information".
+   Make last name required if Synergy Hub needs it. (f) **No "Additional Details" free-text field**: kept out on
+   purpose so visitors aren't invited to type medical details (existing privacy rule). The mockup doesn't show one either.
+   (g) The inline card adds an optional marketing-consent box, a privacy line and a "development site" notice, which
+   the mockup doesn't show. The notice disappears once a lead destination is wired. (h) Modal submit is terracotta
+   (brief), inline submit plum (mockup). (i) The mockup's hydrangea photo (bottom-right of Section 07) is AI-styled
+   imagery and was **not** used. The existing soft leaf silhouette remains. (j) FAQ answers gained small modal links
+   (Request a Call, Ask About Availability, Request Pricing, Schedule a Visit); answer 4 now ends "…or send a request
+   below…". (k) Footer "Visit & Contact" stays a navigation anchor to Section 07 (it is navigation to contact details,
+   not a form CTA). Change it to a modal trigger if preferred. (l) Two new lead kinds, `availability_request` and
+   `general_inquiry`, need mapping in the Synergy Hub contract.
 1f. **Inquiry backend.** Before going live, decide: (a) the Synergy Hub lead contract (see `INTEGRATION_PLAN.md` §6),
    (b) who sends visitor confirmation and staff notification emails, (c) the retention period for stored leads,
    (d) the consent wording (version `inquiry-consent-2026-11-09`). Do not collect real leads in production until
@@ -121,7 +147,8 @@ php artisan test
 
 ## Recommended next engineering steps (in order)
 
-1. Client review of Sections 05–07 + footer. Then merge `feat/section-04-why-families` and `feat/sections-05-07-footer`.
+1. Client review of the corrected Sections 05–07 (+ footer) and the modal system. Then merge
+   `feat/section-04-why-families`, `feat/sections-05-07-footer` and `feat/sections-05-07-modal-system`.
 1a. Privacy policy + accessibility statement pages (footer links appear automatically once routed).
 2. Admin foundation: Filament install, login with rate limiting, admin/editor roles, a
    `missionvilla:create-admin` command, audit-log hooks.
@@ -133,10 +160,21 @@ php artisan test
    (`docs/INTEGRATION_PLAN.md`).
 7. Add a Content Security Policy with nonces. Add sitemap + redirect middleware.
 
-## Not verified this session (Sections 05–07 + footer)
+## Not verified this session (2026-11-10 correction)
+
+- Verified in headless Chrome: all 16 form CTAs plus the hero button open the modal with the right heading/intent/source
+  and never scroll; Escape closes, focus returns to the opener, body scroll unlocks; server validation errors are
+  shown and focused; real submissions (modal + inline) report "saved, not yet sent"; suite tabs (click + keyboard),
+  stable frame height; accordion (one open, keyboard); no duplicate ids or nested forms; no horizontal overflow at
+  1920/1440/1366/1280/1024/768/430/390/375/320; mobile modal scrolls inside the viewport; hero slider and
+  Section 03 tabs still work. No-JS round trip (errors + kept input) checked with curl.
+- Not verified: real iOS/Android devices, screen readers (VoiceOver/NVDA announcement of the dialog and errors),
+  Safari/Firefox rendering of `<dialog>` and CSS masks, reduced-motion in a browser.
+- Synergy Hub delivery and email (not built by design).
+
+## Not verified (2026-11-09: Sections 05–07 + footer)
 
 - Real iOS/Android devices, screen readers, Safari rendering of `<dialog>` and `:has()`.
-- Synergy Hub delivery and email (not built by design).
 
 ## Not verified (earlier sessions)
 

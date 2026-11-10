@@ -1,8 +1,10 @@
 /* ==========================================================================
    HOMEPAGE SECTION 07 · COME SEE MISSION VILLA FOR YOURSELF
-   Deep-plum closing band with a soft wave edge. Heading | divider | invitation
-   | actions + contact on wide screens; stacked on tablets and phones.
-   Static: hover/focus states only. The global footer continues the plum below.
+   Approved mockup (bottom band, corrected 2026-11-10). Independent,
+   full-width deep-plum section with a soft wave edge.
+   Desktop: invitation + three vertical actions + contact | divider | cream
+   inquiry card. Tablet/phone: stacked. Content-driven height (no viewport
+   rules). Static: hover/focus states only. The footer continues the plum.
    ========================================================================== */
 .visit-cta {
   --vc-wave: clamp(1.75rem, 4.2vw, 4.25rem);
@@ -44,10 +46,9 @@
 .vc__inner {
   position: relative;
   z-index: 1;
-  overflow: hidden; /* keeps the leaf decor inside the plum band */
   display: grid;
-  gap: clamp(1.25rem, 3vw, 1.75rem);
-  padding: clamp(1.75rem, 5vw, 2.5rem) var(--mv-gutter) clamp(3rem, 8vw, 4rem);
+  gap: clamp(2rem, 5vw, 2.75rem);
+  padding: clamp(1.75rem, 5vw, 2.5rem) var(--mv-gutter) clamp(3rem, 8vw, 4.5rem);
   background: linear-gradient(180deg, var(--mv-plum) 0%, var(--mv-plum-mid) 100%);
   margin-top: -1px;
 }
@@ -59,7 +60,10 @@
   z-index: -1;
   background: var(--mv-plum-mid);
 }
+.vc__inner > :not(.vc__leaf) { position: relative; z-index: 1; }
 
+/* ---- Story (left) ----------------------------------------------------------- */
+.vc__story { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
 .vc__script {
   margin: 0;
   font-family: 'Allura', 'Newsreader', cursive;
@@ -69,64 +73,70 @@
 }
 .vc__title {
   margin: clamp(0.4rem, 1svh, 0.7rem) 0 0;
-  max-width: 12em;
+  max-width: 11em;
   font-family: 'Newsreader', Georgia, serif;
   font-optical-sizing: auto;
   font-weight: 500;
-  font-size: clamp(1.9rem, min(2.6vw, 5svh), 3rem);
+  font-size: clamp(2rem, min(3vw, 5.6svh), 3.25rem);
   line-height: 1.08;
   letter-spacing: -0.012em;
   color: var(--mv-ivory);
   text-wrap: balance;
 }
-
-.vc__inner > :not(.vc__leaf) { position: relative; z-index: 1; }
-.vc__divider { display: none; }
-
 .vc__body {
-  margin: 0;
-  max-width: 34rem;
+  margin: clamp(0.9rem, 2svh, 1.25rem) 0 0;
+  max-width: 31rem;
   font-size: var(--mv-fs-ui);
   line-height: 1.65;
   color: rgba(251, 245, 239, 0.86);
   text-wrap: pretty;
 }
 
-.vc__side { display: flex; flex-direction: column; gap: clamp(1.1rem, 2.4svh, 1.5rem); min-width: 0; }
+/* Three vertical actions: terracotta primary, outlined secondaries, equal width. */
 .vc__actions {
+  margin-top: clamp(1.4rem, 3.2svh, 2rem);
+  width: 100%;
+  max-width: 22rem;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 0.75rem;
 }
+.vc__btn {
+  justify-content: flex-start;
+  border-radius: var(--mv-radius-sm);
+  padding-inline: 1.35rem;
+}
+.vc__btn .mv-icon:first-child { width: 1.3em; height: 1.3em; color: currentColor; }
+.vc__btn.mv-btn--ghost-light .mv-icon:first-child { color: var(--mv-peach); }
 .vc__btn:focus-visible { outline: 2px solid var(--mv-peach); outline-offset: 3px; }
 
 .vc__contact {
-  margin: 0;
-  padding: 0;
+  margin: clamp(1.4rem, 3.2svh, 2rem) 0 0;
+  padding: clamp(1.25rem, 2.8svh, 1.6rem) 0 0;
+  width: 100%;
+  max-width: 22rem;
+  border-top: 1px solid rgba(251, 245, 239, 0.2);
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.9rem clamp(1.25rem, 2.4vw, 2.25rem);
+  flex-direction: column;
+  gap: 0.85rem;
 }
 .vc__contact-item {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  align-items: flex-start;
+  gap: 0.85rem;
   font-size: var(--mv-fs-small);
-  line-height: 1.45;
+  line-height: 1.5;
   color: rgba(251, 245, 239, 0.9);
 }
-.vc__contact-item + .vc__contact-item {
-  padding-left: clamp(1.25rem, 2.4vw, 2.25rem);
-  border-left: 1px solid rgba(251, 245, 239, 0.22);
-}
-.vc__contact-icon { width: 1.6rem; height: 1.6rem; flex: none; color: var(--mv-peach); }
+.vc__contact-icon { width: 1.5rem; height: 1.5rem; flex: none; margin-top: 0.1rem; color: var(--mv-peach); }
 .vc__address { display: flex; flex-direction: column; font-style: normal; }
+.vc__name { font-weight: 600; color: var(--mv-ivory); }
 .vc__phone {
   display: inline-flex;
   align-items: center;
-  min-height: 2.75rem;
+  min-height: 2.25rem;
+  margin-top: -0.35rem;
   color: var(--mv-ivory);
   font-size: var(--mv-fs-ui);
   font-weight: 600;
@@ -135,48 +145,72 @@
 .vc__phone:hover { text-decoration: underline; text-underline-offset: 0.25em; }
 .vc__phone:focus-visible { outline: 2px solid var(--mv-peach); outline-offset: 2px; }
 
-.vc__notice {
+.vc__divider { display: none; }
+
+/* ---- Inline inquiry card (right) ----------------------------------------------- */
+.vc__card {
+  min-width: 0;
+  padding: clamp(1.4rem, 3vw, 2.25rem) clamp(1.15rem, 2.6vw, 2.25rem);
+  border-radius: var(--mv-radius);
+  border: 1px solid rgba(251, 245, 239, 0.65);
+  background: linear-gradient(180deg, #FDF8F2 0%, #F7EDE2 100%);
+  color: var(--mv-ink);
+  box-shadow: 0 34px 70px -40px rgba(10, 2, 8, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  scroll-margin-top: 6rem;
+}
+.vc__card-title {
   margin: 0;
+  max-width: 15em;
+  font-family: 'Newsreader', Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: clamp(1.55rem, min(2.1vw, 4svh), 2.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--mv-ink);
+  text-wrap: balance;
+}
+.vc__card-lede {
+  margin: 0.7rem 0 clamp(1rem, 2.4svh, 1.4rem);
+  max-width: 34rem;
+  font-size: var(--mv-fs-small);
+  line-height: 1.6;
+  color: var(--mv-ink-soft);
+  text-wrap: pretty;
+}
+
+.vc__notice {
+  margin: 0 0 1rem;
   padding: 0.75rem 1rem;
   border-radius: var(--mv-radius-sm);
-  background: rgba(251, 245, 239, 0.1);
+  background: rgba(71, 36, 61, 0.08);
+  color: var(--mv-ink);
   font-size: var(--mv-fs-small);
   line-height: 1.5;
 }
+[data-no-form] > .vc__notice { background: rgba(251, 245, 239, 0.1); color: var(--mv-ivory); }
 
-/* Phones: buttons take the full width so labels never wrap awkwardly. */
-@media (max-width: 539px) {
-  .vc__actions { flex-direction: column; }
-  .vc__btn { width: 100%; }
-  .vc__contact { flex-direction: column; align-items: flex-start; }
-  .vc__contact-item + .vc__contact-item { padding-left: 0; border-left: 0; }
+/* ---- Tablet: story beside actions, card full width below ------------------------ */
+@media (min-width: 700px) and (max-width: 1023px) {
+  .vc__actions, .vc__contact { max-width: 26rem; }
 }
 
-/* Tablet / small desktop: heading + invitation on one row, actions below. */
-@media (min-width: 900px) {
+/* ---- Desktop: story | divider | card ------------------------------------------------ */
+@media (min-width: 1024px) {
   .vc__inner {
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    grid-template-columns: minmax(0, 0.86fr) auto minmax(0, 1.14fr);
     align-items: center;
-    column-gap: clamp(1.75rem, 3vw, 3rem);
+    column-gap: clamp(2rem, 3.6vw, 4.5rem);
+    padding-top: clamp(2rem, 5svh, 3.25rem);
+    padding-bottom: clamp(3.5rem, 8svh, 5.5rem);
   }
+  .vc__inner[data-no-form] { grid-template-columns: minmax(0, 1fr); }
   .vc__divider {
     display: block;
     align-self: stretch;
     width: 1px;
-    background: rgba(251, 245, 239, 0.24);
+    margin-block: clamp(0.5rem, 2svh, 1.5rem);
+    background: linear-gradient(180deg, rgba(251, 245, 239, 0) 0%, rgba(251, 245, 239, 0.26) 18%, rgba(251, 245, 239, 0.26) 82%, rgba(251, 245, 239, 0) 100%);
   }
-  .vc__side { grid-column: 1 / -1; }
-}
-
-/* Wide desktop: the mockup's single row (heading | divider | invitation | actions). */
-@media (min-width: 1600px) {
-  .vc__inner {
-    /* Actions column sizes to its buttons, so labels never clip; heading and invitation share the rest. */
-    grid-template-columns: minmax(0, 1.05fr) auto minmax(0, 0.85fr) auto;
-    column-gap: clamp(1.5rem, 2.4vw, 3rem);
-    padding-top: clamp(2rem, 4.5svh, 3rem);
-    padding-bottom: clamp(3rem, 7svh, 4.5rem);
-  }
-  .vc__side { grid-column: auto; }
-  .vc__actions { flex-wrap: nowrap; }
+  .vc__card { max-width: 40rem; justify-self: end; width: 100%; }
 }

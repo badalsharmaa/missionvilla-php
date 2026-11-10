@@ -42,28 +42,54 @@ class SuitesSpacesSectionTest extends TestCase
         $this->assertSame('cover', $data['options'][0]['image']['fit']);
     }
 
-    public function test_cta_falls_back_while_page_is_unrouted(): void
+    public function test_floor_plan_action_falls_back_to_inquiry_while_page_is_unrouted(): void
     {
-        $options = $this->normalize($this->shippedData())['options'];
+        $actions = $this->normalize($this->shippedData())['actions'];
 
-        $this->assertSame(
-            ['label' => 'Ask About Private Suites', 'href' => null, 'intent' => 'request_pricing'],
-            $options[0]['cta']
-        );
-        $this->assertSame('schedule_visit', $options[2]['cta']['intent']);
-        $this->assertNull($options[2]['cta']['href']);
+        $this->assertCount(2, $actions);
+        // Never a 404: the unrouted floor-plan page becomes an availability request (alias resolved).
+        $this->assertSame('Request Suite Floor Plans', $actions[0]['label']);
+        $this->assertNull($actions[0]['href']);
+        $this->assertSame('request_availability', $actions[0]['intent']);
+        $this->assertSame('secondary', $actions[0]['style']);
+        // The pricing action is always a form action.
+        $this->assertSame('Request Availability & Pricing', $actions[1]['label']);
+        $this->assertSame('request_pricing', $actions[1]['intent']);
+        $this->assertSame('primary', $actions[1]['style']);
     }
 
-    public function test_cta_uses_real_page_once_routed(): void
+    public function test_floor_plan_action_uses_real_page_once_routed(): void
     {
         Route::get('/suites-and-floor-plans', fn () => 'ok');
         app('router')->getRoutes()->refreshNameLookups();
 
-        $cta = $this->normalize($this->shippedData())['options'][0]['cta'];
+        $action = $this->normalize($this->shippedData())['actions'][0];
 
-        $this->assertSame('View Suites & Floor Plans', $cta['label']);
-        $this->assertSame('/suites-and-floor-plans', $cta['href']);
-        $this->assertNull($cta['intent']);
+        $this->assertSame('View Suite & Floor Plans', $action['label']);
+        $this->assertSame('/suites-and-floor-plans', $action['href']);
+        $this->assertNull($action['intent']);
+    }
+
+    public function test_panels_carry_no_paragraphs_or_ctas(): void
+    {
+        foreach ($this->normalize($this->shippedData())['options'] as $option) {
+            $this->assertArrayNotHasKey('detail', $option);
+            $this->assertArrayNotHasKey('cta', $option);
+        }
+    }
+
+    public function test_rejects_unknown_action_intent(): void
+    {
+        $data = $this->shippedData();
+        $data['actions'][1]['intent'] = 'subscribe';
+        $this->assertRejected($data);
+    }
+
+    public function test_rejects_more_than_two_actions(): void
+    {
+        $data = $this->shippedData();
+        $data['actions'][] = $data['actions'][1];
+        $this->assertRejected($data);
     }
 
     public function test_rejects_wrong_option_count(): void
@@ -111,7 +137,7 @@ class SuitesSpacesSectionTest extends TestCase
     public function test_rejects_javascript_cta_href(): void
     {
         $data = $this->shippedData();
-        $data['options'][0]['cta']['href'] = 'javascript:alert(1)';
+        $data['actions'][0]['href'] = 'javascript:alert(1)';
         $this->assertRejected($data);
     }
 

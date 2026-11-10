@@ -6,6 +6,7 @@ use App\Content\Contracts\SectionSchema;
 use App\Content\InlineText;
 use App\Content\InvalidSectionData;
 use App\Content\Media\LifeGalleryManifest;
+use App\Support\InquiryIntents;
 use Illuminate\Support\Facades\Validator;
 
 /**
@@ -72,8 +73,10 @@ final class WhyFamiliesSection implements SectionSchema
             'image.caption' => ['nullable', 'string', 'max:48'],
 
             'primary_cta.label' => ['required', 'string', 'max:28'],
-            // Used when the page has no visit dialog (or without JavaScript).
-            'primary_cta.href' => $link,
+            // A form CTA names an inquiry intent: it opens the shared inquiry modal (website-wide rule).
+            'primary_cta.intent' => ['nullable', 'string', 'in:'.implode(',', InquiryIntents::accepted())],
+            // A page link, used only when the CTA has no intent.
+            'primary_cta.href' => ['required_without:primary_cta.intent', 'nullable', ...array_filter($link, fn ($r) => $r !== 'required')],
 
             'tour_cta' => ['nullable', 'array'],
             'tour_cta.label' => ['required_with:tour_cta', 'string', 'max:28'],
@@ -114,7 +117,11 @@ final class WhyFamiliesSection implements SectionSchema
         $image['caption'] = isset($image['caption']) ? InlineText::plain($image['caption']) : null;
         $valid['image'] = $image;
 
-        $valid['primary_cta']['label'] = InlineText::plain($valid['primary_cta']['label']);
+        $valid['primary_cta'] = [
+            'label' => InlineText::plain($valid['primary_cta']['label']),
+            'intent' => InquiryIntents::resolve($valid['primary_cta']['intent'] ?? null),
+            'href' => $valid['primary_cta']['href'] ?? null,
+        ];
 
         $tour = $valid['tour_cta'] ?? null;
         if ($tour !== null) {

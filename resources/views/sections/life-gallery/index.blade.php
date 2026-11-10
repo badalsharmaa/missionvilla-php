@@ -186,7 +186,7 @@
                 </a>
               @elseif ($cta && $cta['fallback_label'])
                 {{-- Destination page ({{ $cta['href'] }}) is not built in PHP yet: open the visit dialog instead. --}}
-                <a href="{{ $site['visit_url'] }}" class="life-btn" data-life-visit>
+                <a href="{{ $site['phone']['href'] }}" class="life-btn" data-life-visit data-inquiry="schedule_visit">
                   <span>{{ $cta['fallback_label'] }}</span>
                   @include('sections.life-gallery.icon', ['name' => 'arrow', 'class' => 'life-btn__arrow', 'stroke' => 2])
                 </a>
@@ -198,8 +198,8 @@
     </div>
 
     <div class="life-gallery__actions">
-      {{-- Opens the hero's visit dialog when present (window.MissionVilla.openVisit); otherwise follows the link. --}}
-      <a href="{{ $site['visit_url'] }}" class="life-visit" data-life-visit>
+      {{-- Opens the shared inquiry modal (visit intent). Without JavaScript it calls the community. --}}
+      <a href="{{ $site['phone']['href'] }}" class="life-visit" data-life-visit data-inquiry="schedule_visit">
         @include('sections.life-gallery.icon', ['name' => 'calendar', 'class' => 'life-visit__icon', 'stroke' => 1.7])
         <span>{{ $data['visit_cta'] }}</span>
       </a>

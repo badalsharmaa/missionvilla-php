@@ -377,6 +377,7 @@ function initHeroCinematic(heroEl) {
   // (ported intact; the approved prototype has no visible trigger for it yet)
   // ==========================================================================
   let selectedPerson = 'My mother or father';
+  let conciergeCare = null; // preselects "Care of interest" in the visit form after a concierge outcome
 
   function closeConciergeModal() {
     const modal = $('conciergeBackdrop');
@@ -409,61 +410,40 @@ function initHeroCinematic(heroEl) {
     const badge = $('conciergeOutcomeBadge');
     const title = $('conciergeOutcomeTitle');
     const desc = $('conciergeOutcomeDesc');
-    const selectEl = $('careInterestSelect');
 
     if (type === 'memory') {
       goToSlide(1, true);
       badge.textContent = `${selectedPerson} · Legacies™ Memory Care`;
       title.textContent = 'Legacies™ Memory Care at Mission Villa';
       desc.textContent = 'When memory changes affect daily life, familiar routines matter deeply. Our Daly City team takes time to learn your loved one’s personal story and habits so every day feels calm, dignified, and secure.';
-      if (selectEl) selectEl.value = 'Legacies Memory Care';
+      conciergeCare = 'memory_care';
     } else if (type === 'respite') {
       goToSlide(2, true);
       badge.textContent = `${selectedPerson} · Short-Term Respite Care`;
       title.textContent = 'Trusted Short-Term Respite Stays';
       desc.textContent = 'Supporting someone you love requires moments to rest and recharge. Our Short-Term Respite Care at 995 East Market Street provides attentive daily support and warm companionship in a residential setting.';
-      if (selectEl) selectEl.value = 'Short-Term Respite Care';
+      conciergeCare = 'respite_care';
     } else {
       goToSlide(0, true);
       badge.textContent = `${selectedPerson} · Unhurried First Visit`;
       title.textContent = 'An Unhurried Walkthrough in Daly City';
       desc.textContent = 'You don’t need to have every answer before visiting. Come experience the atmosphere at Mission Villa in person and talk privately with our care team about what your family is navigating.';
-      if (selectEl) selectEl.value = 'Exploring Options / General Tour';
+      conciergeCare = 'exploring';
     }
   }
 
   // ==========================================================================
-  // SCHEDULE A VISIT MODAL CONTROLLER (design preview — nothing is sent)
+  // SCHEDULE A VISIT: opens the site's shared inquiry modal
+  // (components/inquiry/dialog, resources/js/components/inquiry-dialog.js).
+  // The hero's former "design preview, nothing was sent" dialog is retired so
+  // every visit request uses one real form (website-wide modal rule, 2026-11-10).
   // ==========================================================================
-  let visitPreviousFocus = null;
-
   function openVisitModal() {
     if (autoplayEnabled) toggleAutoplay();
-    visitPreviousFocus = document.activeElement;
-    $('visitRequestForm').classList.remove('hidden');
-    $('visitSuccessState').classList.add('hidden');
-    const modal = $('visitModalBackdrop');
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    $('careInterestSelect')?.focus();
+    // Care of interest: the concierge's outcome, else the chapter on screen (01 welcome · 02 memory · 03 respite).
+    const care = conciergeCare || [null, 'memory_care', 'respite_care'][currentSlide] || null;
+    window.MissionVilla?.openInquiry?.('schedule_visit', { source: 'hero', care });
   }
-
-  function closeVisitModal() {
-    const modal = $('visitModalBackdrop');
-    if (modal.classList.contains('hidden')) return;
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-    if (visitPreviousFocus && typeof visitPreviousFocus.focus === 'function') visitPreviousFocus.focus();
-  }
-
-  $('visitRequestForm')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    $('visitRequestForm').classList.add('hidden');
-    $('visitSuccessState').classList.remove('hidden');
-  });
-
-  // Let the global header CTA open this dialog.
-  window.MissionVilla = Object.assign(window.MissionVilla || {}, { openVisit: openVisitModal });
 
   // ==========================================================================
   // ACTION DELEGATION (replaces the prototype's inline onclick handlers)
@@ -483,7 +463,6 @@ function initHeroCinematic(heroEl) {
     'concierge-person': (el) => chooseConciergePerson(el.dataset.person),
     'concierge-outcome': (el) => showConciergeOutcome(el.dataset.outcome),
     'concierge-reset': () => resetConcierge(),
-    'close-visit': () => closeVisitModal(),
   };
 
   document.addEventListener('click', (e) => {
@@ -495,7 +474,6 @@ function initHeroCinematic(heroEl) {
     // Backdrop clicks close; clicks inside a dialog do not.
     if (e.target === $('careChatBackdrop')) closeCareChat();
     if (e.target === $('conciergeBackdrop')) closeConciergeModal();
-    if (e.target === $('visitModalBackdrop')) closeVisitModal();
   });
 
   // ==========================================================================
@@ -505,7 +483,6 @@ function initHeroCinematic(heroEl) {
     if (e.key === 'Escape') {
       closeCareChat();
       closeConciergeModal();
-      closeVisitModal();
     }
     if (e.key === 'Tab' && !$('careChatBackdrop').classList.contains('hidden')) {
       const elements = [...$('careChatDialog').querySelectorAll('button:not([disabled]), a[href], input:not([disabled])')];
@@ -519,7 +496,7 @@ function initHeroCinematic(heroEl) {
     // Left/Right Arrow Slide Control when no modal or menu is open
     const modalOpen = !$('careChatBackdrop').classList.contains('hidden') ||
                       !$('conciergeBackdrop').classList.contains('hidden') ||
-                      !$('visitModalBackdrop').classList.contains('hidden');
+                      !!document.querySelector('dialog[open]');
     const tag = document.activeElement?.tagName;
     const inHeaderNav = document.activeElement?.closest?.('[data-site-header]');
     if (!modalOpen && !inHeaderNav && tag !== 'INPUT' && tag !== 'SELECT') {

@@ -1,6 +1,6 @@
 # Architecture — Mission Villa PHP Website
 
-_Last updated: 2026-11-09 (homepage complete: Sections 00–07, footer, shared inquiry form)_
+_Last updated: 2026-11-10 (Sections 05–07 corrected to the approved mockup; website-wide inquiry modal rule)_
 
 ## 1. Two-site model
 
@@ -142,27 +142,57 @@ and service are not built yet.)*
   declares `provenance` (`facility|illustrative`), `source_url` and `rights` (`cleared|unconfirmed`).
   These are emitted as `data-provenance`/`data-rights` on the `<figure>`. The optional tour CTA
   takes a `manifest` path: the schema asks `LifeGalleryManifest` whether any Section 03 film is
-  playable and, if none is, marks the CTA `pending` (it shows `pending_note`). The only script is the
-  visit-dialog hook (`window.MissionVilla.openVisit`) plus hiding the tour link if its `#anchor`
+  playable and, if none is, marks the CTA `pending` (it shows `pending_note`). `primary_cta` takes an
+  `intent` (form CTA → inquiry modal) or an `href`. The only script hides the tour link if its `#anchor`
   target is missing.
 
-- **Suites & spaces** (`living.suites`, Section 05): exactly 3 options. Each image declares `provenance`,
-  `rights`, a visible `label`, `fit` (`cover` photo / `contain` floor plan) and `position`. ARIA tabs with
-  roving tabindex. Panels share one grid cell (stable frame) and inactive panels are `inert`. Option CTAs use
-  `InternalLink`: the real page once routed, otherwise `fallback_label` + `fallback_intent` (opens the inquiry form).
+- **Suites & spaces** (`living.suites`, Section 05): exactly 3 options (label, icon, kicker, short caption,
+  image). Each image declares `provenance`, `rights`, a visible `label`, `fit` (`cover` photo / `contain` floor
+  plan) and `position`. No paragraphs or CTAs inside the photo. ARIA tabs with roving tabindex. Panels share
+  one grid cell (stable frame) and inactive panels are `inert`. Up to 2 section `actions` below the composition
+  (`style` primary/secondary, optional `icon`): an `intent` opens the inquiry modal (the selected suite rides
+  along as `data-inquiry-suite`), an `href` is used only once `InternalLink` says the page is routed, otherwise
+  `fallback_label` + `fallback_intent` (never a 404).
 - **Featured FAQs** (`faq.featured`, Section 06): a structured entry list (≤40) with `order`, `enabled`,
   `featured`; the schema outputs the first 4 enabled + featured by order. Plain-text answers. Accordion
-  markup is a `<button aria-expanded aria-controls>` inside an `h3` plus a `role=region` panel. Collapse styles
-  apply only after JS sets `data-enhanced`, so no-JS visitors see every answer.
-- **Final CTA** (`visit.cta`, Section 07): copy + up to 3 intent actions; contact details always come from
-  `config/missionvilla.php`. Buttons carry `data-inquiry` and fall back to `tel:` without JS.
-- **Shared inquiry form**: `<x-inquiry.dialog />` (native `<dialog>`, rendered once by the layout) +
-  `resources/js/components/inquiry-dialog.js` (global). Exposes `window.MissionVilla.openInquiry(intent, {suite})`.
-  A delegated click handler opens it for any `[data-inquiry]`. `schedule_visit` prefers the hero's
-  `window.MissionVilla.openVisit` where present. Server: `InquiryRequest` (per-intent rules, honeypot, uuid
-  idempotency key, attribution fields) → `InquiryController` → `LeadIntake::accept()`. Throttle `inquiries`
-  (5/min + 20/day per IP). Modes: `preview` (store off), `local` (stored, no destination: "saved, not sent"),
-  `live` (destination bound: "received").
+  markup is a `<button aria-expanded aria-controls>` inside an `h3` plus a `role=region` panel, all in one
+  grouped card. Collapse styles apply only after JS sets `data-enhanced`, so no-JS visitors see every answer.
+  Optional per-entry `actions` (≤2, label + intent) render under the answer and open the inquiry modal.
+- **Final CTA** (`visit.cta`, Section 07): copy + up to 3 vertical intent actions (they open the inquiry
+  MODAL, not the card beside them) + contact details from `config/missionvilla.php` + an optional inline
+  inquiry card (`form.enabled|heading|lede`) that renders the shared form (`id="visit-form"`).
+
+### Website-wide rule: form CTAs open the inquiry modal (2026-11-10)
+
+Any CTA whose destination is a form opens the shared modal. Nothing scrolls to a form: no `href="#visit"`,
+`#contact`, `#schedule-visit`, no `scrollIntoView()` to a form. Non-form anchors (e.g. "Take a Quick Tour"
+→ the gallery, footer "Visit & Contact" navigation) and `tel:` links stay as they are.
+
+- **Markup contract:** `<a href="tel:…" data-inquiry="<intent>" [data-inquiry-source="<section>"]
+  [data-inquiry-suite="private|shared"] [data-inquiry-care="memory_care|respite_care|exploring"]>`. The `tel:`
+  href is the no-JavaScript fallback. Source defaults to the enclosing section (header/footer detected).
+- **Intents** (`config/missionvilla.php` → `inquiries.intents`, one vocabulary via `App\Support\InquiryIntents`):
+  `schedule_visit` · `request_pricing` · `request_availability` · `request_callback` · `general_inquiry`, each with
+  the lead `kind` stored in the outbox and the modal's title/lede/submit copy. Aliases `visit`, `pricing`,
+  `availability`, `callback`, `general` are accepted in markup and content; schemas resolve them to canonical keys
+  and the server only accepts canonical keys.
+- **One form:** `<x-inquiry.form instance="modal|inline">` (fields, labels, hints, honesty notices, outcome view;
+  ids prefixed `inq-<instance>-`). Rendered by `<x-inquiry.dialog />` (native `<dialog>`, once per page via the
+  layout) and by Section 07's card. Fields: first name (required), last name (optional), phone/email (one of them;
+  callback needs phone), "How can we help?" (intent select), optional marketing consent. The modal adds optional
+  care / suite / time selects for the intents they apply to. No free-text field (no medical details on the site).
+- **One controller:** `resources/js/components/inquiry-dialog.js` → `bindForm()` drives both instances (intent
+  switching, fetch POST, 422/419/429/network errors, honest outcome, values kept on failure, idempotency key per
+  opening). The modal adds open/close, focus to first field, focus restore, backdrop click, body scroll lock;
+  Escape is native. API: `window.MissionVilla.openInquiry(intent, {source, suite, care})` and
+  `openVisit(opts)`. The hero's visit actions call `openInquiry('schedule_visit', {source: 'hero', care})`; the
+  hero's former demo dialog is removed.
+- **One endpoint:** `InquiryRequest` (rules, honeypot, uuid idempotency key, `source` whitelist, attribution; no-JS
+  errors redirect to `#visit-form` with old input) → `InquiryController` → `LeadIntake::accept()` (contact
+  encrypted: `name`, `first_name`, `last_name`, `phone`, `email`; details: `intent`, `source`, `suite_preference`,
+  `contact_time`). Throttle `inquiries` (5/min + 20/day per IP). Modes: `preview` (store off), `local` (stored, no
+  destination: "saved, not sent"), `live` (destination bound: "received"). Synergy Hub delivery: see
+  `docs/INTEGRATION_PLAN.md` (not built).
 - **Global footer**: `<x-site.footer />` in the layout. `App\Support\FooterNavigation` validates hrefs
   (site-relative or https only) and resolves each link: routed page, else `fallback` anchor, else dropped.
 - **Shared design tokens**: `resources/css/components/editorial.css` (`--mv-*`: cream, ink, terracotta, plum
@@ -174,10 +204,6 @@ and service are not built yet.)*
   chapter bar. The approved prototype has the same 100svh geometry, so this was left unchanged.
 - **Header** navigation links point to internal pages that are not built in PHP yet. They return Laravel's
   default 404 until each page is approved and implemented. (The footer avoids this through `FooterNavigation`.)
-- The hero's own visit dialog is still the approved "nothing was sent" demo. Schedule a Visit buttons in
-  Sections 02–05, 07 and the footer reuse it on the homepage, so a homepage visit request is **not** stored,
-  while pricing/callback requests are. Pointing `openVisit` at `openInquiry('schedule_visit')` would unify them;
-  that changes approved Section 01 behaviour, so it awaits a decision.
 - The hero's modal copy (visit, concierge, chat) repeats business facts in template text. It is
   not CMS-managed yet.
 - The concierge modal from the prototype is ported intact but, as in the prototype, has no visible trigger.

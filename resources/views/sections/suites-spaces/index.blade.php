@@ -2,17 +2,21 @@
     /** @var array $data  Normalised by App\Content\Sections\SuitesSpacesSection */
     $options = $data['options'];
     $img = fn (string $p) => asset(ltrim($p, '/'));
+    // Suite ids the inquiry form can preselect (config inquiries.suite_preferences).
+    $suiteKeys = array_keys(config('missionvilla.inquiries.suite_preferences'));
 @endphp
 @push('section-assets')
     @vite(['resources/css/sections/suites-spaces.css', 'resources/js/sections/suites-spaces.js'])
 @endpush
 {{--
     HOMEPAGE SECTION 05 · SUITES & LIVING SPACES
-    Approved mockup "Mission Villa Suites, FAQ & Visit CTA" (top band, 2026-11-09).
-    Three ARIA tabs switch one photo frame (image, caption, CTA) with a short fade.
-    User-initiated only: no cycling, no scroll-driven motion.
+    Approved mockup "Mission Villa Suites, FAQs & Visits" (top band, corrected 2026-11-10).
+    Left: narrative + three compact option tabs. Right: one photo frame (image, label, caption)
+    that changes with the selected tab via a short cross-fade. Below: two actions.
+    User-initiated only: no cycling, no scroll-driven motion. Content-driven height.
 --}}
 <section class="suites-spaces" id="suites" aria-labelledby="suites-title" data-suites>
+  <span class="mv-leaf ss__leaf" aria-hidden="true"></span>
   <div class="ss__inner">
     <div class="ss__story">
       <p class="mv-eyebrow ss__eyebrow">
@@ -33,6 +37,7 @@
             aria-selected="{{ $i === 0 ? 'true' : 'false' }}"
             tabindex="{{ $i === 0 ? '0' : '-1' }}"
             data-ss-tab
+            data-suite="{{ in_array($opt['id'], $suiteKeys, true) ? $opt['id'] : '' }}"
           >
             @include('partials.icon', ['name' => $opt['icon'], 'class' => 'ss-tab__icon', 'stroke' => 1.4])
             <span class="ss-tab__label">{{ $opt['label'] }}</span>
@@ -72,37 +77,41 @@
               style="object-position: {{ $im['position'] }};"
             >
           </picture>
+          {{-- Provenance label (honesty guard): says what the visitor is looking at. --}}
           <span class="ss-panel__badge">{{ $im['label'] }}</span>
 
           <figcaption class="ss-panel__caption">
             <span class="ss-panel__kicker">{{ $opt['kicker'] }}</span>
             <span class="ss-panel__line">{{ $opt['caption'] }}</span>
-            @if ($opt['detail'])
-              <span class="ss-panel__detail">{{ $opt['detail'] }}</span>
-            @endif
           </figcaption>
-
-          @if ($opt['cta'])
-            @if ($opt['cta']['href'])
-              <a href="{{ url($opt['cta']['href']) }}" class="ss-cta">
-                <span>{{ $opt['cta']['label'] }}</span>
-                @include('partials.icon', ['name' => 'arrow', 'class' => 'ss-cta__arrow', 'stroke' => 2])
-              </a>
-            @else
-              {{-- Destination page not built yet: open the shared inquiry form instead (tel: without JavaScript). --}}
-              <a
-                href="{{ config('missionvilla.phone.href') }}"
-                class="ss-cta"
-                data-inquiry="{{ $opt['cta']['intent'] }}"
-                data-inquiry-suite="{{ $opt['id'] }}"
-              >
-                <span>{{ $opt['cta']['label'] }}</span>
-                @include('partials.icon', ['name' => 'arrow', 'class' => 'ss-cta__arrow', 'stroke' => 2])
-              </a>
-            @endif
-          @endif
         </figure>
       @endforeach
     </div>
+
+    @if ($data['actions'])
+      <div class="ss__actions">
+        @foreach ($data['actions'] as $action)
+          @if ($action['href'])
+            <a href="{{ url($action['href']) }}" class="ss-action ss-action--{{ $action['style'] }}">
+          @else
+            {{-- Form action: opens the shared inquiry modal (tel: without JavaScript). The selected suite rides along. --}}
+            <a
+              href="{{ config('missionvilla.phone.href') }}"
+              class="ss-action ss-action--{{ $action['style'] }}"
+              data-inquiry="{{ $action['intent'] }}"
+              data-inquiry-source="suites"
+              data-inquiry-suite="{{ in_array($options[0]['id'], $suiteKeys, true) ? $options[0]['id'] : '' }}"
+              data-ss-suite-aware
+            >
+          @endif
+            @if ($action['icon'])
+              @include('partials.icon', ['name' => $action['icon'], 'class' => 'ss-action__icon', 'stroke' => 1.6])
+            @endif
+            <span>{{ $action['label'] }}</span>
+            @include('partials.icon', ['name' => 'arrow', 'class' => 'ss-action__arrow', 'stroke' => 2])
+          </a>
+        @endforeach
+      </div>
+    @endif
   </div>
 </section>

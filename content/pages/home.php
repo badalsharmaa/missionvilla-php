@@ -292,7 +292,7 @@ return [
                     'position' => '50% 30%',
                     'caption' => 'Our courtyard patio · Daly City',
                 ],
-                'primary_cta' => ['label' => 'Schedule a Visit', 'href' => '/contact#schedule-visit'],
+                'primary_cta' => ['label' => 'Schedule a Visit', 'intent' => 'schedule_visit'],
                 'tour_cta' => [
                     'label' => 'Take a Quick Tour',
                     'href' => '#life-at-mission-villa',
@@ -319,7 +319,7 @@ return [
             ],
         ],
         [
-            // Section 05. Approved mockup "Mission Villa Suites, FAQ & Visit CTA" (top band, 2026-11-09).
+            // Section 05. Approved mockup "Mission Villa Suites, FAQ & Visits" (top band, corrected 2026-11-10).
             // Copy condensed from React LIVING_SPACE_OPTIONS (lib/mission-villa-data.ts). Images are authentic
             // Mission Villa photos / current-site artwork (docs/image-sourcing-report.md); reuse rights unconfirmed.
             'key' => 'suites',
@@ -329,6 +329,24 @@ return [
                 'eyebrow' => 'Suites & Living Spaces',
                 'heading' => 'Comfortable Suites & <em>Welcoming Spaces</em>',
                 'intro' => 'Thoughtfully designed accommodations and inviting communal spaces create a sense of comfort, familiarity, and belonging at Mission Villa.',
+                // Two actions below the composition (approved mockup 2026-11-10). A page link is used only once
+                // its page is routed; until then the fallback opens the shared inquiry modal (never a 404).
+                // Form actions open the modal; the pricing action also preselects the selected suite.
+                'actions' => [
+                    [
+                        'label' => 'View Suite & Floor Plans',
+                        'href' => '/suites-and-floor-plans',
+                        'fallback_label' => 'Request Suite Floor Plans',
+                        'fallback_intent' => 'availability',
+                        'style' => 'secondary',
+                    ],
+                    [
+                        'label' => 'Request Availability & Pricing',
+                        'intent' => 'pricing',
+                        'icon' => 'calendar',
+                        'style' => 'primary',
+                    ],
+                ],
                 'options' => [
                     [
                         'id' => 'private',
@@ -336,7 +354,6 @@ return [
                         'icon' => 'bed',
                         'kicker' => 'Private Suites',
                         'caption' => 'A personal space to feel at home.',
-                        'detail' => 'Each private suite has its own bathroom and room for treasured photographs and keepsakes.',
                         'image' => [
                             'src' => '/images/suites/suite-bedroom-facility-899.webp',
                             'src_mobile' => '/images/suites/suite-bedroom-facility-640.webp',
@@ -350,12 +367,6 @@ return [
                             'fit' => 'cover',
                             'position' => '50% 55%',
                         ],
-                        'cta' => [
-                            'label' => 'View Suites & Floor Plans',
-                            'href' => '/suites-and-floor-plans',
-                            'fallback_label' => 'Ask About Private Suites',
-                            'fallback_intent' => 'request_pricing',
-                        ],
                     ],
                     [
                         'id' => 'shared',
@@ -363,7 +374,6 @@ return [
                         'icon' => 'people',
                         'kicker' => 'Shared Suites',
                         'caption' => 'Companionship, with space of your own.',
-                        'detail' => 'Companion suites give each resident personal space, with a private bathroom shared only within the suite.',
                         'image' => [
                             'src' => '/images/suites/companion-suite-floorplan-1000.webp',
                             'src_mobile' => '/images/suites/companion-suite-floorplan-640.webp',
@@ -376,12 +386,6 @@ return [
                             'label' => 'Companion suite floor plan',
                             'fit' => 'contain',
                         ],
-                        'cta' => [
-                            'label' => 'View Suites & Floor Plans',
-                            'href' => '/suites-and-floor-plans',
-                            'fallback_label' => 'Ask About Shared Suites',
-                            'fallback_intent' => 'request_pricing',
-                        ],
                     ],
                     [
                         'id' => 'community',
@@ -389,7 +393,6 @@ return [
                         'icon' => 'armchair',
                         'kicker' => 'Community Spaces',
                         'caption' => 'Places to gather, dine and visit.',
-                        'detail' => 'Comfortable lounges for family visits and a dining room where chef-prepared meals are enjoyed together.',
                         'image' => [
                             'src' => '/images/suites/community-lounge-facility-899.webp',
                             'src_mobile' => '/images/suites/community-lounge-facility-640.webp',
@@ -403,18 +406,12 @@ return [
                             'fit' => 'cover',
                             'position' => '50% 50%',
                         ],
-                        'cta' => [
-                            'label' => 'Explore Life at Mission Villa',
-                            'href' => '/life-at-mission-villa',
-                            'fallback_label' => 'See Our Spaces in Person',
-                            'fallback_intent' => 'schedule_visit',
-                        ],
                     ],
                 ],
             ],
         ],
         [
-            // Section 06. Approved mockup (middle band, 2026-11-09). Answers condensed from verified React content:
+            // Section 06. Approved mockup (middle band, corrected 2026-11-10). Answer actions open the inquiry modal. Answers condensed from verified React content:
             // FAMILY_FAQS (SuitesAndFamilySection), LIVING_SPACE_OPTIONS, respite + pricing FAQs in lib/mission-villa-data.ts.
             'key' => 'faq',
             'type' => 'faq.featured',
@@ -439,6 +436,7 @@ return [
                         'id' => 'respite-stay',
                         'question' => 'Can we arrange a short-term Respite Care stay?',
                         'answer' => 'Yes. Short-Term Respite Care offers a supportive stay when a family caregiver needs time to rest, travel, or manage personal obligations, with attentive care, a comfortable suite, chef-prepared dining, and daily activities. Call (650) 756-1995 to talk through your dates and current availability.',
+                        'actions' => [['label' => 'Request a Call', 'intent' => 'callback']],
                         'icon' => 'calendar',
                         'order' => 20,
                         'enabled' => true,
@@ -448,6 +446,7 @@ return [
                         'id' => 'suite-options',
                         'question' => 'What suite options are available?',
                         'answer' => 'Mission Villa offers private suites and shared companion suites, each with a private bathroom. Residents also enjoy welcoming lounges and a dining room. Our team can confirm which suites are currently available by phone or during a visit.',
+                        'actions' => [['label' => 'Ask About Availability', 'intent' => 'availability']],
                         'icon' => 'home',
                         'order' => 30,
                         'enabled' => true,
@@ -456,7 +455,11 @@ return [
                     [
                         'id' => 'pricing-and-visits',
                         'question' => 'How can we learn about pricing and schedule a visit?',
-                        'answer' => 'Pricing depends on your loved one’s daily support needs and the suite you choose, so our team discusses it with you personally rather than publishing set rates. Call (650) 756-1995 or use the request options on this page, and ask to arrange a visit at the same time.',
+                        'answer' => 'Pricing depends on your loved one’s daily support needs and the suite you choose, so our team discusses it with you personally rather than publishing set rates. Call (650) 756-1995 or send a request below, and ask to arrange a visit at the same time.',
+                        'actions' => [
+                            ['label' => 'Request Pricing', 'intent' => 'pricing'],
+                            ['label' => 'Schedule a Visit', 'intent' => 'visit'],
+                        ],
                         'icon' => 'phone',
                         'order' => 40,
                         'enabled' => true,
@@ -466,20 +469,26 @@ return [
             ],
         ],
         [
-            // Section 07. Approved mockup (bottom band, 2026-11-09). Address/phone come from config/missionvilla.php.
+            // Section 07. Approved mockup (bottom band, corrected 2026-11-10). Address/phone come from config/missionvilla.php.
+            // Actions open the inquiry modal; the inline card is the same shared form for visitors who reach it naturally.
             'key' => 'visit',
             'type' => 'visit.cta',
             'enabled' => true,
             'data' => [
                 'script' => 'A Place to Belong',
                 'heading' => 'Come See Mission Villa for Yourself',
-                'body' => 'We welcome you to visit our Daly City community, meet our care team, and experience the warm, supportive environment we’ve created for residents and their families.',
+                'body' => 'We welcome you to visit our Daly City community, meet our care team, and see firsthand the warm, supportive environment we’ve created for residents and their families.',
                 'actions' => [
                     ['intent' => 'schedule_visit', 'label' => 'Schedule a Visit', 'icon' => 'calendar'],
                     ['intent' => 'request_pricing', 'label' => 'Request Pricing', 'icon' => 'file-text'],
                     ['intent' => 'request_callback', 'label' => 'Request a Call', 'icon' => 'phone'],
                 ],
                 'show_contact' => true,
+                'form' => [
+                    'enabled' => true,
+                    'heading' => 'Request Information or Schedule a Visit',
+                    'lede' => 'Have a question or want to see Mission Villa in person? Let us know a few details, and our team will be in touch.',
+                ],
             ],
         ],
         // The homepage is complete: no further sections are planned (docs/SECTION_STATUS.md).

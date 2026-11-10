@@ -117,8 +117,8 @@
     </div>
 
     <div class="care-options__actions">
-      {{-- Opens the hero's visit dialog when present (window.MissionVilla.openVisit); otherwise follows the link. --}}
-      <a href="{{ $site['visit_url'] }}" class="care-visit" data-care-visit>
+      {{-- Opens the shared inquiry modal (visit intent). Without JavaScript it calls the community. --}}
+      <a href="{{ $site['phone']['href'] }}" class="care-visit" data-care-visit data-inquiry="schedule_visit">
         @include('sections.care-options.icon', ['name' => 'calendar', 'class' => 'care-visit__icon', 'stroke' => 1.7])
         <span>{{ $data['visit_cta'] }}</span>
       </a>

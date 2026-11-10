@@ -6,6 +6,7 @@ use App\Content\Contracts\SectionSchema;
 use App\Content\InlineText;
 use App\Content\InvalidSectionData;
 use App\Support\InternalLink;
+use App\Support\InquiryIntents;
 use Illuminate\Support\Facades\Validator;
 
 /**
@@ -66,6 +67,11 @@ final class FaqFeaturedSection implements SectionSchema
             'entries.*.order' => ['required', 'integer', 'min:0', 'max:999'],
             'entries.*.enabled' => ['required', 'boolean'],
             'entries.*.featured' => ['required', 'boolean'],
+            // Optional conversion links under an answer ("Request Pricing", "Schedule a Visit", …).
+            // They open the shared inquiry modal with this intent; they never scroll to a form.
+            'entries.*.actions' => ['nullable', 'array', 'max:2'],
+            'entries.*.actions.*.label' => ['required', 'string', 'max:28'],
+            'entries.*.actions.*.intent' => ['required', 'in:'.implode(',', InquiryIntents::accepted())],
         ]);
 
         if ($validator->fails()) {
@@ -83,6 +89,10 @@ final class FaqFeaturedSection implements SectionSchema
                 'question' => InlineText::plain($e['question']),
                 'answer' => InlineText::plain($e['answer']),
                 'icon' => $e['icon'],
+                'actions' => array_map(fn (array $a) => [
+                    'label' => InlineText::plain($a['label']),
+                    'intent' => InquiryIntents::resolve($a['intent']),
+                ], array_values($e['actions'] ?? [])),
             ])
             ->values()
             ->all();

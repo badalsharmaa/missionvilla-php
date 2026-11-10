@@ -5,6 +5,7 @@ namespace App\Content\Sections;
 use App\Content\Contracts\SectionSchema;
 use App\Content\InlineText;
 use App\Content\InvalidSectionData;
+use App\Support\InquiryIntents;
 use App\Support\InternalLink;
 use Illuminate\Support\Facades\Validator;
 
@@ -12,15 +13,19 @@ use Illuminate\Support\Facades\Validator;
  * Homepage section 05: "Comfortable Suites & Welcoming Spaces".
  *
  * Left: eyebrow, heading, intro and three selectable options (ARIA tabs).
- * Right: one photograph frame whose image, caption and CTA change with the
- * selected option (user-initiated only: no cycling, no scroll triggers).
+ * Right: one photograph frame whose image, short label and caption change
+ * with the selected option (user-initiated only: no cycling, no scroll
+ * triggers). Below: up to two actions (approved mockup, 2026-11-10).
  *
  * The layout is designed for exactly three options. Every image declares
  * provenance (facility | illustrative) and publication rights, plus how it
  * should sit in the frame (`fit: cover` for photographs, `contain` for
- * floor-plan artwork). Option CTAs point at real pages; until a page is
- * routed, the CTA shows `fallback_label` and opens the shared inquiry form
- * with `fallback_intent` instead of linking to a 404.
+ * floor-plan artwork).
+ *
+ * An action is either a form action (`intent`: opens the shared inquiry
+ * modal, never scrolls to a form) or a page link (`href`). A page link is
+ * used only once its page is routed; until then it shows `fallback_label`
+ * and opens the modal with `fallback_intent` instead of linking to a 404.
  */
 final class SuitesSpacesSection implements SectionSchema
 {
@@ -31,7 +36,9 @@ final class SuitesSpacesSection implements SectionSchema
 
     public const RIGHTS = ['cleared', 'unconfirmed'];
 
-    public const INTENTS = ['schedule_visit', 'request_pricing', 'request_callback'];
+    public const MAX_ACTIONS = 2;
+
+    public const ACTION_ICONS = ['calendar', 'file-text', 'phone'];
 
     public static function type(): string
     {
@@ -63,7 +70,6 @@ final class SuitesSpacesSection implements SectionSchema
             'options.*.icon' => ['required', 'in:'.implode(',', self::ICONS)],
             'options.*.kicker' => ['required', 'string', 'max:28'],
             'options.*.caption' => ['required', 'string', 'max:56'],
-            'options.*.detail' => ['nullable', 'string', 'max:120'],
 
             'options.*.image.src' => $path,
             'options.*.image.src_mobile' => ['nullable', 'string', 'max:255', 'regex:#^/(?!/)#', 'not_regex:#\.\.#'],
@@ -79,11 +85,15 @@ final class SuitesSpacesSection implements SectionSchema
             'options.*.image.fit' => ['nullable', 'in:cover,contain'],
             'options.*.image.position' => ['nullable', 'regex:/^\d{1,3}% \d{1,3}%$/'],
 
-            'options.*.cta' => ['nullable', 'array'],
-            'options.*.cta.label' => ['required_with:options.*.cta', 'string', 'max:32'],
-            'options.*.cta.href' => ['required_with:options.*.cta', 'string', 'max:255', 'regex:~^(/(?!/)|https://)~'],
-            'options.*.cta.fallback_label' => ['required_with:options.*.cta', 'string', 'max:32'],
-            'options.*.cta.fallback_intent' => ['required_with:options.*.cta', 'in:'.implode(',', self::INTENTS)],
+
+            'actions' => ['present', 'array', 'max:'.self::MAX_ACTIONS],
+            'actions.*.label' => ['required', 'string', 'max:34'],
+            'actions.*.style' => ['required', 'in:primary,secondary'],
+            'actions.*.icon' => ['nullable', 'in:'.implode(',', self::ACTION_ICONS)],
+            'actions.*.intent' => ['required_without:actions.*.href', 'nullable', 'in:'.implode(',', InquiryIntents::accepted())],
+            'actions.*.href' => ['required_without:actions.*.intent', 'nullable', 'string', 'max:255', 'regex:~^(/(?!/)|https://)~'],
+            'actions.*.fallback_label' => ['required_with:actions.*.href', 'nullable', 'string', 'max:34'],
+            'actions.*.fallback_intent' => ['required_with:actions.*.href', 'nullable', 'in:'.implode(',', InquiryIntents::accepted())],
         ]);
 
         if ($validator->fails()) {
@@ -96,18 +106,22 @@ final class SuitesSpacesSection implements SectionSchema
         $valid['eyebrow'] = InlineText::plain($valid['eyebrow']);
         $valid['intro'] = InlineText::plain($valid['intro']);
 
+        $valid['actions'] = array_map(function (array $a) {
+            $href = $a['href'] ?? null;
+            // A page link only once its page is routed; until then an honest action that does work.
+            $linked = $href !== null && ! isset($a['intent']) && InternalLink::isAvailable($href);
+
+            return [
+                'label' => InlineText::plain($linked || $href === null ? $a['label'] : $a['fallback_label']),
+                'href' => $linked ? $href : null,
+                'intent' => $linked ? null : InquiryIntents::resolve($a['intent'] ?? $a['fallback_intent']),
+                'style' => $a['style'],
+                'icon' => $a['icon'] ?? null,
+            ];
+        }, array_values($valid['actions']));
+
         $valid['options'] = array_map(function (array $o) {
             $img = $o['image'];
-            $cta = $o['cta'] ?? null;
-            if ($cta !== null) {
-                $available = InternalLink::isAvailable($cta['href']);
-                $cta = [
-                    // Real page once it exists; until then an honest action that does work.
-                    'label' => InlineText::plain($available ? $cta['label'] : $cta['fallback_label']),
-                    'href' => $available ? $cta['href'] : null,
-                    'intent' => $available ? null : $cta['fallback_intent'],
-                ];
-            }
 
             return [
                 'id' => $o['id'],
@@ -115,7 +129,6 @@ final class SuitesSpacesSection implements SectionSchema
                 'icon' => $o['icon'],
                 'kicker' => InlineText::plain($o['kicker']),
                 'caption' => InlineText::plain($o['caption']),
-                'detail' => isset($o['detail']) ? InlineText::plain($o['detail']) : null,
                 'image' => [
                     'src' => $img['src'],
                     'src_mobile' => $img['src_mobile'] ?? null,
@@ -129,7 +142,6 @@ final class SuitesSpacesSection implements SectionSchema
                     'fit' => $img['fit'] ?? 'cover',
                     'position' => $img['position'] ?? '50% 50%',
                 ],
-                'cta' => $cta,
             ];
         }, array_values($valid['options']));
 

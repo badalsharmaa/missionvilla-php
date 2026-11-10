@@ -1,6 +1,8 @@
 /* ==========================================================================
    HOMEPAGE SECTION 06 · QUESTIONS FAMILIES OFTEN ASK
-   Compact two-column band on cream: heading left, accordion right.
+   Approved mockup (middle band, corrected 2026-11-10). An independent,
+   compact two-column band on cream: heading left, one grouped accordion
+   card right. Height is content-driven (no viewport rules).
    Collapsing styles apply only once the script has enhanced the list
    ([data-enhanced]); without JavaScript every answer stays visible.
    ========================================================================== */
@@ -10,22 +12,17 @@
   overflow: hidden;
   width: 100%;
   color: var(--mv-ink);
-  background: var(--mv-cream);
-  border-top: 1px solid var(--mv-line-soft);
+  background: linear-gradient(180deg, #FCF6EF 0%, var(--mv-cream) 100%);
   scroll-margin-top: 4.5rem;
 }
 
 .faq__leaf {
   position: absolute;
   z-index: -1;
-  left: clamp(-7rem, -5vw, -2.5rem);
-  bottom: clamp(-7rem, -6vw, -3rem);
-  width: clamp(11rem, 17vw, 19rem);
-  height: auto;
-  opacity: 0.08;
-  filter: blur(1.5px) sepia(0.6) saturate(1.4);
-  pointer-events: none;
-  user-select: none;
+  left: clamp(-3rem, -2.2vw, -1rem);
+  bottom: clamp(-3rem, -2.6vw, -1.25rem);
+  width: clamp(6.5rem, 10vw, 10rem);
+  opacity: 0.45;
 }
 
 .faq__inner {
@@ -59,24 +56,37 @@
 }
 .faq__all-arrow { width: 0.95em; height: 0.95em; color: var(--mv-terracotta); }
 
-/* ---- Accordion --------------------------------------------------------------- */
+/* ---- Accordion: one grouped card, rows divided by hairlines ------------------- */
 .faq__list {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
   min-width: 0;
+  padding: 0.35rem;
+  border: 1px solid var(--mv-line);
+  border-radius: var(--mv-radius);
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 24px 48px -40px rgba(47, 18, 40, 0.5);
 }
 .faq-item {
-  border: 1px solid var(--mv-line);
+  position: relative;
   border-radius: var(--mv-radius-sm);
-  background: rgba(255, 255, 255, 0.6);
-  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+.faq-item + .faq-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: clamp(1rem, 1.6vw, 1.5rem);
+  right: clamp(1rem, 1.6vw, 1.5rem);
+  border-top: 1px solid var(--mv-line-soft);
+}
+/* The open item reads as a tinted inset; hide the hairlines that touch it. */
 .faq-item[data-open="true"] {
   background: #F5EDE3;
-  border-color: #E3D2C0;
-  box-shadow: 0 14px 30px -26px rgba(47, 18, 40, 0.45);
+  box-shadow: inset 0 0 0 1px #E8D9C8;
 }
+.faq-item[data-open="true"]::before,
+.faq-item[data-open="true"] + .faq-item::before { border-top-color: transparent; }
 .faq-item__heading { margin: 0; }
 .faq-item__trigger {
   display: flex;
@@ -132,6 +142,30 @@
   text-wrap: pretty;
 }
 
+.faq-item__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.4rem;
+  margin: calc(-1 * clamp(0.35rem, 0.8svh, 0.6rem)) 0 0;
+  padding: 0 clamp(1rem, 1.6vw, 1.5rem) clamp(1rem, 1.8svh, 1.25rem) calc(clamp(1rem, 1.6vw, 1.5rem) + clamp(1.35rem, 1.6vw, 1.6rem) + clamp(0.75rem, 1.2vw, 1.1rem));
+}
+.faq-item__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.25rem;
+  color: var(--mv-ink);
+  font-size: var(--mv-fs-ui);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(182, 99, 75, 0.5);
+  text-underline-offset: 0.3em;
+  transition: color 0.2s ease;
+}
+.faq-item__action:hover { color: var(--mv-terracotta-deep); }
+.faq-item__action:focus-visible { outline: 2px solid var(--mv-terracotta); outline-offset: 3px; border-radius: 4px; }
+.faq-item__action-arrow { width: 0.9em; height: 0.9em; color: var(--mv-terracotta); }
+
 /* Enhanced (JS) behaviour: closed panels collapse to zero height with a short ease. */
 [data-enhanced] .faq-item__panel {
   display: grid;
@@ -150,7 +184,8 @@
 .faq-featured:not([data-enhanced]) .faq-item__toggle { display: none; }
 
 @media (max-width: 479px) {
-  .faq-item__answer { padding-left: clamp(1rem, 1.6vw, 1.5rem); }
+  .faq-item__answer,
+  .faq-item__actions { padding-left: clamp(1rem, 1.6vw, 1.5rem); }
 }
 
 @media (min-width: 1024px) {

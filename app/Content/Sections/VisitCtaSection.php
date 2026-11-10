@@ -5,24 +5,25 @@ namespace App\Content\Sections;
 use App\Content\Contracts\SectionSchema;
 use App\Content\InlineText;
 use App\Content\InvalidSectionData;
+use App\Support\InquiryIntents;
 use Illuminate\Support\Facades\Validator;
 
 /**
  * Homepage section 07: "Come See Mission Villa for Yourself".
  *
- * Deep-plum closing band: script eyebrow, heading, short invitation, up to
- * three conversion actions and the verified address/phone.
+ * Deep-plum closing band (approved mockup, bottom band, corrected 2026-11-10).
+ * Left: script eyebrow, heading, short invitation, up to three vertical
+ * conversion actions and the verified address/phone. Right: an inline cream
+ * inquiry card (the shared form, components/inquiry/form) for visitors who
+ * reach the section naturally.
  *
- * Each action carries an inquiry intent. They all open ONE shared inquiry
- * form (resources/views/components/inquiry/dialog.blade.php) with that intent
- * preselected. Schedule a Visit prefers the existing hero visit dialog when the
- * page has one (window.MissionVilla.openVisit). Contact details are not
- * section copy: they come from the verified site facts in config/missionvilla.php.
+ * Each action carries an inquiry intent and opens the shared inquiry MODAL
+ * with it preselected (website-wide rule: form CTAs never scroll to a form,
+ * not even to the card beside them). Contact details are not section copy:
+ * they come from the verified site facts in config/missionvilla.php.
  */
 final class VisitCtaSection implements SectionSchema
 {
-    public const INTENTS = ['schedule_visit', 'request_pricing', 'request_callback'];
-
     public const ICONS = ['calendar', 'file-text', 'phone'];
 
     public static function type(): string
@@ -47,10 +48,15 @@ final class VisitCtaSection implements SectionSchema
             'heading' => ['required', 'string', 'max:60'],
             'body' => ['required', 'string', 'max:220'],
             'actions' => ['required', 'array', 'min:1', 'max:3'],
-            'actions.*.intent' => ['required', 'in:'.implode(',', self::INTENTS), 'distinct'],
+            'actions.*.intent' => ['required', 'in:'.implode(',', InquiryIntents::accepted()), 'distinct'],
             'actions.*.label' => ['required', 'string', 'max:24'],
             'actions.*.icon' => ['required', 'in:'.implode(',', self::ICONS)],
             'show_contact' => ['required', 'boolean'],
+            // Inline inquiry card. Fields and inquiry types come from config/missionvilla.php → inquiries.
+            'form' => ['nullable', 'array'],
+            'form.enabled' => ['required_with:form', 'boolean'],
+            'form.heading' => ['required_with:form', 'string', 'max:60'],
+            'form.lede' => ['required_with:form', 'string', 'max:180'],
         ]);
 
         if ($validator->fails()) {
@@ -65,12 +71,16 @@ final class VisitCtaSection implements SectionSchema
             'body' => InlineText::plain($valid['body']),
             // The first action is the primary (terracotta) button; the rest are outlined.
             'actions' => array_map(fn (array $a, int $i) => [
-                'intent' => $a['intent'],
+                'intent' => InquiryIntents::resolve($a['intent']),
                 'label' => InlineText::plain($a['label']),
                 'icon' => $a['icon'],
                 'primary' => $i === 0,
             ], array_values($valid['actions']), array_keys(array_values($valid['actions']))),
             'show_contact' => (bool) $valid['show_contact'],
+            'form' => ! empty($valid['form']['enabled']) ? [
+                'heading' => InlineText::plain($valid['form']['heading']),
+                'lede' => InlineText::plain($valid['form']['lede']),
+            ] : null,
         ];
     }
 }
