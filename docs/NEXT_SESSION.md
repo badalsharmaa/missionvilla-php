@@ -34,6 +34,9 @@ updated 2026-11-10 after the Sections 05–07 design correction and the website-
 
 ## Start-up checklist
 
+**Design standard:** before porting any page or section, read `.agents/skills/missionvilla-design-standard/SKILL.md`
+(the approved homepage design rules; also linked for Claude at `.claude/skills/` and as an Antigravity rule in `.agent/rules/`).
+
 ```bash
 cd missionvilla-php
 docker compose up -d
