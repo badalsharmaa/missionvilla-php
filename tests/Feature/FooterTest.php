@@ -27,15 +27,18 @@ class FooterTest extends TestCase
         $html = $this->get('/')->getContent();
         $footer = substr($html, strpos($html, '<footer class="site-footer"'));
 
-        // /memory-care is now routed, so its footer link points to the real page.
+        // /memory-care and /respite-care are now routed, so their footer links point to real pages.
         $this->assertStringContainsString('href="'.url('/memory-care').'"', $footer);
+        $this->assertStringContainsString('href="'.url('/respite-care').'"', $footer);
 
-        foreach (['/respite-care', '/suites-and-floor-plans', '/life-at-mission-villa', '/about', '/for-families', '/financial-planning', '/gallery', '/contact'] as $path) {
+        foreach (['/suites-and-floor-plans', '/life-at-mission-villa', '/about', '/for-families', '/financial-planning', '/gallery', '/contact'] as $path) {
             $this->assertStringNotContainsString('href="'.url($path).'"', $footer, $path);
         }
-        foreach (['/#care-options', '/#suites', '/#life-at-mission-villa', '/#why-families', '/#faq', '/#visit'] as $anchor) {
+        foreach (['/#suites', '/#life-at-mission-villa', '/#why-families', '/#faq', '/#visit'] as $anchor) {
             $this->assertStringContainsString('href="'.url($anchor).'"', $footer, $anchor);
         }
+        // Both Memory Care and Respite Care are routed, so the #care-options fallback is no longer rendered.
+        $this->assertStringNotContainsString('href="'.url('/#care-options').'"', $footer);
         $this->assertStringContainsString('Family FAQs', $footer);
         $this->assertStringNotContainsString('Financial Planning', $footer);
     }

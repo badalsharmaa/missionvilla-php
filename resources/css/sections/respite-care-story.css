@@ -1,0 +1,157 @@
+/* -----------------------------------------------------------------------------
+ * RESPITE CARE SECTION 04 · A WELCOMING STAY, FROM START TO FINISH
+ * -------------------------------------------------------------------------- */
+
+.rc-story {
+  position: relative;
+  isolation: isolate;
+  background: var(--mv-cream);
+  color: var(--mv-ink);
+  padding-block: clamp(3.5rem, 8svh, 5.5rem);
+  overflow: hidden;
+}
+
+.rc-story__inner {
+  position: relative;
+  z-index: 1;
+  padding-inline: var(--mv-gutter);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4svh, 3rem);
+}
+
+/* Head */
+.rc-story__head {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.6rem, 1.2svh, 1rem);
+  max-width: 48rem;
+}
+
+.rc-story__title {
+  margin: 0;
+  color: var(--mv-ink);
+}
+
+.rc-story__intro {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: var(--mv-fs-body);
+  line-height: 1.6;
+  color: var(--mv-ink-soft);
+  max-width: 44rem;
+  margin: 0;
+}
+
+/* 3-Moment Cards Grid */
+.rc-story__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+@media (min-width: 768px) {
+  .rc-story__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.rc-story__card {
+  position: relative;
+  background: #FFFDF9;
+  border: 1px solid var(--mv-line, #E6D7C8);
+  border-radius: var(--mv-radius, 1.25rem);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 28px -12px rgba(47, 18, 40, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rc-story__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px -16px rgba(47, 18, 40, 0.14);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rc-story__card:hover {
+    transform: none;
+  }
+}
+
+.rc-story__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--mv-cream-deep);
+  overflow: hidden;
+}
+
+.rc-story__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rc-story__provenance {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  background: rgba(24, 15, 23, 0.72);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(251, 245, 239, 0.15);
+  border-radius: 999px;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.03em;
+  color: rgba(251, 245, 239, 0.82);
+  pointer-events: none;
+}
+
+.rc-story__body {
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex-grow: 1;
+}
+
+.rc-story__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.rc-story__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  background: rgba(182, 99, 75, 0.12);
+  color: var(--mv-terracotta);
+  flex: none;
+}
+
+.rc-story__icon .mv-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.rc-story__card-title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(1.15rem, 1.35vw, 1.35rem);
+  font-weight: 600;
+  color: var(--mv-ink);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.rc-story__card-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(0.88rem, 0.95vw, 0.95rem);
+  line-height: 1.6;
+  color: var(--mv-ink-soft);
+  margin: 0;
+}

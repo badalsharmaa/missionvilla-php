@@ -23,6 +23,11 @@ class PageController extends Controller
         return $this->render('memory-care');
     }
 
+    public function respiteCare(): View
+    {
+        return $this->render('respite-care');
+    }
+
     private function render(string $slug): View
     {
         $page = $this->content->findPublishedPage($slug) ?? abort(404);

@@ -1,0 +1,269 @@
+/* -----------------------------------------------------------------------------
+ * RESPITE CARE SECTION 07 · QUESTIONS FAMILIES OFTEN ASK
+ * -------------------------------------------------------------------------- */
+
+.rc-faq {
+  position: relative;
+  isolation: isolate;
+  background: var(--mv-cream);
+  color: var(--mv-ink);
+  padding-block: clamp(3.5rem, 8svh, 5.5rem);
+  overflow: hidden;
+}
+
+.rc-faq__leaf {
+  position: absolute;
+  bottom: -3rem;
+  right: -3rem;
+  width: clamp(14rem, 22vw, 22rem);
+  height: clamp(14rem, 22vw, 22rem);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+  transform: scaleX(-1);
+}
+
+.rc-faq__inner {
+  position: relative;
+  z-index: 1;
+  padding-inline: var(--mv-gutter);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4svh, 3rem);
+}
+
+/* Head */
+.rc-faq__head {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.6rem, 1.2svh, 1rem);
+  max-width: 48rem;
+}
+
+.rc-faq__title {
+  margin: 0;
+  color: var(--mv-ink);
+}
+
+.rc-faq__intro {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: var(--mv-fs-body);
+  line-height: 1.6;
+  color: var(--mv-ink-soft);
+  max-width: 44rem;
+  margin: 0;
+}
+
+/* 2-Column Grid */
+.rc-faq__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .rc-faq__grid {
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  }
+}
+
+/* Left: Planning Guide Card (Deep Plum) */
+.rc-faq__guide {
+  background: linear-gradient(180deg, var(--mv-plum) 0%, var(--mv-plum-mid) 100%);
+  color: var(--mv-ivory);
+  border-radius: var(--mv-radius, 1.25rem);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 16px 36px -16px rgba(47, 18, 40, 0.25);
+  border: 1px solid rgba(251, 245, 239, 0.15);
+}
+
+.rc-faq__guide-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rc-faq__guide-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  background: rgba(237, 190, 150, 0.2);
+  color: var(--mv-peach);
+  flex: none;
+}
+
+.rc-faq__guide-icon .mv-icon {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.rc-faq__guide-kicker {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--mv-peach);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.rc-faq__guide-title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(1.2rem, 1.5vw, 1.45rem);
+  font-weight: 600;
+  color: var(--mv-ivory);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.rc-faq__guide-intro {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(0.85rem, 0.95vw, 0.95rem);
+  line-height: 1.55;
+  color: rgba(251, 245, 239, 0.88);
+  margin: 0;
+}
+
+.rc-faq__guide-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.rc-faq__guide-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(0.85rem, 0.9vw, 0.92rem);
+  line-height: 1.45;
+  color: var(--mv-ivory);
+}
+
+.rc-faq__guide-check {
+  color: var(--mv-peach);
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
+  margin-top: 0.15rem;
+}
+
+.rc-faq__guide-action {
+  margin-top: 0.5rem;
+}
+
+.rc-faq__guide-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Right: Accordion Card */
+.rc-faq__card {
+  background: #FFFDF9;
+  border: 1px solid var(--mv-line, #E6D7C8);
+  border-radius: var(--mv-radius, 1.25rem);
+  overflow: hidden;
+  box-shadow: 0 12px 32px -12px rgba(47, 18, 40, 0.08);
+}
+
+.rc-faq__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rc-faq__item {
+  border-bottom: 1px solid var(--mv-line, #E6D7C8);
+  transition: background 0.25s ease;
+}
+
+.rc-faq__item:last-child {
+  border-bottom: none;
+}
+
+.rc-faq__item.is-open {
+  background: rgba(244, 234, 224, 0.35);
+}
+
+.rc-faq__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: clamp(1.15rem, 2vw, 1.5rem) clamp(1.25rem, 2.5vw, 2rem);
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: var(--mv-ink);
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(1.08rem, 1.25vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
+
+.rc-faq__trigger:hover {
+  color: var(--mv-terracotta);
+}
+
+.rc-faq__trigger:focus-visible {
+  outline: 2px solid var(--mv-terracotta);
+  outline-offset: -2px;
+}
+
+.rc-faq__question {
+  flex-grow: 1;
+}
+
+.rc-faq__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: rgba(182, 99, 75, 0.1);
+  color: var(--mv-terracotta);
+  flex: none;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.rc-faq__chevron {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.rc-faq__item.is-open .rc-faq__chevron {
+  transform: rotate(180deg);
+}
+
+.rc-faq__item.is-open .rc-faq__icon-wrap {
+  background: var(--mv-plum);
+  color: var(--mv-peach);
+}
+
+.rc-faq__body {
+  padding: 0 clamp(1.25rem, 2.5vw, 2rem) clamp(1.15rem, 2vw, 1.5rem);
+}
+
+.rc-faq__answer p {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: var(--mv-fs-body);
+  line-height: 1.65;
+  color: var(--mv-ink-soft);
+  margin: 0;
+}

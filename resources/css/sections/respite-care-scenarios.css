@@ -1,0 +1,301 @@
+/* -----------------------------------------------------------------------------
+ * RESPITE CARE SECTION 02 · WHEN FAMILIES CHOOSE RESPITE CARE
+ * -------------------------------------------------------------------------- */
+
+.rc-scenarios {
+  position: relative;
+  isolation: isolate;
+  background: var(--mv-cream);
+  color: var(--mv-ink);
+  padding-block: clamp(3.5rem, 8svh, 5.5rem);
+  overflow: hidden;
+}
+
+.rc-scenarios__leaf {
+  position: absolute;
+  top: -3rem;
+  left: -3rem;
+  width: clamp(12rem, 20vw, 20rem);
+  height: clamp(12rem, 20vw, 20rem);
+  opacity: 0.14;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.rc-scenarios__inner {
+  position: relative;
+  z-index: 1;
+  padding-inline: var(--mv-gutter);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4svh, 3rem);
+}
+
+/* Head */
+.rc-scenarios__head {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.6rem, 1.2svh, 1rem);
+  max-width: 48rem;
+}
+
+.rc-scenarios__title {
+  margin: 0;
+  color: var(--mv-ink);
+}
+
+.rc-scenarios__intro {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: var(--mv-fs-body);
+  line-height: 1.6;
+  color: var(--mv-ink-soft);
+  max-width: 44rem;
+  margin: 0;
+}
+
+/* Tabs list */
+.rc-scenarios__tablist {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .rc-scenarios__tablist {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .rc-scenarios__tablist {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.rc-scenarios__tab {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: #FFFDFC;
+  border: 1px solid var(--mv-line, #E6D7C8);
+  border-radius: var(--mv-radius-sm, 0.75rem);
+  color: var(--mv-ink);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: var(--mv-fs-ui);
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(47, 18, 40, 0.04);
+}
+
+.rc-scenarios__tab:hover {
+  border-color: var(--mv-terracotta);
+  background: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.rc-scenarios__tab:focus-visible {
+  outline: 2px solid var(--mv-terracotta);
+  outline-offset: 2px;
+}
+
+.rc-scenarios__tab.is-active {
+  background: var(--mv-plum);
+  color: var(--mv-ivory);
+  border-color: var(--mv-plum);
+  box-shadow: 0 8px 24px -8px rgba(47, 18, 40, 0.35);
+}
+
+.rc-scenarios__tab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  flex: none;
+  border-radius: 999px;
+  background: rgba(182, 99, 75, 0.12);
+  color: var(--mv-terracotta);
+  transition: all 0.25s ease;
+}
+
+.rc-scenarios__tab.is-active .rc-scenarios__tab-icon {
+  background: rgba(237, 190, 150, 0.2);
+  color: var(--mv-peach);
+}
+
+.rc-scenarios__tab-label {
+  line-height: 1.3;
+}
+
+/* Panel Stage: Grid-Stacked */
+.rc-scenarios__stage {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.rc-scenarios__panel {
+  grid-area: 1 / 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  padding: clamp(1.75rem, 3.5vw, 3rem);
+  background: #FFFDF9;
+  border: 1px solid var(--mv-line, #E6D7C8);
+  border-radius: var(--mv-radius, 1.25rem);
+  box-shadow: 0 16px 36px -16px rgba(47, 18, 40, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+@media (min-width: 1024px) {
+  .rc-scenarios__panel {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: center;
+  }
+}
+
+.rc-scenarios__panel.is-active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rc-scenarios__panel {
+    transition: none;
+  }
+}
+
+/* Left Narrative */
+.rc-scenarios__narrative {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.rc-scenarios__panel-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.rc-scenarios__panel-kicker {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(0.7rem, 0.8vw, 0.82rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--mv-terracotta);
+}
+
+.rc-scenarios__panel-title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: var(--mv-fs-card-title);
+  font-weight: 600;
+  color: var(--mv-ink);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.rc-scenarios__panel-sub {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--mv-terracotta-deep);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.rc-scenarios__panel-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: var(--mv-fs-body);
+  line-height: 1.65;
+  color: var(--mv-ink-soft);
+  margin: 0;
+}
+
+.rc-scenarios__points-wrap {
+  margin-top: 0.25rem;
+}
+
+.rc-scenarios__points-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.rc-scenarios__point-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: var(--mv-fs-body);
+  line-height: 1.5;
+  color: var(--mv-ink);
+}
+
+.rc-scenarios__check {
+  color: var(--mv-terracotta);
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
+  margin-top: 0.2rem;
+}
+
+/* Right Visual */
+.rc-scenarios__visual {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.rc-scenarios__photo-frame {
+  position: relative;
+  border-radius: var(--mv-radius-sm, 1rem);
+  overflow: hidden;
+  box-shadow: 0 12px 30px -12px rgba(47, 18, 40, 0.18);
+  aspect-ratio: 4 / 3;
+  background: var(--mv-cream-deep);
+}
+
+.rc-scenarios__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rc-scenarios__provenance {
+  position: absolute;
+  bottom: 0.65rem;
+  right: 0.65rem;
+  padding: 0.2rem 0.6rem;
+  background: rgba(36, 18, 33, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(251, 245, 239, 0.15);
+  border-radius: 999px;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.03em;
+  color: rgba(251, 245, 239, 0.85);
+  pointer-events: none;
+}
+
+.rc-scenarios__caption {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(0.85rem, 0.95vw, 0.95rem);
+  font-style: italic;
+  color: var(--mv-ink-soft);
+  margin: 0;
+  text-align: center;
+}

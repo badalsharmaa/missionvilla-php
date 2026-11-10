@@ -1,0 +1,205 @@
+/* -----------------------------------------------------------------------------
+ * RESPITE CARE SECTION 05 · CARING FOR THE CAREGIVER
+ * -------------------------------------------------------------------------- */
+
+.rc-caregiver {
+  --cg-wave: clamp(1.75rem, 4.2vw, 4.25rem);
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  padding-top: var(--cg-wave);
+  color: var(--mv-ivory);
+  background: var(--mv-cream);
+}
+
+.rc-caregiver__wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(var(--cg-wave) + 2px);
+  display: block;
+}
+
+.rc-caregiver__wave-fill {
+  fill: var(--mv-plum);
+}
+
+.rc-caregiver::before {
+  content: '';
+  position: absolute;
+  inset: var(--cg-wave) 0 0 0;
+  z-index: -1;
+  background: var(--mv-plum-mid);
+}
+
+.rc-caregiver__leaf {
+  position: absolute;
+  z-index: 0;
+  right: clamp(-5rem, -3vw, -1.5rem);
+  bottom: clamp(-5rem, -4vw, -2rem);
+  width: clamp(12rem, 22vw, 24rem);
+  height: clamp(12rem, 22vw, 24rem);
+  opacity: 0.12;
+  transform: scaleX(-1);
+  pointer-events: none;
+  user-select: none;
+}
+
+.rc-caregiver__inner {
+  position: relative;
+  z-index: 1;
+  padding: clamp(2rem, 5svh, 3.5rem) var(--mv-gutter) clamp(3.5rem, 8svh, 5.5rem);
+  background: linear-gradient(180deg, var(--mv-plum) 0%, var(--mv-plum-mid) 100%);
+  margin-top: -1px;
+}
+
+.rc-caregiver__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .rc-caregiver__content {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  }
+}
+
+/* Left Story */
+.rc-caregiver__story {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 1.5svh, 1.25rem);
+}
+
+.rc-caregiver__eyebrow {
+  color: var(--mv-peach);
+  margin: 0;
+}
+
+.rc-caregiver__rule {
+  background: var(--mv-peach);
+}
+
+.rc-caregiver__title {
+  margin: 0;
+  color: var(--mv-ivory);
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: var(--mv-fs-title);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.rc-caregiver__title em {
+  display: block;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--mv-peach);
+}
+
+.rc-caregiver__narrative {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: var(--mv-fs-body);
+  line-height: 1.65;
+  color: rgba(251, 245, 239, 0.92);
+  margin: 0;
+  max-width: 38rem;
+}
+
+.rc-caregiver__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(0.85rem, 1.4vw, 1.25rem);
+  padding-top: clamp(0.5rem, 1.5svh, 1rem);
+}
+
+@media (max-width: 639.98px) {
+  .rc-caregiver__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .rc-caregiver__actions .mv-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Right Concept Cards */
+.rc-caregiver__concepts {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rc-caregiver__concept-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.15rem;
+  padding: clamp(1.2rem, 1.8vw, 1.5rem);
+  background: rgba(251, 245, 239, 0.06);
+  border: 1px solid rgba(251, 245, 239, 0.16);
+  border-radius: var(--mv-radius-sm, 0.85rem);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px -10px rgba(10, 2, 8, 0.4);
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.rc-caregiver__concept-card:hover {
+  transform: translateY(-2px);
+  background: rgba(251, 245, 239, 0.1);
+  border-color: rgba(237, 190, 150, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rc-caregiver__concept-card:hover {
+    transform: none;
+  }
+}
+
+.rc-caregiver__concept-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: rgba(237, 190, 150, 0.18);
+  color: var(--mv-peach);
+  flex: none;
+  margin-top: 0.1rem;
+}
+
+.rc-caregiver__concept-icon .mv-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.rc-caregiver__concept-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.rc-caregiver__concept-title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(1.1rem, 1.25vw, 1.25rem);
+  font-weight: 600;
+  color: var(--mv-ivory);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.rc-caregiver__concept-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(0.85rem, 0.9vw, 0.9rem);
+  line-height: 1.5;
+  color: rgba(251, 245, 239, 0.82);
+  margin: 0;
+}

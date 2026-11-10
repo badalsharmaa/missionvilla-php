@@ -1,10 +1,23 @@
 # Next Session
 
 _Written 2026-11-09 at the end of Phase 1; updated 2026-11-10 after Sections 05–07 correction and the website-wide modal rule;
-updated 2026-11-10 after implementing the Memory Care landing page (`/memory-care`)._
+updated 2026-11-10 after implementing the Memory Care landing page (`/memory-care`);
+updated 2026-11-10 after implementing the Short-Term Respite Care landing page (`/respite-care`)._
 
 ## Current state
 
+- **Respite Care page (`/respite-care`) implemented on branch `feat/respite-care-php`:**
+  Second complete internal page ported to Laravel according to the approved design standard (`.agents/skills/missionvilla-design-standard/`) and approved visual mockup (`Mission Villa Respite Care Website Mockup.png`).
+  Includes:
+  1. `respite-care.hero`: Photographic hero with dark plum gradient scrim, Newsreader 600 title, Newsreader italic 500 subtitle, body narrative, 3-column information strip (Stay Duration, Accommodations, Location), Inquire About Respite Availability CTA (`data-inquiry="request_availability"` + `care="respite_care"`), See How a Short-Term Stay Works anchor to `#respite-planning`, and direct phone link.
+  2. `respite-care.scenarios`: "Support When You Need It Most" 4-scenario interactive selector with ARIA tablist/tabpanels, grid-stacked panels eliminating layout shift, verified points, and photography with provenance labels.
+  3. `respite-care.inclusions`: "Comfort, Care & Everyday Support" editorial asymmetrical layout with 6 stay inclusions (Chef-Prepared Meals, Furnished Accommodations, Daily Assistance, Daily Life, Hospitality, Care Coordination) and team confirmation notice.
+  4. `respite-care.story`: "A Welcoming Stay, From Start to Finish" 3-moment visual story cards (Arrival & Settling In, Shared Meals & Gentle Activity, Restful Evenings & Reassurance).
+  5. `respite-care.caregiver`: "Caring for the Caregiver. Take Time to Rest." deep-plum emotional band with wave top edge, caregiver reassurance narrative, conversion actions, and 3 concept cards (Peace of Mind, Memory-Loss Familiarity, Compassionate Temporary Support).
+  6. `respite-care.timeline`: "A Simple Stay-Planning Timeline" 5-step sequence (Reach Out, Care Review, Choose Dates, Prepare for Arrival, Welcome to Mission Villa) with interactive step selection on desktop and stacked mobile cards.
+  7. `respite-care.faq`: "Questions Families Often Ask" 2-column layout with left Respite Stay Planning Guide card (checklist and modal inquiry action) and right 5-question accessible accordion card.
+  8. `visit.cta`: "Talk With Our Respite Care Team" deep-plum closing band with 3 conversion actions and the inline cream inquiry card (`#visit-form`, with `care_interest` preselected to `respite_care`).
+  Screenshots and measurements in `../docs/respite-care-2026-11-10/`. 159 automated tests pass (14 new tests).
 - **Memory Care page (`/memory-care`) implemented on branch `feat/memory-care-laravel`:**
   First complete internal page ported to Laravel according to the approved design standard (`.agents/skills/missionvilla-design-standard/`).
   Includes:

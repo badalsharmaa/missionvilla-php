@@ -16,6 +16,13 @@ use App\Content\Sections\MemoryCareCareComfortSection;
 use App\Content\Sections\MemoryCareDailyLifeSection;
 use App\Content\Sections\MemoryCareHeroSection;
 use App\Content\Sections\MemoryCareLegaciesSection;
+use App\Content\Sections\RespiteCareCaregiverSection;
+use App\Content\Sections\RespiteCareFaqSection;
+use App\Content\Sections\RespiteCareHeroSection;
+use App\Content\Sections\RespiteCareInclusionsSection;
+use App\Content\Sections\RespiteCareScenariosSection;
+use App\Content\Sections\RespiteCareStorySection;
+use App\Content\Sections\RespiteCareTimelineSection;
 use App\Content\Sections\SuitesSpacesSection;
 use App\Content\Sections\VisitCtaSection;
 use App\Content\Sections\WhyFamiliesSection;
@@ -47,6 +54,13 @@ class AppServiceProvider extends ServiceProvider
             new MemoryCareLegaciesSection,
             new MemoryCareDailyLifeSection,
             new MemoryCareCareComfortSection,
+            new RespiteCareHeroSection,
+            new RespiteCareScenariosSection,
+            new RespiteCareInclusionsSection,
+            new RespiteCareStorySection,
+            new RespiteCareCaregiverSection,
+            new RespiteCareTimelineSection,
+            new RespiteCareFaqSection,
         ]));
 
         $this->app->singleton(ContentRepository::class, function ($app) {

@@ -1,0 +1,276 @@
+/* -----------------------------------------------------------------------------
+ * RESPITE CARE SECTION 03 · COMFORT, CARE & EVERYDAY SUPPORT
+ * -------------------------------------------------------------------------- */
+
+.rc-inclusions {
+  position: relative;
+  isolation: isolate;
+  background: var(--mv-cream);
+  color: var(--mv-ink);
+  padding-block: clamp(3.5rem, 8svh, 5.5rem);
+  overflow: hidden;
+}
+
+.rc-inclusions__leaf {
+  position: absolute;
+  top: 2rem;
+  right: -3rem;
+  width: clamp(14rem, 22vw, 22rem);
+  height: clamp(14rem, 22vw, 22rem);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+  transform: scaleX(-1);
+}
+
+.rc-inclusions__inner {
+  position: relative;
+  z-index: 1;
+  padding-inline: var(--mv-gutter);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4svh, 3rem);
+}
+
+/* Head */
+.rc-inclusions__head {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.6rem, 1.2svh, 1rem);
+  max-width: 48rem;
+}
+
+.rc-inclusions__title {
+  margin: 0;
+  color: var(--mv-ink);
+}
+
+.rc-inclusions__intro {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: var(--mv-fs-body);
+  line-height: 1.6;
+  color: var(--mv-ink-soft);
+  max-width: 44rem;
+  margin: 0;
+}
+
+/* Asymmetrical Layout Grid */
+.rc-inclusions__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 1.8vw, 1.5rem);
+  align-items: stretch;
+}
+
+@media (min-width: 1100px) {
+  .rc-inclusions__grid {
+    grid-template-columns: 1.15fr 2.45fr 1fr;
+  }
+}
+
+/* Center group: Accommodations + 3-card trio */
+.rc-inclusions__center {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 1.8vw, 1.5rem);
+  height: 100%;
+}
+
+.rc-inclusions__trio {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  flex-grow: 1;
+}
+
+@media (min-width: 640px) {
+  .rc-inclusions__trio {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Base Card */
+.rc-inc-card {
+  position: relative;
+  border-radius: var(--mv-radius, 1.25rem);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.rc-inc-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -16px rgba(47, 18, 40, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rc-inc-card:hover {
+    transform: none;
+  }
+}
+
+/* Icons */
+.rc-inc-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  flex: none;
+  margin-bottom: 0.75rem;
+}
+
+.rc-inc-card__icon .mv-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.rc-inc-card__icon--terracotta {
+  background: rgba(182, 99, 75, 0.12);
+  color: var(--mv-terracotta);
+}
+
+.rc-inc-card__icon--peach {
+  background: rgba(237, 190, 150, 0.18);
+  color: var(--mv-peach);
+}
+
+.rc-inc-card__title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(1.15rem, 1.4vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--mv-ink);
+  margin: 0 0 0.5rem;
+}
+
+.rc-inc-card__title--light {
+  color: var(--mv-ivory);
+}
+
+.rc-inc-card__desc {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(0.85rem, 0.92vw, 0.95rem);
+  line-height: 1.55;
+  color: var(--mv-ink-soft);
+  margin: 0;
+}
+
+.rc-inc-card__desc--light {
+  color: rgba(251, 245, 239, 0.85);
+}
+
+/* Provenance badge */
+.rc-inc-card__provenance {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  background: rgba(24, 15, 23, 0.75);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(251, 245, 239, 0.15);
+  border-radius: 999px;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.03em;
+  color: rgba(251, 245, 239, 0.82);
+  pointer-events: none;
+}
+
+/* 1. Meals Card (Tall Photo Lead) */
+.rc-inc-card--meals {
+  background: var(--mv-plum);
+  border: 1px solid rgba(71, 36, 61, 0.2);
+}
+
+.rc-inc-card--meals .rc-inc-card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--mv-cream-deep);
+}
+
+.rc-inc-card--meals .rc-inc-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rc-inc-card--meals .rc-inc-card__body--plum {
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  flex-grow: 1;
+}
+
+/* 2. Accommodations Card (Horizontal media card) */
+.rc-inc-card--acc {
+  background: #FFFDF9;
+  border: 1px solid var(--mv-line, #E6D7C8);
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .rc-inc-card--acc {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+}
+
+.rc-inc-card__acc-text {
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rc-inc-card__acc-media {
+  position: relative;
+  min-height: 160px;
+  background: var(--mv-cream-deep);
+}
+
+.rc-inc-card__acc-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 3. Cream Trio Cards */
+.rc-inc-card--cream {
+  background: #FFFDFC;
+  border: 1px solid var(--mv-line, #E6D7C8);
+  padding: clamp(1.15rem, 1.8vw, 1.5rem);
+}
+
+/* 4. Care Coordination (Plum Accent Card) */
+.rc-inc-card--coord {
+  background: linear-gradient(180deg, var(--mv-plum) 0%, var(--mv-plum-mid) 100%);
+  border: 1px solid rgba(71, 36, 61, 0.25);
+  padding: clamp(1.5rem, 2.2vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Verification Note */
+.rc-inclusions__note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: var(--mv-fs-small);
+  color: var(--mv-ink-soft);
+  margin-top: 0.5rem;
+}
+
+.rc-inclusions__note-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--mv-terracotta);
+  flex: none;
+}

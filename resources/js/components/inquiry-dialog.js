@@ -36,6 +36,13 @@ const SECTION_SOURCES = {
   'legacies-difference': 'mc-legacies',
   'daily-life': 'mc-day',
   'care-comfort': 'mc-care',
+  'rc-hero': 'rc-hero',
+  'respite-scenarios': 'rc-scenarios',
+  'respite-inclusions': 'rc-inclusions',
+  'respite-story': 'rc-story',
+  'respite-caregiver': 'rc-caregiver',
+  'respite-planning': 'rc-timeline',
+  'respite-faq': 'rc-faq',
 };
 
 function uuid() {
