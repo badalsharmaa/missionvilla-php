@@ -58,6 +58,9 @@ final class FooterNavigation
                 // `pending` marks "real page not built yet" for tests and future styling.
                 $fallbackLabel = trim((string) ($link['fallback_label'] ?? ''));
                 $out[] = ['label' => $fallbackLabel !== '' ? $fallbackLabel : $label, 'href' => $fallback, 'pending' => true];
+            } elseif (($link['placeholder'] ?? null) === '#') {
+                // Explicit placeholder: show the link now, inert, until the real page is routed.
+                $out[] = ['label' => $label, 'href' => '#', 'pending' => true];
             }
         }
 

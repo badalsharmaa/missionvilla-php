@@ -37,13 +37,16 @@ class FooterTest extends TestCase
         $this->assertStringNotContainsString('Financial Planning', $footer);
     }
 
-    public function test_legal_links_are_absent_until_pages_exist(): void
+    public function test_privacy_and_terms_show_as_placeholders_until_pages_exist(): void
     {
         $html = $this->get('/')->getContent();
+        $bar = substr($html, strpos($html, '<div class="sf__bar">'));
 
-        $this->assertStringNotContainsString('Privacy Policy', $html);
+        $this->assertStringContainsString('<a href="#" class="sf__link">Privacy Policy</a>', $bar);
+        $this->assertStringContainsString('<a href="#" class="sf__link">Terms of Use</a>', $bar);
+        $this->assertStringNotContainsString('href="'.url('/privacy-policy').'"', $bar);
+        // No placeholder configured: hidden until the page is routed.
         $this->assertStringNotContainsString('Accessibility Statement', $html);
-        $this->assertStringNotContainsString('sf__legal', $html);
     }
 
     public function test_unsafe_hrefs_are_dropped(): void

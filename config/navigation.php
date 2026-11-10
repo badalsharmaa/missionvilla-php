@@ -99,8 +99,11 @@ return [
                 ],
             ],
         ],
+        // Privacy + Terms show now with a PLACEHOLDER '#' link (client request) and switch to the real page
+        // automatically once it is routed. Accessibility stays hidden until its page exists.
         'legal' => [
-            ['label' => 'Privacy Policy', 'href' => '/privacy-policy'],
+            ['label' => 'Privacy Policy', 'href' => '/privacy-policy', 'placeholder' => '#'],
+            ['label' => 'Terms of Use', 'href' => '/terms-of-use', 'placeholder' => '#'],
             ['label' => 'Accessibility Statement', 'href' => '/accessibility'],
         ],
     ],
