@@ -108,7 +108,9 @@ Every button:
 ## Header and footer (global, already built: reuse, don't rebuild)
 - **Header** (`<x-site.header>`):
   - Fixed. Transparent over the hero, solid plum glass when scrolled or on non-hero pages (`data-variant="solid"`).
-  - Logo leaf mark + Newsreader wordmark. Desktop nav from 1280px with dropdowns; mobile drawer below that.
+  - Official logo artwork: the light horizontal lockup (`mission-villa-logo-header-light.webp`), never HTML text.
+    Responsive heights and the leaf-only fallback are in `brand-logo.md`. Desktop nav from 1280px with dropdowns;
+    mobile drawer below that.
   - Ivory "Schedule a Visit" CTA (opens the modal).
   - Internal pages should use `variant="solid"` unless they open with a hero.
 - **Footer** (`<x-site.footer>`):

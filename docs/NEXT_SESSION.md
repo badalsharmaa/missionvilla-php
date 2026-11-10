@@ -14,6 +14,13 @@ updated 2026-11-10 after the Sections 05–07 design correction and the website-
   (1440×900: 75 / 53 / 85vh). **Website-wide rule:** every form CTA opens ONE shared inquiry modal with an intent
   (visit · pricing · availability · callback · general); nothing scrolls to a form. Section 07 also shows the same
   form inline. See `ARCHITECTURE.md` → "Website-wide rule". Screenshots: `../docs/sections-05-07-2026-11-10/`.
+- **2026-11-10 header logo fix (same branch):** the header's HTML "MISSION VILLA" text wordmark was replaced by the
+  official logo artwork: a horizontal lockup rearranged from the official PNG's own leaf, wordmark and subtitle pixels,
+  with ivory ink on dark (`resources/brand/build-header-logo.py`). The footer is unchanged. The brand rule and asset map
+  are in `.agents/skills/missionvilla-design-standard/references/brand-logo.md`. Screenshots: `../docs/header-logo-2026-11-10/`.
+  **Client to confirm:** (a) the horizontal lockup and light (ivory/sage) recolour, since no official horizontal or
+  reversed logo exists; (b) leaf-only header at 1280–1365px and ≤369px, where the full nav leaves no room;
+  (c) ask for vector (SVG/AI/EPS) logo files, because the master is a 1342px raster with a slightly rough edge halo.
 - **Branches:** `feat/php-foundation-hero` @ `d160d21` → `feat/section-04-why-families` @ `b22d825` →
   `feat/sections-05-07-footer` @ `82c5d7c` → **`feat/sections-05-07-modal-system`** (this correction). Each is a
   fast-forward of the previous one. Merge order when approved: 04, then 05–07, then the correction. No remote exists.

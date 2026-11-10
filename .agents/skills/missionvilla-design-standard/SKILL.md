@@ -19,6 +19,7 @@ Works for any agent (Claude Code, Codex, Antigravity, …). Paths are relative t
 | `references/components.md` | Recipes: eyebrow, titles, buttons, tabs, cards, accordion, badges, icons, leaf, wave, photos, header, footer, inquiry modal/form |
 | `references/sections.md` | Anatomy of each approved homepage section (00–07 + footer), to reuse as page patterns |
 | `references/porting-checklist.md` | Step-by-step workflow for a new page/section and the verification you must run before you call it done |
+| `references/brand-logo.md` | Official logo assets: canonical source, approved variants, header/footer usage, spacing, responsive sizes, contrast rules |
 
 Live sources: `resources/css/app.css`, `resources/css/components/editorial.css` (shared `--mv-*` tokens),
 `resources/css/sections/*.css`, `resources/views/sections/*`, `resources/views/components/*`,
@@ -64,6 +65,9 @@ Live sources: `resources/css/app.css`, `resources/css/components/editorial.css` 
 10. **Don't silently drop reference features.** When porting from the React reference, list what you will not
     port and ask the user first.
 11. **Never modify the React reference** (`missionvilla-ui-new`). **Never deploy** as a side effect. Deploying needs an explicit request.
+12. **Official logo artwork only.** All Mission Villa branding must use official approved logo assets. Do not
+    recreate the wordmark using generic HTML text or substitute typography. Use the light lockup on dark surfaces,
+    the colour lockup or stacked logo on light ones, and never use a different leaf. See `references/brand-logo.md`.
 
 ## The look in one paragraph
 

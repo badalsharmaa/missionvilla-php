@@ -24,12 +24,19 @@
 <header class="site-header" data-site-header data-variant="{{ $variant }}">
     <div class="site-header__bar">
         <a href="/" class="site-header__brand" aria-label="{{ $site['name'] }} — Home">
-            {{-- Official Mission Villa leaf mark (from the brand PDF, via the React reference public/brand). --}}
-            <img src="{{ asset('images/brand/mission-villa-mark-160.webp') }}" alt="" width="160" height="102" class="site-header__mark">
-            <span class="site-header__wordmark">
-                <span class="site-header__name">MISSION VILLA</span>
-                <span class="site-header__tagline">Senior Living<span class="site-header__tagline-place"> · Daly City</span></span>
-            </span>
+            {{--
+                Official Mission Villa logo artwork — never recreate the wordmark as HTML text.
+                Light derivative (ivory wordmark, colour leaf, gold rules) of the official logo,
+                built by resources/brand/build-header-logo.py. The header surface is always dark.
+                See .agents/skills/missionvilla-design-standard/references/brand-logo.md.
+                Where the full nav leaves no room (≤369px, 1280–1365px) the official leaf mark stands alone;
+                the link's aria-label carries the name.
+            --}}
+            <picture class="site-header__logo-wrap">
+                <source media="(max-width: 369.98px), (min-width: 1280px) and (max-width: 1365.98px)"
+                        srcset="{{ asset('images/brand/mission-villa-mark-160.webp') }}" width="160" height="102">
+                <img src="{{ asset('images/brand/mission-villa-logo-header-light.webp') }}" alt="" width="1046" height="168" class="site-header__logo" data-brand-logo>
+            </picture>
         </a>
 
         <nav class="site-header__nav" aria-label="Primary">

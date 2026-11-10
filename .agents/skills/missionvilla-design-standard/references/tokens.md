@@ -9,7 +9,7 @@ Loaded once in `resources/views/components/layouts/site.blade.php` (Google Fonts
 
 | Family | Weights | Use |
 |---|---|---|
-| **Newsreader** (serif, `font-optical-sizing: auto`) | roman 400/500/600, italic 400/500 | Section titles (500), card/modal titles, captions (italic 400), FAQ questions (600), header wordmark (600), nav labels |
+| **Newsreader** (serif, `font-optical-sizing: auto`) | roman 400/500/600, italic 400/500 | Section titles (500), card/modal titles, captions (italic 400), FAQ questions (600), nav labels. The logo wordmark is official artwork, never set in Newsreader (see `brand-logo.md`) |
 | **Plus Jakarta Sans** (sans) | 400/500/600 | Body (default), eyebrows/kickers (600 uppercase), buttons (600), forms, nav, captions |
 | **Allura** (script) | 400 | Only the script eyebrow ("A Place to Belong") and the intro shutters. Load per section |
 
