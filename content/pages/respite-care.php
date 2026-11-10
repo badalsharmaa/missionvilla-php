@@ -439,7 +439,7 @@ return [
             'data' => [
                 'eyebrow' => 'Respite Care FAQ',
                 'heading' => 'Your Questions, <em>Answered.</em>',
-                'intro' => 'Helpful information to support your planning, plus a few key questions to consider as you explore short-term stay options.',
+                'intro' => 'Helpful information to support your planning, plus a few key questions to consider as you explore short-term respite care at Mission Villa.',
                 'guide' => [
                     'title' => 'Respite Stay Planning Guide',
                     'kicker' => 'Helpful Considerations',
