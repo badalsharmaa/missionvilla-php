@@ -26,10 +26,13 @@
   /* Site-wide side padding = the hero's --pad-x (app.css). Every section aligns to it; never box content. */
   --mv-gutter: var(--pad-x);
 
-  /* Shared type scale (Section 02). */
+  /* Shared type scale. The hero is the reference: section titles = hero headline,
+     body/intro copy = hero body copy (hero-cinematic.css). Card titles sit one step below. */
   --mv-fs-eyebrow: clamp(0.72rem, 0.9vw, 0.95rem);
-  --mv-fs-title: clamp(2.15rem, min(3.9vw, 7.6svh), 4.75rem);
-  --mv-fs-body: clamp(0.98rem, 1.25vw, 1.3rem);
+  --mv-fs-title: clamp(2.25rem, 3.4vw, 3.35rem);        /* = .hero-headline: 36px → 46px @1366 → 53.6px */
+  --mv-fs-card-title: clamp(1.6rem, 2.2vw, 2.4rem);     /* card / panel titles: 25.6px → 30px @1366 → 38.4px */
+  --mv-fs-body: clamp(0.95rem, 1.05vw, 1.0625rem);      /* = .hero-body-copy: 15.2px → 17px */
+  --mv-fs-title-weight: 600;                            /* = hero headline; italic emphasis 500 */
   --mv-fs-ui: clamp(0.92rem, 1vw, 1.05rem);
   --mv-fs-button: clamp(1rem, 1.2vw, 1.25rem);
   --mv-fs-small: clamp(0.82rem, 0.85vw, 0.9rem);
@@ -58,7 +61,7 @@
   margin: 0;
   font-family: 'Newsreader', Georgia, serif;
   font-optical-sizing: auto;
-  font-weight: 500;
+  font-weight: var(--mv-fs-title-weight);
   font-size: var(--mv-fs-title);
   line-height: 1.06;
   letter-spacing: -0.015em;
@@ -68,7 +71,7 @@
 .mv-title em {
   display: block;
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--mv-terracotta);
 }
 

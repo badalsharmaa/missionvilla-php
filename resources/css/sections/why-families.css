@@ -117,8 +117,8 @@
   margin: clamp(1rem, 2.6svh, 1.6rem) 0 0;
   font-family: 'Newsreader', Georgia, serif;
   font-optical-sizing: auto;
-  font-weight: 500;
-  font-size: clamp(2.15rem, min(3.9vw, 7.6svh), 4.75rem);
+  font-weight: var(--mv-fs-title-weight);
+  font-size: var(--mv-fs-title);
   line-height: 1.06;
   letter-spacing: -0.015em;
   color: var(--wf-ink);
@@ -128,13 +128,13 @@
 .wf__title em {
   display: block;
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--wf-terracotta);
 }
 .wf__body {
   margin: clamp(1rem, 2.6svh, 1.6rem) 0 0;
   max-width: 34rem;
-  font-size: clamp(0.98rem, 1.25vw, 1.3rem);
+  font-size: var(--mv-fs-body);
   line-height: 1.6;
   color: var(--wf-ink-soft);
   text-wrap: pretty;
@@ -290,7 +290,7 @@
 }
 .wf-fact__text {
   margin: 0.25rem 0 0;
-  font-size: clamp(0.92rem, 1vw, 1.08rem);
+  font-size: var(--mv-fs-body);
   line-height: 1.48;
   color: var(--wf-ink-soft);
 }
@@ -375,7 +375,7 @@
 }
 .wf-value__text {
   margin: 0;
-  font-size: clamp(0.92rem, 1vw, 1.08rem);
+  font-size: var(--mv-fs-body);
   line-height: 1.5;
   color: rgba(245, 236, 228, 0.8);
 }

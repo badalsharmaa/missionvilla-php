@@ -102,8 +102,8 @@
   margin: 0;
   font-family: 'Newsreader', Georgia, serif;
   font-optical-sizing: auto;
-  font-weight: 500;
-  font-size: clamp(2.15rem, min(3.9vw, 7.6svh), 4.75rem);
+  font-weight: var(--mv-fs-title-weight);
+  font-size: var(--mv-fs-title);
   line-height: 1.06;
   letter-spacing: -0.015em;
   color: var(--lv-ink);
@@ -111,13 +111,13 @@
 }
 .life-gallery__title em {
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--lv-terracotta);
 }
 .life-gallery__sub {
   margin: 0;
   max-width: 62rem;
-  font-size: clamp(0.98rem, 1.25vw, 1.3rem);
+  font-size: var(--mv-fs-body);
   line-height: 1.55;
   color: var(--lv-ink-soft);
   text-wrap: balance;
@@ -592,14 +592,14 @@
   font-family: 'Newsreader', Georgia, serif;
   font-optical-sizing: auto;
   font-weight: 500;
-  font-size: clamp(1.45rem, min(2vw, 3.9svh), 2.4rem);
+  font-size: var(--mv-fs-card-title);
   line-height: 1.08;
   letter-spacing: -0.01em;
   color: var(--lv-ink);
 }
 .life-info__text {
   margin: clamp(0.75rem, 2svh, 1.25rem) 0 0;
-  font-size: clamp(0.95rem, 1.05vw, 1.1rem);
+  font-size: var(--mv-fs-body);
   line-height: 1.55;
   color: var(--lv-ink-body);
   text-wrap: pretty;

@@ -76,8 +76,8 @@
   max-width: 11em;
   font-family: 'Newsreader', Georgia, serif;
   font-optical-sizing: auto;
-  font-weight: 500;
-  font-size: clamp(2rem, min(3vw, 5.6svh), 3.25rem);
+  font-weight: var(--mv-fs-title-weight);
+  font-size: var(--mv-fs-title);
   line-height: 1.08;
   letter-spacing: -0.012em;
   color: var(--mv-ivory);
@@ -86,7 +86,7 @@
 .vc__body {
   margin: clamp(0.9rem, 2svh, 1.25rem) 0 0;
   max-width: 31rem;
-  font-size: var(--mv-fs-ui);
+  font-size: var(--mv-fs-body);
   line-height: 1.65;
   color: rgba(251, 245, 239, 0.86);
   text-wrap: pretty;
@@ -164,7 +164,7 @@
   font-family: 'Newsreader', Georgia, serif;
   font-optical-sizing: auto;
   font-weight: 500;
-  font-size: clamp(1.55rem, min(2.1vw, 4svh), 2.25rem);
+  font-size: var(--mv-fs-card-title);
   line-height: 1.12;
   letter-spacing: -0.01em;
   color: var(--mv-ink);

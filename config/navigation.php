@@ -72,6 +72,12 @@ return [
             'height' => 417,
             'alt' => 'Mission Villa Senior Living. The honor they deserve, the care you’ll love.',
         ],
+        // Social profiles. PLACEHOLDER '#' links until the client supplies the real profile URLs.
+        'social' => [
+            ['label' => 'Facebook', 'icon' => 'facebook', 'href' => '#'],
+            ['label' => 'Instagram', 'icon' => 'instagram', 'href' => '#'],
+            ['label' => 'LinkedIn', 'icon' => 'linkedin', 'href' => '#'],
+        ],
         'groups' => [
             [
                 'title' => 'Care & Living',

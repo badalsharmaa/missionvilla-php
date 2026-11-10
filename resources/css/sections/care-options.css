@@ -94,8 +94,8 @@
   margin: 0;
   font-family: 'Newsreader', Georgia, serif;
   font-optical-sizing: auto;
-  font-weight: 500;
-  font-size: clamp(2.15rem, min(3.9vw, 7.6svh), 4.75rem);
+  font-weight: var(--mv-fs-title-weight);
+  font-size: var(--mv-fs-title);
   line-height: 1.06;
   letter-spacing: -0.015em;
   color: var(--co-ink);
@@ -103,13 +103,13 @@
 }
 .care-options__title em {
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--co-terracotta);
 }
 .care-options__sub {
   margin: 0;
   max-width: 62rem;
-  font-size: clamp(0.98rem, 1.25vw, 1.3rem);
+  font-size: var(--mv-fs-body);
   line-height: 1.55;
   color: var(--co-ink-soft);
   text-wrap: balance;
@@ -214,7 +214,7 @@
   font-family: 'Newsreader', Georgia, serif;
   font-optical-sizing: auto;
   font-weight: 500;
-  font-size: clamp(2.3rem, min(3.4vw, 6.4svh), 3.75rem);
+  font-size: var(--mv-fs-card-title);
   line-height: 1.04;
   letter-spacing: -0.01em;
   color: var(--co-ivory);
@@ -222,7 +222,7 @@
 .care-card__summary {
   margin: clamp(0.85rem, 2svh, 1.35rem) 0 0;
   max-width: 23.5rem;
-  font-size: clamp(0.95rem, 1.05vw, 1.1rem);
+  font-size: var(--mv-fs-body);
   line-height: 1.6;
   color: rgba(251, 245, 239, 0.9);
 }
@@ -353,7 +353,7 @@
 }
 .care-card__audience-text {
   margin: 0;
-  font-size: clamp(0.92rem, 1vw, 1.08rem);
+  font-size: var(--mv-fs-body);
   line-height: 1.5;
   color: rgba(251, 245, 239, 0.92);
 }
@@ -445,7 +445,7 @@
 }
 @media (max-width: 767px) {
   .care-card { min-height: 31rem; }
-  .care-card__title { font-size: clamp(2.1rem, 9vw, 2.6rem); }
+  .care-card__title { font-size: var(--mv-fs-card-title); }
   .care-card__statement { font-size: clamp(1.3rem, 5.6vw, 1.6rem); }
   .care-card__back-body { justify-content: flex-start; padding-top: 1.5rem; }
   .care-btn { width: 100%; justify-content: space-between; }

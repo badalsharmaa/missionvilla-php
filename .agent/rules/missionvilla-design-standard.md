@@ -11,7 +11,7 @@ They hold the approved homepage design rules: tokens, type scale, components, se
 the porting workflow and the done-checklist.
 
 Non-negotiables (details in the skill):
-- Port, don't redesign. Reuse `--mv-*` tokens and the Section 02 type scale. Never size fonts from a mockup.
+- Port, don't redesign. Reuse `--mv-*` tokens and the hero-based type scale (titles = hero headline, body = hero body). Never size fonts from a mockup.
 - Form CTAs open the shared inquiry modal (`data-inquiry="<intent>"` + `tel:` fallback). Never scroll to a form.
 - Honesty: no fabricated facts or prices; every image carries provenance/rights + a visible label.
 - Content-driven section heights. User-initiated motion only. Respect reduced motion.

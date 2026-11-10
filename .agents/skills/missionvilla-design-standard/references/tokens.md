@@ -64,10 +64,14 @@ Unifying these is an open decision (`docs/NEXT_SESSION.md` 1b(g), 1c(h)).
 
 | Token | Value | Use |
 |---|---|---|
+**The hero is the type reference (2026-11-10).** Section titles are the hero headline's size and weight, and body copy is the
+hero body's size. Never give a section its own title or body clamp. Measure with computed styles at 1920/1366/390.
+
 | `--mv-fs-eyebrow` | `clamp(.72rem,.9vw,.95rem)` | Eyebrows (600, uppercase, ls `.34em`; `.2em` ≤400px) |
-| `--mv-fs-title` | `clamp(2.15rem, min(3.9vw,7.6svh), 4.75rem)` | Section titles: Newsreader 500, lh 1.06, ls `-.015em`, `text-wrap: balance` |
-| `--mv-fs-body` | `clamp(.98rem,1.25vw,1.3rem)` | Section intro/lede, lh 1.6 |
-| `--mv-fs-ui` | `clamp(.92rem,1vw,1.05rem)` | Buttons, tabs, FAQ answers, card body |
+| `--mv-fs-title` | `clamp(2.25rem,3.4vw,3.35rem)` | **= hero headline** (36 → 46.4 @1366 → 53.6px). Every section title (h1/h2): Newsreader `--mv-fs-title-weight` 600, italic `<em>` 500, lh 1.06, ls `-.015em`, `text-wrap: balance` |
+| `--mv-fs-card-title` | `clamp(1.6rem,2vw,2.4rem)` | Card and panel titles (h3): care cards, Life info panel, visit form card. Newsreader 500. Always smaller than the section title |
+| `--mv-fs-body` | `clamp(.95rem,1.05vw,1.0625rem)` | **= hero body copy** (15.2 → 17px). All intro/lede and body copy: section intros, card summaries, facts/values text, FAQ answers, visit body |
+| `--mv-fs-ui` | `clamp(.92rem,1vw,1.05rem)` | Buttons, tabs, UI labels (not paragraphs) |
 | `--mv-fs-button` | `clamp(1rem,1.2vw,1.25rem)` | Large pill CTAs only |
 | `--mv-fs-small` | `clamp(.82rem,.85vw,.9rem)` | Contact lines, small print, lede inside cards |
 

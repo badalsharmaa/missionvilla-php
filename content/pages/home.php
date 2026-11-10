@@ -483,7 +483,7 @@ return [
                     ['intent' => 'request_pricing', 'label' => 'Request Pricing', 'icon' => 'file-text'],
                     ['intent' => 'request_callback', 'label' => 'Request a Call', 'icon' => 'phone'],
                 ],
-                'show_contact' => true,
+                'show_contact' => false, // address + phone already in the footer's Visit & Contact column
                 'form' => [
                     'enabled' => true,
                     'heading' => 'Request Information or Schedule a Visit',

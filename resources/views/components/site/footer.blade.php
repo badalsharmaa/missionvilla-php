@@ -30,6 +30,18 @@
         >
       </a>
       <p class="sf__description">{{ $footer['description'] }}</p>
+      @if (! empty($footer['social']))
+        <ul class="sf__social" aria-label="Mission Villa on social media">
+          @foreach ($footer['social'] as $social)
+            <li>
+              <a href="{{ $social['href'] }}" class="sf__social-link" aria-label="{{ $social['label'] }}"
+                 @if ($social['href'] !== '#') target="_blank" rel="noopener noreferrer" @endif>
+                @include('partials.icon', ['name' => $social['icon'], 'class' => 'sf__social-icon', 'stroke' => 1.6])
+              </a>
+            </li>
+          @endforeach
+        </ul>
+      @endif
     </div>
 
     @foreach ($groups as $group)

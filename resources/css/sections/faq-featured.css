@@ -136,7 +136,7 @@
   margin: 0;
   padding: 0 clamp(1rem, 1.6vw, 1.5rem) clamp(1rem, 1.8svh, 1.25rem) calc(clamp(1rem, 1.6vw, 1.5rem) + clamp(1.35rem, 1.6vw, 1.6rem) + clamp(0.75rem, 1.2vw, 1.1rem));
   max-width: 48rem;
-  font-size: var(--mv-fs-ui);
+  font-size: var(--mv-fs-body);
   line-height: 1.6;
   color: var(--mv-ink-soft);
   text-wrap: pretty;

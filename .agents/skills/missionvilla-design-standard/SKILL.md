@@ -30,7 +30,7 @@ Live sources: `resources/css/app.css`, `resources/css/components/editorial.css` 
 1. **Port, don't redesign.** The look is set. New pages reuse the homepage's palette, type scale, components
    and spacing. No new creative direction, fonts, colours, decorative widgets, sliders or floating cards
    unless the user approves a mockup that asks for them.
-2. **One type scale.** Use the `--mv-fs-*` tokens (Section 02's scale). Take layout, ink colours and character
+2. **One type scale.** Use the `--mv-fs-*` tokens. The scale is taken from the hero: section titles = hero headline (53.6px max, 600), body = hero body (17px max). Take layout, ink colours and character
    from a mockup, **never its pixel font sizes**. Scaling type from a mockup image is a known failure: it came out 25–30% too big.
 3. **Shared tokens for new work.** Use `--mv-*` (editorial.css). Don't copy the per-section variants from
    Sections 02–04 (`#380C34`, `#B95A45`, …). They are known inconsistencies, listed in `tokens.md`.

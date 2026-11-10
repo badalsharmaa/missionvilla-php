@@ -33,6 +33,19 @@
 .sf__logo { display: block; width: clamp(9.5rem, 12vw, 11.5rem); height: auto; }
 .sf__description { margin: 0; color: rgba(251, 245, 239, 0.75); }
 
+.sf__social { display: flex; gap: 0.6rem; margin: 0.25rem 0 0; padding: 0; list-style: none; }
+.sf__social-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.75rem; height: 2.75rem;            /* 44px tap target */
+  border-radius: 999px;
+  border: 1px solid rgba(251, 245, 239, 0.22);
+  color: var(--mv-peach);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.sf__social-link:hover { background-color: rgba(251, 245, 239, 0.08); border-color: var(--mv-peach); color: var(--mv-ivory); }
+.sf__social-link:focus-visible { outline: 2px solid var(--mv-peach); outline-offset: 3px; }
+.sf__social-icon { width: 1.15rem; height: 1.15rem; }
+
 .sf__group { min-width: 0; }
 .sf__heading {
   margin: 0 0 0.85rem;
