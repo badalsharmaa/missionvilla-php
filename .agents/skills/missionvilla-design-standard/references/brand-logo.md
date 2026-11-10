@@ -35,22 +35,26 @@ the script and rerun it (`python3 resources/brand/build-header-logo.py`). Never 
 
 - `<picture>` with the light lockup; `alt=""` because the brand link carries `aria-label="Mission Villa Senior Living — Home"`.
 - Sized by **height only** (`width: auto`), so it never stretches. The asset is ~3× the largest display height, so it stays sharp on retina.
-- Heights (lockup width in brackets):
+- The header has **two states** (see `components.md` → Header): **initial** at the top of the page and **compact
+  sticky** after 88px of scroll. Logo heights per state (lockup width in brackets):
 
-  | Viewport | Height | Shows |
-  |---|---|---|
-  | ≤369px | 1.75rem | leaf mark only |
-  | 370–379 · 380–389 | 1.6rem (159px) | lockup |
-  | 390–439 · 440–519 | 1.75rem (174px) | lockup |
-  | 520–1023 | 2.5rem (249px) | lockup |
-  | 1024–1279 (no desktop nav) | 3rem (299px) | lockup |
-  | 1280–1365 | 2.6rem | **leaf mark only**: the full nav leaves no room for a legible lockup |
-  | 1366–1439 | 1.7rem (169px) | lockup |
-  | 1440–1535 | 2.3rem (229px) | lockup |
-  | ≥1536 | 3rem (299px) | lockup |
+  | Viewport | Initial (bar 72px <1024 · 88px ≥1024) | Compact (bar 60px <1024 · 64px ≥1024) | Shows |
+  |---|---|---|---|
+  | ≤369px | 1.75rem | 1.75rem | leaf mark only |
+  | 370–389 | 1.6rem (159px) | same | lockup |
+  | 390–519 | 1.75rem (174px) | same | lockup |
+  | 520–1023 | 2.5rem (249px) | 2.25rem (224px) | lockup |
+  | 1024–1279 (no desktop nav) | 3rem (299px) | 2.35rem (234px) | lockup |
+  | 1280–1365 | 2.6rem | 2.25rem | **leaf mark only**: the full nav leaves no room for a legible lockup |
+  | 1366–1439 | 1.7rem (169px) | 1.7rem (same: the nav leaves no more room) | lockup |
+  | 1440–1535 | 2.3rem (229px) | 2.15rem (214px) | lockup |
+  | ≥1536 | 3rem (299px) | 2.35rem (234px) | lockup |
 
-- These bands were measured with no overlap, one-row nav and no overflow at 33 widths from 320 to 1920px.
-  If you add a nav item or change the CTA, rerun that check and retune these heights. Don't shrink the nav.
+- The logo never grows when the header compacts. Phones keep the same size in both states, because it already fits the 60px bar.
+- These bands were measured with no overlap, one-row nav and no overflow at 33 widths from 320 to 1920px
+  (initial state), and again in both states at 1920/1440/1366/1280/768/390/320. If you add a nav item or change the
+  CTA, rerun that check and retune these heights. Don't shrink the nav to make the logo fit. Use the leaf-only
+  fallback only where the full lockup can't fit at ≥25px tall.
 
 ## Footer usage (`resources/views/components/site/footer.blade.php`, `config/navigation.php` → `footer.logo`)
 

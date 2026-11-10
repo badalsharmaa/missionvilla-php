@@ -107,7 +107,22 @@ Every button:
 
 ## Header and footer (global, already built: reuse, don't rebuild)
 - **Header** (`<x-site.header>`):
-  - Fixed. Transparent over the hero, solid plum glass when scrolled or on non-hero pages (`data-variant="solid"`).
+  - Fixed (`z-index: 40`). The inquiry `<dialog>` (top layer), the Care Guide backdrop (`z-index: 100`) and the
+    mobile drawer (inside the header) all sit above it.
+  - **Two states**, set by `resources/js/components/site-header.js`:
+    1. **Initial** (top of page): transparent over the hero (solid plum glass on `variant="solid"` pages).
+       The bar is 72px below 1024px and 88px from 1024px, with the larger logo.
+    2. **Compact sticky** (scrolled more than 88px): `.is-compact` + `.is-scrolled`. Solid plum glass
+       `rgba(24,15,23,.92)` with blur. The bar is 60px below 1024px and 64px from 1024px. The logo is about
+       34–38px where the nav leaves room. The desktop nav gap tightens to `clamp(.8rem,1vw,1.25rem)` and the
+       CTA padding to `.58rem 1.05rem`.
+  - The state comes from an IntersectionObserver on an invisible 88px sentinel at the top of `<body>`: no scroll
+    listener and no layout reads. It is correct after a refresh at any scroll position. The header is fixed, so the
+    state change never moves page content.
+  - Height, logo size, nav gap and CTA padding transition over 0.32s `cubic-bezier(.22,1,.36,1)`. Under
+    `prefers-reduced-motion` the change is instant. No GSAP or scroll-driven effects on the header.
+  - The bar height lives in `--header-bar-h`. Use it (not a hard-coded 4.5rem/5.5rem) for anything sized against
+    the header, such as the mobile drawer's `max-height`.
   - Official logo artwork: the light horizontal lockup (`mission-villa-logo-header-light.webp`), never HTML text.
     Responsive heights and the leaf-only fallback are in `brand-logo.md`. Desktop nav from 1280px with dropdowns;
     mobile drawer below that.

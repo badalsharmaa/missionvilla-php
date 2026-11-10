@@ -5,7 +5,14 @@
    solid plum surface after scrolling or while the mobile drawer is open.
    Uses the hero's tokens, radius system and typography.
    ========================================================================== */
+/* Two states (site-header.js):
+   1. Initial  — top of page: transparent over the hero (solid on variant="solid"), 72px / 88px bar, larger logo.
+   2. Compact  — after 88px of scroll (.is-compact + .is-scrolled): solid plum glass, 60px / 64px bar,
+                 logo ~34–38px where the nav leaves room, slightly tighter nav.
+   The header is fixed, so the height change never shifts page content. */
 .site-header {
+  --header-bar-h: 4.5rem;
+  --header-ease: cubic-bezier(0.22, 1, 0.36, 1);
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 40;
@@ -28,12 +35,18 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  height: 4.5rem;
+  height: var(--header-bar-h);
   padding: 0 var(--pad-x);
+  transition: height 0.32s var(--header-ease);
 }
 
 @media (min-width: 1024px) {
-  .site-header__bar { height: 5.5rem; }
+  .site-header { --header-bar-h: 5.5rem; }
+}
+
+.site-header.is-compact { --header-bar-h: 3.75rem; }          /* 60px */
+@media (min-width: 1024px) {
+  .site-header.is-compact { --header-bar-h: 4rem; }           /* 64px */
 }
 
 /* Brand lockup ------------------------------------------------------------ */
@@ -57,6 +70,7 @@
   width: auto;
   max-width: none;
   filter: drop-shadow(0 1px 8px rgba(15, 8, 14, 0.4));
+  transition: height 0.32s var(--header-ease);
 }
 
 @media (min-width: 1024px) {
@@ -74,6 +88,23 @@
   .site-header__logo { height: 2.3rem; }    /* 37px → 229px */
 }
 
+/* Compact state logo (only where it is larger than the bar allows; phones keep their size). */
+@media (min-width: 520px) {
+  .site-header.is-compact .site-header__logo { height: 2.25rem; }   /* 36px → 224px */
+}
+@media (min-width: 1024px) {
+  .site-header.is-compact .site-header__logo { height: 2.35rem; }   /* 37.6px → 234px */
+}
+@media (min-width: 1280px) and (max-width: 1365.98px) {
+  .site-header.is-compact .site-header__logo { height: 2.25rem; }   /* leaf mark → 56px */
+}
+@media (min-width: 1366px) and (max-width: 1439.98px) {
+  .site-header.is-compact .site-header__logo { height: 1.7rem; }    /* unchanged: nav leaves no more room */
+}
+@media (min-width: 1440px) and (max-width: 1535.98px) {
+  .site-header.is-compact .site-header__logo { height: 2.15rem; }   /* 34.4px → 214px */
+}
+
 /* Desktop navigation ------------------------------------------------------ */
 .site-header__nav { display: none; }
 
@@ -88,7 +119,9 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  transition: gap 0.32s var(--header-ease);
 }
+.site-header.is-compact .site-nav { gap: clamp(0.8rem, 1vw, 1.25rem); }
 
 .site-nav__item { position: relative; }
 
@@ -245,7 +278,8 @@
 }
 
 @media (min-width: 640px) {
-  .site-header__cta { padding: 0.68rem 1.15rem; font-size: 13px; }
+  .site-header__cta { padding: 0.68rem 1.15rem; font-size: 13px; transition: background-color 0.25s ease, transform 0.25s ease, padding 0.32s var(--header-ease); }
+  .site-header.is-compact .site-header__cta { padding: 0.58rem 1.05rem; }
 }
 
 .site-header__cta--block { display: flex; width: 100%; padding: 0.85rem 1rem; font-size: 14px; }
@@ -274,16 +308,12 @@
 
 /* Mobile drawer ----------------------------------------------------------- */
 .site-mobile-nav {
-  max-height: calc(100svh - 4.5rem);
+  max-height: calc(100svh - var(--header-bar-h));
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: 0.75rem var(--pad-x) 1.75rem;
   border-top: 1px solid rgba(249, 245, 240, 0.1);
   background-color: var(--plum-abyss);
-}
-
-@media (min-width: 1024px) {
-  .site-mobile-nav { max-height: calc(100svh - 5.5rem); }
 }
 
 @media (min-width: 1280px) {
@@ -364,4 +394,13 @@
 /* Narrow phones (e.g. 360px Android): official leaf mark only (see <picture>). */
 @media (max-width: 369.98px) {
   .site-header__logo { height: 1.75rem; }
+}
+
+/* Reduced motion: the state change is instant (no height/size/gap animation). */
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-header__bar,
+  .site-header__logo,
+  .site-nav,
+  .site-header__cta { transition: none !important; }
 }

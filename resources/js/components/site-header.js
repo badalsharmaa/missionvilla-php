@@ -1,15 +1,45 @@
 /**
- * Global site header: scroll surface, desktop disclosure menus, mobile drawer.
+ * Global site header: two states (initial / compact sticky), desktop disclosure menus, mobile drawer.
  */
+
+// Scroll distance after which the header becomes the compact sticky bar.
+const COMPACT_AFTER_PX = 88;
+
+/**
+ * State 2 (compact sticky) once the page has scrolled past COMPACT_AFTER_PX.
+ * An IntersectionObserver watches an invisible sentinel covering the top of the document, so there
+ * is no scroll listener and no layout reads. Its first callback also fires after a refresh at a
+ * restored scroll position. The header is position:fixed, so changing state never shifts content.
+ * `is-scrolled` (solid plum surface) and `is-compact` (smaller bar + logo) always move together.
+ */
+function initCompactState(header) {
+  const set = (compact) => {
+    header.classList.toggle('is-scrolled', compact);
+    header.classList.toggle('is-compact', compact);
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    let queued = false;
+    const check = () => { queued = false; set(window.scrollY > COMPACT_AFTER_PX); };
+    check();
+    window.addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(check); } }, { passive: true });
+    return;
+  }
+
+  const sentinel = document.createElement('div');
+  sentinel.setAttribute('aria-hidden', 'true');
+  sentinel.dataset.headerSentinel = '';
+  sentinel.style.cssText = `position:absolute;top:0;left:0;width:1px;height:${COMPACT_AFTER_PX}px;pointer-events:none;opacity:0;`;
+  document.body.prepend(sentinel);
+
+  new IntersectionObserver(([entry]) => set(!entry.isIntersecting)).observe(sentinel);
+}
 export function initSiteHeader() {
   const header = document.querySelector('[data-site-header]');
   if (!header || header.dataset.initialized) return;
   header.dataset.initialized = 'true';
 
-  // Solid surface once the page scrolls (future sections below the hero).
-  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 24);
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+  initCompactState(header);
 
   // Desktop dropdowns ---------------------------------------------------------
   const toggles = [...header.querySelectorAll('[data-nav-toggle]')];
