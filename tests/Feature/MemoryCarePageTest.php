@@ -174,4 +174,14 @@ class MemoryCarePageTest extends TestCase
         $count = substr_count($html, 'class="faq-item"');
         $this->assertSame(5, $count);
     }
+
+    public function test_visit_cta_renders_inline_inquiry_form_with_memory_care_preset(): void
+    {
+        $html = $this->get('/memory-care')->assertOk()->getContent();
+
+        $this->assertStringContainsString('id="visit-form"', $html);
+        $this->assertStringContainsString('Request Information or Schedule a Visit', $html);
+        $this->assertStringContainsString('name="care_interest" value="memory_care"', $html);
+        $this->assertStringContainsString('data-instance="inline"', $html);
+    }
 }

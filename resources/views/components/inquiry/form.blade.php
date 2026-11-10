@@ -5,6 +5,8 @@
     'intent' => null,
     // Non-sensitive context stored with the lead (config inquiries.sources). The modal's is set per opening.
     'source' => null,
+    // Optional preselected care interest (e.g. memory_care) for inline forms.
+    'care' => null,
 ])
 @php
     /*
@@ -46,6 +48,9 @@
   @foreach (['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid'] as $param)
     <input type="hidden" name="{{ $param }}" value="" data-inquiry-attr="{{ $param }}">
   @endforeach
+  @if ($inline && $care)
+    <input type="hidden" name="care_interest" value="{{ $care }}">
+  @endif
   {{-- Honeypot (hidden from people and assistive technology). --}}
   <div class="iq-trap" aria-hidden="true">
     <label for="{{ $p }}-company-website">Company website</label>

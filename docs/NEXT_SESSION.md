@@ -13,7 +13,7 @@ updated 2026-11-10 after implementing the Memory Care landing page (`/memory-car
   3. `memory-care.daily-life`: "A Day Shaped Around the Individual" 3-rhythm editorial cards (Morning, Midday, Evening) with natural photography and verified highlights.
   4. `memory-care.care-comfort`: "Care, Comfort & Home" 2-column editorial spread with 5 verified support commitments, care planning reassurance box, and large authentic facility suite photo (`/images/suites/suite-bedroom-facility-899.webp`).
   5. `faq.featured`: "Questions Families Often Ask" compact 5-question accordion using established single-open pattern and modal CTA actions.
-  6. `visit.cta`: "Talk With Our Memory Care Team" deep-plum closing band with 3 conversion actions preselecting `memory_care` in the inquiry modal.
+  6. `visit.cta`: "Talk With Our Memory Care Team" deep-plum closing band with 3 conversion actions (preselecting `memory_care` in modal) and the inline cream inquiry card (`#visit-form`, with `care_interest` preselected to `memory_care`).
   Screenshots and measurements in `../docs/memory-care-2026-11-10/`. 144 automated tests pass (8 new tests).
 - **PHP homepage: all sections implemented.** Opening shutters → 01 cinematic hero → 02 Care Options →
   03 Life at Mission Villa (**films pending**) → 04 Why Families → **05 Suites & Living Spaces** →
