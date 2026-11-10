@@ -12,6 +12,10 @@ use App\Content\Sections\FaqFeaturedSection;
 use App\Content\Sections\HeroCinematicSection;
 use App\Content\Sections\IntroShuttersSection;
 use App\Content\Sections\LifeGallerySection;
+use App\Content\Sections\MemoryCareCareComfortSection;
+use App\Content\Sections\MemoryCareDailyLifeSection;
+use App\Content\Sections\MemoryCareHeroSection;
+use App\Content\Sections\MemoryCareLegaciesSection;
 use App\Content\Sections\SuitesSpacesSection;
 use App\Content\Sections\VisitCtaSection;
 use App\Content\Sections\WhyFamiliesSection;
@@ -39,6 +43,10 @@ class AppServiceProvider extends ServiceProvider
             new SuitesSpacesSection,
             new FaqFeaturedSection,
             new VisitCtaSection,
+            new MemoryCareHeroSection,
+            new MemoryCareLegaciesSection,
+            new MemoryCareDailyLifeSection,
+            new MemoryCareCareComfortSection,
         ]));
 
         $this->app->singleton(ContentRepository::class, function ($app) {

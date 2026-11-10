@@ -98,7 +98,7 @@ return [
             'general' => 'general_inquiry',
         ],
         // Non-sensitive context: which part of the site opened the form (stored with the lead).
-        'sources' => ['header', 'hero', 'care-options', 'life-gallery', 'why-families', 'suites', 'faq', 'visit-cta', 'visit-form', 'footer'],
+        'sources' => ['header', 'hero', 'care-options', 'life-gallery', 'why-families', 'suites', 'faq', 'visit-cta', 'visit-form', 'footer', 'mc-hero', 'mc-legacies', 'mc-day', 'mc-care', 'mc-faq', 'mc-cta', 'memory-care'],
         'care_interests' => [
             'memory_care' => 'Legacies™ Memory Care',
             'respite_care' => 'Short-Term Respite Care',

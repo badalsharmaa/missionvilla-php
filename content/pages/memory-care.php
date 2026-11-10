@@ -1,0 +1,441 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Memory Care page content definition (slug: "memory-care")
+|--------------------------------------------------------------------------
+| Verified against the React reference (app/memory-care/page.tsx and
+| lib/mission-villa-data.ts) and the approved Mission Villa design standard.
+|
+| Business rule: every form CTA opens the shared inquiry modal with
+| care interest preselected to "memory_care".
+*/
+
+return [
+    'slug' => 'memory-care',
+    'title' => 'Legacies™ Memory Care | Mission Villa Senior Living',
+    'seo' => [
+        'title' => 'Legacies™ Memory Care in Daly City | Mission Villa Senior Living',
+        'description' => 'Dedicated Memory Care in Daly City featuring the Legacies™ program. Dignity, familiar routines, personalized Alzheimer’s & dementia support, and 24/7 care.',
+        'og_image' => '/images/hero/memory-care-conversation-2000.webp',
+    ],
+    'sections' => [
+        [
+            'key' => 'mc-hero',
+            'type' => 'memory-care.hero',
+            'enabled' => true,
+            'order' => 10,
+            'data' => [
+                'eyebrow' => 'Memory Care at Mission Villa',
+                'heading' => 'Legacies™ Memory Care',
+                'editorial' => 'Dignity, familiar routines, and <em>meaningful connection.</em>',
+                'intro' => 'A warm, nurturing environment with personalized care, familiar daily routines, and compassionate 24/7 support in Daly City. Where your loved one is genuinely known, and dignity always comes first.',
+                'image' => [
+                    'src' => '/images/hero/memory-care-conversation-2000.webp',
+                    'src_mobile' => '/images/hero/memory-care-conversation-1200.webp',
+                    'width' => 2000,
+                    'height' => 1125,
+                    'alt' => 'Caregiver sharing a compassionate conversation with a senior resident in a sunlit living space',
+                    'provenance' => 'illustrative',
+                    'rights' => 'cleared',
+                    'label' => 'Illustrative image · not actual residents',
+                ],
+                'badges' => [
+                    [
+                        'kicker' => 'Signature Approach',
+                        'title' => 'Legacies™ Life-Story Care',
+                        'desc' => 'Shaped by personal history, habits & comforting preferences.',
+                    ],
+                    [
+                        'kicker' => 'Accommodations',
+                        'title' => 'Private & Companion Suites',
+                        'desc' => 'Comfortable suites with private baths and emergency alert features.',
+                    ],
+                    [
+                        'kicker' => 'Daly City Community',
+                        'title' => '995 East Market Street',
+                        'desc' => 'CA RCFE License #415601046 · Serving San Mateo County families.',
+                    ],
+                ],
+                'actions' => [
+                    [
+                        'label' => 'Schedule a Memory Care Visit',
+                        'style' => 'primary',
+                        'icon' => 'calendar',
+                        'intent' => 'schedule_visit',
+                        'care' => 'memory_care',
+                    ],
+                    [
+                        'label' => 'Explore the Legacies™ Approach',
+                        'style' => 'secondary',
+                        'icon' => 'arrow',
+                        'href' => '#legacies-difference',
+                    ],
+                    [
+                        'label' => '(650) 756-1995',
+                        'style' => 'phone',
+                        'icon' => 'phone',
+                        'href' => 'tel:16507561995',
+                    ],
+                ],
+            ],
+        ],
+
+        [
+            'key' => 'mc-legacies',
+            'type' => 'memory-care.legacies',
+            'enabled' => true,
+            'order' => 20,
+            'data' => [
+                'eyebrow' => 'The Legacies™ Difference',
+                'heading' => 'Personalized Memory Care <em>with Purpose</em>',
+                'intro' => 'Thoughtful, person-centered care that celebrates each resident’s history, abilities, and sense of self.',
+                'touchpoints' => [
+                    [
+                        'id' => 'life-story',
+                        'chapter' => 'Chapter 01',
+                        'tab_label' => 'Personal Histories',
+                        'icon' => 'book-open',
+                        'title' => 'Knowing the Person Behind the Memory',
+                        'subtitle' => 'Care shaped by your loved one’s life story, vocation, and cherished traditions',
+                        'description' => 'In our Legacies™ Memory Care program, support begins with listening. We partner with families to understand each resident’s background, lifelong habits, favorite music, and personal accomplishments so our team can connect with who they have always been.',
+                        'in_practice' => [
+                            'Learning personal histories, family relationships, and comforting conversation topics',
+                            'Honoring lifelong preferences in how a resident likes to be addressed and supported',
+                            'Using familiar touchpoints to bring reassurance during moments of uncertainty',
+                        ],
+                        'takeaway' => 'Your loved one is known as an individual with a rich life story—never defined solely by Alzheimer’s or dementia.',
+                        'image' => [
+                            'src' => '/images/suites/community-lounge-facility-899.webp',
+                            'src_mobile' => '/images/suites/community-lounge-facility-640.webp',
+                            'width' => 899,
+                            'height' => 601,
+                            'alt' => 'Mission Villa community lounge with comfortable armchairs and natural light',
+                            'provenance' => 'facility',
+                            'rights' => 'unconfirmed',
+                            'label' => 'Mission Villa photo',
+                            'caption' => 'Listening closely to personal histories, memories, and cherished traditions',
+                        ],
+                        'cta_label' => 'Ask About Legacies™',
+                        'cta_intent' => 'schedule_visit',
+                    ],
+                    [
+                        'id' => 'daily-rhythm',
+                        'chapter' => 'Chapter 02',
+                        'tab_label' => 'Familiar Routines',
+                        'icon' => 'compass',
+                        'title' => 'Calm, Predictable Days Without Rigidity',
+                        'subtitle' => 'Gentle structure that reduces overwhelm while respecting personal pace',
+                        'description' => 'For older adults living with memory loss, a calm and recognizable daily flow creates a natural sense of ease. Rather than enforcing a rigid institutional timetable, we guide each day with gentle cues, unhurried mornings, and familiar transitions.',
+                        'in_practice' => [
+                            'Unhurried morning routines aligned with personal waking and grooming habits',
+                            'Consistent, welcoming cues for chef-prepared meals and social gatherings',
+                            'Quiet afternoon and evening spaces that support restful transitions',
+                        ],
+                        'takeaway' => 'Predictable rhythms help residents feel grounded and secure while preserving personal choice.',
+                        'image' => [
+                            'src' => '/images/suites/suite-bedroom-facility-899.webp',
+                            'src_mobile' => '/images/suites/suite-bedroom-facility-640.webp',
+                            'width' => 899,
+                            'height' => 601,
+                            'alt' => 'Furnished suite bedroom at Mission Villa with natural daylight',
+                            'provenance' => 'facility',
+                            'rights' => 'unconfirmed',
+                            'label' => 'Mission Villa photo',
+                            'caption' => 'Homelike residential spaces designed for calm transitions and everyday ease',
+                        ],
+                        'cta_label' => 'Ask About Legacies™',
+                        'cta_intent' => 'schedule_visit',
+                    ],
+                    [
+                        'id' => 'meaningful-engagement',
+                        'chapter' => 'Chapter 03',
+                        'tab_label' => 'Meaningful Connection',
+                        'icon' => 'heart',
+                        'title' => 'Everyday Moments of Joy & Belonging',
+                        'subtitle' => 'Activities adapted to individual interests, sensory comfort, and current abilities',
+                        'description' => 'Through Legacies™ Memory Care and our daily activity programming, residents are invited into small-group and one-on-one experiences that spark recognition, creativity, and camaraderie—without pressure or frustration.',
+                        'in_practice' => [
+                            'Music, reminiscence, art, and gentle movement tailored to resident abilities',
+                            'Shared mealtimes with freshly prepared, comforting dishes in our dining room',
+                            'Opportunities for quiet enjoyment in communal lounges or outdoor patio areas',
+                        ],
+                        'takeaway' => 'Every day holds gentle invitations to participate, connect with neighbors, and experience accomplishment.',
+                        'image' => [
+                            'src' => '/images/life/meaningful-connection-illustrative-1402.webp',
+                            'src_mobile' => '/images/life/meaningful-connection-illustrative-960.webp',
+                            'width' => 1402,
+                            'height' => 789,
+                            'alt' => 'Illustrative image: Engaging conversation between care partner and senior resident in a residential setting',
+                            'provenance' => 'illustrative',
+                            'rights' => 'cleared',
+                            'label' => 'Illustrative image · not actual residents',
+                            'caption' => 'Sensory-rich activities, music, and shared moments tailored to each resident',
+                        ],
+                        'cta_label' => 'Ask About Legacies™',
+                        'cta_intent' => 'schedule_visit',
+                    ],
+                    [
+                        'id' => 'family-partnership',
+                        'chapter' => 'Chapter 04',
+                        'tab_label' => 'Family Partnership',
+                        'icon' => 'people',
+                        'title' => 'Supporting the Whole Family Journey',
+                        'subtitle' => 'Open communication and a warm welcome whenever you visit in Daly City',
+                        'description' => 'Choosing Memory Care is an act of love, not a step away from family life. At Mission Villa, we help lift the daily caregiving strain so spouses, adult children, and relatives can return to simply enjoying meaningful time together.',
+                        'in_practice' => [
+                            'Approachable, transparent communication with our Daly City care team',
+                            'Inviting common areas and dining spaces where families can visit comfortably',
+                            'Collaborative care planning before move-in and as needs evolve over time',
+                        ],
+                        'takeaway' => 'You remain at the heart of your loved one’s life, supported by an attentive team at 995 East Market Street.',
+                        'image' => [
+                            'src' => '/images/why-families/courtyard-patio-facility-1024.webp',
+                            'src_mobile' => '/images/why-families/courtyard-patio-facility-768.webp',
+                            'width' => 1024,
+                            'height' => 576,
+                            'alt' => 'Mission Villa outdoor courtyard patio with tables and green foliage',
+                            'provenance' => 'facility',
+                            'rights' => 'unconfirmed',
+                            'label' => 'Mission Villa photo',
+                            'caption' => 'A reassuring partnership that welcomes family connection every day',
+                        ],
+                        'cta_label' => 'Ask About Legacies™',
+                        'cta_intent' => 'schedule_visit',
+                    ],
+                ],
+            ],
+        ],
+
+        [
+            'key' => 'mc-daily',
+            'type' => 'memory-care.daily-life',
+            'enabled' => true,
+            'order' => 30,
+            'data' => [
+                'eyebrow' => 'Daily Life in Memory Care',
+                'heading' => 'A Day Shaped <em>Around the Individual</em>',
+                'intro' => 'A familiar rhythm, engaging experiences, and plenty of meaningful moments throughout the day.',
+                'scenes' => [
+                    [
+                        'id' => 'morning',
+                        'rhythm' => 'Morning · Personal Pace',
+                        'title' => 'A Reassuring Start to the Day',
+                        'narrative' => 'Mornings begin at a human pace. Attentive assistance with bathing, dressing, and grooming honors privacy while gently guiding residents toward breakfast.',
+                        'highlights' => [
+                            'Individualized assistance with dressing, grooming, and personal hygiene',
+                            'Private bathroom access inside private and companion suites',
+                            'Warm greetings and unhurried guidance toward morning breakfast',
+                        ],
+                        'image' => [
+                            'src' => '/images/suites/suite-bedroom-facility-640.webp',
+                            'width' => 640,
+                            'height' => 428,
+                            'alt' => 'Comfortable, well-lit bedroom suite at Mission Villa',
+                            'provenance' => 'facility',
+                            'rights' => 'unconfirmed',
+                            'label' => 'Mission Villa photo',
+                        ],
+                    ],
+                    [
+                        'id' => 'midday',
+                        'rhythm' => 'Midday · Shared Table',
+                        'title' => 'Chef-Prepared Dining & Familiar Flavors',
+                        'narrative' => 'Meals are familiar anchors of the day. Residents gather in our dining room for freshly prepared meals served with attentive table support and companionship.',
+                        'highlights' => [
+                            'Three chef-prepared daily meals plus snacks in an inviting dining room',
+                            'Attentive dining support accommodating personal preferences and needs',
+                            'A sociable, homelike atmosphere that encourages appetite and warmth',
+                        ],
+                        'image' => [
+                            'src' => '/images/life/dining-daily-life-illustrative-960.webp',
+                            'width' => 960,
+                            'height' => 540,
+                            'alt' => 'Freshly prepared, balanced meal served at a warm community dining table',
+                            'provenance' => 'illustrative',
+                            'rights' => 'cleared',
+                            'label' => 'Illustrative image',
+                        ],
+                    ],
+                    [
+                        'id' => 'evening',
+                        'rhythm' => 'Evening · Quiet Sanctuary',
+                        'title' => 'Afternoon Engagement & Restful Evenings',
+                        'narrative' => 'Music, reminiscence, art, and patio time transition naturally into calm evening routines that help residents feel peaceful, secure, and settled.',
+                        'highlights' => [
+                            'Engaging activities adapted to resident abilities and interests',
+                            'Comfortable lounges and outdoor patio spaces for family visits',
+                            'Calm, reassuring evening support tailored to personal comfort',
+                        ],
+                        'image' => [
+                            'src' => '/images/suites/community-lounge-facility-640.webp',
+                            'width' => 640,
+                            'height' => 428,
+                            'alt' => 'Mission Villa community lounge with soft lighting and armchairs',
+                            'provenance' => 'facility',
+                            'rights' => 'unconfirmed',
+                            'label' => 'Mission Villa photo',
+                        ],
+                    ],
+                ],
+            ],
+        ],
+
+        [
+            'key' => 'mc-care',
+            'type' => 'memory-care.care-comfort',
+            'enabled' => true,
+            'order' => 40,
+            'data' => [
+                'eyebrow' => 'A Supportive Place to Live',
+                'heading' => 'Care, Comfort & <em>Home</em>',
+                'intro' => 'Specialized memory care, a welcoming environment, and the comfort of home — all in one supportive setting in Daly City.',
+                'checklist' => [
+                    '24/7 compassionate, trained care staff on-site',
+                    'Secure, thoughtfully designed environment with indoor & outdoor patio spaces',
+                    'Engaging, ability-based programs shaped around life histories',
+                    'Chef-prepared, nutritious meals with attentive dining assistance',
+                    'Comfortable private and companion suites with private bathrooms',
+                ],
+                'reassurance_box' => [
+                    'title' => 'Personalized Care Planning',
+                    'text' => 'Every resident’s support plan is shaped around an individual assessment and ongoing family conversation. Ask our team how we accommodate specific routines.',
+                ],
+                'image' => [
+                    'src' => '/images/suites/suite-bedroom-facility-899.webp',
+                    'src_mobile' => '/images/suites/suite-bedroom-facility-640.webp',
+                    'width' => 899,
+                    'height' => 601,
+                    'alt' => 'Furnished private suite bedroom at Mission Villa Senior Living in Daly City',
+                    'provenance' => 'facility',
+                    'rights' => 'unconfirmed',
+                    'label' => 'Mission Villa photo',
+                    'caption' => 'Comfortable suites designed for personal dignity, safety, and everyday calm',
+                ],
+                'actions' => [
+                    [
+                        'label' => 'Ask About Accommodations',
+                        'style' => 'primary',
+                        'icon' => 'calendar',
+                        'intent' => 'request_availability',
+                        'care' => 'memory_care',
+                    ],
+                    [
+                        'label' => 'Tour Memory Care',
+                        'style' => 'secondary',
+                        'icon' => 'arrow',
+                        'intent' => 'schedule_visit',
+                        'care' => 'memory_care',
+                    ],
+                ],
+            ],
+        ],
+
+        [
+            'key' => 'mc-faq',
+            'type' => 'faq.featured',
+            'enabled' => true,
+            'order' => 50,
+            'data' => [
+                'eyebrow' => 'Questions Families Often Ask',
+                'heading' => 'Questions Families <em>Often Ask</em>',
+                'intro' => 'Clear answers about our Legacies™ Memory Care program, everyday support, and visiting Mission Villa.',
+                'display_count' => 5,
+                'entries' => [
+                    [
+                        'id' => 'mc-faq-program',
+                        'question' => 'What makes the Legacies™ Memory Care approach meaningful for residents?',
+                        'answer' => 'Legacies™ Memory Care centers on honoring who each resident is—their personal history, life accomplishments, family relationships, and comforting routines. By learning your loved one’s story, our staff can provide individualized care and activities that foster dignity, familiarity, and connection.',
+                        'actions' => [
+                            ['label' => 'Schedule a Visit', 'intent' => 'visit'],
+                        ],
+                        'icon' => 'sprout',
+                        'order' => 10,
+                        'enabled' => true,
+                        'featured' => true,
+                    ],
+                    [
+                        'id' => 'mc-faq-support',
+                        'question' => 'What kind of everyday assistance and 24-hour safety support do residents receive?',
+                        'answer' => 'Staff members are on-site 24 hours a day to provide compassionate help with everyday tasks such as bathing, dressing, grooming, escorting to meals and activities, housekeeping, and laundry. Routine assessments help us tailor support as a resident’s needs change.',
+                        'actions' => [
+                            ['label' => 'Request a Call', 'intent' => 'callback'],
+                        ],
+                        'icon' => 'shield',
+                        'order' => 20,
+                        'enabled' => true,
+                        'featured' => true,
+                    ],
+                    [
+                        'id' => 'mc-faq-activities',
+                        'question' => 'What types of activities, dining, and daily routines are offered?',
+                        'answer' => 'Days are guided by gentle rhythms rather than a rigid timetable. Residents enjoy three chef-prepared meals daily, snacks, and ability-adapted activities including music, reminiscence, gentle movement, art, and quiet moments in our lounges and patio.',
+                        'actions' => [
+                            ['label' => 'Ask Our Team', 'intent' => 'general'],
+                        ],
+                        'icon' => 'heart',
+                        'order' => 30,
+                        'enabled' => true,
+                        'featured' => true,
+                    ],
+                    [
+                        'id' => 'mc-faq-suites',
+                        'question' => 'What suite options are available in Memory Care?',
+                        'answer' => 'Mission Villa offers both private and shared companion suites with private bathrooms. Families are warmly encouraged to personalize suites with familiar photographs, favorite bedding, and comforting keepsakes from home.',
+                        'actions' => [
+                            ['label' => 'Ask About Availability', 'intent' => 'availability'],
+                        ],
+                        'icon' => 'home',
+                        'order' => 40,
+                        'enabled' => true,
+                        'featured' => true,
+                    ],
+                    [
+                        'id' => 'mc-faq-visiting',
+                        'question' => 'How can family members visit and stay involved after move-in?',
+                        'answer' => 'Families are always an essential part of life at Mission Villa. We welcome regular visits in our lounges, dining room, and courtyard patio, maintain open communication regarding wellbeing, and partner with you on care planning.',
+                        'actions' => [
+                            ['label' => 'Plan a Visit', 'intent' => 'visit'],
+                        ],
+                        'icon' => 'people',
+                        'order' => 50,
+                        'enabled' => true,
+                        'featured' => true,
+                    ],
+                ],
+            ],
+        ],
+
+        [
+            'key' => 'mc-cta',
+            'type' => 'visit.cta',
+            'enabled' => true,
+            'order' => 60,
+            'data' => [
+                'script' => 'Let’s Connect',
+                'heading' => 'Talk With Our Memory Care Team',
+                'body' => 'We’re here to help you explore care options and see what personalized Memory Care looks like at Mission Villa. Schedule a tour, request pricing, or speak directly with our Daly City team.',
+                'care' => 'memory_care',
+                'actions' => [
+                    [
+                        'intent' => 'schedule_visit',
+                        'label' => 'Schedule a Visit',
+                        'icon' => 'calendar',
+                    ],
+                    [
+                        'intent' => 'request_pricing',
+                        'label' => 'Request Pricing',
+                        'icon' => 'file-text',
+                    ],
+                    [
+                        'intent' => 'request_callback',
+                        'label' => 'Request a Call',
+                        'icon' => 'phone',
+                    ],
+                ],
+                'show_contact' => false,
+                'form' => null,
+            ],
+        ],
+    ],
+];

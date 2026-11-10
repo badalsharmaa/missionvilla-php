@@ -32,6 +32,10 @@ const SECTION_SOURCES = {
   suites: 'suites',
   faq: 'faq',
   visit: 'visit-cta',
+  'mc-hero': 'mc-hero',
+  'legacies-difference': 'mc-legacies',
+  'daily-life': 'mc-day',
+  'care-comfort': 'mc-care',
 };
 
 function uuid() {

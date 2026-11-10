@@ -52,6 +52,7 @@ final class VisitCtaSection implements SectionSchema
             'actions.*.label' => ['required', 'string', 'max:24'],
             'actions.*.icon' => ['required', 'in:'.implode(',', self::ICONS)],
             'show_contact' => ['required', 'boolean'],
+            'care' => ['nullable', 'string', 'in:memory_care,respite_care,exploring'],
             // Inline inquiry card. Fields and inquiry types come from config/missionvilla.php → inquiries.
             'form' => ['nullable', 'array'],
             'form.enabled' => ['required_with:form', 'boolean'],
@@ -77,6 +78,7 @@ final class VisitCtaSection implements SectionSchema
                 'primary' => $i === 0,
             ], array_values($valid['actions']), array_keys(array_values($valid['actions']))),
             'show_contact' => (bool) $valid['show_contact'],
+            'care' => $valid['care'] ?? null,
             'form' => ! empty($valid['form']['enabled']) ? [
                 'heading' => InlineText::plain($valid['form']['heading']),
                 'lede' => InlineText::plain($valid['form']['lede']),

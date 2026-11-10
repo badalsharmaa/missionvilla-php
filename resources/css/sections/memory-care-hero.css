@@ -1,0 +1,291 @@
+/* -----------------------------------------------------------------------------
+ * MEMORY CARE SECTION 01 · EDITORIAL PHOTOGRAPHIC HERO
+ * -------------------------------------------------------------------------- */
+
+.mc-hero {
+  position: relative;
+  isolation: isolate;
+  background: var(--plum-abyss, #180F17);
+  color: var(--mv-ivory, #FBF5EF);
+  min-height: clamp(520px, 78svh, 820px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Background photography stage */
+.mc-hero__stage {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.mc-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: brightness(0.85) saturate(1.05);
+  transform: scale(1.02);
+  transition: transform 1.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mc-hero__img {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Dark plum multi-layer gradient scrim for maximum text contrast */
+.mc-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(24, 15, 23, 0.76) 0%, rgba(36, 21, 34, 0.68) 40%, rgba(24, 15, 23, 0.92) 100%),
+    radial-gradient(ellipse 90% 80% at 20% 40%, rgba(47, 18, 40, 0.6) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Corner leaf decoration */
+.mc-hero__leaf {
+  position: absolute;
+  bottom: -2rem;
+  right: -2rem;
+  width: clamp(14rem, 24vw, 24rem);
+  height: clamp(14rem, 24vw, 24rem);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hero inner content container — aligns strictly to --mv-gutter */
+.mc-hero__inner {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding-inline: var(--mv-gutter);
+  padding-top: calc(var(--header-bar-h, 5.5rem) + clamp(1.5rem, 3.5svh, 2.75rem));
+  padding-bottom: clamp(2rem, 4svh, 3.25rem);
+  gap: clamp(2rem, 4svh, 3rem);
+}
+
+/* Breadcrumb */
+.mc-hero__breadcrumb {
+  margin-bottom: clamp(0.5rem, 1.5svh, 1rem);
+}
+
+.mc-hero__crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: clamp(0.75rem, 0.85vw, 0.85rem);
+  color: rgba(251, 245, 239, 0.72);
+}
+
+.mc-hero__crumbs a {
+  color: var(--mv-peach, #EDBE96);
+  text-decoration: underline;
+  text-decoration-color: rgba(237, 190, 150, 0.4);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.mc-hero__crumbs a:hover {
+  color: #fff;
+  text-decoration-color: #fff;
+}
+
+.mc-hero__crumb-sep {
+  opacity: 0.4;
+}
+
+/* Content block */
+.mc-hero__content {
+  max-width: 52rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 1.5svh, 1.25rem);
+}
+
+.mc-hero__eyebrow {
+  color: var(--mv-peach, #EDBE96);
+  margin-bottom: 0;
+}
+
+.mc-hero__rule {
+  background: var(--mv-peach, #EDBE96);
+}
+
+.mc-hero__title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: var(--mv-fs-title);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  color: var(--mv-ivory, #FBF5EF);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.mc-hero__title em {
+  font-family: 'Newsreader', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--mv-peach, #EDBE96);
+}
+
+.mc-hero__editorial {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.75rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--mv-peach, #EDBE96);
+  margin: 0;
+  max-width: 44rem;
+}
+
+.mc-hero__editorial em {
+  font-style: italic;
+  color: var(--mv-ivory, #FBF5EF);
+}
+
+.mc-hero__intro {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: var(--mv-fs-body);
+  line-height: 1.6;
+  color: rgba(251, 245, 239, 0.92);
+  max-width: 44rem;
+  margin: 0;
+}
+
+/* Actions */
+.mc-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(0.85rem, 1.4vw, 1.25rem);
+  padding-top: clamp(0.5rem, 1.5svh, 1rem);
+}
+
+.mc-hero__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: var(--mv-fs-ui);
+  font-weight: 600;
+  color: var(--mv-peach, #EDBE96);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.mc-hero__phone:hover {
+  color: #fff;
+  background: rgba(251, 245, 239, 0.08);
+}
+
+/* Provenance badge */
+.mc-hero__meta {
+  margin-top: 0.25rem;
+}
+
+.mc-hero__provenance-badge {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  background: rgba(24, 15, 23, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(251, 245, 239, 0.18);
+  border-radius: 999px;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: rgba(251, 245, 239, 0.75);
+}
+
+/* Bottom Reassurance Strip (3 herbarium badges) */
+.mc-hero__badges {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: clamp(1.25rem, 2.2vw, 1.75rem);
+  background: rgba(36, 18, 33, 0.82);
+  backdrop-filter: blur(14px) saturate(1.1);
+  border: 1px solid rgba(251, 245, 239, 0.18);
+  border-radius: var(--mv-radius, 1.25rem);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
+  margin-top: auto;
+}
+
+@media (min-width: 640px) {
+  .mc-hero__badges {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 2rem);
+  }
+}
+
+.mc-hero__badge {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .mc-hero__badge:not(:first-child) {
+    border-left: 1px solid rgba(251, 245, 239, 0.18);
+    padding-left: clamp(1rem, 2vw, 1.75rem);
+  }
+}
+
+.mc-hero__badge-kicker {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(0.65rem, 0.72vw, 0.75rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--mv-peach, #EDBE96);
+}
+
+.mc-hero__badge-title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  font-weight: 600;
+  color: var(--mv-ivory, #FBF5EF);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.mc-hero__badge-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(0.75rem, 0.85vw, 0.85rem);
+  line-height: 1.45;
+  color: rgba(251, 245, 239, 0.78);
+  margin: 0;
+}
+
+/* Tablet & Mobile tweaks */
+@media (max-width: 639.98px) {
+  .mc-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .mc-hero__actions .mv-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .mc-hero__phone {
+    justify-content: center;
+  }
+}

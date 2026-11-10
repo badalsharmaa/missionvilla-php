@@ -1,10 +1,20 @@
 # Next Session
 
-_Written 2026-11-09 at the end of Phase 1; updated the same day after Sections 03, 04 and 05–07 + footer;
-updated 2026-11-10 after the Sections 05–07 design correction and the website-wide inquiry modal rule._
+_Written 2026-11-09 at the end of Phase 1; updated 2026-11-10 after Sections 05–07 correction and the website-wide modal rule;
+updated 2026-11-10 after implementing the Memory Care landing page (`/memory-care`)._
 
 ## Current state
 
+- **Memory Care page (`/memory-care`) implemented on branch `feat/memory-care-laravel`:**
+  First complete internal page ported to Laravel according to the approved design standard (`.agents/skills/missionvilla-design-standard/`).
+  Includes:
+  1. `memory-care.hero`: Photographic hero with dark plum gradient scrim, Newsreader 600 title, Newsreader italic 500 subtitle, body narrative, 3 verified badges, Schedule a Memory Care Visit CTA (`data-inquiry="schedule_visit"` + `care="memory_care"`), direct phone link, leaf decor.
+  2. `memory-care.legacies`: "The Legacies™ Difference" 4-chapter interactive selector with ARIA tablist/tabpanels, grid-stacked panels that eliminate layout shifts, verified in-practice points, family takeaway, and photograph with provenance pill and caption.
+  3. `memory-care.daily-life`: "A Day Shaped Around the Individual" 3-rhythm editorial cards (Morning, Midday, Evening) with natural photography and verified highlights.
+  4. `memory-care.care-comfort`: "Care, Comfort & Home" 2-column editorial spread with 5 verified support commitments, care planning reassurance box, and large authentic facility suite photo (`/images/suites/suite-bedroom-facility-899.webp`).
+  5. `faq.featured`: "Questions Families Often Ask" compact 5-question accordion using established single-open pattern and modal CTA actions.
+  6. `visit.cta`: "Talk With Our Memory Care Team" deep-plum closing band with 3 conversion actions preselecting `memory_care` in the inquiry modal.
+  Screenshots and measurements in `../docs/memory-care-2026-11-10/`. 144 automated tests pass (8 new tests).
 - **PHP homepage: all sections implemented.** Opening shutters → 01 cinematic hero → 02 Care Options →
   03 Life at Mission Villa (**films pending**) → 04 Why Families → **05 Suites & Living Spaces** →
   **06 Questions Families Often Ask** → **07 Come See Mission Villa** → **global footer**. 134 automated tests pass.

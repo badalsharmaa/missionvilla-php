@@ -18,6 +18,11 @@ class PageController extends Controller
         return $this->render('home');
     }
 
+    public function memoryCare(): View
+    {
+        return $this->render('memory-care');
+    }
+
     private function render(string $slug): View
     {
         $page = $this->content->findPublishedPage($slug) ?? abort(404);

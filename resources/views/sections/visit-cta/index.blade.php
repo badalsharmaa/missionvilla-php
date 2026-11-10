@@ -37,6 +37,7 @@
             href="{{ $site['phone']['href'] }}"
             class="mv-btn {{ $action['primary'] ? 'mv-btn--primary' : 'mv-btn--ghost-light' }} vc__btn"
             data-inquiry="{{ $action['intent'] }}"
+            @if (! empty($data['care'])) data-inquiry-care="{{ $data['care'] }}" @endif
             data-inquiry-source="visit-cta"
           >
             @include('partials.icon', ['name' => $action['icon'], 'class' => 'mv-icon', 'stroke' => 1.6])
