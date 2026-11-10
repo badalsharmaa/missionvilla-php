@@ -18,7 +18,7 @@
   --lv-ivory: #FBF5EF;
   --lv-card: rgba(255, 252, 248, 0.72);
   --lv-line: rgba(47, 18, 40, 0.08);
-  --lv-gutter: clamp(1rem, 2.8vw, 3.5rem);
+  --lv-gutter: var(--mv-gutter);
   --lv-header: 4.5rem;
   --lv-radius: clamp(1rem, 1.35vw, 1.5rem);
   --lv-fade: 220ms;
@@ -68,8 +68,6 @@
 
 .life-gallery__inner {
   width: 100%;
-  max-width: 132rem;
-  margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: clamp(1.25rem, 3.4svh, 2.4rem);

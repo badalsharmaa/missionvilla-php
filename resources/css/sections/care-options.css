@@ -15,7 +15,7 @@
   --co-card-warm: #432826;
   --co-peach: #EDBE96;
   --co-ivory: #FBF5EF;
-  --co-gutter: clamp(1rem, 2.2vw, 3rem);
+  --co-gutter: var(--mv-gutter);
   --co-header: 4.5rem;
 
   position: relative;

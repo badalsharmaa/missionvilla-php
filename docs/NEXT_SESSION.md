@@ -25,6 +25,11 @@ updated 2026-11-10 after the Sections 05–07 design correction and the website-
   larger logo. Compact (after 88px of scroll): solid plum, 60/64px bar, logo ~34–38px, slightly tighter nav. The trigger
   is an IntersectionObserver sentinel (no scroll listener), with no transition under reduced motion. Documented in the
   skill (`components.md` → Header, `brand-logo.md` table). Before/after screenshots: `../docs/header-sticky-2026-11-10/`.
+- **2026-11-10 site-wide gutter (same branch):** every section now aligns to the hero/header side padding
+  (`--mv-gutter` = `--pad-x`: 76/72/68/38/24px at 1920/1440/1366/768/390). Care Options (was 42px), Life at Mission Villa
+  (54px), the Why Families glance card (48px right) and the values strip (104rem cap) were too wide. Phones went from 20px
+  to 24px. Full width, no boxed max-width wrappers. Section heights unchanged at desktop sizes. Before/after:
+  `../docs/section-gutters-2026-11-10/`.
 - **Branches:** `feat/php-foundation-hero` @ `d160d21` → `feat/section-04-why-families` @ `b22d825` →
   `feat/sections-05-07-footer` @ `82c5d7c` → **`feat/sections-05-07-modal-system`** (this correction). Each is a
   fast-forward of the previous one. Merge order when approved: 04, then 05–07, then the correction. No remote exists.

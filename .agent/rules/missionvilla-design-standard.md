@@ -15,5 +15,6 @@ Non-negotiables (details in the skill):
 - Form CTAs open the shared inquiry modal (`data-inquiry="<intent>"` + `tel:` fallback). Never scroll to a form.
 - Honesty: no fabricated facts or prices; every image carries provenance/rights + a visible label.
 - Content-driven section heights. User-initiated motion only. Respect reduced motion.
+- One side padding site-wide: align all content to the hero/header gutter (`--mv-gutter` = `--pad-x`), full width, never boxed.
 - Official logo artwork only (`references/brand-logo.md`). Never recreate the wordmark as HTML text or substitute typography.
 - Never modify the React reference (`missionvilla-ui-new`). Never deploy as a side effect.

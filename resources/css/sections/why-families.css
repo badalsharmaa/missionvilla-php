@@ -21,7 +21,7 @@
   --wf-peach: #EDBE96;
   --wf-ivory: #FBF5EF;
   --wf-radius: clamp(1.25rem, 1.7vw, 1.75rem);
-  --wf-gutter: clamp(1.25rem, 5vw, 4.75rem);
+  --wf-gutter: var(--mv-gutter);
   --wf-header: 4.5rem;
   --wf-wave: clamp(1.75rem, 4.2vw, 4.25rem);
 
@@ -468,7 +468,7 @@
     display: flex;
     padding:
       calc(var(--wf-header) + clamp(0.75rem, 3svh, 2.5rem))
-      clamp(1rem, 2.6vw, 3rem)
+      var(--wf-gutter)
       calc(var(--wf-wave) + clamp(0.9rem, 2.6svh, 2.25rem))
       var(--wf-gutter);
   }
@@ -520,7 +520,6 @@
   .wf-values__list {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0;
-    max-width: 104rem;
   }
   .wf-value {
     display: flex;

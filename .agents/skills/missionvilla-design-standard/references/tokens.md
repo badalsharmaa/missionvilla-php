@@ -85,8 +85,13 @@ Other sizes on the scale:
 
 ## Spacing and layout
 
-- **Gutter:** `--mv-gutter: clamp(1.25rem, 5vw, 4.75rem)` (hero/header `--pad-x: clamp(1.5rem,5vw,4.75rem)`).
-  Sections 02/03 use narrower local gutters. New work uses `--mv-gutter`.
+- **Gutter (one value site-wide):** `--mv-gutter: var(--pad-x)`, where `--pad-x: clamp(1.5rem, 5vw, 4.75rem)` (app.css).
+  That is 76px at 1920, 72 at 1440, 68 at 1366, 38 at 768 and 24 at 390. The header logo, the hero copy and every
+  section's content (cards, titles, panels, footer) start and end on this line. Section-local gutters
+  (`--co-gutter`, `--lv-gutter`, `--wf-gutter`) are aliases of `--mv-gutter`. Never set a narrower one.
+- **Full width, not boxed:** content spans the viewport minus the gutter on both sides. Don't wrap sections or card
+  grids in a centred `max-width` container: it reads as a boxed layout. Only text measures may be capped
+  (e.g. intro paragraphs `max-width: 34–62rem`). Full-bleed photos and backgrounds may run edge to edge.
 - **Fixed header:** 4.5rem tall, 5.5rem at ≥1024px.
   - Full-height sections pad the top with `calc(5.5rem + clamp(…))`.
   - Use `scroll-margin-top: 4.5rem` on section ids.

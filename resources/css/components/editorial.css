@@ -23,7 +23,8 @@
   --mv-ivory: #FBF5EF;
   --mv-radius: clamp(1.1rem, 1.5vw, 1.6rem);
   --mv-radius-sm: clamp(0.75rem, 0.9vw, 1rem);
-  --mv-gutter: clamp(1.25rem, 5vw, 4.75rem);
+  /* Site-wide side padding = the hero's --pad-x (app.css). Every section aligns to it; never box content. */
+  --mv-gutter: var(--pad-x);
 
   /* Shared type scale (Section 02). */
   --mv-fs-eyebrow: clamp(0.72rem, 0.9vw, 0.95rem);

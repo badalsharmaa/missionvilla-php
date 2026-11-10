@@ -41,6 +41,8 @@
 - [ ] **Motion:** user-initiated only; reduced motion makes it instant.
 - [ ] **No regressions:** the hero slider, Care Options flip, Section 03 player/tabs, header, footer and inquiry
   submission still work.
+- [ ] **Gutter alignment:** at 1920/1440/1366/768/390, the leftmost and rightmost content of every section (cards,
+  titles, panels) sit exactly on the header logo's x and its mirror (`--pad-x`: 76/72/68/38/24px). No boxed max-width wrappers.
 - [ ] `php artisan test` passes, with new tests for the schema (rejects bad data) and rendering (intents, no form anchors).
 - [ ] **Screenshots** in `../docs/<page>-<date>/`, compared with the mockup at the same aspect ratio. Never claim
   visual fidelity from compiling alone.

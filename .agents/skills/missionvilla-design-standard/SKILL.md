@@ -65,7 +65,10 @@ Live sources: `resources/css/app.css`, `resources/css/components/editorial.css` 
 10. **Don't silently drop reference features.** When porting from the React reference, list what you will not
     port and ask the user first.
 11. **Never modify the React reference** (`missionvilla-ui-new`). **Never deploy** as a side effect. Deploying needs an explicit request.
-12. **Official logo artwork only.** All Mission Villa branding must use official approved logo assets. Do not
+12. **One side padding, full width.** Every section's content aligns to the hero/header gutter (`--mv-gutter` =
+    `--pad-x`) at every width. Never set a narrower gutter, and never box content in a centred max-width container.
+    See `tokens.md` → Gutter.
+13. **Official logo artwork only.** All Mission Villa branding must use official approved logo assets. Do not
     recreate the wordmark using generic HTML text or substitute typography. Use the light lockup on dark surfaces,
     the colour lockup or stacked logo on light ones, and never use a different leaf. See `references/brand-logo.md`.
 
