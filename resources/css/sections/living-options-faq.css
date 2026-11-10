@@ -1,0 +1,294 @@
+/* -----------------------------------------------------------------------------
+ * LIVING OPTIONS SECTION 05 · QUESTIONS FAMILIES OFTEN ASK
+ * Balanced 2-column composition:
+ * - Left column (~46%): Eyebrow, Heading, Intro, and Care Team Assistance Card
+ * - Right column (~54%): FAQ Accordion card
+ * - Upper-right: Subtle transparent botanical branch accent
+ * -------------------------------------------------------------------------- */
+
+.lo-faq {
+  position: relative;
+  isolation: isolate;
+  background: var(--mv-cream, #FBF4EC);
+  color: var(--mv-ink, #2F1228);
+  padding-block: clamp(3.5rem, 8svh, 5.5rem);
+  overflow: hidden;
+}
+
+/* Subtle botanical branch accent in upper-right */
+.lo-faq__leaf {
+  position: absolute;
+  top: -1.5rem;
+  right: -2rem;
+  width: clamp(16rem, 28vw, 30rem);
+  height: clamp(16rem, 28vw, 30rem);
+  background: url('/images/decor/botanical-branch-beige.png') no-repeat right top / contain;
+  transform: scaleX(-1) rotate(-15deg);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 767px) {
+  .lo-faq__leaf {
+    width: 14rem;
+    height: 14rem;
+    top: -1rem;
+    right: -1.5rem;
+    opacity: 0.35;
+  }
+}
+
+.lo-faq__inner {
+  position: relative;
+  z-index: 1;
+  padding-inline: var(--mv-gutter);
+}
+
+/* 2-Column Layout */
+.lo-faq__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .lo-faq__layout {
+    grid-template-columns: minmax(0, 46fr) minmax(0, 54fr);
+    gap: clamp(2.5rem, 4.5vw, 4.5rem);
+    align-items: start;
+  }
+}
+
+/* Left Column: Intro + Care Team Card */
+.lo-faq__left {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 3svh, 2.25rem);
+}
+
+.lo-faq__head {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.6rem, 1.2svh, 0.9rem);
+  max-width: 44rem;
+}
+
+.lo-faq__title {
+  margin: 0;
+  color: var(--mv-ink, #2F1228);
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: var(--mv-fs-title);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
+
+.lo-faq__title em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--mv-terracotta, #B6634B);
+}
+
+.lo-faq__intro {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: var(--mv-fs-body);
+  line-height: 1.6;
+  color: var(--mv-ink-soft, #6A5A5D);
+  margin: 0;
+}
+
+/* Care Team Assistance Card */
+.lo-faq__help {
+  background: linear-gradient(180deg, #371731 0%, #2A0E24 100%);
+  color: var(--mv-ivory, #FBF5EF);
+  border-radius: var(--mv-radius, 1.25rem);
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  box-shadow: 0 16px 36px -16px rgba(47, 18, 40, 0.35);
+  border: 1px solid rgba(251, 245, 239, 0.14);
+}
+
+.lo-faq__help-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.lo-faq__help-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: rgba(237, 190, 150, 0.18);
+  color: var(--mv-peach, #EDBE96);
+  flex: none;
+}
+
+.lo-faq__help-icon .mv-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.lo-faq__help-kicker {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--mv-peach, #EDBE96);
+  display: block;
+}
+
+.lo-faq__help-title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(1.15rem, 1.35vw, 1.35rem);
+  font-weight: 600;
+  color: var(--mv-ivory, #FBF5EF);
+  line-height: 1.25;
+  margin: 0.15rem 0 0;
+}
+
+.lo-faq__help-text {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(0.85rem, 0.9vw, 0.95rem);
+  line-height: 1.55;
+  color: rgba(251, 245, 239, 0.88);
+  margin: 0;
+}
+
+.lo-faq__help-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.lo-faq__help-btn {
+  font-size: var(--mv-fs-ui);
+  padding: 0.75rem 1.25rem;
+  min-height: 2.85rem;
+}
+
+/* Right Column: Accordion Card */
+.lo-faq__right {
+  display: flex;
+  flex-direction: column;
+}
+
+.lo-faq__card {
+  background: #FFFDF9;
+  border: 1px solid var(--mv-line, #E6D7C8);
+  border-radius: var(--mv-radius, 1.25rem);
+  overflow: hidden;
+  box-shadow: 0 16px 36px -16px rgba(47, 18, 40, 0.12);
+}
+
+.lo-faq__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lo-faq__item {
+  border-bottom: 1px solid var(--mv-line, #E6D7C8);
+  transition: background 0.25s ease;
+}
+
+.lo-faq__item:last-child {
+  border-bottom: none;
+}
+
+.lo-faq__item.is-open {
+  background: rgba(244, 234, 224, 0.35);
+}
+
+.lo-faq__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: clamp(1.2rem, 1.8vw, 1.5rem) clamp(1.25rem, 2.2vw, 2rem);
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: var(--mv-ink, #2F1228);
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(1.05rem, 1.25vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
+
+.lo-faq__trigger:hover {
+  color: var(--mv-terracotta, #B6634B);
+}
+
+.lo-faq__trigger:focus-visible {
+  outline: 2px solid var(--mv-terracotta, #B6634B);
+  outline-offset: -2px;
+}
+
+.lo-faq__question {
+  flex-grow: 1;
+}
+
+.lo-faq__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  background: rgba(182, 99, 75, 0.1);
+  color: var(--mv-terracotta, #B6634B);
+  flex: none;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.lo-faq__chevron {
+  width: 1.05rem;
+  height: 1.05rem;
+  transition: transform 0.3s ease;
+}
+
+.lo-faq__item.is-open .lo-faq__chevron {
+  transform: rotate(180deg);
+}
+
+.lo-faq__item.is-open .lo-faq__icon-wrap {
+  background: var(--mv-plum, #2F1228);
+  color: var(--mv-peach, #EDBE96);
+}
+
+.lo-faq__body {
+  padding: 0 clamp(1.25rem, 2.2vw, 2rem) clamp(1.2rem, 1.8vw, 1.5rem);
+}
+
+.lo-faq__answer p {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: var(--mv-fs-body);
+  line-height: 1.65;
+  color: var(--mv-ink-soft, #6A5A5D);
+  margin: 0;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 639.98px) {
+  .lo-faq__help-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .lo-faq__help-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

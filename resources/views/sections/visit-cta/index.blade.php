@@ -75,7 +75,7 @@
           {{-- Shown after a form post without JavaScript (InquiryController redirects back here). --}}
           <p class="vc__notice" role="status" data-status="{{ $notice['status'] ?? '' }}">{{ $notice['message'] }}</p>
         @endif
-        <x-inquiry.form instance="inline" :source="! empty($data['care']) ? ($data['care'] === 'respite_care' ? 'rc-cta' : 'mc-cta') : 'visit-form'" :care="$data['care'] ?? null" />
+        <x-inquiry.form instance="inline" :source="! empty($data['source']) ? $data['source'] : (! empty($data['care']) ? ($data['care'] === 'respite_care' ? 'rc-cta' : ($data['care'] === 'exploring' ? 'lo-cta' : 'mc-cta')) : 'visit-form')" :care="$data['care'] ?? null" />
       </div>
     @elseif (is_array($notice) && isset($notice['message']))
       <p class="vc__notice" role="status">{{ $notice['message'] }}</p>

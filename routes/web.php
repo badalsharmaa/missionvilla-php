@@ -5,6 +5,7 @@ use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/living-options', [PageController::class, 'livingOptions'])->name('living-options');
 Route::get('/memory-care', [PageController::class, 'memoryCare'])->name('memory-care');
 Route::get('/respite-care', [PageController::class, 'respiteCare'])->name('respite-care');
 

@@ -18,6 +18,11 @@ class PageController extends Controller
         return $this->render('home');
     }
 
+    public function livingOptions(): View
+    {
+        return $this->render('living-options');
+    }
+
     public function memoryCare(): View
     {
         return $this->render('memory-care');

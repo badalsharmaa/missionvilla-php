@@ -43,6 +43,12 @@ const SECTION_SOURCES = {
   'respite-caregiver': 'rc-caregiver',
   'respite-planning': 'rc-timeline',
   'respite-faq': 'rc-faq',
+  'lo-hero': 'lo-hero',
+  'choose-care': 'lo-care',
+  'suites-floor-plans': 'lo-suites',
+  'homelike-setting': 'lo-setting',
+  'living-options-faq': 'lo-faq',
+  'lo-cta': 'lo-cta',
 };
 
 function uuid() {

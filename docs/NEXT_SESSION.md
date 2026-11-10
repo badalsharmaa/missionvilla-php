@@ -2,10 +2,21 @@
 
 _Written 2026-11-09 at the end of Phase 1; updated 2026-11-10 after Sections 05–07 correction and the website-wide modal rule;
 updated 2026-11-10 after implementing the Memory Care landing page (`/memory-care`);
-updated 2026-11-10 after implementing the Short-Term Respite Care landing page (`/respite-care`)._
+updated 2026-11-10 after implementing the Short-Term Respite Care landing page (`/respite-care`);
+updated 2026-11-11 after implementing the Living Options overview page (`/living-options`)._
 
 ## Current state
 
+- **Living Options page (`/living-options`) implemented on branch `feat/living-options-php`:**
+  Third complete internal page ported to Laravel according to the approved design standard (`.agents/skills/missionvilla-design-standard/`) and approved visual mockup (`mission_villa_living_options_mockup_v1.png`).
+  Includes:
+  1. `living-options.hero`: Photographic internal-page hero with dark plum gradient scrim, Newsreader 600 title ("Comfortable Living, Personalized Support"), 3-column information strip (Accommodations, Two Programs, Community Life), Schedule a Visit CTA (`data-inquiry="schedule_visit"` + `care="exploring"`), Explore Living Options jump link to `#choose-care`, and direct phone link.
+  2. `living-options.care`: "Choose the Care That Fits Your Needs" interactive 2-option segmented selector (Memory Care vs Respite Care) with ARIA tablist/tabpanels, dedicated photography with provenance labels, who it supports, and key distinction callout, plus an at-a-glance 5-dimension comparison table and shared foundation note.
+  3. `living-options.suites`: "Our Suite & Floor-Plan Options" deep-plum section with wave edge top, featuring 3 prominent photographic suite cards (Private Suite, Companion Unit, Jack & Jill) with top-left inverted clipped corner tabs (`lo-suites__cutout`), bathroom details, features, and floor-plan inquiry fallback.
+  4. `living-options.setting`: "A Welcoming, Homelike Setting" light cream section with 4 compact feature cards (Chef-Prepared Dining, Meaningful Engagement, Enclosed Courtyard & Patio, 24-Hour Attentive Support).
+  5. `living-options.faq`: "Questions Families Often Ask" balanced 2-column composition with left Care Team Assistance card and right 5-question accessible accordion card with Schema.org FAQPage JSON-LD.
+  6. `visit.cta`: "Talk With Our Care Team" deep-plum closing band with 3 conversion actions and the inline cream inquiry card (`#visit-form`, with `care_interest` preselected to `exploring` and source `lo-cta`).
+  Screenshots and measurements in `../docs/living-options-2026-11-11/`. 174 automated tests pass (15 new tests).
 - **Respite Care page (`/respite-care`) implemented on branch `feat/respite-care-php`:**
   Second complete internal page ported to Laravel according to the approved design standard (`.agents/skills/missionvilla-design-standard/`) and approved visual mockup (`Mission Villa Respite Care Website Mockup.png`).
   Includes:

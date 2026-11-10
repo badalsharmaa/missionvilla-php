@@ -1,0 +1,336 @@
+/* -----------------------------------------------------------------------------
+ * LIVING OPTIONS SECTION 01 · EDITORIAL PHOTOGRAPHIC HERO
+ * -------------------------------------------------------------------------- */
+
+.lo-hero {
+  position: relative;
+  isolation: isolate;
+  background: var(--plum-abyss, #180F17);
+  color: var(--mv-ivory, #FBF5EF);
+  min-height: clamp(520px, 78svh, 820px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Background photography stage */
+.lo-hero__stage {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.lo-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: brightness(0.85) saturate(1.05);
+  transform: scale(1.02);
+  transition: transform 1.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lo-hero__img {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Dark plum multi-layer gradient scrim for maximum text contrast */
+.lo-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(24, 15, 23, 0.78) 0%, rgba(36, 21, 34, 0.7) 40%, rgba(24, 15, 23, 0.94) 100%),
+    radial-gradient(ellipse 90% 80% at 20% 40%, rgba(47, 18, 40, 0.65) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Corner leaf decoration */
+.lo-hero__leaf {
+  position: absolute;
+  bottom: -2rem;
+  right: -2rem;
+  width: clamp(14rem, 24vw, 24rem);
+  height: clamp(14rem, 24vw, 24rem);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hero inner content container — aligns strictly to --mv-gutter */
+.lo-hero__inner {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding-inline: var(--mv-gutter);
+  padding-top: calc(var(--header-bar-h, 5.5rem) + clamp(1.5rem, 3.5svh, 2.75rem));
+  padding-bottom: clamp(2rem, 4svh, 3.25rem);
+  gap: clamp(2rem, 4svh, 3rem);
+}
+
+/* Breadcrumb */
+.lo-hero__breadcrumb {
+  margin-bottom: clamp(0.5rem, 1.5svh, 1rem);
+}
+
+.lo-hero__crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: clamp(0.75rem, 0.85vw, 0.85rem);
+  color: rgba(251, 245, 239, 0.72);
+}
+
+.lo-hero__crumbs a {
+  color: var(--mv-peach, #EDBE96);
+  text-decoration: underline;
+  text-decoration-color: rgba(237, 190, 150, 0.4);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.lo-hero__crumbs a:hover {
+  color: #fff;
+  text-decoration-color: #fff;
+}
+
+.lo-hero__crumb-sep {
+  opacity: 0.4;
+}
+
+/* Content block */
+.lo-hero__content {
+  max-width: 52rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 1.5svh, 1.25rem);
+}
+
+.lo-hero__eyebrow {
+  color: var(--mv-peach, #EDBE96);
+  margin-bottom: 0;
+}
+
+.lo-hero__rule {
+  background: var(--mv-peach, #EDBE96);
+}
+
+.lo-hero__title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: var(--mv-fs-title);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  color: var(--mv-ivory, #FBF5EF);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.lo-hero__title em {
+  font-family: 'Newsreader', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--mv-peach, #EDBE96);
+}
+
+.lo-hero__editorial {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.75rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.25;
+  color: var(--mv-peach, #EDBE96);
+  margin: 0;
+}
+
+.lo-hero__intro {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: var(--mv-fs-body);
+  line-height: 1.6;
+  color: rgba(251, 245, 239, 0.88);
+  max-width: 44rem;
+  margin: 0;
+}
+
+/* Actions group */
+.lo-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  margin-top: clamp(0.5rem, 1.5svh, 1rem);
+}
+
+.lo-hero__btn-primary {
+  min-height: 3.25rem;
+  padding-inline: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.lo-hero__btn-ghost {
+  min-height: 3.25rem;
+  padding-inline: clamp(1.25rem, 2vw, 1.75rem);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(251, 245, 239, 0.35);
+  color: var(--mv-ivory, #FBF5EF);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: var(--mv-fs-ui);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.lo-hero__btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(251, 245, 239, 0.6);
+  transform: translateY(-1px);
+}
+
+.lo-hero__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--mv-peach, #EDBE96);
+  font-weight: 600;
+  font-size: var(--mv-fs-ui);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.lo-hero__phone:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.lo-hero__meta {
+  margin-top: 0.25rem;
+}
+
+.lo-hero__provenance-badge {
+  display: inline-block;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(251, 245, 239, 0.6);
+  background: rgba(24, 15, 23, 0.55);
+  backdrop-filter: blur(6px);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 245, 239, 0.12);
+}
+
+/* Compact Information Strip */
+.lo-hero__strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.25rem, 3vw, 2.25rem);
+  background: rgba(36, 21, 34, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(251, 245, 239, 0.18);
+  border-radius: var(--mv-radius, 1.25rem);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
+  margin-top: auto;
+}
+
+@media (min-width: 640px) {
+  .lo-hero__strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 2rem);
+  }
+}
+
+.lo-hero__strip-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .lo-hero__strip-item:not(:first-child) {
+    border-left: 1px solid rgba(251, 245, 239, 0.18);
+    padding-left: clamp(1rem, 2vw, 1.75rem);
+  }
+}
+
+.lo-hero__strip-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: none;
+  border-radius: 999px;
+  background: rgba(237, 190, 150, 0.14);
+  color: var(--mv-peach, #EDBE96);
+  margin-top: 0.15rem;
+}
+
+.lo-hero__strip-icon .mv-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.lo-hero__strip-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.lo-hero__strip-kicker {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(0.65rem, 0.72vw, 0.75rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--mv-peach, #EDBE96);
+}
+
+.lo-hero__strip-title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  font-weight: 600;
+  color: var(--mv-ivory, #FBF5EF);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.lo-hero__strip-desc {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(0.75rem, 0.85vw, 0.85rem);
+  line-height: 1.45;
+  color: rgba(251, 245, 239, 0.78);
+  margin: 0;
+}
+
+/* Tablet & Mobile tweaks */
+@media (max-width: 639.98px) {
+  .lo-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .lo-hero__actions .mv-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .lo-hero__phone {
+    justify-content: center;
+  }
+}

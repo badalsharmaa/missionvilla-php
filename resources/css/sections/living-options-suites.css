@@ -1,0 +1,345 @@
+/* -----------------------------------------------------------------------------
+ * LIVING OPTIONS SECTION 03 · SUITES & FLOOR-PLAN OPTIONS
+ * -------------------------------------------------------------------------- */
+
+.lo-suites {
+  --lo-wave: clamp(1.75rem, 4.2vw, 3.5rem);
+  --card-bg: #35172E;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  padding-top: var(--lo-wave);
+  color: var(--mv-ivory, #FBF5EF);
+  background: var(--mv-cream, #FBF4EC);
+}
+
+/* Wave edge at top transitioning from cream to plum */
+.lo-suites__wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(var(--lo-wave) + 2px);
+  display: block;
+}
+
+.lo-suites__wave-fill {
+  fill: var(--mv-plum, #47243D);
+}
+
+.lo-suites__inner {
+  background: linear-gradient(180deg, var(--mv-plum, #47243D) 0%, var(--mv-plum-mid, #3A1A31) 100%);
+  padding-inline: var(--mv-gutter);
+  padding-block: clamp(2.5rem, 6svh, 4.5rem) clamp(3.5rem, 8svh, 5.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* Section Header */
+.lo-suites__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+.lo-suites__eyebrow {
+  color: var(--mv-peach, #EDBE96);
+  margin-bottom: 0;
+}
+
+.lo-suites__rule {
+  background: var(--mv-peach, #EDBE96);
+}
+
+.lo-suites__title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: var(--mv-fs-title);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--mv-ivory, #FBF5EF);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.lo-suites__title em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--mv-peach, #EDBE96);
+  display: block;
+}
+
+.lo-suites__intro {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: var(--mv-fs-body);
+  line-height: 1.6;
+  color: rgba(251, 245, 239, 0.88);
+  margin: 0;
+  max-width: 42rem;
+}
+
+/* 3 Cards Grid */
+.lo-suites__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+
+@media (min-width: 1024px) {
+  .lo-suites__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Card */
+.lo-suites__card {
+  background: var(--card-bg);
+  border: 1px solid rgba(251, 245, 239, 0.16);
+  border-radius: var(--mv-radius, 1.4rem);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 50px -25px rgba(10, 2, 8, 0.7);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.lo-suites__card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(237, 190, 150, 0.35);
+}
+
+/* Media Frame */
+.lo-suites__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--mv-plum-deep, #2F1228);
+}
+
+.lo-suites__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.lo-suites__card:hover .lo-suites__img {
+  transform: scale(1.04);
+}
+
+/* Top-Left Clipped Cutout */
+.lo-suites__cutout {
+  --curve-r: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--card-bg);
+  border-bottom-right-radius: var(--curve-r);
+  padding: 0 12px 10px 0;
+  z-index: 5;
+}
+
+.lo-suites__cutout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: calc(var(--curve-r) * -1);
+  width: var(--curve-r);
+  height: var(--curve-r);
+  border-top-left-radius: var(--curve-r);
+  box-shadow: -8px -8px 0 8px var(--card-bg);
+  pointer-events: none;
+}
+
+.lo-suites__cutout::after {
+  content: "";
+  position: absolute;
+  bottom: calc(var(--curve-r) * -1);
+  left: 0;
+  width: var(--curve-r);
+  height: var(--curve-r);
+  border-top-left-radius: var(--curve-r);
+  box-shadow: -8px -8px 0 8px var(--card-bg);
+  pointer-events: none;
+}
+
+.lo-suites__cutout-badge {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(237, 190, 150, 0.16);
+  border: 1px solid rgba(237, 190, 150, 0.4);
+  color: var(--mv-peach, #EDBE96);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+.lo-suites__provenance {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: rgba(251, 245, 239, 0.7);
+  background: rgba(24, 15, 23, 0.65);
+  backdrop-filter: blur(6px);
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 245, 239, 0.12);
+  z-index: 4;
+}
+
+/* Overlay Meta */
+.lo-suites__overlay-meta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1.25rem 0.85rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(36, 17, 32, 0.92) 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  z-index: 3;
+}
+
+.lo-suites__program-badge {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--mv-peach, #EDBE96);
+}
+
+.lo-suites__card-title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(1.2rem, 1.4vw, 1.5rem);
+  font-weight: 600;
+  color: var(--mv-ivory, #FBF5EF);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Card Content */
+.lo-suites__content {
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 1rem;
+}
+
+.lo-suites__bathroom-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.6rem 0.85rem;
+  background: rgba(237, 190, 150, 0.08);
+  border-radius: var(--mv-radius-sm, 0.65rem);
+  border-left: 2px solid var(--mv-peach, #EDBE96);
+}
+
+.lo-suites__bathroom-icon {
+  color: var(--mv-peach, #EDBE96);
+  flex: none;
+  margin-top: 0.15rem;
+}
+
+.lo-suites__bathroom-text {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(0.78rem, 0.85vw, 0.88rem);
+  line-height: 1.4;
+  color: var(--mv-ivory, #FBF5EF);
+}
+
+.lo-suites__summary {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(0.85rem, 0.92vw, 0.95rem);
+  line-height: 1.6;
+  color: rgba(251, 245, 239, 0.85);
+  margin: 0;
+}
+
+.lo-suites__features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+
+.lo-suites__feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: clamp(0.8rem, 0.88vw, 0.9rem);
+  line-height: 1.45;
+  color: rgba(251, 245, 239, 0.78);
+}
+
+.lo-suites__check {
+  color: var(--mv-peach, #EDBE96);
+  width: 1rem;
+  height: 1rem;
+  flex: none;
+  margin-top: 0.15rem;
+}
+
+.lo-suites__card-footer {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(251, 245, 239, 0.12);
+}
+
+.lo-suites__inquire-btn {
+  width: 100%;
+  justify-content: center;
+  font-size: var(--mv-fs-ui);
+}
+
+/* Action Bar */
+.lo-suites__action-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+  text-align: center;
+  padding: clamp(1.25rem, 2vw, 1.75rem) clamp(1.5rem, 3vw, 2.5rem);
+  background: rgba(24, 15, 23, 0.45);
+  border-radius: var(--mv-radius, 1.25rem);
+  border: 1px solid rgba(251, 245, 239, 0.14);
+}
+
+@media (min-width: 768px) {
+  .lo-suites__action-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.lo-suites__action-note {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(0.88rem, 0.95vw, 1rem);
+  color: rgba(251, 245, 239, 0.9);
+  margin: 0;
+}
+
+.lo-suites__action-cta {
+  flex: none;
+}
