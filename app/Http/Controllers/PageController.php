@@ -43,6 +43,11 @@ class PageController extends Controller
         return $this->render('life-at-mission-villa');
     }
 
+    public function servicesAmenities(): View
+    {
+        return $this->render('services-and-amenities');
+    }
+
     private function render(string $slug): View
     {
         $page = $this->content->findPublishedPage($slug) ?? abort(404);

@@ -1,0 +1,657 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Services & Amenities page content definition (slug: "services-and-amenities")
+|--------------------------------------------------------------------------
+| Verified against the React reference (app/services-and-amenities/page.tsx
+| and lib/mission-villa-data.ts), the Mission Villa design standard,
+| and the developer handoff playbook.
+|
+| Business rule: every form CTA opens the shared inquiry modal with
+| care interest preselected to "exploring" (or specific care program).
+| Provenance rule: clarify authentic facility photos vs illustrative imagery.
+*/
+
+return [
+    'slug' => 'services-and-amenities',
+    'title' => 'Services & Amenities | Memory Care Community Features in Daly City',
+    'seo' => [
+        'title' => 'Services & Amenities: 24/7 Support, Dining & Care in Daly City | Mission Villa',
+        'description' => 'Explore services and amenities at Mission Villa Senior Living in Daly City. 24-hour care team, chef-prepared dining, courtyard gardens, housekeeping, and life enrichment.',
+        'og_image' => '/images/suites/community-lounge-facility-899.webp',
+    ],
+    'sections' => [
+        [
+            'key' => 'sa-hero',
+            'type' => 'services-and-amenities.hero',
+            'enabled' => true,
+            'order' => 10,
+            'data' => [
+                'eyebrow' => 'Services & Amenities Directory',
+                'heading' => 'Thoughtful Support & Comfort, <em>Rooted in Everyday Dignity.</em>',
+                'editorial' => '24-hour on-site care, chef-prepared dining, and peaceful indoor-outdoor spaces in Daly City.',
+                'intro' => 'At Mission Villa, practical assistance is woven seamlessly into everyday life. From chef-prepared restaurant-style meals and personal laundry to 24-hour attentive caregivers and secure courtyard gardens, our community provides everything needed for comfort, safety, and joy.',
+                'categories_dock' => [
+                    [
+                        'id' => 'support',
+                        'index' => '01',
+                        'label' => '24-Hour Support',
+                        'icon' => 'shield',
+                    ],
+                    [
+                        'id' => 'dining',
+                        'index' => '02',
+                        'label' => 'Dining & Hospitality',
+                        'icon' => 'utensils',
+                    ],
+                    [
+                        'id' => 'lifestyle',
+                        'index' => '03',
+                        'label' => 'Lifestyle & Activities',
+                        'icon' => 'sparkles',
+                    ],
+                    [
+                        'id' => 'spaces',
+                        'index' => '04',
+                        'label' => 'Courtyard & Spaces',
+                        'icon' => 'trees',
+                    ],
+                    [
+                        'id' => 'convenience',
+                        'index' => '05',
+                        'label' => 'Everyday Convenience',
+                        'icon' => 'concierge',
+                    ],
+                ],
+                'actions' => [
+                    [
+                        'label' => 'Explore Offerings by Need',
+                        'style' => 'primary',
+                        'icon' => 'calendar',
+                        'intent' => 'schedule_visit',
+                        'care' => 'exploring',
+                    ],
+                    [
+                        'label' => 'Ask About Inclusions',
+                        'style' => 'secondary',
+                        'icon' => 'arrow',
+                        'intent' => 'general_inquiry',
+                        'care' => 'exploring',
+                    ],
+                    [
+                        'label' => '(650) 756-1995',
+                        'style' => 'phone',
+                        'icon' => 'phone',
+                        'href' => 'tel:6507561995',
+                    ],
+                ],
+            ],
+        ],
+
+        [
+            'key' => 'sa-explorer',
+            'type' => 'services-and-amenities.explorer',
+            'enabled' => true,
+            'order' => 20,
+            'data' => [
+                'eyebrow' => 'Categorized Directory & Explorer',
+                'heading' => 'Explore Services & Amenities by <em>Daily Need.</em>',
+                'intro' => 'Select any of the five categories below to explore how Mission Villa’s on-site services and community amenities support residents and visiting families.',
+                'categories' => [
+                    [
+                        'id' => 'support',
+                        'code' => '01',
+                        'label' => 'Support',
+                        'title' => '24-Hour Support & Personalized Care',
+                        'subtitle' => '24-hour staff presence, routine assessments, escort assistance, and emergency alert confidence',
+                        'narrative' => 'Practical care at Mission Villa is woven quietly into daily life so residents feel supported without feeling managed. Our on-site team is present 24 hours a day to assist with daily routines, help residents move comfortably between their suites and common areas, and adjust care plans through routine assessments as needs evolve.',
+                        'reassurance' => 'Whether your loved one joins us for full-time Legacies™ Memory Care or a short-term Respite Care stay, daily assistance is shaped around personal history, comfort, and respect.',
+                        'pairing_image' => [
+                            'src' => '/images/care/memory-care-companion-1122.webp',
+                            'width' => 1122,
+                            'height' => 748,
+                            'alt' => 'Attentive caregiver conversing with resident in a comfortable setting',
+                            'provenance' => 'illustrative',
+                            'rights' => 'cleared',
+                            'label' => 'Caregiver support illustration',
+                        ],
+                        'vignette' => [
+                            'title' => 'Individualized Care Review',
+                            'detail' => 'Routine assessments help our Daly City team align daily support with changing mobility or memory care needs.',
+                        ],
+                        'items' => [
+                            [
+                                'id' => 'service-24-hour-staff',
+                                'code' => 'SUP · 01',
+                                'classification' => 'Community Service',
+                                'title' => '24-Hour Staff Availability',
+                                'subtitle' => 'Around-the-clock on-site care team presence for daily assistance and nighttime peace of mind',
+                                'description' => 'Dedicated staff members are on-site 24 hours a day to respond to resident needs, assist with activities of daily living, and maintain a calm, nurturing environment day and night.',
+                                'supports' => [
+                                    'Uninterrupted daytime and overnight staff presence in the community',
+                                    'Respectful assistance with bathing, dressing, grooming, and personal routines',
+                                    'Reassuring check-ins that help families rest easier at home',
+                                ],
+                                'confirmation_note' => 'Specific care-tier inclusions confirmed during pre-move-in assessment.',
+                            ],
+                            [
+                                'id' => 'service-routine-assessments',
+                                'code' => 'SUP · 02',
+                                'classification' => 'Community Service',
+                                'title' => 'Routine Assessments & Care Plan Review',
+                                'subtitle' => 'Ongoing observation and personalized care adjustments as resident needs change',
+                                'description' => 'Because memory loss and physical needs evolve over time, our team conducts routine assessments in collaboration with families to ensure each resident’s daily support plan remains comfortable and appropriate.',
+                                'supports' => [
+                                    'Initial pre-stay or pre-move-in evaluation to tailor daily support',
+                                    'Periodic routine reviews of daily living, nutrition, and engagement preferences',
+                                    'Proactive communication with family members when care needs shift',
+                                ],
+                                'confirmation_note' => 'Assessment frequency and family care-conference cadence confirmed at admission.',
+                            ],
+                            [
+                                'id' => 'service-escort-transfer',
+                                'code' => 'SUP · 03',
+                                'classification' => 'Community Service',
+                                'title' => 'Escort & Transfer Support',
+                                'subtitle' => 'Gentle guidance and mobility assistance between suites, dining, and activities',
+                                'description' => 'Our staff offers patient escort and transfer assistance to help residents navigate comfortably from their private or companion suites to the dining room, activity lounges, and outdoor courtyard.',
+                                'supports' => [
+                                    'Unhurried personal escort to chef-prepared meals and group gatherings',
+                                    'Respectful transfer assistance aligned with each resident’s mobility assessment',
+                                    'Encourages participation in community life without fear of disorientation',
+                                ],
+                                'confirmation_note' => 'Mobility and transfer eligibility criteria confirmed under RCFE license #415601046.',
+                            ],
+                            [
+                                'id' => 'amenity-emergency-alert',
+                                'code' => 'SUP · 04',
+                                'classification' => 'Community Amenity',
+                                'title' => 'Emergency Alert Device & Call System',
+                                'subtitle' => 'Accessible call and alert features supporting prompt staff response',
+                                'description' => 'Suites and community spaces incorporate emergency alert device capabilities so residents can signal for assistance and staff can respond promptly whenever help is needed.',
+                                'supports' => [
+                                    'Emergency alert capability in private and companion suites',
+                                    'Supports resident safety and reassurance during quiet hours',
+                                    'Directly integrated with 24-hour on-site staff presence',
+                                ],
+                                'confirmation_note' => 'Wearable vs in-suite alert hardware configured per suite format.',
+                            ],
+                        ],
+                    ],
+
+                    [
+                        'id' => 'dining',
+                        'code' => '02',
+                        'label' => 'Dining',
+                        'title' => 'Dining & Table Hospitality',
+                        'subtitle' => 'Restaurant-style full-table service, fresh recipes, and private family dining',
+                        'narrative' => 'Dining at Mission Villa is an unhurried social anchor of the day. Residents gather in our welcoming dining room for chef-prepared meals served directly at the table, where familiar flavors, attentive hospitality, and conversation with neighbors turn every meal into a moment of belonging.',
+                        'reassurance' => 'Visiting spouses, adult children, and grandchildren can also arrange private dining moments to celebrate birthdays, anniversaries, or quiet family lunches together.',
+                        'pairing_image' => [
+                            'src' => '/images/life/dining-daily-life-illustrative-1672.webp',
+                            'width' => 1672,
+                            'height' => 1115,
+                            'alt' => 'Chef-prepared meals served with hospitality at dining room tables',
+                            'provenance' => 'illustrative',
+                            'rights' => 'cleared',
+                            'label' => 'Dining hospitality illustration',
+                        ],
+                        'vignette' => [
+                            'title' => 'Hospitality at Every Meal',
+                            'detail' => 'Escort support to the dining table and attentive mealtime cueing help every resident dine with ease.',
+                        ],
+                        'items' => [
+                            [
+                                'id' => 'amenity-full-table-service',
+                                'code' => 'DIN · 01',
+                                'classification' => 'Community Amenity',
+                                'title' => 'Restaurant-Style Full-Table Service',
+                                'subtitle' => 'Chef-prepared breakfast, lunch, and dinner served directly to residents at the table',
+                                'description' => 'Mealtimes are hosted in our welcoming dining room with full-table service. Rather than navigating cafeterias or trays, residents are seated comfortably with neighbors and served freshly prepared dishes.',
+                                'supports' => [
+                                    'Three daily chef-prepared meals served tableside with warm hospitality',
+                                    'Eliminates buffet confusion while encouraging social conversation',
+                                    'Included for both full-time Memory Care and short-term Respite Care guests',
+                                ],
+                                'confirmation_note' => 'Seasonal menu rotation and tasting available upon tour.',
+                            ],
+                            [
+                                'id' => 'amenity-private-dining',
+                                'code' => 'DIN · 02',
+                                'classification' => 'Community Amenity',
+                                'title' => 'Private Dining for Family Gatherings',
+                                'subtitle' => 'Dedicated dining setting for shared family meals, birthdays, and milestones',
+                                'description' => 'Families are always welcome at our table. Our private dining amenity offers relatives an intimate space to share a meal, celebrate a birthday or anniversary, or enjoy unhurried family time.',
+                                'supports' => [
+                                    'Inviting space for spouses, children, and grandchildren to dine together',
+                                    'Keeps cherished family holiday and birthday traditions alive',
+                                    'Coordinated with our dining and concierge team in advance',
+                                ],
+                                'confirmation_note' => 'Advance reservation guidelines coordinated with front concierge.',
+                            ],
+                            [
+                                'id' => 'amenity-dietary-options',
+                                'code' => 'DIN · 03',
+                                'classification' => 'Community Amenity',
+                                'title' => 'Personalized Dietary Accommodations',
+                                'subtitle' => 'Nutrition tailored to diabetic, low-sodium, mechanical soft, and pureed diets',
+                                'description' => 'Our culinary team works closely with nursing leadership to provide balanced, appetizing meals that respect dietary restrictions, allergies, and modified texture requirements without sacrificing flavor.',
+                                'supports' => [
+                                    'Physician-directed dietary modifications prepared with high culinary care',
+                                    'Continuous hydration stations and comforting snacks between meals',
+                                    'Cultural comfort food preferences incorporated into seasonal recipe planning',
+                                ],
+                                'confirmation_note' => 'Dietary profile and texture needs reviewed during clinical intake.',
+                            ],
+                        ],
+                    ],
+
+                    [
+                        'id' => 'lifestyle',
+                        'code' => '03',
+                        'label' => 'Lifestyle',
+                        'title' => 'Lifestyle & Enrichment',
+                        'subtitle' => 'Dedicated activity director, on-site salon/spa comfort, and volunteer connection',
+                        'narrative' => 'A meaningful day balances purposeful activity with personal pride and relaxation. Guided by our dedicated activity director, daily life includes creative art, tabletop games, gentle fitness, live entertainment, and volunteer programs—alongside an on-site salon/spa setting where residents can enjoy familiar grooming and self-care.',
+                        'reassurance' => 'All programming is adapted to how a resident feels each day, weaving Legacies™ Memory Care life-story touchpoints into group and one-on-one moments.',
+                        'pairing_image' => [
+                            'src' => '/images/life/meaningful-connection-illustrative-1402.webp',
+                            'width' => 1402,
+                            'height' => 935,
+                            'alt' => 'Senior resident smiling during an engaging creative activity',
+                            'provenance' => 'illustrative',
+                            'rights' => 'cleared',
+                            'label' => 'Creative engagement illustration',
+                        ],
+                        'vignette' => [
+                            'title' => 'Personal Pride & Grooming',
+                            'detail' => 'A fresh haircut, styling, or quiet grooming session on-site helps residents feel confident and cared for.',
+                        ],
+                        'items' => [
+                            [
+                                'id' => 'service-activity-director',
+                                'code' => 'LIF · 01',
+                                'classification' => 'Community Service',
+                                'title' => 'Dedicated Activity Director Programming',
+                                'subtitle' => 'Daily structured calendar of cognitive, physical, and sensory engagement',
+                                'description' => 'Our full-time activity director plans and coordinates meaningful daily events designed specifically for memory care, including music therapy, chair yoga, baking workshops, and social games.',
+                                'supports' => [
+                                    'Daily scheduled group and individualized activity sessions',
+                                    'Engages memory recall, cognitive stimulation, and motor dexterity',
+                                    'Celebrates cultural holidays, birthdays, and seasonal events',
+                                ],
+                                'confirmation_note' => 'Monthly activity calendar available on request or during visit.',
+                            ],
+                            [
+                                'id' => 'service-salon-spa',
+                                'code' => 'LIF · 02',
+                                'classification' => 'Community Service',
+                                'title' => 'On-Site Salon & Spa Care',
+                                'subtitle' => 'Convenient grooming, haircuts, and styling in a familiar setting',
+                                'description' => 'Residents can enjoy professional haircuts, styling, and pampering without the stress of leaving the community. Familiar grooming routines support personal dignity and self-esteem.',
+                                'supports' => [
+                                    'On-site salon environment tailored to seniors with memory loss',
+                                    'Gentle, patient stylists accustomed to cognitive sensitivity',
+                                    'Lifts spirits and reinforces familiar self-care habits',
+                                ],
+                                'confirmation_note' => 'Operating schedule and service fees confirmed with concierge.',
+                            ],
+                            [
+                                'id' => 'service-volunteer-programs',
+                                'code' => 'LIF · 03',
+                                'classification' => 'Community Service',
+                                'title' => 'Volunteer & Intergenerational Programs',
+                                'subtitle' => 'Enriching community visitors, student musicians, and pet therapy',
+                                'description' => 'Mission Villa welcomes local Peninsula volunteers, student groups, musicians, and therapy animals, bringing fresh energy, youthful smiles, and heartfelt companionship to our residents.',
+                                'supports' => [
+                                    'Brings the broader Daly City and Bay Area community into daily life',
+                                    'Fosters intergenerational joy through music and storytelling',
+                                    'Therapy pet visits that reduce stress and elevate mood',
+                                ],
+                                'confirmation_note' => 'Volunteer visit schedules and visitor health screenings coordinated on-site.',
+                            ],
+                        ],
+                    ],
+
+                    [
+                        'id' => 'spaces',
+                        'code' => '04',
+                        'label' => 'Community Spaces',
+                        'title' => 'Community Spaces & Outdoors',
+                        'subtitle' => 'Enclosed courtyard, sunlit patio, quiet library nook, and Wi-Fi in common spaces',
+                        'narrative' => 'Beyond private and companion suites, Mission Villa is arranged like a welcoming residential house. Residents and visiting relatives can step out into our garden courtyard and patio for fresh Daly City air, browse books in the library nook, or connect with family over Wi-Fi in comfortable communal lounges.',
+                        'reassurance' => 'Having diverse indoor and outdoor gathering spots means families always have a calm, natural place to visit outside a resident’s bedroom suite.',
+                        'pairing_image' => [
+                            'src' => '/images/why-families/courtyard-patio-facility-1024.webp',
+                            'width' => 1024,
+                            'height' => 768,
+                            'alt' => 'Mission Villa sunny outdoor courtyard with patio tables and flowering garden borders',
+                            'provenance' => 'facility',
+                            'rights' => 'cleared',
+                            'label' => 'Mission Villa courtyard photograph',
+                        ],
+                        'vignette' => [
+                            'title' => 'Connected Common Areas',
+                            'detail' => 'Wi-Fi in common spaces supports family video calls, digital photo sharing, and favorite music.',
+                        ],
+                        'items' => [
+                            [
+                                'id' => 'amenity-courtyard-patio',
+                                'code' => 'SPA · 01',
+                                'classification' => 'Community Amenity',
+                                'title' => 'Secure Central Courtyard & Patio',
+                                'subtitle' => 'Protected outdoor garden sanctuary with shaded tables and walking paths',
+                                'description' => 'Our secure courtyard allows residents to step outside freely into coastal sunshine and fresh air. Raised flower beds and secure perimeter fencing provide nature contact with total peace of mind.',
+                                'supports' => [
+                                    'Safe outdoor mobility without wandering risk',
+                                    'Alfresco patio dining and garden walks with visiting relatives',
+                                    'Sensory stimulation from flowering plants and warm sunshine',
+                                ],
+                                'confirmation_note' => 'Authentic facility courtyard amenity verified at 995 East Market Street.',
+                            ],
+                            [
+                                'id' => 'amenity-library-lounges',
+                                'code' => 'SPA · 02',
+                                'classification' => 'Community Amenity',
+                                'title' => 'Living Lounges & Library Nook',
+                                'subtitle' => 'Comfortable fireside seating, book collections, and quiet reading corners',
+                                'description' => 'Cozy living room settings feature plush armchairs, natural lighting, large-print books, and peaceful nooks where residents can rest, listen to quiet music, or visit comfortably with family.',
+                                'supports' => [
+                                    'Calm environments that prevent overstimulation and agitation',
+                                    'Intimate spaces for private family visits outside resident suites',
+                                    'Fosters neighborly conversations and informal friendships',
+                                ],
+                                'confirmation_note' => 'Authentic facility lounge photograph and features verified.',
+                            ],
+                            [
+                                'id' => 'amenity-wifi-connectivity',
+                                'code' => 'SPA · 03',
+                                'classification' => 'Community Amenity',
+                                'title' => 'High-Speed Wi-Fi in Common Spaces',
+                                'subtitle' => 'Seamless wireless connectivity for family visits and entertainment',
+                                'description' => 'Community common spaces are equipped with high-speed Wi-Fi, making it easy for visiting relatives to share family videos, connect tablets for virtual calls with distant relatives, or play music.',
+                                'supports' => [
+                                    'Enables video calls with out-of-town grandchildren and relatives',
+                                    'Supports digital photo frames and streaming personalized music playlists',
+                                    'Keeps families connected during daytime and evening visits',
+                                ],
+                                'confirmation_note' => 'Common-area wireless access provided throughout public living spaces.',
+                            ],
+                        ],
+                    ],
+
+                    [
+                        'id' => 'convenience',
+                        'code' => '05',
+                        'label' => 'Everyday Convenience',
+                        'title' => 'Practical Household & Concierge Services',
+                        'subtitle' => 'Personal laundry, concierge coordination, scheduled transportation, and visitor parking',
+                        'narrative' => 'Moving into senior living should free both residents and relatives from exhausting household logistics. From personal laundry and linen care to concierge assistance, scheduled transportation, and convenient on-site parking for visitors, our everyday conveniences make life smoother for everyone.',
+                        'reassurance' => 'When laundry, housekeeping, and coordination are handled reliably on-site, family visits can focus entirely on companionship and connection.',
+                        'pairing_image' => [
+                            'src' => '/images/suites/community-lounge-facility-899.webp',
+                            'width' => 899,
+                            'height' => 600,
+                            'alt' => 'Mission Villa community lounge with comfortable chairs and natural light',
+                            'provenance' => 'facility',
+                            'rights' => 'cleared',
+                            'label' => 'Mission Villa lounge photograph',
+                        ],
+                        'vignette' => [
+                            'title' => 'Easy Peninsula Access',
+                            'detail' => 'On-site parking at 995 East Market Street makes dropping by for a visit simple for San Francisco and Peninsula relatives.',
+                        ],
+                        'items' => [
+                            [
+                                'id' => 'service-personal-laundry',
+                                'code' => 'CNV · 01',
+                                'classification' => 'Community Service',
+                                'title' => 'Personal Laundry & Linen Care',
+                                'subtitle' => 'Regular suite housekeeping, bed linen changes, and individual garment laundering',
+                                'description' => 'Our dedicated housekeeping staff cleans suites regularly, provides fresh bed and bath linens, and carefully launders each resident’s personal clothing so everything stays clean, folded, and organized.',
+                                'supports' => [
+                                    'Relieves family caregivers from tedious weekly laundry chores',
+                                    'Ensures fresh, hygienic bedding and attire tailored to resident comfort',
+                                    'Clear garment-labeling system prevents misplaced clothing items',
+                                ],
+                                'confirmation_note' => 'Personal laundry inclusions confirmed in base residency terms.',
+                            ],
+                            [
+                                'id' => 'service-concierge-coordination',
+                                'code' => 'CNV · 02',
+                                'classification' => 'Community Service',
+                                'title' => 'Concierge & Care Coordination',
+                                'subtitle' => 'Front-desk support, appointment scheduling, and guest greeting',
+                                'description' => 'Our administrative and concierge team assists families with appointment coordination, welcomes visiting guests, answers billing and care questions, and ensures communication flows smoothly.',
+                                'supports' => [
+                                    'Warm greeting and sign-in for all family visitors and healthcare providers',
+                                    'Assists with coordinating third-party therapy and mobile physician visits',
+                                    'Single point of contact for family inquiries and schedule updates',
+                                ],
+                                'confirmation_note' => 'Front-desk hours and coordination assistance scope confirmed on-site.',
+                            ],
+                            [
+                                'id' => 'service-scheduled-transport',
+                                'code' => 'CNV · 03',
+                                'classification' => 'Community Service',
+                                'title' => 'Scheduled Transportation & Van Outings',
+                                'subtitle' => 'Accessible community van for scenic drives and scheduled appointments',
+                                'description' => 'Mission Villa provides scheduled transportation services, supporting supervised scenic drives along the Peninsula coast, park excursions, and coordinated medical appointments.',
+                                'supports' => [
+                                    'Comfortable, wheelchair-accessible van with staff accompaniment',
+                                    'Scenic Pacific coast drives that refresh mind and spirit',
+                                    'Coordinated transit for medical visits according to community policy',
+                                ],
+                                'confirmation_note' => 'Transportation booking protocols and excursion schedule confirmed with team.',
+                            ],
+                            [
+                                'id' => 'amenity-visitor-parking',
+                                'code' => 'CNV · 04',
+                                'classification' => 'Community Amenity',
+                                'title' => 'Dedicated Visitor Parking',
+                                'subtitle' => 'Convenient on-site parking spaces directly adjacent to the main entrance',
+                                'description' => 'Visiting a loved one is simple and stress-free with our dedicated on-site parking lot. Families avoid street parking hassles and can walk easily into the community at 995 East Market Street.',
+                                'supports' => [
+                                    'Hassle-free parking right in front of the building entrance',
+                                    'Wheelchair-friendly flat entry walkways into reception',
+                                    'Convenient for frequent morning, lunchtime, and evening family visits',
+                                ],
+                                'confirmation_note' => 'Visitor parking spaces available 7 days a week on-site.',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+
+        [
+            'key' => 'sa-diptych',
+            'type' => 'services-and-amenities.diptych',
+            'enabled' => true,
+            'order' => 30,
+            'data' => [
+                'eyebrow' => 'Hospitality in Practice',
+                'heading' => 'How Everyday Services & Spaces Come Together at <em>995 East Market Street.</em>',
+                'intro' => 'A service list only matters when it translates into real human comfort. Here is how our dining room, courtyard, and on-site care work together throughout the day.',
+                'feature' => [
+                    'cutout_label' => 'Community Gathering Lounge',
+                    'title' => 'Comfort, Connection & Calming Sanctuary',
+                    'subtitle' => 'Sunlit living rooms designed for natural comfort and peaceful visiting hours',
+                    'quote' => 'Every corner of Mission Villa is scaled like a warm family home—not a cavernous hospital wing. Residents feel instantly at ease.',
+                    'image' => [
+                        'src' => '/images/suites/community-lounge-facility-899.webp',
+                        'width' => 899,
+                        'height' => 600,
+                        'alt' => 'Mission Villa community lounge with armchairs, sofa, and natural daylight',
+                        'provenance' => 'facility',
+                        'rights' => 'cleared',
+                        'label' => 'Mission Villa lounge photograph',
+                    ],
+                ],
+                'field_notes' => [
+                    [
+                        'icon' => 'utensils',
+                        'title' => 'Unrushed Dining Hospitality',
+                        'desc' => 'Three freshly cooked meals served at set tables with dedicated dining room care, encouraging appetite and socialization.',
+                    ],
+                    [
+                        'icon' => 'trees',
+                        'title' => 'Protected Courtyard Air',
+                        'desc' => 'Residents enjoy walking outside into fresh Pacific coastal breezes without wandering risks, surrounded by flowering raised garden beds.',
+                    ],
+                    [
+                        'icon' => 'shield',
+                        'title' => '24-Hour Attentive Vigilance',
+                        'desc' => 'Around-the-clock staff presence guarantees assistance with nighttime routines, medication reminders, and comforting morning awakenings.',
+                    ],
+                ],
+            ],
+        ],
+
+        [
+            'key' => 'sa-disclosures',
+            'type' => 'services-and-amenities.disclosures',
+            'enabled' => true,
+            'order' => 40,
+            'data' => [
+                'eyebrow' => 'Transparent Guidance for Families',
+                'heading' => 'Ask Us About Eligibility, Inclusions &amp; <em>Current Availability.</em>',
+                'intro' => 'The services and amenities shown on this page reflect authentic community offerings. Because each resident’s health profile and mobility needs are unique, we encourage families to review specific details with our Daly City team.',
+                'disclosures' => [
+                    [
+                        'id' => 'care-eligibility',
+                        'index' => '01',
+                        'title' => 'Care Eligibility & RCFE Scope',
+                        'summary' => 'Mission Villa operates under California RCFE License #415601046, specializing in dementia and memory care support. Pre-admission assessments ensure we can safely meet your loved one’s personal mobility, dietary, and cognitive needs.',
+                        'key_points' => [
+                            'Pre-admission clinical evaluation to verify memory care appropriateness',
+                            'Single-person and two-person transfer capability confirmed per assessment',
+                            'Focus on dementia-certified caregiver training and wandering safety',
+                        ],
+                        'confirmation_flag' => 'Eligibility and transfer assistance verified during family assessment.',
+                    ],
+                    [
+                        'id' => 'inclusions-vs-optional',
+                        'index' => '02',
+                        'title' => 'Base Inclusions vs. Specialized Services',
+                        'summary' => 'Our core monthly rate includes housing, three chef-prepared meals, daily activities, housekeeping, personal laundry, and 24-hour caregiver presence. Specialized personal requests (such as salon visits or individual transit) may carry separate fees.',
+                        'key_points' => [
+                            'All standard dining, laundry, and daily activities included in monthly rate',
+                            'Clear, itemized schedule of optional personal grooming/salon fees',
+                            'Zero surprise surcharges—complete financial transparency before move-in',
+                        ],
+                        'confirmation_flag' => 'Itemized fee schedule provided during consultation.',
+                    ],
+                    [
+                        'id' => 'routine-assessments',
+                        'index' => '03',
+                        'title' => 'Routine Assessments & Care Conferences',
+                        'summary' => 'Resident care plans are never static. Our care director conducts regular wellness reviews and holds collaborative family conferences whenever care needs change.',
+                        'key_points' => [
+                            'Scheduled quarterly care plan reviews or as health needs evolve',
+                            'Collaborative conferences with adult children and family physicians',
+                            'Adjustments to cueing, bathing, and mobility support documented transparently',
+                        ],
+                        'confirmation_flag' => 'Family conference cadence agreed upon at admission.',
+                    ],
+                    [
+                        'id' => 'respite-consistency',
+                        'index' => '04',
+                        'title' => 'Respite Care Inclusions Consistency',
+                        'summary' => 'Short-term respite stay guests enjoy full access to the exact same chef-prepared meals, activities, housekeeping, and 24-hour care team as our full-time memory care residents.',
+                        'key_points' => [
+                            'Fully furnished private and companion suite accommodations provided',
+                            'Complete participation in all daily outings, music, and dining programs',
+                            'Smooth intake process designed for immediate caregiver relief',
+                        ],
+                        'confirmation_flag' => 'Respite availability and minimum stay duration confirmed with director.',
+                    ],
+                ],
+                'action_card' => [
+                    'title' => 'Have Questions About What’s Included?',
+                    'text' => 'We invite your family to walk through our community, meet our care team, and discuss your loved one’s specific care plan in detail.',
+                    'phone_label' => 'Call (650) 756-1995',
+                    'cta_label' => 'Schedule an In-Person Tour',
+                    'cta_intent' => 'schedule_visit',
+                ],
+            ],
+        ],
+
+        [
+            'key' => 'sa-care-bridge',
+            'type' => 'services-and-amenities.care-bridge',
+            'enabled' => true,
+            'order' => 50,
+            'data' => [
+                'eyebrow' => 'Connected Care Pathways',
+                'heading' => 'How Services & Amenities Support Our <em>Two Care Programs.</em>',
+                'intro' => 'At Mission Villa Senior Living in Daly City, these services and amenities are dedicated to our two core care programs: full-time Memory Care and short-term Respite Care.',
+                'programs' => [
+                    [
+                        'tag' => 'Program 01 · Dedicated Dementia Support',
+                        'page_badge' => 'Full-Time Care',
+                        'title' => 'Memory Care & Legacies™ Program',
+                        'summary' => 'Long-term residential memory care that surrounds residents with warmth, familiar routines, and continuous 24-hour dignified caregiver support.',
+                        'highlights' => [
+                            'Structured daily rhythms that ease anxiety and sundowning',
+                            'Personalized memory boxes and suite life-story touchpoints',
+                            'All-inclusive chef meals, housekeeping, and garden time',
+                        ],
+                        'link_href' => '/memory-care',
+                        'link_label' => 'Explore Memory Care Program',
+                    ],
+                    [
+                        'tag' => 'Program 02 · Short-Term Relief & Recovery',
+                        'page_badge' => 'Short-Term Stay',
+                        'title' => 'Respite Care & Caregiver Relief',
+                        'summary' => 'Temporary, fully furnished stays that give family caregivers peace of mind while your loved one enjoys professional memory care and fellowship.',
+                        'highlights' => [
+                            'Fully furnished suites with all utilities, meals, and care included',
+                            'Ideal for family travel, caregiver recovery, or trial stays',
+                            'Immediate integration into daily dining and enrichment',
+                        ],
+                        'link_href' => '/respite-care',
+                        'link_label' => 'Explore Respite Care Program',
+                    ],
+                ],
+            ],
+        ],
+
+        [
+            'key' => 'sa-cta',
+            'type' => 'visit.cta',
+            'enabled' => true,
+            'order' => 60,
+            'data' => [
+                'script' => 'Experience Our Community',
+                'heading' => 'Schedule an In-Person Tour or Lunch Visit',
+                'body' => 'See our comfortable dining room, meet our attentive care team, and experience the warm fellowship of Mission Villa Senior Living in Daly City.',
+                'care' => 'exploring',
+                'actions' => [
+                    [
+                        'intent' => 'schedule_visit',
+                        'label' => 'Schedule a Tour Visit',
+                        'icon' => 'calendar',
+                    ],
+                    [
+                        'intent' => 'request_pricing',
+                        'label' => 'Request Pricing & Guide',
+                        'icon' => 'file-text',
+                    ],
+                    [
+                        'intent' => 'request_callback',
+                        'label' => 'Request a Call',
+                        'icon' => 'phone',
+                    ],
+                ],
+                'show_contact' => false,
+                'form' => [
+                    'enabled' => true,
+                    'heading' => 'Services & Amenities Inquiry',
+                    'lede' => 'Our community director will reach out promptly to answer your questions and arrange a tour.',
+                ],
+            ],
+        ],
+    ],
+];

@@ -1,0 +1,269 @@
+/* ==========================================================================
+   SERVICES & AMENITIES DISCLOSURES · RICH PLUM CANVAS
+   ========================================================================== */
+
+.sa-disclosures {
+    background-color: #3B2348;
+    color: #F7F4ED;
+    padding: clamp(3.5rem, 6vw, 6rem) var(--mv-gutter, clamp(1.25rem, 4vw, 4.75rem));
+    border-bottom: 1px solid rgba(216, 199, 165, 0.25);
+}
+
+.sa-disclosures__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.sa-disclosures__head {
+    max-width: 760px;
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.sa-disclosures__eyebrow {
+    color: #D8C7A5;
+    margin-bottom: 0.75rem;
+}
+
+.sa-disclosures__rule {
+    background-color: #C98268;
+}
+
+.sa-disclosures__title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+    font-weight: 500;
+    line-height: 1.2;
+    color: #F7F4ED;
+    margin: 0 0 1rem 0;
+    text-wrap: balance;
+}
+
+.sa-disclosures__title em {
+    font-style: italic;
+    color: #D8C7A5;
+}
+
+.sa-disclosures__intro {
+    font-size: clamp(0.9375rem, 1.1vw, 1.0625rem);
+    line-height: 1.6;
+    color: rgba(247, 244, 237, 0.85);
+    margin: 0;
+}
+
+/* --- 12-Column Grid --- */
+.sa-disclosures__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 4vw, 3rem);
+    align-items: start;
+}
+
+@media (min-width: 1024px) {
+    .sa-disclosures__grid {
+        grid-template-columns: 7.5fr 4.5fr;
+    }
+}
+
+.sa-disclosures__cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .sa-disclosures__cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.sa-disc-card {
+    background-color: #22122B;
+    border: 1px solid rgba(216, 199, 165, 0.25);
+    border-radius: 20px;
+    padding: clamp(1.25rem, 2.5vw, 1.75rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    transition: all 0.2s ease;
+}
+
+.sa-disc-card:hover {
+    border-color: rgba(201, 130, 104, 0.5);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.sa-disc-card__idx {
+    display: block;
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    font-weight: 700;
+    color: #8FAF78;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+}
+
+.sa-disc-card__title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #F7F4ED;
+    margin: 0;
+}
+
+.sa-disc-card__summary {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: rgba(247, 244, 237, 0.8);
+    margin: 0;
+}
+
+.sa-disc-card__points {
+    padding-top: 0.875rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sa-disc-card__points-kicker {
+    display: block;
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    color: #D8C7A5;
+    margin-bottom: 0.5rem;
+}
+
+.sa-disc-card__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.sa-disc-card__list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: rgba(247, 244, 237, 0.8);
+}
+
+.sa-disc-card__check {
+    width: 0.8125rem;
+    height: 0.8125rem;
+    color: #8FAF78;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.sa-disc-card__flag {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    background-color: rgba(201, 130, 104, 0.15);
+    border: 1px solid rgba(201, 130, 104, 0.3);
+    font-size: 0.6875rem;
+    line-height: 1.4;
+    color: #E8B4A2;
+}
+
+.sa-disc-card__flag-icon {
+    width: 0.75rem;
+    height: 0.75rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* --- Action Box Sidebar --- */
+.sa-disclosures__action-box {
+    background-color: #22122B;
+    border: 1px solid rgba(216, 199, 165, 0.3);
+    border-radius: 24px;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 1024px) {
+    .sa-disclosures__action-box {
+        position: sticky;
+        top: 6rem;
+    }
+}
+
+.sa-disclosures__action-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    font-weight: 700;
+    color: #8FAF78;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.sa-disclosures__action-badge svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.sa-disclosures__action-title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #F7F4ED;
+    margin: 0 0 0.75rem 0;
+}
+
+.sa-disclosures__action-text {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(247, 244, 237, 0.85);
+    margin: 0 0 1.5rem 0;
+}
+
+.sa-disclosures__action-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sa-disclosures__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.sa-disclosures__btn--primary {
+    background-color: #C98268;
+    color: #F7F4ED;
+    border: 1px solid #C98268;
+}
+
+.sa-disclosures__btn--primary:hover {
+    background-color: #B56D54;
+    border-color: #B56D54;
+}
+
+.sa-disclosures__btn--call {
+    background-color: transparent;
+    color: #D8C7A5;
+    border: 1px solid rgba(216, 199, 165, 0.35);
+}
+
+.sa-disclosures__btn--call:hover {
+    background-color: rgba(216, 199, 165, 0.1);
+    color: #F7F4ED;
+}

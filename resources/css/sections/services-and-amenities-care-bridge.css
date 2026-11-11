@@ -1,0 +1,209 @@
+/* ==========================================================================
+   SERVICES & AMENITIES CARE BRIDGE · CONNECTED PROGRAMS
+   ========================================================================== */
+
+.sa-bridge {
+    background-color: #FCFBF8;
+    color: #29272B;
+    padding: clamp(3.5rem, 6vw, 6rem) var(--mv-gutter, clamp(1.25rem, 4vw, 4.75rem));
+    border-bottom: 1px solid rgba(59, 35, 72, 0.12);
+}
+
+.sa-bridge__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.sa-bridge__head {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+@media (min-width: 1024px) {
+    .sa-bridge__head {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+}
+
+.sa-bridge__head-copy {
+    max-width: 720px;
+}
+
+.sa-bridge__eyebrow {
+    color: #C98268;
+    margin-bottom: 0.75rem;
+}
+
+.sa-bridge__rule {
+    background-color: #3B2348;
+}
+
+.sa-bridge__title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+    font-weight: 500;
+    line-height: 1.2;
+    color: #3B2348;
+    margin: 0 0 1rem 0;
+    text-wrap: balance;
+}
+
+.sa-bridge__title em {
+    font-style: italic;
+    color: #A65D43;
+}
+
+.sa-bridge__intro {
+    font-size: clamp(0.9375rem, 1.1vw, 1.0625rem);
+    line-height: 1.6;
+    color: rgba(41, 39, 43, 0.85);
+    margin: 0;
+}
+
+.sa-bridge__back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 9999px;
+    background-color: #F7F4ED;
+    border: 1px solid #D8C7A5;
+    color: #3B2348;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.sa-bridge__back-link:hover {
+    border-color: #3B2348;
+    background-color: #FFFFFF;
+}
+
+/* --- 2-Card Grid --- */
+.sa-bridge__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+@media (min-width: 768px) {
+    .sa-bridge__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.sa-bridge-card {
+    background-color: #FFFFFF;
+    border: 1px solid #D8C7A5;
+    border-radius: 28px;
+    padding: clamp(1.75rem, 3.5vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sa-bridge-card:hover {
+    border-color: #C98268;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.sa-bridge-card__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.sa-bridge-card__tag {
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    font-weight: 700;
+    color: #A65D43;
+    text-transform: uppercase;
+}
+
+.sa-bridge-card__badge {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    background-color: rgba(143, 175, 120, 0.18);
+    color: #2D4C1E;
+}
+
+.sa-bridge-card__title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+    font-weight: 600;
+    color: #3B2348;
+    margin: 0 0 0.5rem 0;
+}
+
+.sa-bridge-card__summary {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: rgba(41, 39, 43, 0.85);
+    margin: 0 0 1.5rem 0;
+}
+
+.sa-bridge-card__highlights {
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(59, 35, 72, 0.08);
+}
+
+.sa-bridge-card__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sa-bridge-card__list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: rgba(41, 39, 43, 0.85);
+}
+
+.sa-bridge-card__check {
+    width: 0.9375rem;
+    height: 0.9375rem;
+    color: #557A3C;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.sa-bridge-card__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.875rem 1.375rem;
+    border-radius: 9999px;
+    background-color: #3B2348;
+    color: #F7F4ED;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.sa-bridge-card__btn:hover {
+    background-color: #C98268;
+    color: #F7F4ED;
+}

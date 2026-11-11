@@ -1,0 +1,270 @@
+/* ==========================================================================
+   SERVICES & AMENITIES DIPTYCH · PANORAMIC FEATURE
+   ========================================================================== */
+
+.sa-diptych {
+    background-color: #F2ECE0;
+    color: #29272B;
+    padding: clamp(3.5rem, 6vw, 6rem) var(--mv-gutter, clamp(1.25rem, 4vw, 4.75rem));
+    border-bottom: 1px solid rgba(59, 35, 72, 0.12);
+}
+
+.sa-diptych__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.sa-diptych__head {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+@media (min-width: 1024px) {
+    .sa-diptych__head {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+}
+
+.sa-diptych__head-copy {
+    max-width: 720px;
+}
+
+.sa-diptych__eyebrow {
+    color: #C98268;
+    margin-bottom: 0.75rem;
+}
+
+.sa-diptych__rule {
+    background-color: #3B2348;
+}
+
+.sa-diptych__title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+    font-weight: 500;
+    line-height: 1.2;
+    color: #3B2348;
+    margin: 0;
+    text-wrap: balance;
+}
+
+.sa-diptych__title em {
+    font-style: italic;
+    color: #A65D43;
+}
+
+.sa-diptych__intro {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: rgba(41, 39, 43, 0.8);
+    max-width: 420px;
+    margin: 0;
+}
+
+/* --- 12-Column Grid --- */
+.sa-diptych__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 4vw, 3rem);
+    align-items: stretch;
+}
+
+@media (min-width: 1024px) {
+    .sa-diptych__grid {
+        grid-template-columns: 7.5fr 4.5fr;
+    }
+}
+
+/* --- Left Plate --- */
+.sa-diptych__plate {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.sa-diptych__frame {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    background-color: #3B2348;
+    border: 1px solid #D8C7A5;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+@media (min-width: 640px) {
+    .sa-diptych__frame {
+        min-height: 480px;
+    }
+}
+
+.sa-diptych__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.sa-diptych__frame:hover .sa-diptych__img {
+    transform: scale(1.02);
+}
+
+.sa-diptych__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(34, 18, 43, 0.92) 0%, rgba(34, 18, 43, 0.35) 50%, transparent 100%);
+    pointer-events: none;
+}
+
+.sa-diptych__badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #22122B;
+    color: #F7F4ED;
+    padding: 0.5rem 1rem;
+    border-bottom-right-radius: 14px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    z-index: 2;
+    border-right: 1px solid rgba(216, 199, 165, 0.3);
+    border-bottom: 1px solid rgba(216, 199, 165, 0.3);
+}
+
+.sa-diptych__caption {
+    position: relative;
+    z-index: 2;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    color: #F7F4ED;
+}
+
+.sa-diptych__plate-title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+    font-weight: 600;
+    color: #F7F4ED;
+    margin: 0 0 0.35rem 0;
+}
+
+.sa-diptych__plate-subtitle {
+    font-size: 0.875rem;
+    color: #D8C7A5;
+    margin: 0 0 1rem 0;
+}
+
+.sa-diptych__quote {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(0.9375rem, 1.1vw, 1.0625rem);
+    line-height: 1.5;
+    color: rgba(247, 244, 237, 0.9);
+    margin: 0;
+    padding-left: 1rem;
+    border-left: 2px solid #C98268;
+}
+
+.sa-diptych__plate-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: rgba(41, 39, 43, 0.6);
+    padding: 0 0.5rem;
+}
+
+.sa-diptych__provenance {
+    font-style: italic;
+    color: #A65D43;
+}
+
+/* --- Right Sidebar Notes --- */
+.sa-diptych__sidebar {
+    background-color: #FCFBF8;
+    border: 1px solid #D8C7A5;
+    border-radius: 24px;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+}
+
+.sa-diptych__sidebar-header {
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(59, 35, 72, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.sa-diptych__sidebar-kicker {
+    display: block;
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    font-weight: 700;
+    color: #A65D43;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+
+.sa-diptych__sidebar-title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #3B2348;
+    margin: 0;
+}
+
+.sa-diptych__notes {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sa-diptych__note {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.sa-diptych__note-icon-wrap {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 10px;
+    background-color: rgba(201, 130, 104, 0.15);
+    color: #A65D43;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sa-diptych__note-icon-wrap svg {
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+.sa-diptych__note-title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #3B2348;
+    margin: 0 0 0.35rem 0;
+}
+
+.sa-diptych__note-desc {
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: rgba(41, 39, 43, 0.8);
+    margin: 0;
+}

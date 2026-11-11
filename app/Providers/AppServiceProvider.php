@@ -24,6 +24,11 @@ use App\Content\Sections\LifeAtMissionVillaPillarsSection;
 use App\Content\Sections\LifeAtMissionVillaRhythmSection;
 use App\Content\Sections\LifeAtMissionVillaEngagementSection;
 use App\Content\Sections\LifeAtMissionVillaFaqSection;
+use App\Content\Sections\ServicesAmenitiesHeroSection;
+use App\Content\Sections\ServicesAmenitiesExplorerSection;
+use App\Content\Sections\ServicesAmenitiesDiptychSection;
+use App\Content\Sections\ServicesAmenitiesDisclosuresSection;
+use App\Content\Sections\ServicesAmenitiesCareBridgeSection;
 use App\Content\Sections\LivingOptionsHeroSection;
 use App\Content\Sections\LivingOptionsSettingSection;
 use App\Content\Sections\LivingOptionsSuitesSection;
@@ -91,6 +96,11 @@ class AppServiceProvider extends ServiceProvider
             new LifeAtMissionVillaRhythmSection,
             new LifeAtMissionVillaEngagementSection,
             new LifeAtMissionVillaFaqSection,
+            new ServicesAmenitiesHeroSection,
+            new ServicesAmenitiesExplorerSection,
+            new ServicesAmenitiesDiptychSection,
+            new ServicesAmenitiesDisclosuresSection,
+            new ServicesAmenitiesCareBridgeSection,
         ]));
 
         $this->app->singleton(ContentRepository::class, function ($app) {
