@@ -19,6 +19,11 @@ use App\Content\Sections\SuitesFloorPlansFormatsSection;
 use App\Content\Sections\SuitesFloorPlansDiagramSection;
 use App\Content\Sections\SuitesFloorPlansFeaturesSection;
 use App\Content\Sections\SuitesFloorPlansFaqSection;
+use App\Content\Sections\LifeAtMissionVillaHeroSection;
+use App\Content\Sections\LifeAtMissionVillaPillarsSection;
+use App\Content\Sections\LifeAtMissionVillaRhythmSection;
+use App\Content\Sections\LifeAtMissionVillaEngagementSection;
+use App\Content\Sections\LifeAtMissionVillaFaqSection;
 use App\Content\Sections\LivingOptionsHeroSection;
 use App\Content\Sections\LivingOptionsSettingSection;
 use App\Content\Sections\LivingOptionsSuitesSection;
@@ -81,6 +86,11 @@ class AppServiceProvider extends ServiceProvider
             new SuitesFloorPlansDiagramSection,
             new SuitesFloorPlansFeaturesSection,
             new SuitesFloorPlansFaqSection,
+            new LifeAtMissionVillaHeroSection,
+            new LifeAtMissionVillaPillarsSection,
+            new LifeAtMissionVillaRhythmSection,
+            new LifeAtMissionVillaEngagementSection,
+            new LifeAtMissionVillaFaqSection,
         ]));
 
         $this->app->singleton(ContentRepository::class, function ($app) {

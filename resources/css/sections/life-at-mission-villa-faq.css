@@ -1,0 +1,214 @@
+/*
+ * LIFE AT MISSION VILLA FAQ SECTION
+ */
+.lmv-faq {
+    background-color: #FAF6F0;
+    color: #2B1B2D;
+    padding: 5rem var(--mv-gutter, 4.75rem);
+}
+
+.lmv-faq__inner {
+    max-width: 80rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.lmv-faq__side {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: sticky;
+    top: 6rem;
+}
+
+.lmv-faq__eyebrow {
+    color: #C86D51;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.lmv-faq__rule {
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background-color: #C86D51;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+.lmv-faq__title {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2rem, 3vw + 1rem, 2.75rem);
+    font-weight: 600;
+    line-height: 1.2;
+    color: #2B1B2D;
+    margin: 0;
+}
+
+.lmv-faq__title em {
+    font-style: italic;
+    font-weight: 500;
+    color: #8C402B;
+}
+
+.lmv-faq__intro {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: #5C4A5A;
+    margin: 0;
+}
+
+.lmv-faq__card {
+    background-color: #F5EFEB;
+    border-radius: 0.75rem;
+    padding: 1.75rem 1.5rem;
+    border: 1px solid rgba(43, 27, 45, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin-top: 1rem;
+}
+
+.lmv-faq__card-title {
+    font-family: 'Newsreader', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2B1B2D;
+    margin: 0;
+}
+
+.lmv-faq__card-text {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #5C4A5A;
+    margin: 0;
+}
+
+.lmv-faq__card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    padding-top: 0.5rem;
+}
+
+.lmv-faq__card-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #8C402B;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.lmv-faq__card-phone:hover {
+    color: #2B1B2D;
+}
+
+.lmv-faq__card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.375rem;
+    background-color: #2B1B2D;
+    color: #FAF6F0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.lmv-faq__card-btn:hover {
+    background-color: #3C273F;
+}
+
+.lmv-faq__list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(43, 27, 45, 0.12);
+}
+
+.lmv-faq__item {
+    border-bottom: 1px solid rgba(43, 27, 45, 0.12);
+}
+
+.lmv-faq__trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    gap: 1rem;
+}
+
+.lmv-faq__q-text {
+    font-family: 'Newsreader', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2B1B2D;
+    line-height: 1.35;
+    transition: color 0.2s ease;
+}
+
+.lmv-faq__trigger:hover .sfp-faq__q-text,
+.lmv-faq__trigger:hover .lmv-faq__q-text {
+    color: #8C402B;
+}
+
+.lmv-faq__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8C402B;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+}
+
+.lmv-faq__trigger[aria-expanded="true"] .lmv-faq__icon {
+    transform: rotate(180deg);
+}
+
+.lmv-faq__panel {
+    overflow: hidden;
+}
+
+.lmv-faq__panel[hidden] {
+    display: none;
+}
+
+.lmv-faq__panel-inner {
+    padding-bottom: 1.5rem;
+}
+
+.lmv-faq__answer {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: #5C4A5A;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .lmv-faq__inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .lmv-faq__side {
+        position: static;
+    }
+}

@@ -1,0 +1,242 @@
+/*
+ * LIFE AT MISSION VILLA HERO SECTION
+ */
+.lmv-hero {
+    position: relative;
+    min-height: calc(100svh - 4.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: calc(6rem + var(--mv-gutter, 4rem)) var(--mv-gutter, 4.75rem) 4rem;
+    overflow: hidden;
+    background-color: #241624;
+    color: #FAF6F0;
+}
+
+.lmv-hero__backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.lmv-hero__bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.8) saturate(1.08);
+}
+
+.lmv-hero__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(36, 22, 36, 0.45) 0%,
+        rgba(36, 22, 36, 0.75) 55%,
+        rgba(36, 22, 36, 0.94) 100%
+    );
+}
+
+.lmv-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 58rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.lmv-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.875rem;
+    border-radius: 9999px;
+    background-color: rgba(250, 246, 240, 0.12);
+    border: 1px solid rgba(250, 246, 240, 0.22);
+    backdrop-filter: blur(8px);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #F0D9C8;
+    width: fit-content;
+}
+
+.lmv-hero__badge-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: #C86D51;
+}
+
+.lmv-hero__title {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2.25rem, 4vw + 1rem, 3.35rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #FAF6F0;
+    margin: 0;
+}
+
+.lmv-hero__title em {
+    font-style: italic;
+    font-weight: 500;
+    color: #F0D9C8;
+}
+
+.lmv-hero__editorial {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.125rem, 1.5vw + 0.5rem, 1.45rem);
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.4;
+    color: #E6D8D0;
+    margin: 0;
+}
+
+.lmv-hero__intro {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(0.9375rem, 0.5vw + 0.75rem, 1.0625rem);
+    line-height: 1.6;
+    color: #D6C7BF;
+    max-width: 48rem;
+    margin: 0;
+}
+
+.lmv-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
+.lmv-hero__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.875rem 1.625rem;
+    border-radius: 0.5rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: none;
+}
+
+.lmv-hero__btn--primary {
+    background-color: #C86D51;
+    color: #FAF6F0;
+    box-shadow: 0 4px 14px rgba(200, 109, 81, 0.35);
+}
+
+.lmv-hero__btn--primary:hover {
+    background-color: #B55D42;
+    transform: translateY(-1px);
+}
+
+.lmv-hero__btn--secondary {
+    background-color: rgba(250, 246, 240, 0.12);
+    color: #FAF6F0;
+    border: 1px solid rgba(250, 246, 240, 0.28);
+    backdrop-filter: blur(8px);
+}
+
+.lmv-hero__btn--secondary:hover {
+    background-color: rgba(250, 246, 240, 0.22);
+    border-color: rgba(250, 246, 240, 0.45);
+}
+
+.lmv-hero__btn--phone {
+    background-color: transparent;
+    color: #F0D9C8;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.lmv-hero__btn--phone:hover {
+    color: #FAF6F0;
+}
+
+.lmv-hero__strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(250, 246, 240, 0.16);
+}
+
+.lmv-hero__strip-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.lmv-hero__strip-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.5rem;
+    background-color: rgba(250, 246, 240, 0.1);
+    color: #F0D9C8;
+    flex-shrink: 0;
+}
+
+.lmv-hero__strip-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.lmv-hero__strip-kicker {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #C86D51;
+}
+
+.lmv-hero__strip-title {
+    font-family: 'Newsreader', serif;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #FAF6F0;
+}
+
+.lmv-hero__strip-desc {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: #CBBAB0;
+}
+
+.lmv-hero__provenance {
+    position: absolute;
+    bottom: 1rem;
+    right: var(--mv-gutter, 4.75rem);
+    z-index: 2;
+}
+
+.lmv-hero__provenance-badge {
+    font-size: 0.6875rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(250, 246, 240, 0.5);
+    background-color: rgba(0, 0, 0, 0.35);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+@media (max-width: 900px) {
+    .lmv-hero__strip {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}

@@ -1,0 +1,219 @@
+/*
+ * LIFE AT MISSION VILLA PILLARS SECTION
+ */
+.lmv-pillars {
+    position: relative;
+    background-color: #2B1B2D;
+    color: #FAF6F0;
+    padding: 0 var(--mv-gutter, 4.75rem) 5rem;
+}
+
+.lmv-pillars__wave {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 1;
+}
+
+.lmv-pillars__wave-fill {
+    fill: #2B1B2D;
+}
+
+.lmv-pillars__inner {
+    position: relative;
+    z-index: 2;
+    padding-top: 4rem;
+}
+
+.lmv-pillars__head {
+    text-align: center;
+    max-width: 48rem;
+    margin: 0 auto 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.875rem;
+}
+
+.lmv-pillars__eyebrow {
+    color: #C86D51;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.lmv-pillars__rule {
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background-color: #C86D51;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+.lmv-pillars__title {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2rem, 3vw + 1rem, 2.75rem);
+    font-weight: 600;
+    line-height: 1.2;
+    color: #FAF6F0;
+    margin: 0;
+}
+
+.lmv-pillars__title em {
+    font-style: italic;
+    font-weight: 500;
+    color: #F0D9C8;
+}
+
+.lmv-pillars__intro {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #D6C7BF;
+    margin: 0;
+}
+
+.lmv-pillars__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.lmv-pillars__card {
+    background-color: #38243A;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid rgba(250, 246, 240, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lmv-pillars__card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.lmv-pillars__media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.lmv-pillars__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.lmv-pillars__card:hover .lmv-pillars__img {
+    transform: scale(1.04);
+}
+
+.lmv-pillars__cutout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #C86D51;
+    color: #FAF6F0;
+    padding: 0.4rem 1rem;
+    border-bottom-right-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.lmv-pillars__body {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.875rem;
+}
+
+.lmv-pillars__code {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #C86D51;
+}
+
+.lmv-pillars__card-title {
+    font-family: 'Newsreader', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #FAF6F0;
+    margin: 0;
+    line-height: 1.25;
+}
+
+.lmv-pillars__subtitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #F0D9C8;
+    margin: 0;
+}
+
+.lmv-pillars__summary {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: #D6C7BF;
+    margin: 0;
+}
+
+.lmv-pillars__highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(250, 246, 240, 0.1);
+    margin-top: auto;
+}
+
+.lmv-pillars__highlights-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #F0D9C8;
+}
+
+.lmv-pillars__highlights-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.lmv-pillars__highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: #E6D8D0;
+}
+
+.lmv-pillars__check {
+    color: #C86D51;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+@media (max-width: 1024px) {
+    .lmv-pillars__grid {
+        grid-template-columns: 1fr;
+        max-width: 34rem;
+        margin: 0 auto;
+    }
+}

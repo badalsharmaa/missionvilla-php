@@ -1,0 +1,182 @@
+/*
+ * LIFE AT MISSION VILLA RHYTHM SECTION
+ */
+.lmv-rhythm {
+    background-color: #FAF6F0;
+    color: #2B1B2D;
+    padding: 5rem var(--mv-gutter, 4.75rem);
+}
+
+.lmv-rhythm__inner {
+    max-width: 68rem;
+    margin: 0 auto;
+}
+
+.lmv-rhythm__head {
+    text-align: center;
+    max-width: 48rem;
+    margin: 0 auto 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.875rem;
+}
+
+.lmv-rhythm__eyebrow {
+    color: #C86D51;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.lmv-rhythm__rule {
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background-color: #C86D51;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+.lmv-rhythm__title {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2rem, 3vw + 1rem, 2.75rem);
+    font-weight: 600;
+    line-height: 1.2;
+    color: #2B1B2D;
+    margin: 0;
+}
+
+.lmv-rhythm__title em {
+    font-style: italic;
+    font-weight: 500;
+    color: #8C402B;
+}
+
+.lmv-rhythm__intro {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #5C4A5A;
+    margin: 0;
+}
+
+.lmv-rhythm__timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.lmv-rhythm__step {
+    display: grid;
+    grid-template-columns: 14rem 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.lmv-rhythm__time-col {
+    padding-top: 0.5rem;
+}
+
+.lmv-rhythm__time-badge {
+    display: inline-block;
+    padding: 0.4rem 0.875rem;
+    border-radius: 9999px;
+    background-color: #F0E4DE;
+    color: #8C402B;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.lmv-rhythm__card {
+    background-color: #FFFFFF;
+    border-radius: 0.75rem;
+    padding: 1.75rem 2rem;
+    border: 1px solid rgba(43, 27, 45, 0.08);
+    box-shadow: 0 4px 16px rgba(43, 27, 45, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.lmv-rhythm__card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.lmv-rhythm__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    background-color: #F5EFEB;
+    color: #C86D51;
+    flex-shrink: 0;
+}
+
+.lmv-rhythm__card-title {
+    font-family: 'Newsreader', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #2B1B2D;
+    margin: 0;
+}
+
+.lmv-rhythm__card-lead {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #8C402B;
+    margin: 0;
+}
+
+.lmv-rhythm__card-body {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: #5C4A5A;
+    margin: 0;
+}
+
+.lmv-rhythm__touchpoint {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(43, 27, 45, 0.08);
+    font-size: 0.8125rem;
+}
+
+.lmv-rhythm__touchpoint-label {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #8C402B;
+    letter-spacing: 0.05em;
+}
+
+.lmv-rhythm__touchpoint-text {
+    color: #6C5A6A;
+    font-style: italic;
+}
+
+.lmv-rhythm__disclaimer {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: #7A6978;
+    font-style: italic;
+    max-width: 44rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 800px) {
+    .lmv-rhythm__step {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+}
