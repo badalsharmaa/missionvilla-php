@@ -25,13 +25,14 @@ final class FileContentRepository implements ContentRepository
             return null;
         }
 
-        /** @var array{slug: string, seo: array, sections: list<array>} $raw */
+        /** @var array{slug: string, seo: array, sections: list<array>, header_variant?: string} $raw */
         $raw = require $path;
 
         return new PageDefinition(
             slug: $raw['slug'],
             seo: $raw['seo'],
             sections: array_map(fn (array $s) => $this->registry->instantiate($s), $raw['sections']),
+            headerVariant: $raw['header_variant'] ?? 'overlay',
         );
     }
 }

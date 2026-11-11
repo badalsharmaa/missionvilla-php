@@ -16,6 +16,7 @@
 return [
     'slug' => 'resources',
     'title' => 'Caregiver & Family Resources Overview | Mission Villa Senior Living',
+    'header_variant' => 'solid',
     'seo' => [
         'title' => 'Caregiver & Family Resources: Guides, Brochure & Blog Status | Mission Villa',
         'description' => 'Explore Mission Villa Senior Living resources in Daly City: Financial Planning paper ledger, Family Decision Guide & visit questions, community brochure packet builder, and transparent blog status.',
@@ -540,9 +541,9 @@ return [
                         'code' => 'PRINT 02',
                         'category' => 'Brochure & Print Packet',
                         'question' => 'Can we talk through these financial and care guides in person with the Mission Villa team?',
-                        'answer' => 'Absolutely. Written guides are a helpful starting point, but nothing replaces walking through our suites, dining room, and courtyard in person and asking questions at your own pace. Call 650-756-1995 or use the form below to schedule an unhurried visit at 995 East Market Street, Daly City, CA 94014.',
-                        'relatedHref' => '#schedule-visit',
-                        'relatedLabel' => 'Schedule a Personal Visit',
+                        'answer' => 'Absolutely. Written guides are a helpful starting point, but nothing replaces walking through our suites, dining room, and courtyard in person and asking questions at your own pace. Call 650-756-1995 or connect with our team to schedule an unhurried visit at 995 East Market Street, Daly City, CA 94014.',
+                        'relatedHref' => '/contact',
+                        'relatedLabel' => 'Contact & Schedule a Visit',
                         'confirmationNote' => null,
                     ],
                 ],
@@ -558,7 +559,7 @@ return [
                 'script' => 'Plan Your In-Person Visit',
                 'heading' => 'Walk Through Our Daly City Community in Person',
                 'body' => 'Meet our care leadership, tour available suites and courtyard, and receive printed copies of our family guides with zero pressure.',
-                'show_contact' => true,
+                'show_contact' => false,
                 'care' => 'exploring',
                 'actions' => [
                     [
@@ -576,6 +577,11 @@ return [
                         'label' => 'Request a Call',
                         'icon' => 'phone',
                     ],
+                ],
+                'form' => [
+                    'enabled' => true,
+                    'heading' => 'Resources & Family Packet Inquiry',
+                    'lede' => 'Our community director will reach out promptly to answer your questions and arrange your personal tour packet.',
                 ],
             ],
         ],

@@ -25,7 +25,7 @@ class ContactPageTest extends TestCase
         $this->assertStringContainsString('995 East Market Street', $html);
     }
 
-    public function test_contact_page_renders_all_six_sections_in_order(): void
+    public function test_contact_page_renders_all_seven_sections_in_order(): void
     {
         $html = $this->get('/contact')->assertOk()->getContent();
 
@@ -35,6 +35,7 @@ class ContactPageTest extends TestCase
         $workflowPos = strpos($html, 'id="what-happens-next"');
         $referralPos = strpos($html, 'id="referral-interest"');
         $faqPos = strpos($html, 'id="contact-faqs"');
+        $visitPos = strpos($html, 'id="visit"');
 
         $this->assertNotFalse($heroPos);
         $this->assertNotFalse($studioPos);
@@ -42,12 +43,14 @@ class ContactPageTest extends TestCase
         $this->assertNotFalse($workflowPos);
         $this->assertNotFalse($referralPos);
         $this->assertNotFalse($faqPos);
+        $this->assertNotFalse($visitPos);
 
         $this->assertTrue($heroPos < $studioPos, 'Hero must appear before Studio');
         $this->assertTrue($studioPos < $directionsPos, 'Studio must appear before Directions');
         $this->assertTrue($directionsPos < $workflowPos, 'Directions must appear before Workflow');
         $this->assertTrue($workflowPos < $referralPos, 'Workflow must appear before Referral');
         $this->assertTrue($referralPos < $faqPos, 'Referral must appear before FAQs');
+        $this->assertTrue($faqPos < $visitPos, 'FAQs must appear before closing Visit CTA');
     }
 
     public function test_contact_hero_renders_verified_contact_trio_and_arch_plate(): void
@@ -66,7 +69,8 @@ class ContactPageTest extends TestCase
         $this->assertStringContainsString('botanical-arch', $html);
         $this->assertStringContainsString('MISSION VILLA · PROPERTY PHOTO', $html);
 
-        // 4 Quick Section Links
+        // 4 Quick Section Links & Modal Form CTA
+        $this->assertStringContainsString('data-inquiry="schedule_visit"', $html);
         $this->assertStringContainsString('href="#schedule-visit"', $html);
         $this->assertStringContainsString('href="#map-and-directions"', $html);
         $this->assertStringContainsString('href="#what-happens-next"', $html);

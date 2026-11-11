@@ -16,6 +16,7 @@ final class PageDefinition
         public readonly string $slug,
         public readonly array $seo,
         public readonly array $sections,
+        public readonly string $headerVariant = 'overlay',
     ) {}
 
     /** @return list<SectionInstance> */

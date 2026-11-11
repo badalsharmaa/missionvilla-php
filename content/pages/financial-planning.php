@@ -16,6 +16,7 @@
 return [
     'slug' => 'financial-planning',
     'title' => 'Financial Planning & Pricing Clarity | Mission Villa Senior Living',
+    'header_variant' => 'solid',
     'seo' => [
         'title' => 'Financial Planning & Cost Clarity: Memory Care in Daly City | Mission Villa',
         'description' => 'Understand the four factors that shape Memory Care and Respite Care pricing in Daly City. Review typical inclusions and use our blank Paper-Ledger Worksheet.',
@@ -540,7 +541,7 @@ return [
                 'script' => 'Begin the Conversation',
                 'heading' => 'Schedule a Financial Planning Walkthrough in Daly City',
                 'body' => 'Meet our care leadership, tour available suites and community spaces, and receive a clear, assessment-informed pricing overview with zero pressure.',
-                'show_contact' => true,
+                'show_contact' => false,
                 'care' => 'memory_care',
                 'actions' => [
                     [
@@ -558,6 +559,11 @@ return [
                         'label' => 'Request a Call',
                         'icon' => 'phone',
                     ],
+                ],
+                'form' => [
+                    'enabled' => true,
+                    'heading' => 'Financial Planning & Cost Inquiry',
+                    'lede' => 'Our community director will reach out promptly to review assessment factors, suite options, and personalized pricing.',
                 ],
             ],
         ],

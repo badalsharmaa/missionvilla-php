@@ -94,14 +94,20 @@
 
                 {{-- Primary Hero Actions --}}
                 <div class="contact-hero__actions">
-                    <a href="#schedule-visit" class="contact-hero__btn contact-hero__btn--primary">
+                    <a
+                        href="{{ $phone['href'] }}"
+                        class="contact-hero__btn contact-hero__btn--primary"
+                        data-inquiry="schedule_visit"
+                        data-care="exploring"
+                        data-inquiry-source="contact-hero"
+                    >
                         <svg class="contact-hero__btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
                             <line x1="16" x2="16" y1="2" y2="6"/>
                             <line x1="8" x2="8" y1="2" y2="6"/>
                             <line x1="3" x2="21" y1="10" y2="10"/>
                         </svg>
-                        <span>Schedule a Visit or Request Info ↓</span>
+                        <span>Schedule a Visit</span>
                     </a>
 
                     <a href="{{ $phone['href'] }}" class="contact-hero__btn contact-hero__btn--phone">

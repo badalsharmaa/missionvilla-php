@@ -15,6 +15,7 @@
 return [
     'slug' => 'gallery',
     'title' => 'Photo Gallery & Virtual Tour | Mission Villa Senior Living in Daly City',
+    'header_variant' => 'solid',
     'seo' => [
         'title' => 'Photo Gallery & Virtual Tour: Suites, Dining & Courtyard | Mission Villa',
         'description' => 'Explore the photo gallery and virtual walkthrough of Mission Villa in Daly City. Private suites, dining room, fireside lounges, and secure garden courtyard.',

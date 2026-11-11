@@ -21,6 +21,7 @@ return [
     'slug' => 'contact',
     'title' => 'Contact Us & Schedule a Visit | Mission Villa Senior Living',
     'status' => 'published',
+    'header_variant' => 'solid',
     'seo' => [
         'title' => 'Contact Us & Schedule a Visit | Mission Villa Daly City',
         'description' => 'Connect with Mission Villa Senior Living in Daly City. Call 650-756-1995, explore directions via I-280 and BART, or preview a personal visit request.',
@@ -559,6 +560,42 @@ return [
                             ],
                         ],
                     ],
+                ],
+            ],
+        ],
+
+        [
+            'key' => 'contact-cta',
+            'type' => 'visit.cta',
+            'enabled' => true,
+            'order' => 70,
+            'data' => [
+                'script' => 'Experience Mission Villa',
+                'heading' => 'Schedule Your Personal Visit in Daly City',
+                'body' => 'Meet our compassionate care team, walk through our suites, dining room, and courtyard gardens at 995 East Market Street, and ask any questions at your own pace.',
+                'show_contact' => true,
+                'care' => 'exploring',
+                'actions' => [
+                    [
+                        'intent' => 'schedule_visit',
+                        'label' => 'Schedule a Tour Visit',
+                        'icon' => 'calendar',
+                    ],
+                    [
+                        'intent' => 'request_pricing',
+                        'label' => 'Request Pricing & Guide',
+                        'icon' => 'file-text',
+                    ],
+                    [
+                        'intent' => 'request_callback',
+                        'label' => 'Request a Call',
+                        'icon' => 'phone',
+                    ],
+                ],
+                'form' => [
+                    'enabled' => true,
+                    'heading' => 'Schedule a Visit or Send an Inquiry',
+                    'lede' => 'Our Daly City community director will reach out promptly to confirm your visit time or answer questions.',
                 ],
             ],
         ],

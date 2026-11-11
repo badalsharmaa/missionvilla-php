@@ -17,6 +17,7 @@
 return [
     'slug' => 'for-families',
     'title' => 'For Families & FAQs | Mission Villa Senior Living in Daly City',
+    'header_variant' => 'solid',
     'seo' => [
         'title' => 'Family Guide & Grouped FAQs: Memory Care in Daly City | Mission Villa',
         'description' => 'A calm companion for families considering Memory Care or Respite Care in Daly City. Review decision pathways, tour questions, transitions, and grouped FAQs.',
@@ -551,7 +552,7 @@ return [
                         'question' => 'How can our family schedule a tour of Mission Villa in Daly City, and what happens during a visit?',
                         'answer' => 'You can call us directly at (650) 756-1995, email mktg.missionvilla@missionvillaseniorliving.com, or use the inquiry form on this page to request a visit at 995 East Market Street, Daly City, CA 94014. During your visit, we walk through our dining room, communal lounges, courtyard, and available suites, and take time to answer your family’s questions without pressure.',
                         'related_route_href' => '#visit',
-                        'related_route_label' => 'Schedule a Personal Visit ↓',
+                        'related_route_label' => 'Schedule a Personal Visit',
                     ],
                     [
                         'id' => 'ff-faq-visits-family-involvement',
@@ -569,7 +570,7 @@ return [
                         'question' => 'Should my loved one join us on our first tour, or should family members visit first?',
                         'answer' => 'Either approach is completely welcome. Many spouses or adult children choose to visit first so they can ask candid questions about care, suites, and financial planning at their own pace, and then return for a second visit—perhaps over lunch or an afternoon activity—with their loved one.',
                         'related_route_href' => '#visit',
-                        'related_route_label' => 'Plan Your First Conversation ↓',
+                        'related_route_label' => 'Plan Your First Conversation',
                     ],
                 ],
             ],

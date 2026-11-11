@@ -30,6 +30,11 @@
   -webkit-backdrop-filter: blur(14px);
 }
 
+/* Offset main content on pages with solid fixed header so content is not obscured */
+.site-header[data-variant="solid"] ~ main {
+  padding-top: var(--header-bar-h);
+}
+
 .site-header__bar {
   display: flex;
   align-items: center;
