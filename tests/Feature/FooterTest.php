@@ -27,13 +27,14 @@ class FooterTest extends TestCase
         $html = $this->get('/')->getContent();
         $footer = substr($html, strpos($html, '<footer class="site-footer"'));
 
-        // /memory-care, /respite-care, /suites-and-floor-plans, and /life-at-mission-villa are now routed, so their footer links point to real pages.
+        // /memory-care, /respite-care, /suites-and-floor-plans, /life-at-mission-villa, and /gallery are now routed.
         $this->assertStringContainsString('href="'.url('/memory-care').'"', $footer);
         $this->assertStringContainsString('href="'.url('/respite-care').'"', $footer);
         $this->assertStringContainsString('href="'.url('/suites-and-floor-plans').'"', $footer);
         $this->assertStringContainsString('href="'.url('/life-at-mission-villa').'"', $footer);
+        $this->assertStringContainsString('href="'.url('/gallery').'"', $footer);
 
-        foreach (['/about', '/for-families', '/financial-planning', '/gallery', '/contact'] as $path) {
+        foreach (['/about', '/for-families', '/financial-planning', '/contact'] as $path) {
             $this->assertStringNotContainsString('href="'.url($path).'"', $footer, $path);
         }
         foreach (['/#why-families', '/#faq', '/#visit'] as $anchor) {

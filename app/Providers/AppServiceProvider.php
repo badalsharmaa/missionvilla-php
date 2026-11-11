@@ -29,6 +29,10 @@ use App\Content\Sections\ServicesAmenitiesExplorerSection;
 use App\Content\Sections\ServicesAmenitiesDiptychSection;
 use App\Content\Sections\ServicesAmenitiesDisclosuresSection;
 use App\Content\Sections\ServicesAmenitiesCareBridgeSection;
+use App\Content\Sections\GalleryHeroSection;
+use App\Content\Sections\GalleryMasonrySection;
+use App\Content\Sections\GalleryVirtualTourSection;
+use App\Content\Sections\GalleryPathwaysSection;
 use App\Content\Sections\LivingOptionsHeroSection;
 use App\Content\Sections\LivingOptionsSettingSection;
 use App\Content\Sections\LivingOptionsSuitesSection;
@@ -101,6 +105,10 @@ class AppServiceProvider extends ServiceProvider
             new ServicesAmenitiesDiptychSection,
             new ServicesAmenitiesDisclosuresSection,
             new ServicesAmenitiesCareBridgeSection,
+            new GalleryHeroSection,
+            new GalleryMasonrySection,
+            new GalleryVirtualTourSection,
+            new GalleryPathwaysSection,
         ]));
 
         $this->app->singleton(ContentRepository::class, function ($app) {

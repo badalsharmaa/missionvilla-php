@@ -1,0 +1,162 @@
+/* ==========================================================================
+   GALLERY PATHWAYS BRIDGE · CONNECTED TOURS
+   ========================================================================== */
+
+.gp-bridge {
+    background-color: #F7F4ED;
+    color: #29272B;
+    padding: clamp(3.5rem, 6vw, 6rem) var(--mv-gutter, clamp(1.25rem, 4vw, 4.75rem));
+    border-bottom: 1px solid rgba(59, 35, 72, 0.12);
+}
+
+.gp-bridge__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.gp-bridge__head {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+@media (min-width: 1024px) {
+    .gp-bridge__head {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+}
+
+.gp-bridge__head-copy {
+    max-width: 680px;
+}
+
+.gp-bridge__eyebrow {
+    color: #C98268;
+    margin-bottom: 0.75rem;
+}
+
+.gp-bridge__rule {
+    background-color: #3B2348;
+}
+
+.gp-bridge__title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+    font-weight: 500;
+    line-height: 1.2;
+    color: #3B2348;
+    margin: 0;
+    text-wrap: balance;
+}
+
+.gp-bridge__title em {
+    font-style: italic;
+    color: #A65D43;
+}
+
+.gp-bridge__intro {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: rgba(41, 39, 43, 0.85);
+    max-width: 440px;
+    margin: 0;
+}
+
+/* --- 3-Card Grid --- */
+.gp-bridge__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+@media (min-width: 768px) {
+    .gp-bridge__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.gp-card {
+    background-color: #FCFBF8;
+    border: 1px solid #D8C7A5;
+    border-radius: 24px;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gp-card:hover {
+    border-color: #C98268;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+}
+
+.gp-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: #A65D43;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.gp-card__step {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 0.875rem;
+    color: #3B2348;
+}
+
+.gp-card__title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: #3B2348;
+    margin: 0 0 0.5rem 0;
+}
+
+.gp-card__summary {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(41, 39, 43, 0.85);
+    margin: 0;
+}
+
+.gp-card__bottom {
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(59, 35, 72, 0.08);
+}
+
+.gp-card__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    border-radius: 9999px;
+    background-color: #3B2348;
+    color: #F7F4ED;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.gp-card__btn:hover {
+    background-color: #C98268;
+    color: #F7F4ED;
+}
+
+.gp-card__btn svg {
+    width: 0.875rem;
+    height: 0.875rem;
+}

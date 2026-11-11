@@ -11,6 +11,7 @@ Route::get('/respite-care', [PageController::class, 'respiteCare'])->name('respi
 Route::get('/suites-and-floor-plans', [PageController::class, 'suitesFloorPlans'])->name('suites-and-floor-plans');
 Route::get('/life-at-mission-villa', [PageController::class, 'lifeAtMissionVilla'])->name('life-at-mission-villa');
 Route::get('/services-and-amenities', [PageController::class, 'servicesAmenities'])->name('services-and-amenities');
+Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
 
 // Shared inquiry form: Schedule a Visit · Request Pricing · Request a Call (CSRF via the web group).
 Route::post('/inquiries', [InquiryController::class, 'store'])
