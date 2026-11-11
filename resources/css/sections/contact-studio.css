@@ -638,11 +638,12 @@
 
 .contact-studio__submit-btn {
     width: 100%;
-    padding: 1rem 1.5rem;
+    padding: 0.875rem 1.5rem;
     border-radius: 9999px;
     background-color: #C98268;
     color: #FFFFFF;
     font-size: clamp(0.875rem, 1.2vw, 1rem);
+    line-height: 1.5;
     font-weight: 600;
     border: none;
     cursor: pointer;
@@ -651,11 +652,24 @@
     justify-content: center;
     gap: 0.5rem;
     box-shadow: 0 4px 14px rgba(201, 130, 104, 0.3);
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
 .contact-studio__submit-btn:hover {
     background-color: #3B2348;
+}
+
+.contact-studio__btn-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+}
+
+.contact-studio__call-btn .contact-studio__btn-icon,
+.contact-studio__maps-btn .contact-studio__btn-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+    flex-shrink: 0;
 }
 
 .contact-studio__demo-note {
