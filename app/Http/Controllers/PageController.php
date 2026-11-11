@@ -58,6 +58,11 @@ class PageController extends Controller
         return $this->render('about');
     }
 
+    public function forFamilies(): View
+    {
+        return $this->render('for-families');
+    }
+
     private function render(string $slug): View
     {
         $page = $this->content->findPublishedPage($slug) ?? abort(404);

@@ -27,25 +27,25 @@ class FooterTest extends TestCase
         $html = $this->get('/')->getContent();
         $footer = substr($html, strpos($html, '<footer class="site-footer"'));
 
-        // /memory-care, /respite-care, /suites-and-floor-plans, /life-at-mission-villa, /gallery, and /about are now routed.
+        // /memory-care, /respite-care, /suites-and-floor-plans, /life-at-mission-villa, /gallery, /about, and /for-families are now routed.
         $this->assertStringContainsString('href="'.url('/memory-care').'"', $footer);
         $this->assertStringContainsString('href="'.url('/respite-care').'"', $footer);
         $this->assertStringContainsString('href="'.url('/suites-and-floor-plans').'"', $footer);
         $this->assertStringContainsString('href="'.url('/life-at-mission-villa').'"', $footer);
         $this->assertStringContainsString('href="'.url('/gallery').'"', $footer);
         $this->assertStringContainsString('href="'.url('/about').'"', $footer);
+        $this->assertStringContainsString('href="'.url('/for-families').'"', $footer);
 
-        foreach (['/for-families', '/financial-planning', '/contact'] as $path) {
+        foreach (['/financial-planning', '/contact'] as $path) {
             $this->assertStringNotContainsString('href="'.url($path).'"', $footer, $path);
         }
-        foreach (['/#faq', '/#visit'] as $anchor) {
-            $this->assertStringContainsString('href="'.url($anchor).'"', $footer, $anchor);
-        }
+        $this->assertStringContainsString('href="'.url('/#visit').'"', $footer);
+        $this->assertStringNotContainsString('href="'.url('/#faq').'"', $footer);
         // Both Memory Care and Respite Care are routed, so the #care-options fallback is no longer rendered.
         $this->assertStringNotContainsString('href="'.url('/#care-options').'"', $footer);
         // /about is routed, so the #why-families fallback is no longer rendered.
         $this->assertStringNotContainsString('href="'.url('/#why-families').'"', $footer);
-        $this->assertStringContainsString('Family FAQs', $footer);
+        $this->assertStringContainsString('For Families &amp; FAQs', $footer);
         $this->assertStringNotContainsString('Financial Planning', $footer);
     }
 

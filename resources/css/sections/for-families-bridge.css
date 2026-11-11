@@ -1,0 +1,190 @@
+/**
+ * For Families Section 06: Contextual Planning Bridge Styles
+ */
+.ff-bridge {
+    background-color: rgba(216, 199, 165, 0.3);
+    border-bottom: 1px solid rgba(59, 35, 72, 0.12);
+    padding: clamp(3.5rem, 5vw, 5rem) 0;
+}
+
+.ff-bridge__inner {
+    width: 100%;
+    max-width: var(--mv-content-width, 1280px);
+    margin: 0 auto;
+    padding: 0 var(--mv-gutter, 1.5rem);
+}
+
+.ff-bridge__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+@media (min-width: 1024px) {
+    .ff-bridge__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+.ff-bridge__card {
+    border-radius: 1.75rem;
+    padding: clamp(1.5rem, 2.5vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    box-shadow: 0 4px 12px rgba(59, 35, 72, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ff-bridge__card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(59, 35, 72, 0.1);
+}
+
+.ff-bridge__card--light {
+    background-color: var(--mv-card, #FCFBF8);
+    border: 1px solid var(--mv-sand, #D8C7A5);
+}
+
+.ff-bridge__card--dark {
+    background-color: var(--mv-plum, #3B2348);
+    color: var(--mv-cream, #F7F4ED);
+    border: 1px solid rgba(216, 199, 165, 0.25);
+}
+
+.ff-bridge__card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ff-bridge__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.ff-bridge__kicker {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+}
+
+.ff-bridge__kicker--terracotta {
+    color: #A65D43;
+}
+
+.ff-bridge__kicker--sage {
+    color: var(--mv-sage, #5F7F49);
+}
+
+.ff-bridge__kicker--gold {
+    color: var(--mv-sand, #D8C7A5);
+}
+
+.ff-bridge__icon {
+    width: 1.125rem;
+    height: 1.125rem;
+    color: rgba(59, 35, 72, 0.6);
+}
+
+.ff-bridge__icon--phone {
+    color: var(--mv-terracotta, #C98268);
+}
+
+.ff-bridge__card-title {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(1.35rem, 1.8vw, 1.625rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--mv-plum, #3B2348);
+}
+
+.ff-bridge__card-title--dark {
+    color: var(--mv-cream, #F7F4ED);
+}
+
+.ff-bridge__card-desc {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(41, 39, 43, 0.85);
+}
+
+.ff-bridge__card-desc--dark {
+    color: rgba(247, 244, 237, 0.85);
+}
+
+.ff-bridge__actions {
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+
+.ff-bridge__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.ff-bridge__btn--primary {
+    background-color: var(--mv-plum, #3B2348);
+    color: var(--mv-cream, #F7F4ED);
+    border: 1px solid var(--mv-plum, #3B2348);
+}
+
+.ff-bridge__btn--primary:hover {
+    background-color: var(--mv-terracotta, #C98268);
+    border-color: var(--mv-terracotta, #C98268);
+}
+
+.ff-bridge__btn--secondary {
+    background-color: transparent;
+    color: var(--mv-plum, #3B2348);
+    border: 1px solid rgba(59, 35, 72, 0.3);
+}
+
+.ff-bridge__btn--secondary:hover {
+    background-color: rgba(216, 199, 165, 0.35);
+}
+
+.ff-bridge__btn--gold {
+    background-color: var(--mv-sand, #D8C7A5);
+    color: #22122B;
+    border: none;
+}
+
+.ff-bridge__btn--gold:hover {
+    background-color: #FFFFFF;
+}
+
+.ff-bridge__btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.ff-bridge__btn-group .ff-bridge__btn {
+    flex: 1;
+    min-width: 7rem;
+    white-space: nowrap;
+}
+
+.ff-bridge__arrow {
+    width: 1rem;
+    height: 1rem;
+    margin-left: auto;
+}

@@ -92,11 +92,21 @@ class FaqFeaturedSectionTest extends TestCase
 
     public function test_all_link_hidden_until_page_is_routed(): void
     {
-        $this->assertNull($this->normalize($this->shippedData())['all_link']);
+        $unroutedData = $this->shippedData();
+        $unroutedData['all_link']['href'] = '/unrouted-faq-page';
+        $this->assertNull($this->normalize($unroutedData)['all_link']);
 
-        Route::get('/for-families', fn () => 'ok');
+        Route::get('/unrouted-faq-page', fn () => 'ok');
         app('router')->getRoutes()->refreshNameLookups();
 
+        $this->assertSame(
+            ['label' => 'View All FAQs', 'href' => '/unrouted-faq-page'],
+            $this->normalize($unroutedData)['all_link']
+        );
+    }
+
+    public function test_all_link_renders_now_that_for_families_is_routed(): void
+    {
         $this->assertSame(
             ['label' => 'View All FAQs', 'href' => '/for-families'],
             $this->normalize($this->shippedData())['all_link']

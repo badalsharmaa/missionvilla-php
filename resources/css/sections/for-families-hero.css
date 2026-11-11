@@ -1,0 +1,484 @@
+/* ==========================================================================
+   FOR FAMILIES SECTION 01 · EMPATHETIC HERO & COMPANION FOLIO
+   Warm paper canvas (#F7F4ED), 12-column asymmetric layout, companion folio
+   ========================================================================== */
+
+.ff-hero {
+    position: relative;
+    width: 100%;
+    min-height: calc(100svh - 104px);
+    background-color: #F7F4ED;
+    border-bottom: 1px solid rgba(59, 35, 72, 0.15);
+    padding: clamp(1rem, 2.5vw, 1.75rem) 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.ff-hero__inner {
+    width: 100%;
+    max-width: var(--mv-content-max, 1340px);
+    margin: 0 auto;
+    padding: 0 var(--mv-gutter, clamp(1rem, 4vw, 3rem));
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+/* Top bar: Breadcrumb & Licensing */
+.ff-hero__topbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(59, 35, 72, 0.15);
+    font-size: 0.75rem;
+}
+
+.ff-hero__breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(41, 39, 43, 0.75);
+}
+
+.ff-hero__crumb {
+    font-weight: 500;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.ff-hero__crumb:hover {
+    color: #3B2348;
+}
+
+.ff-hero__crumb--active {
+    font-weight: 600;
+    color: #3B2348;
+}
+
+.ff-hero__crumb-sep {
+    color: rgba(41, 39, 43, 0.4);
+}
+
+.ff-hero__badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6875rem;
+    color: rgba(41, 39, 43, 0.75);
+}
+
+.ff-hero__badge-label {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #3B2348;
+}
+
+.ff-hero__badge-dot {
+    color: rgba(41, 39, 43, 0.3);
+}
+
+.ff-hero__badge-license {
+    font-weight: 500;
+}
+
+/* 12-Column Grid */
+.ff-hero__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: stretch;
+    margin: auto 0;
+    padding: 1rem 0;
+}
+
+@media (min-width: 1024px) {
+    .ff-hero__grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 2.5rem;
+    }
+}
+
+/* Left Column */
+.ff-hero__copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .ff-hero__copy {
+        grid-column: span 6;
+    }
+}
+
+.ff-hero__heading-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.ff-hero__tagline {
+    font-size: clamp(1.25rem, 2vw, 1.625rem);
+    color: #C98268;
+    line-height: 1.2;
+}
+
+.ff-hero__title {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(1.95rem, 3.25vw, 3.3rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: #3B2348;
+    font-weight: 600;
+    text-wrap: balance;
+    margin: 0;
+}
+
+.ff-hero__lead {
+    font-size: clamp(0.875rem, 1.2vw, 0.9375rem);
+    color: rgba(41, 39, 43, 0.85);
+    line-height: 1.6;
+}
+
+.ff-hero__lead a {
+    color: #3B2348;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: #C98268;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+}
+
+.ff-hero__lead a:hover {
+    color: #C98268;
+}
+
+/* 3-Column Pillars Strip */
+.ff-hero__pillars {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(59, 35, 72, 0.15);
+    border-bottom: 1px solid rgba(59, 35, 72, 0.15);
+}
+
+@media (min-width: 640px) {
+    .ff-hero__pillars {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .ff-hero__pillar:not(:first-child) {
+        border-left: 1px solid rgba(59, 35, 72, 0.15);
+        padding-left: 1rem;
+    }
+}
+
+.ff-hero__pillar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.ff-hero__pillar-code {
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #A65D43;
+    font-weight: 600;
+}
+
+.ff-hero__pillar-title {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #3B2348;
+}
+
+.ff-hero__pillar-summary {
+    font-size: 0.75rem;
+    color: rgba(41, 39, 43, 0.75);
+    line-height: 1.35;
+}
+
+/* Actions */
+.ff-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+}
+
+.ff-hero__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.ff-hero__btn--primary {
+    background-color: #3B2348;
+    color: #F7F4ED;
+    border: 1px solid #3B2348;
+    box-shadow: 0 4px 12px rgba(59, 35, 72, 0.15);
+}
+
+.ff-hero__btn--primary:hover {
+    background-color: #C98268;
+    border-color: #C98268;
+}
+
+.ff-hero__btn--jump {
+    background-color: #FCFBF8;
+    color: #3B2348;
+    border: 1px solid rgba(59, 35, 72, 0.3);
+}
+
+.ff-hero__btn--jump:hover {
+    background-color: rgba(216, 199, 165, 0.35);
+}
+
+.ff-hero__btn-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+}
+
+/* Right Visuals: Family Companion Folio */
+.ff-hero__visuals {
+    display: flex;
+}
+
+@media (min-width: 1024px) {
+    .ff-hero__visuals {
+        grid-column: span 6;
+    }
+}
+
+.ff-hero__folio {
+    width: 100%;
+    border-radius: 28px;
+    background-color: #FCFBF8;
+    border: 1px solid #D8C7A5;
+    padding: clamp(1.25rem, 2.5vw, 1.75rem);
+    box-shadow: 0 12px 32px rgba(59, 35, 72, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+}
+
+.ff-hero__folio-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #D8C7A5;
+}
+
+.ff-hero__folio-eyebrow {
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #A65D43;
+    display: block;
+}
+
+.ff-hero__folio-heading {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+    font-weight: 700;
+    color: #3B2348;
+    margin: 0;
+}
+
+.ff-hero__folio-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #3B2348;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.ff-hero__folio-phone:hover {
+    color: #C98268;
+}
+
+.ff-hero__folio-phone-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+    color: #C98268;
+}
+
+.ff-hero__folio-media {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: #22122B;
+    height: 180px;
+    border: 1px solid rgba(216, 199, 165, 0.6);
+}
+
+@media (min-width: 640px) {
+    .ff-hero__folio-media {
+        height: 210px;
+    }
+}
+
+.ff-hero__folio-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ff-hero__folio-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(34, 18, 43, 0.9) 0%, rgba(34, 18, 43, 0.4) 60%, transparent 100%);
+    pointer-events: none;
+}
+
+.ff-hero__folio-caption-box {
+    position: absolute;
+    bottom: 0.875rem;
+    left: 1rem;
+    right: 1rem;
+    color: #F7F4ED;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.ff-hero__folio-tag {
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #D8C7A5;
+}
+
+.ff-hero__folio-quote {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(0.8125rem, 1.1vw, 0.9375rem);
+    font-weight: 500;
+    line-height: 1.35;
+    margin: 0;
+}
+
+/* Quick Jump Index */
+.ff-hero__folio-index {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #D8C7A5;
+    border-bottom: 1px solid #D8C7A5;
+}
+
+.ff-hero__folio-row {
+    padding: 0.625rem 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid rgba(216, 199, 165, 0.7);
+}
+
+.ff-hero__folio-row:last-child {
+    border-bottom: none;
+}
+
+.ff-hero__folio-row:hover {
+    background-color: #F7F4ED;
+}
+
+.ff-hero__folio-row-main {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    min-width: 0;
+}
+
+.ff-hero__folio-num {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #A65D43;
+    width: 1.25rem;
+    flex-shrink: 0;
+}
+
+.ff-hero__folio-texts {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.ff-hero__folio-title {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #3B2348;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.2s ease;
+}
+
+.ff-hero__folio-row:hover .ff-hero__folio-title {
+    color: #C98268;
+}
+
+.ff-hero__folio-meta {
+    font-size: 0.6875rem;
+    color: rgba(41, 39, 43, 0.7);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ff-hero__folio-arrow {
+    width: 0.875rem;
+    height: 0.875rem;
+    color: rgba(59, 35, 72, 0.6);
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.ff-hero__folio-row:hover .ff-hero__folio-arrow {
+    color: #C98268;
+    transform: translate(2px, -2px);
+}
+
+/* Bottom Strip */
+.ff-hero__footer {
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(59, 35, 72, 0.15);
+    font-size: 0.6875rem;
+    color: rgba(41, 39, 43, 0.75);
+    text-align: center;
+}

@@ -13,6 +13,7 @@ Route::get('/life-at-mission-villa', [PageController::class, 'lifeAtMissionVilla
 Route::get('/services-and-amenities', [PageController::class, 'servicesAmenities'])->name('services-and-amenities');
 Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
 Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/for-families', [PageController::class, 'forFamilies'])->name('for-families');
 
 // Shared inquiry form: Schedule a Visit · Request Pricing · Request a Call (CSRF via the web group).
 Route::post('/inquiries', [InquiryController::class, 'store'])

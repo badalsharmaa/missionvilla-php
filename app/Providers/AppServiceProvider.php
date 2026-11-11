@@ -14,6 +14,12 @@ use App\Content\Sections\AboutPhilosophySection;
 use App\Content\Sections\AboutTeamCommitmentSection;
 use App\Content\Sections\CareOptionsSection;
 use App\Content\Sections\FaqFeaturedSection;
+use App\Content\Sections\ForFamiliesBridgeSection;
+use App\Content\Sections\ForFamiliesChecklistSection;
+use App\Content\Sections\ForFamiliesDecisionGuideSection;
+use App\Content\Sections\ForFamiliesFaqSection;
+use App\Content\Sections\ForFamiliesHeroSection;
+use App\Content\Sections\ForFamiliesInvolvementSection;
 use App\Content\Sections\HeroCinematicSection;
 use App\Content\Sections\IntroShuttersSection;
 use App\Content\Sections\LifeGallerySection;
@@ -119,6 +125,12 @@ class AppServiceProvider extends ServiceProvider
             new AboutGeographySection,
             new AboutCoreValuesSection,
             new AboutTeamCommitmentSection,
+            new ForFamiliesHeroSection,
+            new ForFamiliesDecisionGuideSection,
+            new ForFamiliesChecklistSection,
+            new ForFamiliesInvolvementSection,
+            new ForFamiliesFaqSection,
+            new ForFamiliesBridgeSection,
         ]));
 
         $this->app->singleton(ContentRepository::class, function ($app) {
