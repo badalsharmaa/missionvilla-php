@@ -1,0 +1,435 @@
+/* ==========================================================================
+   ABOUT SECTION 05 · CARE TEAM STEWARDSHIP & PET-FRIENDLY POLICY
+   Truthful role explorer without fabricated portraits, paired with conditional policy
+   ========================================================================== */
+
+.about-team {
+    width: 100%;
+    padding: clamp(3.5rem, 6vw, 6rem) 0;
+    background-color: #FCFBF8;
+    border-bottom: 1px solid #D8C7A5;
+}
+
+.about-team__inner {
+    width: 100%;
+    max-width: var(--mv-content-max, 1340px);
+    margin: 0 auto;
+    padding: 0 var(--mv-gutter, clamp(1rem, 4vw, 3rem));
+}
+
+.about-team__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+@media (min-width: 1024px) {
+    .about-team__grid {
+        grid-template-columns: 7fr 5fr;
+        gap: 2.5rem;
+    }
+}
+
+/* Left Explorer Box */
+.about-team__explorer {
+    border-radius: 2rem;
+    background-color: #F7F4ED;
+    border: 1px solid #D8C7A5;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.75rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.about-team__explorer-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.about-team__badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.about-team__kicker {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #A65D43;
+}
+
+.about-team__status-badge {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: #3B2348;
+    background-color: rgba(216, 199, 165, 0.45);
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+}
+
+.about-team__title {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(1.5rem, 2.25vw, 2rem);
+    font-weight: 600;
+    color: #3B2348;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.about-team__intro {
+    font-size: clamp(0.875rem, 1.1vw, 0.9375rem);
+    color: rgba(41, 39, 43, 0.85);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Roles Grid */
+.about-team__roles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .about-team__roles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.about-team__role-btn {
+    text-align: left;
+    padding: 1rem 1.125rem;
+    border-radius: 1rem;
+    border: 1px solid #D8C7A5;
+    background-color: #FCFBF8;
+    color: #29272B;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.about-team__role-btn:hover {
+    border-color: #3B2348;
+}
+
+.about-team__role-btn--active {
+    background-color: #3B2348;
+    color: #F7F4ED;
+    border-color: #3B2348;
+    box-shadow: 0 4px 12px rgba(59, 35, 72, 0.15);
+}
+
+.about-team__role-dept {
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #A65D43;
+}
+
+.about-team__role-btn--active .about-team__role-dept {
+    color: #D8C7A5;
+}
+
+.about-team__role-name {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: 0.9375rem;
+    font-weight: 600;
+}
+
+/* Role Detail Box */
+.about-team__panels {
+    width: 100%;
+}
+
+.about-team__role-detail {
+    border-radius: 1rem;
+    background-color: #FCFBF8;
+    border: 1px solid #D8C7A5;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.about-team__role-detail[hidden] {
+    display: none;
+}
+
+.about-team__detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+}
+
+.about-team__detail-title {
+    font-weight: 600;
+    color: #3B2348;
+}
+
+.about-team__detail-location {
+    font-size: 0.6875rem;
+    color: #5F7F49;
+    font-weight: 500;
+}
+
+.about-team__detail-support {
+    font-size: 0.8125rem;
+    color: rgba(41, 39, 43, 0.85);
+    line-height: 1.55;
+    margin: 0;
+}
+
+.about-team__detail-footer {
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(216, 199, 165, 0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .about-team__detail-footer {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.about-team__question {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    font-size: 0.75rem;
+    color: #3B2348;
+}
+
+.about-team__question-label {
+    font-weight: 600;
+    color: #A65D43;
+}
+
+.about-team__question-text {
+    font-style: italic;
+    margin: 0;
+}
+
+.about-team__inquiry-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: #3B2348;
+    color: #F7F4ED;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.about-team__inquiry-btn:hover {
+    background-color: #C98268;
+}
+
+.about-team__inquiry-arrow {
+    width: 0.875rem;
+    height: 0.875rem;
+}
+
+/* Right Sidebar: Pet Policy & Direct Contact */
+.about-team__sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+/* Pet Card */
+.about-team__pet-card {
+    border-radius: 2rem;
+    background-color: #F7F4ED;
+    border: 1px solid #D8C7A5;
+    padding: clamp(1.5rem, 2.5vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+    flex: 1;
+}
+
+.about-team__pet-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.about-team__pet-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #5F7F49;
+}
+
+.about-team__paw-icon {
+    width: 1rem;
+    height: 1rem;
+    color: #C98268;
+    flex-shrink: 0;
+}
+
+.about-team__pet-title {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+    font-weight: 600;
+    color: #3B2348;
+    margin: 0;
+}
+
+.about-team__pet-summary {
+    font-size: 0.8125rem;
+    color: rgba(41, 39, 43, 0.85);
+    line-height: 1.55;
+    margin: 0;
+}
+
+.about-team__pet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.about-team__pet-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: rgba(41, 39, 43, 0.85);
+    line-height: 1.4;
+}
+
+.about-team__check-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+    color: #5F7F49;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.about-team__pet-footer {
+    padding-top: 1rem;
+    border-top: 1px solid #D8C7A5;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.about-team__pet-status {
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #A65D43;
+}
+
+.about-team__pet-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    border: 1px solid #3B2348;
+    background-color: transparent;
+    color: #3B2348;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.about-team__pet-btn:hover {
+    background-color: #3B2348;
+    color: #F7F4ED;
+}
+
+.about-team__btn-arrow {
+    width: 0.875rem;
+    height: 0.875rem;
+}
+
+/* Direct Contact Card */
+.about-team__direct-card {
+    border-radius: 1.75rem;
+    background-color: #3B2348;
+    color: #F7F4ED;
+    padding: clamp(1.25rem, 2vw, 1.75rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-shadow: 0 8px 24px rgba(59, 35, 72, 0.2);
+}
+
+.about-team__direct-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.6875rem;
+    color: #D8C7A5;
+}
+
+.about-team__direct-badge {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+}
+
+.about-team__shield-icon {
+    width: 1rem;
+    height: 1rem;
+    color: #8FAF78;
+}
+
+.about-team__direct-title {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+    font-weight: 600;
+    color: #F7F4ED;
+    margin: 0;
+}
+
+.about-team__direct-desc {
+    font-size: 0.75rem;
+    color: rgba(247, 244, 237, 0.8);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.about-team__direct-desc a {
+    color: #D8C7A5;
+    text-decoration: underline;
+    font-weight: 600;
+}

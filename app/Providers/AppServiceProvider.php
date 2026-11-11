@@ -7,6 +7,11 @@ use App\Content\DatabaseContentRepository;
 use App\Content\FileContentRepository;
 use App\Content\Media\LifeGalleryManifest;
 use App\Content\SectionRegistry;
+use App\Content\Sections\AboutCoreValuesSection;
+use App\Content\Sections\AboutGeographySection;
+use App\Content\Sections\AboutHeroSection;
+use App\Content\Sections\AboutPhilosophySection;
+use App\Content\Sections\AboutTeamCommitmentSection;
 use App\Content\Sections\CareOptionsSection;
 use App\Content\Sections\FaqFeaturedSection;
 use App\Content\Sections\HeroCinematicSection;
@@ -109,6 +114,11 @@ class AppServiceProvider extends ServiceProvider
             new GalleryMasonrySection,
             new GalleryVirtualTourSection,
             new GalleryPathwaysSection,
+            new AboutHeroSection,
+            new AboutPhilosophySection,
+            new AboutGeographySection,
+            new AboutCoreValuesSection,
+            new AboutTeamCommitmentSection,
         ]));
 
         $this->app->singleton(ContentRepository::class, function ($app) {

@@ -98,7 +98,7 @@ return [
             'general' => 'general_inquiry',
         ],
         // Non-sensitive context: which part of the site opened the form (stored with the lead).
-        'sources' => ['header', 'hero', 'care-options', 'life-gallery', 'why-families', 'suites', 'faq', 'visit-cta', 'visit-form', 'footer', 'mc-hero', 'mc-legacies', 'mc-day', 'mc-care', 'mc-faq', 'mc-cta', 'memory-care', 'rc-hero', 'rc-scenarios', 'rc-inclusions', 'rc-story', 'rc-caregiver', 'rc-timeline', 'rc-faq', 'rc-cta', 'respite-care', 'lo-hero', 'lo-care', 'lo-suites', 'lo-setting', 'lo-faq', 'lo-cta', 'living-options', 'sfp-cta', 'suites-and-floor-plans', 'lamv-cta', 'life-at-mission-villa', 'sa-cta', 'services-and-amenities', 'gallery-cta', 'gallery'],
+        'sources' => ['header', 'hero', 'care-options', 'life-gallery', 'why-families', 'suites', 'faq', 'visit-cta', 'visit-form', 'footer', 'mc-hero', 'mc-legacies', 'mc-day', 'mc-care', 'mc-faq', 'mc-cta', 'memory-care', 'rc-hero', 'rc-scenarios', 'rc-inclusions', 'rc-story', 'rc-caregiver', 'rc-timeline', 'rc-faq', 'rc-cta', 'respite-care', 'lo-hero', 'lo-care', 'lo-suites', 'lo-setting', 'lo-faq', 'lo-cta', 'living-options', 'sfp-cta', 'suites-and-floor-plans', 'lamv-cta', 'life-at-mission-villa', 'sa-cta', 'services-and-amenities', 'gallery-cta', 'gallery', 'about-cta', 'about', 'about-hero', 'about-philosophy', 'about-geography', 'about-team'],
         'care_interests' => [
             'memory_care' => 'Legacies™ Memory Care',
             'respite_care' => 'Short-Term Respite Care',

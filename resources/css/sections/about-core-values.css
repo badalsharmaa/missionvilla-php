@@ -1,0 +1,215 @@
+/* ==========================================================================
+   ABOUT SECTION 04 · CORE VALUES & COMMUNITY ACTIVITIES
+   4-pillar grid connecting core values to real daily life
+   ========================================================================== */
+
+.about-vals {
+    width: 100%;
+    padding: clamp(3.5rem, 6vw, 6rem) 0;
+    background-color: #F7F4ED;
+    border-bottom: 1px solid rgba(59, 35, 72, 0.15);
+}
+
+.about-vals__inner {
+    width: 100%;
+    max-width: var(--mv-content-max, 1340px);
+    margin: 0 auto;
+    padding: 0 var(--mv-gutter, clamp(1rem, 4vw, 3rem));
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* Header */
+.about-vals__header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: flex-end;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(59, 35, 72, 0.15);
+}
+
+@media (min-width: 1024px) {
+    .about-vals__header {
+        grid-template-columns: 7fr 5fr;
+        gap: 2.5rem;
+    }
+}
+
+.about-vals__header-lead {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.about-vals__kicker {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    color: #C98268;
+    line-height: 1.2;
+}
+
+.about-vals__title {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(1.75rem, 2.75vw, 2.5rem);
+    line-height: 1.15;
+    color: #3B2348;
+    font-weight: 600;
+    text-wrap: balance;
+    margin: 0;
+}
+
+.about-vals__title em {
+    font-style: italic;
+    color: #C98268;
+}
+
+.about-vals__header-intro {
+    font-size: clamp(0.875rem, 1.15vw, 0.9375rem);
+    color: rgba(41, 39, 43, 0.8);
+    line-height: 1.6;
+}
+
+.about-vals__header-intro p {
+    margin: 0;
+}
+
+/* 4-Pillar Grid */
+.about-vals__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .about-vals__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+.about-vals__card {
+    border-radius: 1.75rem;
+    background-color: #FCFBF8;
+    border: 1px solid #D8C7A5;
+    padding: clamp(1.5rem, 2.5vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-vals__card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(59, 35, 72, 0.08);
+}
+
+.about-vals__card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.about-vals__card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(216, 199, 165, 0.6);
+    padding-bottom: 0.75rem;
+}
+
+.about-vals__card-index {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #A65D43;
+}
+
+.about-vals__card-script {
+    font-size: 1.25rem;
+    color: #3B2348;
+}
+
+.about-vals__card-title {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+    font-weight: 600;
+    color: #3B2348;
+    margin: 0;
+}
+
+.about-vals__card-summary {
+    font-size: clamp(0.875rem, 1.1vw, 0.9375rem);
+    color: rgba(41, 39, 43, 0.85);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.about-vals__card-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(216, 199, 165, 0.6);
+}
+
+.about-vals__activities-kicker {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #5F7F49;
+}
+
+.about-vals__activities-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.about-vals__activity-item {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 0.8125rem;
+    color: rgba(41, 39, 43, 0.9);
+}
+
+.about-vals__check-icon {
+    width: 0.9375rem;
+    height: 0.9375rem;
+    color: #5F7F49;
+    flex-shrink: 0;
+}
+
+.about-vals__card-action {
+    padding-top: 0.75rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.about-vals__card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #3B2348;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.about-vals__card-link:hover {
+    color: #C98268;
+}
+
+.about-vals__link-arrow {
+    width: 0.875rem;
+    height: 0.875rem;
+}

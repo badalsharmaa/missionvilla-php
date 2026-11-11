@@ -53,6 +53,11 @@ class PageController extends Controller
         return $this->render('gallery');
     }
 
+    public function about(): View
+    {
+        return $this->render('about');
+    }
+
     private function render(string $slug): View
     {
         $page = $this->content->findPublishedPage($slug) ?? abort(404);
