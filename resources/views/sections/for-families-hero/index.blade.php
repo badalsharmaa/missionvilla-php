@@ -12,6 +12,7 @@
     FOR FAMILIES SECTION 01 · EMPATHETIC HERO & COMPANION FOLIO
 --}}
 <section class="ff-hero" aria-labelledby="ff-hero-heading" data-ff-hero id="for-families-hero">
+    <div class="ff-hero__glow" aria-hidden="true"></div>
     <div class="ff-hero__inner">
         {{-- Top Bar: Breadcrumbs & Licensing --}}
         <div class="ff-hero__topbar">

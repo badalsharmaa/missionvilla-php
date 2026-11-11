@@ -16,7 +16,6 @@
 return [
     'slug' => 'resources',
     'title' => 'Caregiver & Family Resources Overview | Mission Villa Senior Living',
-    'header_variant' => 'solid',
     'seo' => [
         'title' => 'Caregiver & Family Resources: Guides, Brochure & Blog Status | Mission Villa',
         'description' => 'Explore Mission Villa Senior Living resources in Daly City: Financial Planning paper ledger, Family Decision Guide & visit questions, community brochure packet builder, and transparent blog status.',

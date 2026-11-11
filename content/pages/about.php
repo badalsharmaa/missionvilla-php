@@ -17,7 +17,6 @@
 return [
     'slug' => 'about',
     'title' => 'About Mission Villa Senior Living | Memory Care in Daly City, CA',
-    'header_variant' => 'solid',
     'seo' => [
         'title' => 'About Us: Compassionate Memory Care in Daly City | Mission Villa',
         'description' => 'Discover Mission Villa Senior Living at 995 East Market Street in Daly City. Person-first Memory Care, Legacies™ philosophy, family support near San Bruno Mountain.',

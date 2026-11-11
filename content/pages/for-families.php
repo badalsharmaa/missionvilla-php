@@ -17,7 +17,6 @@
 return [
     'slug' => 'for-families',
     'title' => 'For Families & FAQs | Mission Villa Senior Living in Daly City',
-    'header_variant' => 'solid',
     'seo' => [
         'title' => 'Family Guide & Grouped FAQs: Memory Care in Daly City | Mission Villa',
         'description' => 'A calm companion for families considering Memory Care or Respite Care in Daly City. Review decision pathways, tour questions, transitions, and grouped FAQs.',

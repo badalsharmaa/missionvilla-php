@@ -12,6 +12,7 @@
     GALLERY SECTION 01 · EXHIBITION HERO
 --}}
 <section class="gh-hero" aria-labelledby="gh-hero-heading" data-gh-hero>
+    <div class="gh-hero__glow" aria-hidden="true"></div>
     <div class="gh-hero__inner">
         {{-- Top Bar: Breadcrumbs --}}
         <div class="gh-hero__topbar">

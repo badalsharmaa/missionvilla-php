@@ -1,171 +1,178 @@
 /* ==========================================================================
-   Contact Section 01 · Direct Hospitality Desk & Arrival Monograph Hero
+   CONTACT SECTION 01 · ARRIVAL MONOGRAPH PLUM HERO
+   Deep plum canvas (#22122B), Newsreader serif, 12-column asymmetric layout
    ========================================================================== */
 
 .contact-hero {
-    width: 100%;
-    min-height: calc(100svh - 104px);
-    padding: var(--mv-gutter, 1.5rem) 0;
-    background-color: #F7F4ED;
-    border-bottom: 1px solid rgba(59, 35, 72, 0.15);
     position: relative;
-    overflow: hidden;
-}
-
-.contact-hero__inner {
     width: 100%;
-    max-width: 1360px;
-    margin: 0 auto;
-    padding: 0 var(--mv-gutter, 1.5rem);
+    background-color: #22122B;
+    color: #FAF6F0;
+    border-bottom: 1px solid rgba(216, 199, 165, 0.25);
+    padding: clamp(3rem, 5.5vw, 5rem) var(--mv-gutter, clamp(1.25rem, 4vw, 4.75rem));
+    padding-top: calc(var(--site-header-height, 5.5rem) + clamp(1.5rem, 3vw, 2.5rem));
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: calc(100svh - 104px - 2 * var(--mv-gutter, 1.5rem));
+    overflow: hidden;
 }
 
-.contact-hero__top-bar {
+@media (max-width: 1023px) {
+    .contact-hero {
+        padding-top: calc(var(--site-header-height, 4.5rem) + 1.5rem);
+    }
+}
+
+.contact-hero__glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 650px 400px at 15% 15%, rgba(201, 130, 104, 0.18), transparent 70%),
+        radial-gradient(ellipse 700px 420px at 85% 40%, rgba(143, 175, 120, 0.14), transparent 72%);
+    z-index: 0;
+}
+
+.contact-hero__inner {
+    position: relative;
+    z-index: 1;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 3.5vw, 3rem);
+}
+
+/* Breadcrumb & Identity Bar */
+.contact-hero__top-bar {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(59, 35, 72, 0.15);
-    font-size: 0.75rem;
+    gap: 0.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.8125rem;
 }
 
 .contact-hero__breadcrumbs {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: rgba(41, 39, 43, 0.75);
+    color: rgba(247, 244, 237, 0.75);
 }
 
 .contact-hero__bc-link {
-    font-weight: 500;
     color: inherit;
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: rgba(201, 130, 104, 0.5);
+    text-underline-offset: 3px;
     transition: color 0.2s ease;
 }
 
 .contact-hero__bc-link:hover {
-    color: #3B2348;
+    color: #FAF6F0;
 }
 
 .contact-hero__bc-sep {
-    color: rgba(41, 39, 43, 0.4);
+    opacity: 0.5;
 }
 
 .contact-hero__bc-current {
+    color: #FAF6F0;
     font-weight: 600;
-    color: #3B2348;
 }
 
 .contact-hero__identity {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    font-size: 0.6875rem;
-    color: rgba(41, 39, 43, 0.75);
+    gap: 0.5rem;
 }
 
 .contact-hero__eyebrow-text {
-    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: #3B2348;
+    color: #EDBE96;
+    font-weight: 600;
 }
 
 .contact-hero__dot {
-    color: rgba(41, 39, 43, 0.4);
+    opacity: 0.5;
 }
 
 .contact-hero__license-badge {
-    font-weight: 600;
-    color: #3B2348;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #F0D9C8;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
 }
 
-/* 12-Column Split Grid */
+/* 12-Column Split */
 .contact-hero__grid {
-    width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: stretch;
-    margin: auto 0;
-    padding: 1.5rem 0;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    align-items: start;
 }
 
 @media (min-width: 1024px) {
     .contact-hero__grid {
-        grid-template-columns: repeat(12, 1fr);
-        gap: 2.5rem;
+        grid-template-columns: 1.05fr 0.95fr;
     }
 }
 
 .contact-hero__story {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 1.5rem;
-}
-
-@media (min-width: 1024px) {
-    .contact-hero__story {
-        grid-column: span 6;
-    }
+    gap: 1.75rem;
 }
 
 .contact-hero__header {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.625rem;
 }
 
 .contact-hero__script {
-    font-family: 'Allura', cursive;
-    font-size: clamp(2rem, 3.5vw, 2.75rem);
-    color: #C98268;
-    line-height: 1.1;
-    display: block;
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+    color: #EDBE96;
 }
 
 .contact-hero__title {
     font-family: 'Newsreader', Georgia, serif;
-    font-size: clamp(1.95rem, 3.25vw, 3.3rem);
-    line-height: 1.06;
-    letter-spacing: -0.02em;
-    color: #3B2348;
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
     font-weight: 600;
-    text-wrap: balance;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    color: #FAF6F0;
     margin: 0;
+    text-wrap: balance;
 }
 
-.contact-hero__lead {
-    font-size: clamp(0.875rem, 1.2vw, 0.9375rem);
-    line-height: 1.65;
-    color: rgba(41, 39, 43, 0.85);
-}
-
-.contact-hero__lead a {
-    color: #3B2348;
-    text-decoration: underline;
-    text-decoration-color: #C98268;
-    text-underline-offset: 4px;
-    font-weight: 600;
-    transition: color 0.2s ease;
-}
-
-.contact-hero__lead a:hover {
+.contact-hero__title em {
+    font-style: italic;
+    font-weight: 400;
     color: #C98268;
 }
 
-/* Contact Trio */
+.contact-hero__lead {
+    font-size: clamp(1rem, 1.25vw, 1.125rem);
+    line-height: 1.65;
+    color: rgba(247, 244, 237, 0.85);
+    max-width: 60ch;
+}
+
+/* Direct Verified Contact Trio Ribbon */
 .contact-hero__trio {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0.625rem;
+    gap: 0.875rem;
 }
 
 @media (min-width: 640px) {
@@ -175,136 +182,83 @@
 }
 
 .contact-hero__trio-card {
-    padding: 0.875rem;
-    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(216, 199, 165, 0.25);
+    border-radius: 14px;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 0.5rem;
     text-decoration: none;
-    transition: all 0.2s ease;
+    color: inherit;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.contact-hero__trio-card--phone {
-    background-color: #3B2348;
-    color: #F7F4ED;
-    box-shadow: 0 4px 12px rgba(59, 35, 72, 0.15);
-}
-
-.contact-hero__trio-card--phone:hover {
-    background-color: #C98268;
-}
-
-.contact-hero__trio-card--email,
-.contact-hero__trio-card--address {
-    background-color: #FCFBF8;
-    border: 1px solid #D8C7A5;
-}
-
-.contact-hero__trio-card--email:hover {
-    border-color: #3B2348;
+.contact-hero__trio-card:hover {
+    transform: translateY(-2px);
+    border-color: #C98268;
 }
 
 .contact-hero__trio-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 0.6875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    gap: 0.5rem;
 }
 
-.contact-hero__trio-card--phone .contact-hero__trio-top {
+.contact-hero__trio-label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: #D8C7A5;
 }
 
-.contact-hero__trio-card--phone:hover .contact-hero__trio-top {
-    color: #FFFFFF;
-}
-
-.contact-hero__trio-label--email {
-    color: #5F7F49;
-    font-weight: 600;
-}
-
-.contact-hero__trio-label--address {
-    color: #A65D43;
-    font-weight: 600;
-}
-
 .contact-hero__trio-icon {
-    width: 0.875rem;
-    height: 0.875rem;
-}
-
-.contact-hero__trio-card--phone .contact-hero__trio-icon {
+    width: 0.9375rem;
+    height: 0.9375rem;
     color: #C98268;
-}
-
-.contact-hero__trio-card--phone:hover .contact-hero__trio-icon {
-    color: #FFFFFF;
 }
 
 .contact-hero__trio-value {
     font-family: 'Newsreader', Georgia, serif;
     font-size: 1.125rem;
     font-weight: 700;
-    margin-top: 0.375rem;
-    display: block;
+    color: #FAF6F0;
 }
 
 .contact-hero__trio-email-text {
-    font-family: inherit;
-    font-size: 0.6875rem;
-    font-weight: 700;
-    color: #3B2348;
-    margin-top: 0.375rem;
-    word-break: break-word;
-    line-height: 1.35;
-    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #FAF6F0;
+    word-break: break-all;
 }
 
 .contact-hero__trio-address-text {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 0.8125rem;
-    font-weight: 700;
-    color: #3B2348;
-    margin-top: 0.375rem;
-    line-height: 1.35;
-    display: block;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: rgba(247, 244, 237, 0.85);
 }
 
 .contact-hero__trio-hint {
     font-size: 0.6875rem;
-    margin-top: 0.125rem;
-    display: block;
-}
-
-.contact-hero__trio-card--phone .contact-hero__trio-hint {
-    color: rgba(247, 244, 237, 0.8);
-}
-
-.contact-hero__trio-card--email .contact-hero__trio-hint {
-    color: rgba(41, 39, 43, 0.7);
+    color: #EDBE96;
+    font-weight: 500;
 }
 
 .contact-hero__copy-btn {
-    background: none;
-    border: none;
-    padding: 0;
-    margin-top: 0.25rem;
-    font-size: 0.6875rem;
-    font-weight: 600;
-    color: #3B2348;
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.35rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 0.6875rem;
+    color: #EDBE96;
     cursor: pointer;
     text-align: left;
-    transition: color 0.2s ease;
-}
-
-.contact-hero__copy-btn:hover {
-    color: #C98268;
+    margin-top: 0.25rem;
 }
 
 .contact-hero__copy-icon {
@@ -312,57 +266,27 @@
     height: 0.75rem;
 }
 
-/* Actions Row */
+/* Actions */
 .contact-hero__actions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.75rem;
-    padding-top: 0.25rem;
+    gap: 1rem;
+    padding-top: 0.5rem;
 }
 
 .contact-hero__btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.875rem 1.5rem;
+    justify-content: center;
+    gap: 0.625rem;
+    padding: 0.875rem 1.625rem;
     border-radius: 9999px;
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-}
-
-.contact-hero__btn--primary {
-    background-color: #3B2348;
-    color: #F7F4ED;
-    box-shadow: 0 4px 14px rgba(59, 35, 72, 0.25);
-}
-
-.contact-hero__btn--primary:hover {
-    background-color: #C98268;
-    color: #FFFFFF;
-}
-
-.contact-hero__btn--phone {
-    background-color: #C98268;
-    color: #FFFFFF;
-    box-shadow: 0 4px 12px rgba(201, 130, 104, 0.25);
-}
-
-.contact-hero__btn--phone:hover {
-    background-color: #22122B;
-}
-
-.contact-hero__btn--secondary {
-    border: 1px solid rgba(59, 35, 72, 0.3);
-    color: #3B2348;
-    background-color: transparent;
-}
-
-.contact-hero__btn--secondary:hover {
-    background-color: rgba(216, 199, 165, 0.35);
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contact-hero__btn-icon {
@@ -371,322 +295,292 @@
     flex-shrink: 0;
 }
 
-.contact-hero__btn-icon--green {
-    color: #5F7F49;
+.contact-hero__btn--primary {
+    background-color: #C98268;
+    color: #FFFFFF;
+    border: 1px solid #C98268;
+    box-shadow: 0 4px 14px rgba(201, 130, 104, 0.35);
 }
 
-/* Arrival Monograph & Botanical Arch (Right 6 Cols) */
+.contact-hero__btn--primary:hover {
+    background-color: #3B2348;
+    border-color: #D8C7A5;
+    transform: translateY(-1px);
+}
+
+.contact-hero__btn--secondary {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #FAF6F0;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
+}
+
+.contact-hero__btn--secondary:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+    border-color: #FAF6F0;
+}
+
+.contact-hero__btn--phone {
+    background-color: transparent;
+    color: #F0D9C8;
+    border: 1px solid transparent;
+}
+
+.contact-hero__btn--phone:hover {
+    color: #FFFFFF;
+}
+
+/* Right Arrival Monograph */
 .contact-hero__arrival {
-    display: flex;
-}
-
-@media (min-width: 1024px) {
-    .contact-hero__arrival {
-        grid-column: span 6;
-    }
+    width: 100%;
 }
 
 .contact-hero__arrival-card {
-    background-color: #FCFBF8;
-    border-radius: 2rem;
-    padding: 1.5rem;
-    width: 100%;
-    box-shadow: 0 10px 30px rgba(59, 35, 72, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #1A0D22;
+    border: 1px solid rgba(216, 199, 165, 0.35);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
 }
 
 .contact-hero__arrival-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.25rem;
-    align-items: stretch;
-    height: 100%;
 }
 
 @media (min-width: 640px) {
     .contact-hero__arrival-grid {
-        grid-template-columns: repeat(12, 1fr);
+        grid-template-columns: 1fr 1fr;
     }
 }
 
 .contact-hero__arch-col {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-@media (min-width: 640px) {
-    .contact-hero__arch-col {
-        grid-column: span 6;
-    }
+    position: relative;
+    min-height: 300px;
 }
 
 .contact-hero__arch-frame {
     position: relative;
     width: 100%;
     height: 100%;
-    min-height: 240px;
-    border-radius: 9999px 9999px 1.5rem 1.5rem;
+    min-height: 300px;
     overflow: hidden;
-    background-color: #22122B;
-    border: 1px solid #D8C7A5;
 }
 
 .contact-hero__arch-img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    filter: brightness(0.9);
 }
 
 .contact-hero__arch-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(34, 18, 43, 0.85), rgba(34, 18, 43, 0.25) 50%, transparent);
+    background: linear-gradient(180deg, rgba(26, 13, 34, 0.2) 0%, rgba(26, 13, 34, 0.9) 100%);
 }
 
 .contact-hero__arch-badge {
     position: absolute;
-    top: 0.75rem;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0.25rem 0.625rem;
+    top: 0.875rem;
+    left: 0.875rem;
+    background-color: rgba(34, 18, 43, 0.92);
+    backdrop-filter: blur(8px);
+    color: #F7F4ED;
+    padding: 0.35rem 0.75rem;
     border-radius: 9999px;
-    background-color: rgba(34, 18, 43, 0.85);
-    border: 1px solid rgba(216, 199, 165, 0.4);
-    font-size: 0.5625rem;
-    font-weight: 600;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #D8C7A5;
-    white-space: nowrap;
+    border: 1px solid rgba(216, 199, 165, 0.3);
 }
 
 .contact-hero__arch-caption {
     position: absolute;
-    bottom: 0.75rem;
-    left: 0.75rem;
-    right: 0.75rem;
-    color: #F7F4ED;
+    bottom: 0.875rem;
+    left: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    color: #FAF6F0;
 }
 
 .contact-hero__arch-tag {
     font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: #8FAF78;
-    font-weight: 600;
-    display: block;
+    color: #EDBE96;
 }
 
 .contact-hero__arch-text {
     font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
     font-size: 0.8125rem;
-    font-weight: 500;
-    line-height: 1.35;
-    margin: 0.125rem 0 0 0;
+    line-height: 1.4;
+    color: #FAF6F0;
+    margin: 0;
 }
 
-/* Ledger Column */
 .contact-hero__ledger-col {
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 1rem;
-    padding: 0.25rem;
-}
-
-@media (min-width: 640px) {
-    .contact-hero__ledger-col {
-        grid-column: span 6;
-    }
+    gap: 1.25rem;
 }
 
 .contact-hero__ledger-header {
-    border-bottom: 1px solid #D8C7A5;
-    padding-bottom: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
 }
 
 .contact-hero__ledger-badge {
-    font-size: 0.625rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: #A65D43;
-    font-weight: 600;
-    display: block;
+    color: #EDBE96;
 }
 
 .contact-hero__ledger-title {
     font-family: 'Newsreader', Georgia, serif;
     font-size: 1.25rem;
-    font-weight: 700;
-    color: #3B2348;
-    line-height: 1.25;
-    margin: 0.25rem 0 0.5rem 0;
+    font-weight: 600;
+    color: #FAF6F0;
+    margin: 0;
 }
 
 .contact-hero__ledger-desc {
-    font-size: 0.75rem;
-    color: rgba(41, 39, 43, 0.8);
-    line-height: 1.5;
+    font-size: 0.78125rem;
+    line-height: 1.45;
+    color: rgba(247, 244, 237, 0.75);
     margin: 0;
 }
 
 .contact-hero__ledger-dl {
     display: flex;
     flex-direction: column;
-    gap: 0.625rem;
-    font-size: 0.75rem;
+    gap: 0.75rem;
     margin: 0;
+    padding: 0.75rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .contact-hero__ledger-item {
-    padding: 0.625rem;
-    border-radius: 0.75rem;
-    background-color: #F7F4ED;
-    border: 1px solid rgba(216, 199, 165, 0.7);
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
 }
 
 .contact-hero__ledger-dt {
-    font-size: 0.625rem;
+    font-size: 0.6875rem;
+    color: rgba(247, 244, 237, 0.65);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: rgba(41, 39, 43, 0.65);
-    font-weight: 600;
+    letter-spacing: 0.06em;
 }
 
 .contact-hero__ledger-dd {
-    margin: 0.125rem 0 0 0;
-    color: #29272B;
-    font-weight: 500;
+    margin: 0;
+    font-size: 0.8125rem;
+    color: #FAF6F0;
 }
 
 .contact-hero__ledger-dd--bold {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 0.875rem;
-    font-weight: 700;
-    color: #3B2348;
+    font-weight: 600;
+    color: #EDBE96;
 }
 
 .contact-hero__maps-link {
     display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0.625rem 1rem;
-    border-radius: 0.75rem;
-    background-color: rgba(59, 35, 72, 0.1);
-    color: #3B2348;
-    text-decoration: none;
+    gap: 0.35rem;
     font-size: 0.75rem;
     font-weight: 600;
-    transition: all 0.2s ease;
+    color: #EDBE96;
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .contact-hero__maps-link:hover {
-    background-color: #3B2348;
-    color: #F7F4ED;
+    color: #FFFFFF;
 }
 
 .contact-hero__arrow-icon {
-    width: 0.875rem;
-    height: 0.875rem;
-    flex-shrink: 0;
+    width: 0.8125rem;
+    height: 0.8125rem;
 }
 
-/* Bottom 4-Column Quick Section Bar */
+/* Quick Section Strip */
 .contact-hero__quick-bar {
-    width: 100%;
-    padding-top: 0.75rem;
-    border-top: 1px solid rgba(59, 35, 72, 0.15);
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.625rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-@media (min-width: 640px) {
-    .contact-hero__quick-bar {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .contact-hero__quick-bar {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
 .contact-hero__quick-item {
-    text-align: left;
-    padding: 0.625rem 0.875rem;
-    border-radius: 0.75rem;
-    background-color: rgba(252, 251, 248, 0.9);
-    color: #29272B;
-    border: 1px solid #D8C7A5;
-    text-decoration: none;
-    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
 }
 
 .contact-hero__quick-item:hover {
-    background-color: #3B2348;
-    color: #F7F4ED;
-    border-color: #3B2348;
+    background-color: rgba(201, 130, 104, 0.2);
+    border-color: #C98268;
+    transform: translateY(-1px);
 }
 
 .contact-hero__quick-text {
-    min-width: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .contact-hero__quick-index {
     font-size: 0.625rem;
     font-weight: 700;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #A65D43;
-    display: block;
-}
-
-.contact-hero__quick-item:hover .contact-hero__quick-index {
-    color: #D8C7A5;
+    color: #EDBE96;
 }
 
 .contact-hero__quick-title {
-    font-family: 'Newsreader', Georgia, serif;
     font-size: 0.8125rem;
     font-weight: 600;
-    color: #3B2348;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
-}
-
-.contact-hero__quick-item:hover .contact-hero__quick-title {
-    color: #F7F4ED;
+    color: #FAF6F0;
 }
 
 .contact-hero__quick-subtitle {
     font-size: 0.6875rem;
-    color: rgba(41, 39, 43, 0.7);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
-}
-
-.contact-hero__quick-item:hover .contact-hero__quick-subtitle {
-    color: rgba(247, 244, 237, 0.8);
+    color: rgba(247, 244, 237, 0.7);
 }
 
 .contact-hero__quick-arrow {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #3B2348;
-    flex-shrink: 0;
+    font-size: 0.875rem;
+    color: #C98268;
+    transition: transform 0.2s ease;
 }
 
 .contact-hero__quick-item:hover .contact-hero__quick-arrow {
-    color: #D8C7A5;
+    transform: translateY(2px);
 }

@@ -11,7 +11,8 @@
 {{--
     RESOURCES SECTION 01 · ARCHIVAL READING ROOM & FAMILY REFERENCE LIBRARY HERO
 --}}
-<section class="res-hero fluid-canvas" aria-labelledby="resources-hero-heading" id="resources-hero" data-res-hero>
+<section class="res-hero" aria-labelledby="resources-hero-heading" id="resources-hero" data-res-hero>
+    <div class="res-hero__glow" aria-hidden="true"></div>
     <div class="res-hero__inner">
         {{-- Breadcrumb & Identity Bar --}}
         <div class="res-hero__top-bar">

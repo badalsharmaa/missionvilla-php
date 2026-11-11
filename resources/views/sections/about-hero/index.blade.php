@@ -15,6 +15,7 @@
     ABOUT SECTION 01 · COMMUNITY MONOGRAPH HERO
 --}}
 <section class="about-hero" aria-labelledby="about-hero-heading" data-about-hero id="about-hero">
+    <div class="about-hero__glow" aria-hidden="true"></div>
     <div class="about-hero__inner">
         {{-- Top Bar: Breadcrumbs & Licensing --}}
         <div class="about-hero__topbar">

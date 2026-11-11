@@ -1,194 +1,219 @@
 /* ==========================================================================
-   RESOURCES SECTION 01: HERO STYLING (resources-hero.css)
-   Archival reference library desk aesthetic with Newsreader & Plus Jakarta Sans
+   RESOURCES SECTION 01 · ARCHIVAL LIBRARY PLUM HERO
+   Deep plum canvas (#241624), Newsreader serif, 12-column asymmetric layout
    ========================================================================== */
 
 .res-hero {
     position: relative;
-    background-color: #F7F4ED;
-    padding-top: 1rem;
-    padding-bottom: 2.5rem;
-    border-bottom: 1px solid rgba(59, 35, 72, 0.15);
+    width: 100%;
+    background-color: #241624;
+    color: #FAF6F0;
+    border-bottom: 1px solid rgba(216, 199, 165, 0.25);
+    padding: clamp(3rem, 5.5vw, 5rem) var(--mv-gutter, clamp(1.25rem, 4vw, 4.75rem));
+    padding-top: calc(var(--site-header-height, 5.5rem) + clamp(1.5rem, 3vw, 2.5rem));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 1023px) {
     .res-hero {
-        padding-top: 2rem;
-        padding-bottom: 2.5rem;
+        padding-top: calc(var(--site-header-height, 4.5rem) + 1.5rem);
     }
 }
 
-.res-hero__inner {
-    width: 100%;
-    max-width: 1320px;
-    margin-left: auto;
-    margin-right: auto;
+.res-hero__glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 650px 400px at 15% 15%, rgba(201, 130, 104, 0.18), transparent 70%),
+        radial-gradient(ellipse 700px 420px at 85% 40%, rgba(143, 175, 120, 0.14), transparent 72%);
+    z-index: 0;
 }
 
-/* Top Bar: Breadcrumb + Identity */
+.res-hero__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 3.5vw, 3rem);
+}
+
+/* Breadcrumb & Identity Bar */
 .res-hero__top-bar {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
-    padding-bottom: 1rem;
-    margin-bottom: 1.25rem;
-    border-bottom: 1px solid rgba(59, 35, 72, 0.15);
-    font-size: 0.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.8125rem;
 }
 
 .res-hero__breadcrumbs {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: rgba(41, 39, 43, 0.75);
+    color: rgba(247, 244, 237, 0.75);
 }
 
 .res-hero__bc-link {
-    font-weight: 500;
-    color: #29272B;
-    text-decoration: none;
-    transition: color 0.15s ease;
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(201, 130, 104, 0.5);
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
 }
 
 .res-hero__bc-link:hover {
-    color: #3B2348;
+    color: #FAF6F0;
 }
 
 .res-hero__bc-sep {
-    color: rgba(59, 35, 72, 0.3);
+    opacity: 0.5;
 }
 
 .res-hero__bc-current {
+    color: #FAF6F0;
     font-weight: 600;
-    color: #3B2348;
 }
 
 .res-hero__identity {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    gap: 0.5rem 0.75rem;
-    color: rgba(41, 39, 43, 0.8);
+    gap: 0.5rem;
 }
 
 .res-hero__badge-license {
     display: inline-flex;
     align-items: center;
-    gap: 0.375rem;
-    font-weight: 600;
-    color: #3B2348;
+    gap: 0.35rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #F0D9C8;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
 }
 
 .res-hero__shield-icon {
     width: 0.875rem;
     height: 0.875rem;
-    color: #5F7F49;
+    color: #8FAF78;
 }
 
 .res-hero__dot {
-    color: rgba(59, 35, 72, 0.3);
+    opacity: 0.5;
 }
 
 .res-hero__address {
-    color: rgba(41, 39, 43, 0.8);
+    font-size: 0.75rem;
+    color: rgba(247, 244, 237, 0.75);
 }
 
-/* 12-Column Split */
+/* 12-Column Hero Split */
 .res-hero__grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    align-items: stretch;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    align-items: start;
 }
 
 @media (min-width: 1024px) {
     .res-hero__grid {
-        grid-template-columns: repeat(12, 1fr);
-        gap: 2rem;
+        grid-template-columns: 1.05fr 0.95fr;
     }
 }
 
 .res-hero__story {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 1.25rem;
+    gap: 1.5rem;
 }
 
-@media (min-width: 1024px) {
-    .res-hero__story {
-        grid-column: span 6 / span 6;
-    }
+.res-hero__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
 }
 
 .res-hero__kicker {
-    display: block;
-    font-size: 1.5rem;
-    line-height: 1.2;
-    color: #C98268;
-    margin-bottom: 0.25rem;
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+    color: #EDBE96;
 }
 
 .res-hero__title {
-    font-family: var(--font-newsreader, 'Newsreader', serif);
-    font-size: clamp(1.95rem, 3.25vw, 2.75rem);
-    line-height: 1.15;
-    color: #3B2348;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
     font-weight: 600;
-    letter-spacing: -0.02em;
-    margin: 0 0 0.75rem 0;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    color: #FAF6F0;
+    margin: 0;
+    text-wrap: balance;
 }
 
 .res-hero__title em {
     font-style: italic;
+    font-weight: 400;
     color: #C98268;
 }
 
 .res-hero__lead {
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    color: rgba(41, 39, 43, 0.9);
+    font-size: clamp(1rem, 1.25vw, 1.125rem);
+    line-height: 1.65;
+    color: rgba(247, 244, 237, 0.85);
+    max-width: 60ch;
 }
 
-/* Accuracy Pledge Card */
+/* Accuracy Commitment Card */
 .res-hero__pledge {
-    padding: 1rem 1.25rem;
-    background: #FCFBF8;
-    border: 1px solid #D8C7A5;
-    border-radius: 1.25rem;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(216, 199, 165, 0.25);
+    border-radius: 14px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .res-hero__pledge-header {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 0.5rem;
-    border-bottom: 1px solid rgba(216, 199, 165, 0.7);
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.5rem;
 }
 
 .res-hero__pledge-title {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #3B2348;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #FAF6F0;
 }
 
 .res-hero__pledge-badge {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #A65D43;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #EDBE96;
+    background: rgba(201, 130, 104, 0.2);
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
 }
 
 .res-hero__pledge-text {
     font-size: 0.8125rem;
-    line-height: 1.55;
-    color: rgba(41, 39, 43, 0.85);
+    line-height: 1.5;
+    color: rgba(247, 244, 237, 0.75);
     margin: 0;
 }
 
@@ -197,75 +222,70 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.625rem;
+    gap: 1rem;
+    padding-top: 0.5rem;
 }
 
 .res-hero__btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.625rem 1.25rem;
+    justify-content: center;
+    gap: 0.625rem;
+    padding: 0.875rem 1.625rem;
     border-radius: 9999px;
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-}
-
-.res-hero__btn--primary {
-    background: #3B2348;
-    color: #F7F4ED;
-    border: 1px solid #3B2348;
-    box-shadow: 0 4px 12px rgba(59, 35, 72, 0.15);
-}
-
-.res-hero__btn--primary:hover {
-    background: #C98268;
-    border-color: #C98268;
-}
-
-.res-hero__btn--secondary {
-    background: #FCFBF8;
-    color: #3B2348;
-    border: 1px solid rgba(59, 35, 72, 0.3);
-}
-
-.res-hero__btn--secondary:hover {
-    background: #D8C7A5;
-    border-color: #3B2348;
-}
-
-.res-hero__btn--phone {
-    background: #F7F4ED;
-    color: #3B2348;
-    border: 1px solid #D8C7A5;
-}
-
-.res-hero__btn--phone:hover {
-    border-color: #3B2348;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .res-hero__btn-icon {
-    width: 0.875rem;
-    height: 0.875rem;
+    width: 1rem;
+    height: 1rem;
     flex-shrink: 0;
 }
 
-.res-hero__btn-arrow {
-    transition: transform 0.2s ease;
+.res-hero__btn--primary {
+    background-color: #C98268;
+    color: #FFFFFF;
+    border: 1px solid #C98268;
+    box-shadow: 0 4px 14px rgba(201, 130, 104, 0.35);
 }
 
-.res-hero__btn:hover .res-hero__btn-arrow {
-    transform: translateX(2px);
+.res-hero__btn--primary:hover {
+    background-color: #3B2348;
+    border-color: #D8C7A5;
+    transform: translateY(-1px);
+}
+
+.res-hero__btn--secondary {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #FAF6F0;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
+}
+
+.res-hero__btn--secondary:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+    border-color: #FAF6F0;
+}
+
+.res-hero__btn--phone {
+    background-color: transparent;
+    color: #F0D9C8;
+    border: 1px solid transparent;
+}
+
+.res-hero__btn--phone:hover {
+    color: #FFFFFF;
 }
 
 /* Right 6 Columns: 4 Folios */
 .res-hero__folios {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0.875rem;
+    gap: 1rem;
 }
 
 @media (min-width: 640px) {
@@ -274,168 +294,87 @@
     }
 }
 
-@media (min-width: 1024px) {
-    .res-hero__folios {
-        grid-column: span 6 / span 6;
-    }
-}
-
 .res-hero__folio {
+    border-radius: 16px;
+    padding: 1.25rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1.125rem;
-    border-radius: 1.5rem;
-    border: 1px solid;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    gap: 0.875rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .res-hero__folio:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .res-hero__folio--dark {
-    background-color: #3B2348;
-    color: #F7F4ED;
-    border-color: #3B2348;
+    background-color: #1A0D22;
+    border: 1px solid rgba(216, 199, 165, 0.35);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
 }
 
 .res-hero__folio--light {
-    background-color: #FCFBF8;
-    color: #29272B;
-    border-color: #D8C7A5;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
 }
 
 .res-hero__folio-head {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.75rem;
-    font-size: 0.6875rem;
-    opacity: 0.9;
-}
-
-.res-hero__folio--dark .res-hero__folio-head {
-    border-color: rgba(247, 244, 237, 0.15);
-}
-
-.res-hero__folio--light .res-hero__folio-head {
-    border-color: rgba(41, 39, 43, 0.15);
 }
 
 .res-hero__folio-code {
-    font-family: monospace;
+    font-size: 0.6875rem;
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 0.12em;
-}
-
-.res-hero__folio--dark .res-hero__folio-code {
-    color: #D8C7A5;
-}
-
-.res-hero__folio--light .res-hero__folio-code {
-    color: #A65D43;
+    text-transform: uppercase;
+    color: #EDBE96;
 }
 
 .res-hero__folio-badge {
-    font-weight: 600;
-}
-
-.res-hero__folio--dark .res-hero__folio-badge {
-    color: #8FAF78;
-}
-
-.res-hero__folio--light .res-hero__folio-badge {
-    color: #5F7F49;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #D8C7A5;
 }
 
 .res-hero__folio-title {
-    font-family: var(--font-newsreader, 'Newsreader', serif);
-    font-size: 1.0625rem;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.125rem;
     font-weight: 600;
-    line-height: 1.3;
-    margin: 0 0 0.375rem 0;
-}
-
-.res-hero__folio--dark .res-hero__folio-title {
-    color: #F7F4ED;
-}
-
-.res-hero__folio--light .res-hero__folio-title {
-    color: #3B2348;
-}
-
-.res-hero__folio-sub {
-    font-size: 0.75rem;
-    line-height: 1.5;
+    color: #FAF6F0;
     margin: 0;
 }
 
-.res-hero__folio--dark .res-hero__folio-sub {
-    color: rgba(247, 244, 237, 0.85);
-}
-
-.res-hero__folio--light .res-hero__folio-sub {
-    color: rgba(41, 39, 43, 0.8);
-}
-
-.res-hero__folio-action {
-    margin-top: 1rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid;
-}
-
-.res-hero__folio--dark .res-hero__folio-action {
-    border-color: rgba(247, 244, 237, 0.15);
-}
-
-.res-hero__folio--light .res-hero__folio-action {
-    border-color: rgba(41, 39, 43, 0.15);
+.res-hero__folio-sub {
+    font-size: 0.78125rem;
+    line-height: 1.45;
+    color: rgba(247, 244, 237, 0.75);
+    margin: 0;
 }
 
 .res-hero__folio-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0.5rem 0.875rem;
-    border-radius: 9999px;
+    gap: 0.35rem;
     font-size: 0.75rem;
     font-weight: 600;
     text-decoration: none;
-    transition: background 0.15s ease, color 0.15s ease;
+    color: #EDBE96;
+    transition: color 0.2s ease;
 }
 
-.res-hero__folio-btn--gold {
-    background: #D8C7A5;
-    color: #3B2348;
-}
-
-.res-hero__folio-btn--gold:hover {
-    background: #C98268;
-    color: #FFFFFF;
-}
-
-.res-hero__folio-btn--plum {
-    background: #3B2348;
-    color: #F7F4ED;
-}
-
-.res-hero__folio-btn--plum:hover {
-    background: #C98268;
+.res-hero__folio-btn:hover {
     color: #FFFFFF;
 }
 
 .res-hero__arrow-icon {
-    width: 0.875rem;
-    height: 0.875rem;
-    flex-shrink: 0;
+    width: 0.8125rem;
+    height: 0.8125rem;
 }
 
 /* Quick Jump Bar */
@@ -443,80 +382,56 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
-    margin-top: 1.75rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid rgba(59, 35, 72, 0.15);
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-@media (min-width: 640px) {
-    .res-hero__quick-bar {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .res-hero__quick-bar {
         grid-template-columns: repeat(5, 1fr);
     }
 }
 
 .res-hero__quick-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
-    padding: 0.75rem;
-    background: #FCFBF8;
-    border: 1px solid #D8C7A5;
-    border-radius: 1rem;
     text-decoration: none;
-    transition: border-color 0.2s ease, transform 0.15s ease;
+    color: inherit;
+    transition: all 0.2s ease;
 }
 
 .res-hero__quick-card:hover {
-    border-color: #3B2348;
+    background-color: rgba(201, 130, 104, 0.2);
+    border-color: #C98268;
     transform: translateY(-1px);
 }
 
 .res-hero__quick-text {
-    min-width: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .res-hero__quick-idx {
-    display: block;
-    font-family: monospace;
     font-size: 0.625rem;
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #A65D43;
+    text-transform: uppercase;
+    color: #EDBE96;
 }
 
 .res-hero__quick-label {
-    display: block;
-    font-family: var(--font-newsreader, 'Newsreader', serif);
     font-size: 0.8125rem;
     font-weight: 600;
-    color: #3B2348;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    transition: color 0.15s ease;
-}
-
-.res-hero__quick-card:hover .res-hero__quick-label {
-    color: #C98268;
+    color: #FAF6F0;
 }
 
 .res-hero__quick-arrow {
     width: 0.875rem;
     height: 0.875rem;
-    color: rgba(59, 35, 72, 0.6);
-    flex-shrink: 0;
-    transition: color 0.15s ease, transform 0.15s ease;
-}
-
-.res-hero__quick-card:hover .res-hero__quick-arrow {
     color: #C98268;
-    transform: translate(2px, -2px);
 }

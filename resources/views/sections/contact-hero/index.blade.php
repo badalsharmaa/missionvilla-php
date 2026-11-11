@@ -14,7 +14,8 @@
 {{--
     CONTACT SECTION 01 · DIRECT HOSPITALITY DESK & ARRIVAL MONOGRAPH HERO
 --}}
-<section class="contact-hero fluid-canvas" aria-labelledby="contact-hero-heading" id="contact-hero">
+<section class="contact-hero" aria-labelledby="contact-hero-heading" id="contact-hero">
+    <div class="contact-hero__glow" aria-hidden="true"></div>
     <div class="contact-hero__inner">
         {{-- Top Breadcrumb & Identity Bar --}}
         <div class="contact-hero__top-bar">

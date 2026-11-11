@@ -10,7 +10,8 @@
 {{--
     FINANCIAL PLANNING SECTION 01 · COST CLARITY HERO & TRUST LEDGER
 --}}
-<section class="fp-hero fluid-canvas paper-texture" aria-labelledby="fp-hero-heading" id="financial-planning-hero" data-fp-hero>
+<section class="fp-hero" aria-labelledby="fp-hero-heading" id="financial-planning-hero" data-fp-hero>
+    <div class="fp-hero__glow" aria-hidden="true"></div>
     <div class="fp-hero__inner">
         {{-- Top Badges --}}
         <div class="fp-hero__badge-row">

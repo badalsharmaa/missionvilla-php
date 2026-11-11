@@ -25,16 +25,17 @@ class HeaderAndClosingCtaAuditTest extends TestCase
         '/services-and-amenities',
     ];
 
-    public function test_light_hero_pages_use_solid_header_variant(): void
+    public function test_all_pages_use_unified_overlay_header_variant(): void
     {
-        foreach (self::LIGHT_PAGES as $uri) {
+        $allPages = array_merge(self::LIGHT_PAGES, self::DARK_PAGES);
+        foreach ($allPages as $uri) {
             $response = $this->get($uri)->assertOk();
             $html = $response->getContent();
 
             $this->assertStringContainsString(
-                '<header class="site-header" data-site-header data-variant="solid">',
+                '<header class="site-header" data-site-header data-variant="overlay">',
                 $html,
-                "Page {$uri} must have data-variant=\"solid\" on site-header for high contrast against light hero."
+                "Page {$uri} must have data-variant=\"overlay\" on site-header for unified transparent overlay over deep plum hero."
             );
         }
     }

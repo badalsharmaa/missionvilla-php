@@ -21,7 +21,6 @@ return [
     'slug' => 'contact',
     'title' => 'Contact Us & Schedule a Visit | Mission Villa Senior Living',
     'status' => 'published',
-    'header_variant' => 'solid',
     'seo' => [
         'title' => 'Contact Us & Schedule a Visit | Mission Villa Daly City',
         'description' => 'Connect with Mission Villa Senior Living in Daly City. Call 650-756-1995, explore directions via I-280 and BART, or preview a personal visit request.',
