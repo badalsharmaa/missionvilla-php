@@ -20,7 +20,7 @@ return [
     'seo' => [
         'title' => 'Financial Planning & Cost Clarity: Memory Care in Daly City | Mission Villa',
         'description' => 'Understand the four factors that shape Memory Care and Respite Care pricing in Daly City. Review typical inclusions and use our blank Paper-Ledger Worksheet.',
-        'og_image' => '/images/why-families/dining-hearth-facility-1024.webp',
+        'og_image' => '/images/property/dining-room.webp',
     ],
     'sections' => [
         [
@@ -78,9 +78,9 @@ return [
                     'quote' => 'Senior living costs should never feel like a puzzle. We sit down with you to review every detail before any commitment.',
                     'caption' => 'MISSION VILLA PROPERTY PHOTO',
                     'image' => [
-                        'src' => '/images/why-families/dining-hearth-facility-1024.webp',
-                        'width' => 1024,
-                        'height' => 768,
+                        'src' => '/images/property/dining-room.webp',
+                        'width' => 899,
+                        'height' => 601,
                         'alt' => 'Mission Villa community dining room with round wooden tables and comfortable armchairs',
                         'provenance' => 'facility',
                         'rights' => 'cleared',

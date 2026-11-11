@@ -10,8 +10,18 @@
    2. Compact  — after 88px of scroll (.is-compact + .is-scrolled): solid plum glass, 60px / 64px bar,
                  logo ~34–38px where the nav leaves room, slightly tighter nav.
    The header is fixed, so the height change never shifts page content. */
+:root {
+  --site-header-height: 4.5rem;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --site-header-height: 5.5rem;
+  }
+}
+
 .site-header {
-  --header-bar-h: 4.5rem;
+  --header-bar-h: var(--site-header-height);
   --header-ease: cubic-bezier(0.22, 1, 0.36, 1);
   position: fixed;
   inset: 0 0 auto 0;
@@ -30,9 +40,10 @@
   -webkit-backdrop-filter: blur(14px);
 }
 
-/* Offset main content on pages with solid fixed header so content is not obscured */
-.site-header[data-variant="solid"] ~ main {
-  padding-top: var(--header-bar-h);
+/* Offset main content on pages with solid fixed header so content is never obscured */
+.site-header[data-variant="solid"] ~ main,
+body:has(.site-header[data-variant="solid"]) main {
+  padding-top: var(--site-header-height);
 }
 
 .site-header__bar {
