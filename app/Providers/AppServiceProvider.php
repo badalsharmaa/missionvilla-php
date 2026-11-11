@@ -20,6 +20,11 @@ use App\Content\Sections\FinancialPlanningInclusionsSection;
 use App\Content\Sections\FinancialPlanningWorksheetSection;
 use App\Content\Sections\FinancialPlanningPathwaysSection;
 use App\Content\Sections\FinancialPlanningFaqSection;
+use App\Content\Sections\ResourcesHeroSection;
+use App\Content\Sections\ResourcesDeskSection;
+use App\Content\Sections\ResourcesPacketSection;
+use App\Content\Sections\ResourcesBlogSection;
+use App\Content\Sections\ResourcesFaqSection;
 use App\Content\Sections\ForFamiliesBridgeSection;
 use App\Content\Sections\ForFamiliesChecklistSection;
 use App\Content\Sections\ForFamiliesDecisionGuideSection;
@@ -143,6 +148,11 @@ class AppServiceProvider extends ServiceProvider
             new FinancialPlanningWorksheetSection,
             new FinancialPlanningPathwaysSection,
             new FinancialPlanningFaqSection,
+            new ResourcesHeroSection,
+            new ResourcesDeskSection,
+            new ResourcesPacketSection,
+            new ResourcesBlogSection,
+            new ResourcesFaqSection,
         ]));
 
         $this->app->singleton(ContentRepository::class, function ($app) {

@@ -1,0 +1,321 @@
+/* ==========================================================================
+   RESOURCES SECTION 05: FAQS STYLING (resources-faq.css)
+   ========================================================================== */
+
+.res-faq {
+    position: relative;
+    background-color: #FCFBF8;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid #D8C7A5;
+}
+
+@media (min-width: 1024px) {
+    .res-faq {
+        padding-top: 6.5rem;
+        padding-bottom: 6.5rem;
+    }
+}
+
+.res-faq__inner {
+    width: 100%;
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.res-faq__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+@media (min-width: 1024px) {
+    .res-faq__grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 3rem;
+    }
+}
+
+/* Left 4 Columns: Sidebar */
+.res-faq__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .res-faq__sidebar {
+        grid-column: span 4 / span 4;
+    }
+}
+
+.res-faq__kicker {
+    display: block;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    color: #C98268;
+}
+
+.res-faq__title {
+    font-family: var(--font-newsreader, 'Newsreader', serif);
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    line-height: 1.2;
+    color: #3B2348;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin: 0 0 0.5rem 0;
+}
+
+.res-faq__intro {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(41, 39, 43, 0.85);
+}
+
+/* Search Box */
+.res-faq__search-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.res-faq__search-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #3B2348;
+}
+
+.res-faq__search-field {
+    position: relative;
+    width: 100%;
+}
+
+.res-faq__search-icon {
+    position: absolute;
+    left: 0.875rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.875rem;
+    height: 0.875rem;
+    color: rgba(59, 35, 72, 0.6);
+    pointer-events: none;
+}
+
+.res-faq__search-input {
+    width: 100%;
+    padding: 0.625rem 0.875rem 0.625rem 2.375rem;
+    background: #F7F4ED;
+    border: 1px solid #D8C7A5;
+    border-radius: 9999px;
+    font-size: 0.8125rem;
+    color: #29272B;
+    transition: border-color 0.15s ease;
+}
+
+.res-faq__search-input:focus {
+    outline: none;
+    border-color: #3B2348;
+    background: #FFFFFF;
+}
+
+/* Category Stack */
+.res-faq__categories {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.res-faq__cat-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.625rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid #D8C7A5;
+    background: #F7F4ED;
+    color: #3B2348;
+}
+
+.res-faq__cat-btn:hover {
+    border-color: #3B2348;
+}
+
+.res-faq__cat-btn--active {
+    background: #3B2348;
+    color: #F7F4ED;
+    border-color: #3B2348;
+}
+
+/* Right 8 Columns: Accordion */
+.res-faq__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .res-faq__content {
+        grid-column: span 8 / span 8;
+    }
+}
+
+.res-faq__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+
+.res-faq__item {
+    border-radius: 1.5rem;
+    background: #F7F4ED;
+    border: 1px solid #D8C7A5;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+}
+
+.res-faq__item:hover {
+    border-color: rgba(59, 35, 72, 0.6);
+}
+
+.res-faq__question-btn {
+    width: 100%;
+    text-align: left;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.res-faq__question-btn:hover {
+    background: rgba(216, 199, 165, 0.15);
+}
+
+.res-faq__q-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.res-faq__q-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: #A65D43;
+}
+
+.res-faq__q-code {
+    font-family: monospace;
+}
+
+.res-faq__q-text {
+    font-family: var(--font-newsreader, 'Newsreader', serif);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #3B2348;
+    margin: 0;
+}
+
+.res-faq__chevron {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #3B2348;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+    transition: transform 0.2s ease;
+}
+
+.res-faq__chevron--open {
+    transform: rotate(180deg);
+}
+
+.res-faq__answer-box {
+    border-top: 1px solid rgba(216, 199, 165, 0.6);
+}
+
+.res-faq__answer-inner {
+    padding: 1.25rem 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.res-faq__answer-text {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: rgba(41, 39, 43, 0.9);
+}
+
+.res-faq__confirm-box {
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: #FCFBF8;
+    border: 1px solid #D8C7A5;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: #A65D43;
+}
+
+.res-faq__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #3B2348;
+    text-decoration: underline;
+    transition: color 0.15s ease;
+}
+
+.res-faq__link:hover {
+    color: #C98268;
+}
+
+.res-faq__link-arrow {
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+/* Empty State */
+.res-faq__empty {
+    padding: 2rem;
+    border-radius: 1.5rem;
+    background: #F7F4ED;
+    border: 1px solid #D8C7A5;
+    text-align: center;
+}
+
+.res-faq__empty-title {
+    font-family: var(--font-newsreader, 'Newsreader', serif);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #3B2348;
+    margin: 0 0 0.75rem 0;
+}
+
+.res-faq__empty-btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    background: #3B2348;
+    color: #F7F4ED;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}

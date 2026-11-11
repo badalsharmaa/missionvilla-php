@@ -1,0 +1,401 @@
+/* ==========================================================================
+   RESOURCES SECTION 03: BROCHURE & PACKET BUILDER (resources-packet.css)
+   ========================================================================== */
+
+.res-packet {
+    position: relative;
+    background-color: #F7F4ED;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid #D8C7A5;
+}
+
+@media (min-width: 1024px) {
+    .res-packet {
+        padding-top: 6.5rem;
+        padding-bottom: 6.5rem;
+    }
+}
+
+.res-packet__inner {
+    width: 100%;
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.res-packet__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: stretch;
+}
+
+@media (min-width: 1024px) {
+    .res-packet__grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 3rem;
+    }
+}
+
+/* Left 5 Columns */
+.res-packet__story {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .res-packet__story {
+        grid-column: span 5 / span 5;
+    }
+}
+
+.res-packet__kicker {
+    display: block;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    color: #C98268;
+}
+
+.res-packet__title {
+    font-family: var(--font-newsreader, 'Newsreader', serif);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1.2;
+    color: #3B2348;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin: 0 0 0.5rem 0;
+}
+
+.res-packet__intro {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: rgba(41, 39, 43, 0.85);
+}
+
+/* Brochure Card */
+.res-packet__brochure-box {
+    padding: 1.75rem;
+    border-radius: 1.75rem;
+    background: #FCFBF8;
+    border: 2px dashed rgba(59, 35, 72, 0.35);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.res-packet__brochure-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #D8C7A5;
+}
+
+.res-packet__brochure-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #3B2348;
+}
+
+.res-packet__doc-icon {
+    width: 1rem;
+    height: 1rem;
+    color: #C98268;
+}
+
+.res-packet__brochure-status {
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #A65D43;
+}
+
+.res-packet__brochure-title {
+    font-family: var(--font-newsreader, 'Newsreader', serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #3B2348;
+    margin: 0;
+}
+
+.res-packet__brochure-body {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: rgba(41, 39, 43, 0.85);
+}
+
+.res-packet__brochure-contact {
+    padding: 1rem;
+    border-radius: 1rem;
+    background: #F7F4ED;
+    border: 1px solid #D8C7A5;
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
+
+.res-packet__contact-prompt {
+    display: block;
+    font-weight: 700;
+    color: #3B2348;
+    margin-bottom: 0.25rem;
+}
+
+.res-packet__contact-copy {
+    color: rgba(41, 39, 43, 0.8);
+    margin: 0;
+}
+
+.res-packet__contact-link {
+    font-weight: 700;
+    color: #3B2348;
+    text-decoration: underline;
+    word-break: break-all;
+}
+
+/* Right 7 Columns: Packet Assembler */
+.res-packet__builder {
+    display: flex;
+}
+
+@media (min-width: 1024px) {
+    .res-packet__builder {
+        grid-column: span 7 / span 7;
+    }
+}
+
+.res-packet__builder-card {
+    width: 100%;
+    padding: 1.75rem;
+    border-radius: 2rem;
+    background: #FCFBF8;
+    border: 1px solid #D8C7A5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 640px) {
+    .res-packet__builder-card {
+        padding: 2.25rem;
+    }
+}
+
+.res-packet__builder-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #D8C7A5;
+}
+
+.res-packet__builder-kicker {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #A65D43;
+    display: block;
+}
+
+.res-packet__builder-title {
+    font-family: var(--font-newsreader, 'Newsreader', serif);
+    font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+    font-weight: 700;
+    color: #3B2348;
+    margin: 0.25rem 0 0.25rem 0;
+}
+
+.res-packet__builder-sub {
+    font-size: 0.8125rem;
+    color: rgba(41, 39, 43, 0.8);
+    margin: 0;
+}
+
+.res-packet__builder-count {
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #3B2348;
+    white-space: nowrap;
+}
+
+/* Items List */
+.res-packet__items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.res-packet__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid #D8C7A5;
+    background: #F7F4ED;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.res-packet__item:hover {
+    border-color: rgba(59, 35, 72, 0.6);
+}
+
+.res-packet__item--checked {
+    background: rgba(59, 35, 72, 0.05);
+    border-color: #3B2348;
+}
+
+.res-packet__item-box {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 0.375rem;
+    border: 1px solid rgba(59, 35, 72, 0.4);
+    background: #FFFFFF;
+    color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+    transition: all 0.15s ease;
+}
+
+.res-packet__item--checked .res-packet__item-box {
+    background: #3B2348;
+    border-color: #3B2348;
+    color: #F7F4ED;
+}
+
+.res-packet__check-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+}
+
+.res-packet__item-copy {
+    flex: 1;
+    min-width: 0;
+}
+
+.res-packet__item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: #A65D43;
+}
+
+.res-packet__item-code {
+    font-family: monospace;
+}
+
+.res-packet__item-title {
+    font-family: var(--font-newsreader, 'Newsreader', serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #3B2348;
+    margin: 0.125rem 0 0.25rem 0;
+}
+
+.res-packet__item-desc {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: rgba(41, 39, 43, 0.8);
+    margin: 0;
+}
+
+.res-packet__item-avail {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    color: #5F7F49;
+    margin: 0.375rem 0 0 0;
+}
+
+/* Builder Footer */
+.res-packet__builder-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #D8C7A5;
+}
+
+.res-packet__builder-ctrls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.res-packet__link-btn {
+    background: none;
+    border: none;
+    font-weight: 600;
+    color: #3B2348;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+}
+
+.res-packet__link-btn--clear {
+    color: #A65D43;
+}
+
+.res-packet__ctrl-sep {
+    color: rgba(59, 35, 72, 0.3);
+}
+
+.res-packet__attach-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    background: #3B2348;
+    color: #F7F4ED;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    box-shadow: 0 4px 12px rgba(59, 35, 72, 0.15);
+    white-space: nowrap;
+}
+
+.res-packet__attach-btn:hover {
+    background: #C98268;
+}
+
+.res-packet__clip-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+.res-packet__attached-notice {
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: rgba(143, 175, 120, 0.2);
+    border: 1px solid #8FAF78;
+    font-size: 0.75rem;
+    color: #3B2348;
+    font-weight: 500;
+}
