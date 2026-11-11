@@ -71,9 +71,8 @@ class InquiryModalTest extends TestCase
         $this->assertStringContainsString('data-inquiry="request_pricing"', $suites);
         $this->assertStringContainsString('data-inquiry-suite="private"', $suites);
         $this->assertStringContainsString('Request Availability &amp; Pricing', $suites);
-        // Floor-plan page is not built: an availability request, never a 404 link.
-        $this->assertStringContainsString('data-inquiry="request_availability"', $suites);
-        $this->assertStringNotContainsString('href="'.url('/suites-and-floor-plans').'"', $suites);
+        // Floor-plan page is now built: it links to /suites-and-floor-plans
+        $this->assertStringContainsString('href="'.url('/suites-and-floor-plans').'"', $suites);
 
         $faq = $section('faq');
         foreach (['request_pricing', 'schedule_visit', 'request_callback', 'request_availability'] as $intent) {

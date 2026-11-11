@@ -14,6 +14,11 @@ use App\Content\Sections\IntroShuttersSection;
 use App\Content\Sections\LifeGallerySection;
 use App\Content\Sections\LivingOptionsCareSection;
 use App\Content\Sections\LivingOptionsFaqSection;
+use App\Content\Sections\SuitesFloorPlansHeroSection;
+use App\Content\Sections\SuitesFloorPlansFormatsSection;
+use App\Content\Sections\SuitesFloorPlansDiagramSection;
+use App\Content\Sections\SuitesFloorPlansFeaturesSection;
+use App\Content\Sections\SuitesFloorPlansFaqSection;
 use App\Content\Sections\LivingOptionsHeroSection;
 use App\Content\Sections\LivingOptionsSettingSection;
 use App\Content\Sections\LivingOptionsSuitesSection;
@@ -71,6 +76,11 @@ class AppServiceProvider extends ServiceProvider
             new LivingOptionsSuitesSection,
             new LivingOptionsSettingSection,
             new LivingOptionsFaqSection,
+            new SuitesFloorPlansHeroSection,
+            new SuitesFloorPlansFormatsSection,
+            new SuitesFloorPlansDiagramSection,
+            new SuitesFloorPlansFeaturesSection,
+            new SuitesFloorPlansFaqSection,
         ]));
 
         $this->app->singleton(ContentRepository::class, function ($app) {

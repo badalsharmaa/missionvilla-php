@@ -396,9 +396,9 @@ class LifeGallerySectionTest extends TestCase
         $this->assertIsArray($json);
         $this->assertCount(3, $json['chapters']);
 
-        $this->assertStringNotContainsString('href="/suites-and-floor-plans"', $life);
-        $this->assertStringNotContainsString('Explore Our Suites', $life);
-        $this->assertMatchesRegularExpression('#<a href="tel:[^"]*" class="life-btn" data-life-visit data-inquiry="schedule_visit">\s*<span>See Our Suites in Person</span>#', $life);
+        // Floor-plan page is now built: chapter 0 links directly to /suites-and-floor-plans
+        $this->assertStringContainsString('href="/suites-and-floor-plans"', $life);
+        $this->assertStringContainsString('Explore Our Suites', $life);
     }
 
     private function lifeSection(string $html): string
@@ -416,7 +416,7 @@ class LifeGallerySectionTest extends TestCase
     {
         $this->assertTrue(InternalLink::isAvailable('/'));
         $this->assertTrue(InternalLink::isAvailable('https://example.com'));
-        $this->assertFalse(InternalLink::isAvailable('/suites-and-floor-plans'));
+        $this->assertTrue(InternalLink::isAvailable('/suites-and-floor-plans'));
         $this->assertFalse(InternalLink::isAvailable('//evil'));
         $this->assertFalse(InternalLink::isAvailable('javascript:x'));
         $this->assertFalse(InternalLink::isAvailable('http://example.com'));
