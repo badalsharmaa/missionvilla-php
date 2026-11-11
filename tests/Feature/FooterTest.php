@@ -27,7 +27,7 @@ class FooterTest extends TestCase
         $html = $this->get('/')->getContent();
         $footer = substr($html, strpos($html, '<footer class="site-footer"'));
 
-        // /memory-care, /respite-care, /suites-and-floor-plans, /life-at-mission-villa, /gallery, /about, /for-families, and /financial-planning are now routed.
+        // /memory-care, /respite-care, /suites-and-floor-plans, /life-at-mission-villa, /gallery, /about, /for-families, /financial-planning, and /contact are all fully routed.
         $this->assertStringContainsString('href="'.url('/memory-care').'"', $footer);
         $this->assertStringContainsString('href="'.url('/respite-care').'"', $footer);
         $this->assertStringContainsString('href="'.url('/suites-and-floor-plans').'"', $footer);
@@ -36,18 +36,16 @@ class FooterTest extends TestCase
         $this->assertStringContainsString('href="'.url('/about').'"', $footer);
         $this->assertStringContainsString('href="'.url('/for-families').'"', $footer);
         $this->assertStringContainsString('href="'.url('/financial-planning').'"', $footer);
+        $this->assertStringContainsString('href="'.url('/contact').'"', $footer);
 
-        foreach (['/contact'] as $path) {
-            $this->assertStringNotContainsString('href="'.url($path).'"', $footer, $path);
-        }
-        $this->assertStringContainsString('href="'.url('/#visit').'"', $footer);
+        // All internal pages are routed, so homepage section fallbacks are no longer rendered in the footer.
+        $this->assertStringNotContainsString('href="'.url('/#visit').'"', $footer);
         $this->assertStringNotContainsString('href="'.url('/#faq').'"', $footer);
-        // Both Memory Care and Respite Care are routed, so the #care-options fallback is no longer rendered.
         $this->assertStringNotContainsString('href="'.url('/#care-options').'"', $footer);
-        // /about is routed, so the #why-families fallback is no longer rendered.
         $this->assertStringNotContainsString('href="'.url('/#why-families').'"', $footer);
         $this->assertStringContainsString('For Families &amp; FAQs', $footer);
         $this->assertStringContainsString('Financial Planning', $footer);
+        $this->assertStringContainsString('Contact &amp; Visits', $footer);
     }
 
     public function test_privacy_and_terms_show_as_placeholders_until_pages_exist(): void

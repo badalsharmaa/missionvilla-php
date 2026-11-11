@@ -13,6 +13,12 @@ use App\Content\Sections\AboutHeroSection;
 use App\Content\Sections\AboutPhilosophySection;
 use App\Content\Sections\AboutTeamCommitmentSection;
 use App\Content\Sections\CareOptionsSection;
+use App\Content\Sections\ContactDirectionsSection;
+use App\Content\Sections\ContactFaqSection;
+use App\Content\Sections\ContactHeroSection;
+use App\Content\Sections\ContactReferralSection;
+use App\Content\Sections\ContactStudioSection;
+use App\Content\Sections\ContactWorkflowSection;
 use App\Content\Sections\FaqFeaturedSection;
 use App\Content\Sections\FinancialPlanningHeroSection;
 use App\Content\Sections\FinancialPlanningFactorsSection;
@@ -153,6 +159,12 @@ class AppServiceProvider extends ServiceProvider
             new ResourcesPacketSection,
             new ResourcesBlogSection,
             new ResourcesFaqSection,
+            new ContactHeroSection,
+            new ContactStudioSection,
+            new ContactDirectionsSection,
+            new ContactWorkflowSection,
+            new ContactReferralSection,
+            new ContactFaqSection,
         ]));
 
         $this->app->singleton(ContentRepository::class, function ($app) {

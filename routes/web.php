@@ -16,6 +16,7 @@ Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/for-families', [PageController::class, 'forFamilies'])->name('for-families');
 Route::get('/financial-planning', [PageController::class, 'financialPlanning'])->name('financial-planning');
 Route::get('/resources', [PageController::class, 'resources'])->name('resources');
+Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 
 // Shared inquiry form: Schedule a Visit · Request Pricing · Request a Call (CSRF via the web group).
 Route::post('/inquiries', [InquiryController::class, 'store'])

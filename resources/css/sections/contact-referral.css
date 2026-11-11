@@ -1,0 +1,321 @@
+/* ==========================================================================
+   Contact Section 05 · Referral Interest Pathways (#referral-interest)
+   ========================================================================== */
+
+.contact-referral {
+    width: 100%;
+    padding: 4.5rem 0;
+    background-color: rgba(216, 199, 165, 0.3);
+    border-bottom: 1px solid rgba(59, 35, 72, 0.15);
+    position: relative;
+}
+
+@media (min-width: 1024px) {
+    .contact-referral {
+        padding: 6rem 0;
+    }
+}
+
+.contact-referral__inner {
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 var(--mv-gutter, 1.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Header */
+.contact-referral__header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: flex-end;
+}
+
+@media (min-width: 1024px) {
+    .contact-referral__header {
+        grid-template-columns: repeat(12, 1fr);
+    }
+}
+
+.contact-referral__header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+    .contact-referral__header-left {
+        grid-column: span 7;
+    }
+}
+
+.contact-referral__script {
+    font-family: 'Allura', cursive;
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    color: #A65D43;
+    line-height: 1.1;
+    display: block;
+}
+
+.contact-referral__title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.85rem, 3vw, 2.75rem);
+    line-height: 1.1;
+    color: #3B2348;
+    font-weight: 600;
+    text-wrap: balance;
+    margin: 0;
+}
+
+.contact-referral__header-right {
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .contact-referral__header-right {
+        grid-column: span 5;
+        justify-content: flex-end;
+    }
+}
+
+.contact-referral__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-referral__tab {
+    padding: 0.625rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid #D8C7A5;
+    background-color: #FCFBF8;
+    color: #3B2348;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.contact-referral__tab:hover {
+    border-color: #3B2348;
+}
+
+.contact-referral__tab--active {
+    background-color: #3B2348;
+    color: #F7F4ED;
+    border-color: #3B2348;
+    box-shadow: 0 4px 12px rgba(59, 35, 72, 0.2);
+}
+
+/* Panel Card */
+.contact-referral__card {
+    border-radius: 2rem;
+    background-color: #FCFBF8;
+    border: 1px solid #D8C7A5;
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px rgba(59, 35, 72, 0.06);
+}
+
+@media (min-width: 640px) {
+    .contact-referral__card {
+        padding: 2.25rem;
+    }
+}
+
+.contact-referral__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+@media (min-width: 1024px) {
+    .contact-referral__grid {
+        grid-template-columns: repeat(12, 1fr);
+    }
+}
+
+/* Left Column (7 cols) */
+.contact-referral__col-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+    .contact-referral__col-left {
+        grid-column: span 7;
+    }
+}
+
+.contact-referral__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.contact-referral__badge {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #5F7F49;
+}
+
+.contact-referral__dot {
+    color: rgba(41, 39, 43, 0.4);
+}
+
+.contact-referral__status {
+    font-weight: 600;
+    color: #A65D43;
+}
+
+.contact-referral__panel-title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.5rem, 2.2vw, 1.875rem);
+    font-weight: 700;
+    color: #3B2348;
+    margin: 0;
+}
+
+.contact-referral__panel-desc {
+    font-size: clamp(0.875rem, 1.1vw, 1rem);
+    line-height: 1.6;
+    color: rgba(41, 39, 43, 0.85);
+    margin: 0;
+}
+
+.contact-referral__highlights-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    font-size: 0.8125rem;
+    color: rgba(41, 39, 43, 0.9);
+}
+
+.contact-referral__highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    line-height: 1.5;
+}
+
+.contact-referral__highlight-icon {
+    width: 1rem;
+    height: 1rem;
+    color: #5F7F49;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+/* Right Column (5 cols) */
+.contact-referral__col-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    border-radius: 1rem;
+    background-color: #F7F4ED;
+    border: 1px solid #D8C7A5;
+}
+
+@media (min-width: 1024px) {
+    .contact-referral__col-right {
+        grid-column: span 5;
+    }
+}
+
+.contact-referral__disclosure-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact-referral__disclosure-label {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #A65D43;
+    font-weight: 700;
+}
+
+.contact-referral__disclosure-text {
+    font-size: 0.75rem;
+    color: rgba(41, 39, 43, 0.85);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.contact-referral__actions-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    padding-top: 0.5rem;
+}
+
+.contact-referral__prefill-btn {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    border-radius: 9999px;
+    background-color: #3B2348;
+    color: #F7F4ED;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.contact-referral__prefill-btn:hover {
+    background-color: #C98268;
+}
+
+.contact-referral__msg-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+}
+
+.contact-referral__call-link {
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(59, 35, 72, 0.3);
+    color: #3B2348;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.contact-referral__call-link:hover {
+    background-color: rgba(216, 199, 165, 0.35);
+}
+
+.contact-referral__call-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+    color: #C98268;
+    flex-shrink: 0;
+}

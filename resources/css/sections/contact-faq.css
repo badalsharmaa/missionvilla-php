@@ -1,0 +1,459 @@
+/* ==========================================================================
+   Contact Section 06 · Contact, Visit & Accessibility FAQs (#contact-faqs)
+   ========================================================================== */
+
+.contact-faq {
+    width: 100%;
+    padding: 4.5rem 0;
+    background-color: #F7F4ED;
+    border-bottom: 1px solid rgba(59, 35, 72, 0.15);
+    position: relative;
+}
+
+@media (min-width: 1024px) {
+    .contact-faq {
+        padding: 6.5rem 0;
+    }
+}
+
+.contact-faq__inner {
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 var(--mv-gutter, 1.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* Header */
+.contact-faq__header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: flex-end;
+}
+
+@media (min-width: 1024px) {
+    .contact-faq__header {
+        grid-template-columns: repeat(12, 1fr);
+    }
+}
+
+.contact-faq__header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+    .contact-faq__header-left {
+        grid-column: span 7;
+    }
+}
+
+.contact-faq__script {
+    font-family: 'Allura', cursive;
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    color: #C98268;
+    line-height: 1.1;
+    display: block;
+}
+
+.contact-faq__title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.85rem, 3vw, 2.75rem);
+    line-height: 1.1;
+    color: #3B2348;
+    font-weight: 600;
+    text-wrap: balance;
+    margin: 0;
+}
+
+.contact-faq__header-right {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+    .contact-faq__header-right {
+        grid-column: span 5;
+    }
+}
+
+.contact-faq__search-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.contact-faq__search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    color: rgba(59, 35, 72, 0.6);
+    pointer-events: none;
+}
+
+.contact-faq__search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.75rem;
+    border-radius: 9999px;
+    background-color: #FCFBF8;
+    border: 1px solid #D8C7A5;
+    font-size: 0.8125rem;
+    color: #29272B;
+    transition: border-color 0.2s ease;
+}
+
+.contact-faq__search-input:focus {
+    outline: none;
+    border-color: #3B2348;
+    box-shadow: 0 0 0 2px rgba(59, 35, 72, 0.15);
+}
+
+/* Filter Bar & Controls */
+.contact-faq__filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #D8C7A5;
+}
+
+.contact-faq__category-pills {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-faq__pill {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid #D8C7A5;
+    background-color: #FCFBF8;
+    color: #3B2348;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.contact-faq__pill:hover {
+    border-color: #3B2348;
+}
+
+.contact-faq__pill--active {
+    background-color: #3B2348;
+    color: #F7F4ED;
+    border-color: #3B2348;
+}
+
+.contact-faq__expand-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+}
+
+.contact-faq__ctrl-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #3B2348;
+    transition: color 0.2s ease;
+}
+
+.contact-faq__ctrl-btn:hover {
+    color: #C98268;
+}
+
+.contact-faq__ctrl-btn--dim {
+    color: rgba(41, 39, 43, 0.7);
+}
+
+.contact-faq__ctrl-btn--dim:hover {
+    color: #3B2348;
+}
+
+.contact-faq__ctrl-dot {
+    color: rgba(41, 39, 43, 0.3);
+}
+
+/* FAQ Accordions Grid */
+.contact-faq__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: start;
+}
+
+@media (min-width: 1024px) {
+    .contact-faq__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.contact-faq__item {
+    border-radius: 1rem;
+    background-color: #FCFBF8;
+    border: 1px solid #D8C7A5;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.contact-faq__trigger {
+    width: 100%;
+    text-align: left;
+    padding: 1.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.contact-faq__trigger:hover {
+    background-color: rgba(216, 199, 165, 0.2);
+}
+
+.contact-faq__trigger-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.contact-faq__item-badge {
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #A65D43;
+}
+
+.contact-faq__item-question {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1rem, 1.4vw, 1.125rem);
+    font-weight: 700;
+    color: #3B2348;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.contact-faq__chevron {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #3B2348;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+    transition: transform 0.2s ease;
+}
+
+.contact-faq__chevron--open {
+    transform: rotate(180deg);
+}
+
+.contact-faq__answer-panel {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+    border-top: 1px solid rgba(216, 199, 165, 0.6);
+}
+
+.contact-faq__answer-body {
+    padding-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contact-faq__answer-text {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: rgba(41, 39, 43, 0.85);
+    margin: 0;
+}
+
+.contact-faq__confirmation-note {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    background-color: #F7F4ED;
+    border: 1px solid #D8C7A5;
+    font-size: 0.75rem;
+    color: #A65D43;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Empty State */
+.contact-faq__empty-state {
+    padding: 2rem;
+    border-radius: 1.5rem;
+    background-color: #FCFBF8;
+    border: 1px solid #D8C7A5;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.contact-faq__empty-text {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.25rem;
+    color: #3B2348;
+    font-weight: 600;
+    margin: 0;
+}
+
+.contact-faq__reset-btn {
+    padding: 0.625rem 1.25rem;
+    border-radius: 9999px;
+    background-color: #3B2348;
+    color: #F7F4ED;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+/* Planning Bridges Grid */
+.contact-faq__bridges-grid {
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+@media (min-width: 1024px) {
+    .contact-faq__bridges-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.contact-faq__bridge-card {
+    border-radius: 1.5rem;
+    background-color: #FCFBF8;
+    border: 1px solid #D8C7A5;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.contact-faq__bridge-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact-faq__bridge-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+
+.contact-faq__bridge-eyebrow {
+    color: #5F7F49;
+}
+
+.contact-faq__bridge-card:nth-child(2) .contact-faq__bridge-eyebrow {
+    color: #A65D43;
+}
+
+.contact-faq__bridge-card:nth-child(3) .contact-faq__bridge-eyebrow {
+    color: #3B2348;
+}
+
+.contact-faq__bridge-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+.contact-faq__bridge-icon--green {
+    color: #5F7F49;
+}
+
+.contact-faq__bridge-icon--terracotta {
+    color: #A65D43;
+}
+
+.contact-faq__bridge-icon--purple {
+    color: #C98268;
+}
+
+.contact-faq__bridge-title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #3B2348;
+    margin: 0;
+}
+
+.contact-faq__bridge-desc {
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: rgba(41, 39, 43, 0.8);
+    margin: 0;
+}
+
+.contact-faq__bridge-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-faq__bridge-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    padding: 0.75rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    flex: 1;
+    text-align: center;
+}
+
+.contact-faq__bridge-link--primary {
+    background-color: #3B2348;
+    color: #F7F4ED;
+}
+
+.contact-faq__bridge-link--primary:hover {
+    background-color: #C98268;
+}
+
+.contact-faq__bridge-link--outline {
+    border: 1px solid rgba(59, 35, 72, 0.3);
+    color: #3B2348;
+}
+
+.contact-faq__bridge-link--outline:hover {
+    background-color: rgba(216, 199, 165, 0.35);
+}
+
+.contact-faq__bridge-arrow {
+    width: 0.875rem;
+    height: 0.875rem;
+}

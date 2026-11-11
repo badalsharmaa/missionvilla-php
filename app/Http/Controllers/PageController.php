@@ -73,6 +73,11 @@ class PageController extends Controller
         return $this->render('resources');
     }
 
+    public function contact(): View
+    {
+        return $this->render('contact');
+    }
+
     private function render(string $slug): View
     {
         $page = $this->content->findPublishedPage($slug) ?? abort(404);

@@ -1,0 +1,384 @@
+/* ==========================================================================
+   Contact Section 04 · What Happens After Submitting (#what-happens-next)
+   ========================================================================== */
+
+.contact-workflow {
+    width: 100%;
+    padding: 4.5rem 0;
+    background-color: #FCFBF8;
+    border-bottom: 1px solid rgba(59, 35, 72, 0.15);
+    position: relative;
+}
+
+@media (min-width: 1024px) {
+    .contact-workflow {
+        padding: 6rem 0;
+    }
+}
+
+.contact-workflow__inner {
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 var(--mv-gutter, 1.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* Header */
+.contact-workflow__header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: flex-end;
+}
+
+@media (min-width: 1024px) {
+    .contact-workflow__header {
+        grid-template-columns: repeat(12, 1fr);
+    }
+}
+
+.contact-workflow__header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+    .contact-workflow__header-left {
+        grid-column: span 7;
+    }
+}
+
+.contact-workflow__script {
+    font-family: 'Allura', cursive;
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    color: #C98268;
+    line-height: 1.1;
+    display: block;
+}
+
+.contact-workflow__title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.85rem, 3vw, 2.75rem);
+    line-height: 1.1;
+    color: #3B2348;
+    font-weight: 600;
+    text-wrap: balance;
+    margin: 0;
+}
+
+.contact-workflow__header-right {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+    .contact-workflow__header-right {
+        grid-column: span 5;
+    }
+}
+
+.contact-workflow__lead {
+    font-size: clamp(0.875rem, 1.1vw, 1rem);
+    line-height: 1.65;
+    color: rgba(41, 39, 43, 0.8);
+    margin: 0;
+}
+
+/* 4-Step Interactive Tabs Grid */
+.contact-workflow__tabs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .contact-workflow__tabs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .contact-workflow__tabs-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.contact-workflow__tab-btn {
+    text-align: left;
+    padding: 1.25rem;
+    border-radius: 1rem;
+    border: 1px solid #D8C7A5;
+    background-color: #F7F4ED;
+    color: #29272B;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.contact-workflow__tab-btn:hover {
+    border-color: #3B2348;
+}
+
+.contact-workflow__tab-btn--active {
+    background-color: #3B2348;
+    color: #F7F4ED;
+    border-color: #3B2348;
+    box-shadow: 0 4px 14px rgba(59, 35, 72, 0.2);
+}
+
+.contact-workflow__tab-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+}
+
+.contact-workflow__tab-number {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #A65D43;
+}
+
+.contact-workflow__tab-btn--active .contact-workflow__tab-number {
+    color: #D8C7A5;
+}
+
+.contact-workflow__tab-icon {
+    width: 1rem;
+    height: 1rem;
+    color: rgba(59, 35, 72, 0.6);
+}
+
+.contact-workflow__tab-btn--active .contact-workflow__tab-icon {
+    color: #8FAF78;
+}
+
+.contact-workflow__tab-title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #3B2348;
+    margin: 0;
+}
+
+.contact-workflow__tab-btn--active .contact-workflow__tab-title {
+    color: #F7F4ED;
+}
+
+.contact-workflow__tab-timing {
+    font-size: 0.75rem;
+    color: rgba(41, 39, 43, 0.7);
+    margin: 0.25rem 0 0 0;
+}
+
+.contact-workflow__tab-btn--active .contact-workflow__tab-timing {
+    color: #D8C7A5;
+}
+
+/* Panel */
+.contact-workflow__panel {
+    border-radius: 2rem;
+    background-color: #F7F4ED;
+    border: 1px solid #D8C7A5;
+    padding: 1.5rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+@media (min-width: 640px) {
+    .contact-workflow__panel {
+        padding: 2.25rem;
+    }
+}
+
+.contact-workflow__panel-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+@media (min-width: 1024px) {
+    .contact-workflow__panel-grid {
+        grid-template-columns: repeat(12, 1fr);
+    }
+}
+
+.contact-workflow__panel-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+    border-bottom: 1px solid #D8C7A5;
+    padding-bottom: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .contact-workflow__panel-left {
+        grid-column: span 5;
+        border-bottom: none;
+        border-right: 1px solid #D8C7A5;
+        padding-bottom: 0;
+        padding-right: 2rem;
+    }
+}
+
+.contact-workflow__panel-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact-workflow__panel-badge {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #A65D43;
+    font-weight: 600;
+}
+
+.contact-workflow__panel-title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.5rem, 2.2vw, 1.875rem);
+    font-weight: 700;
+    color: #3B2348;
+    margin: 0;
+}
+
+.contact-workflow__panel-sub {
+    font-size: 0.875rem;
+    color: rgba(41, 39, 43, 0.8);
+    font-weight: 500;
+    margin: 0;
+}
+
+.contact-workflow__reassurance-card {
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #3B2348;
+    color: #F7F4ED;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.contact-workflow__reassurance-label {
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #D8C7A5;
+    font-weight: 600;
+}
+
+.contact-workflow__reassurance-text {
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* Right Comparison Cards (7 cols) */
+.contact-workflow__panel-right {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+    .contact-workflow__panel-right {
+        grid-column: span 7;
+    }
+}
+
+.contact-workflow__compare-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    align-items: stretch;
+    height: 100%;
+}
+
+@media (min-width: 640px) {
+    .contact-workflow__compare-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.contact-workflow__compare-card {
+    padding: 1.25rem;
+    border-radius: 1rem;
+    background-color: #FCFBF8;
+    border: 1px solid #D8C7A5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.contact-workflow__compare-card--proto {
+    border-color: rgba(201, 130, 104, 0.5);
+}
+
+.contact-workflow__compare-tag {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    display: block;
+}
+
+.contact-workflow__compare-tag--prod {
+    color: #5F7F49;
+}
+
+.contact-workflow__compare-tag--proto {
+    color: #A65D43;
+}
+
+.contact-workflow__compare-title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #3B2348;
+    margin: 0.25rem 0 0 0;
+}
+
+.contact-workflow__compare-text {
+    font-size: 0.8125rem;
+    color: rgba(41, 39, 43, 0.85);
+    line-height: 1.55;
+    margin: 0.5rem 0 0 0;
+}
+
+.contact-workflow__compare-note {
+    font-size: 0.6875rem;
+    color: rgba(41, 39, 43, 0.65);
+}
+
+.contact-workflow__live-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #3B2348;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-workflow__live-link:hover {
+    color: #C98268;
+}
+
+.contact-workflow__phone-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+    color: #C98268;
+    flex-shrink: 0;
+}
