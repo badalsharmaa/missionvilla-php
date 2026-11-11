@@ -1,0 +1,357 @@
+/**
+ * Financial Planning Section 01: Hero Styles
+ */
+.fp-hero {
+    background-color: var(--mv-cream, #F7F4ED);
+    border-bottom: 1px solid rgba(59, 35, 72, 0.12);
+    padding: clamp(3.5rem, 5.5vw, 6rem) 0;
+}
+
+.fp-hero__inner {
+    width: 100%;
+    max-width: var(--mv-content-width, 1280px);
+    margin: 0 auto;
+    padding: 0 var(--mv-gutter, 1.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 3.5vw, 3rem);
+}
+
+.fp-hero__badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(59, 35, 72, 0.12);
+    padding-bottom: 1.25rem;
+}
+
+.fp-hero__kicker {
+    font-size: clamp(1.4rem, 2vw, 1.75rem);
+    color: var(--mv-terracotta, #C98268);
+    display: block;
+}
+
+.fp-hero__badge-license {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    background-color: var(--mv-card, #FCFBF8);
+    border: 1px solid var(--mv-sand, #D8C7A5);
+    color: var(--mv-plum, #3B2348);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.fp-hero__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+@media (min-width: 1024px) {
+    .fp-hero__grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 3rem;
+    }
+}
+
+.fp-hero__story {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .fp-hero__story {
+        grid-column: span 7 / span 7;
+    }
+}
+
+.fp-hero__tagline {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #A65D43;
+}
+
+.fp-hero__title {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(2rem, 3.5vw, 3.35rem);
+    line-height: 1.15;
+    color: var(--mv-plum, #3B2348);
+    font-weight: 600;
+    text-wrap: balance;
+}
+
+.fp-hero__title em {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.fp-hero__lead {
+    font-size: clamp(0.9375rem, 1.15vw, 1.0625rem);
+    line-height: 1.68;
+    color: rgba(41, 39, 43, 0.88);
+}
+
+.fp-hero__pillars {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+@media (min-width: 640px) {
+    .fp-hero__pillars {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.fp-hero__pillar {
+    border-radius: 1.25rem;
+    background-color: var(--mv-card, #FCFBF8);
+    border: 1px solid var(--mv-sand, #D8C7A5);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.fp-hero__pillar-code {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--mv-terracotta, #C98268);
+}
+
+.fp-hero__pillar-title {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--mv-plum, #3B2348);
+    line-height: 1.25;
+}
+
+.fp-hero__pillar-summary {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: rgba(41, 39, 43, 0.75);
+}
+
+.fp-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+}
+
+.fp-hero__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.35rem;
+    border-radius: 9999px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.fp-hero__btn--primary {
+    background-color: var(--mv-plum, #3B2348);
+    color: var(--mv-cream, #F7F4ED);
+    border: 1px solid var(--mv-plum, #3B2348);
+}
+
+.fp-hero__btn--primary:hover {
+    background-color: var(--mv-terracotta, #C98268);
+    border-color: var(--mv-terracotta, #C98268);
+}
+
+.fp-hero__btn--secondary {
+    background-color: var(--mv-card, #FCFBF8);
+    color: var(--mv-plum, #3B2348);
+    border: 1px solid var(--mv-sand, #D8C7A5);
+}
+
+.fp-hero__btn--secondary:hover {
+    background-color: rgba(216, 199, 165, 0.35);
+}
+
+.fp-hero__btn-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Folio (Right Column) */
+.fp-hero__folio {
+    border-radius: 1.75rem;
+    background-color: var(--mv-card, #FCFBF8);
+    border: 1px solid var(--mv-sand, #D8C7A5);
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(59, 35, 72, 0.08);
+}
+
+@media (min-width: 1024px) {
+    .fp-hero__folio {
+        grid-column: span 5 / span 5;
+    }
+}
+
+.fp-hero__folio-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.fp-hero__folio-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.fp-hero__folio-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(34, 18, 43, 0.1) 0%, rgba(34, 18, 43, 0.55) 100%);
+}
+
+.fp-hero__folio-badge {
+    position: absolute;
+    bottom: 0.875rem;
+    left: 0.875rem;
+    background-color: rgba(34, 18, 43, 0.85);
+    backdrop-filter: blur(4px);
+    color: var(--mv-sand, #D8C7A5);
+    padding: 0.3rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.fp-hero__folio-body {
+    padding: clamp(1.25rem, 2vw, 1.75rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.fp-hero__folio-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    border-bottom: 1px solid rgba(59, 35, 72, 0.12);
+    padding-bottom: 1rem;
+}
+
+.fp-hero__folio-kicker {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--mv-terracotta, #C98268);
+}
+
+.fp-hero__folio-title {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--mv-plum, #3B2348);
+}
+
+.fp-hero__folio-quote {
+    font-size: 0.8125rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: rgba(41, 39, 43, 0.8);
+}
+
+.fp-hero__folio-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.fp-hero__folio-item {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.875rem;
+    background-color: var(--mv-cream, #F7F4ED);
+    border: 1px solid rgba(216, 199, 165, 0.6);
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.fp-hero__folio-item:hover {
+    background-color: rgba(216, 199, 165, 0.4);
+    transform: translateX(2px);
+}
+
+.fp-hero__folio-code {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--mv-terracotta, #C98268);
+    width: 1.5rem;
+}
+
+.fp-hero__folio-item-copy {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+}
+
+.fp-hero__folio-item-title {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--mv-plum, #3B2348);
+}
+
+.fp-hero__folio-item-meta {
+    font-size: 0.6875rem;
+    color: rgba(41, 39, 43, 0.7);
+}
+
+.fp-hero__folio-arrow {
+    width: 0.875rem;
+    height: 0.875rem;
+    color: var(--mv-plum, #3B2348);
+}
+
+/* Transparency Note */
+.fp-hero__transparency {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    background-color: rgba(216, 199, 165, 0.2);
+    border: 1px solid rgba(216, 199, 165, 0.6);
+    font-size: 0.75rem;
+    color: rgba(41, 39, 43, 0.75);
+    line-height: 1.5;
+}
+
+.fp-hero__transparency-icon {
+    width: 1rem;
+    height: 1rem;
+    color: #A65D43;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}

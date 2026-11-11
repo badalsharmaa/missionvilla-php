@@ -14,6 +14,12 @@ use App\Content\Sections\AboutPhilosophySection;
 use App\Content\Sections\AboutTeamCommitmentSection;
 use App\Content\Sections\CareOptionsSection;
 use App\Content\Sections\FaqFeaturedSection;
+use App\Content\Sections\FinancialPlanningHeroSection;
+use App\Content\Sections\FinancialPlanningFactorsSection;
+use App\Content\Sections\FinancialPlanningInclusionsSection;
+use App\Content\Sections\FinancialPlanningWorksheetSection;
+use App\Content\Sections\FinancialPlanningPathwaysSection;
+use App\Content\Sections\FinancialPlanningFaqSection;
 use App\Content\Sections\ForFamiliesBridgeSection;
 use App\Content\Sections\ForFamiliesChecklistSection;
 use App\Content\Sections\ForFamiliesDecisionGuideSection;
@@ -131,6 +137,12 @@ class AppServiceProvider extends ServiceProvider
             new ForFamiliesInvolvementSection,
             new ForFamiliesFaqSection,
             new ForFamiliesBridgeSection,
+            new FinancialPlanningHeroSection,
+            new FinancialPlanningFactorsSection,
+            new FinancialPlanningInclusionsSection,
+            new FinancialPlanningWorksheetSection,
+            new FinancialPlanningPathwaysSection,
+            new FinancialPlanningFaqSection,
         ]));
 
         $this->app->singleton(ContentRepository::class, function ($app) {

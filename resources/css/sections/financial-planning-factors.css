@@ -1,0 +1,231 @@
+/**
+ * Financial Planning Section 02: 4 Factors Styles
+ */
+.fp-factors {
+    background-color: rgba(216, 199, 165, 0.25);
+    border-bottom: 1px solid rgba(59, 35, 72, 0.12);
+    padding: clamp(4rem, 6vw, 6.5rem) 0;
+}
+
+.fp-factors__inner {
+    width: 100%;
+    max-width: var(--mv-content-width, 1280px);
+    margin: 0 auto;
+    padding: 0 var(--mv-gutter, 1.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 3.5vw, 3rem);
+}
+
+.fp-factors__header {
+    max-width: 48rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.fp-factors__kicker {
+    font-size: clamp(1.4rem, 2vw, 1.75rem);
+    color: var(--mv-terracotta, #C98268);
+    display: block;
+}
+
+.fp-factors__title {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(1.95rem, 3.25vw, 3.3rem);
+    line-height: 1.15;
+    color: var(--mv-plum, #3B2348);
+    font-weight: 600;
+    text-wrap: balance;
+}
+
+.fp-factors__intro {
+    font-size: clamp(0.875rem, 1.1vw, 1rem);
+    line-height: 1.6;
+    color: rgba(41, 39, 43, 0.85);
+}
+
+.fp-factors__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .fp-factors__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+.fp-factors__card {
+    border-radius: 1.75rem;
+    background-color: var(--mv-card, #FCFBF8);
+    border: 1px solid var(--mv-sand, #D8C7A5);
+    padding: clamp(1.5rem, 2.5vw, 2.25rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    box-shadow: 0 2px 8px rgba(59, 35, 72, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fp-factors__card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(59, 35, 72, 0.09);
+}
+
+.fp-factors__card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.fp-factors__card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--mv-terracotta, #C98268);
+}
+
+.fp-factors__card-kicker {
+    color: rgba(59, 35, 72, 0.75);
+}
+
+.fp-factors__card-title {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(1.35rem, 1.8vw, 1.65rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--mv-plum, #3B2348);
+}
+
+.fp-factors__card-sub {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #A65D43;
+    line-height: 1.4;
+}
+
+.fp-factors__card-explanation {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(41, 39, 43, 0.88);
+}
+
+/* Review Box */
+.fp-factors__review-box {
+    border-radius: 1.25rem;
+    background-color: var(--mv-cream, #F7F4ED);
+    border: 1px solid rgba(216, 199, 165, 0.7);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.fp-factors__review-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--mv-plum, #3B2348);
+}
+
+.fp-factors__review-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.fp-factors__review-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: rgba(41, 39, 43, 0.85);
+}
+
+.fp-factors__check-icon {
+    width: 1rem;
+    height: 1rem;
+    color: var(--mv-sage, #5F7F49);
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+/* Footer / Questions */
+.fp-factors__card-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-top: 1px solid rgba(59, 35, 72, 0.12);
+    padding-top: 1rem;
+}
+
+.fp-factors__question-callout {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: var(--mv-plum, #3B2348);
+}
+
+.fp-factors__question-lead {
+    color: #A65D43;
+}
+
+.fp-factors__question-text {
+    font-style: italic;
+    color: rgba(41, 39, 43, 0.85);
+    margin-top: 0.25rem;
+}
+
+.fp-factors__card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.fp-factors__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--mv-plum, #3B2348);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.fp-factors__link:hover {
+    color: var(--mv-terracotta, #C98268);
+}
+
+.fp-factors__link-arrow {
+    width: 0.875rem;
+    height: 0.875rem;
+}
+
+.fp-factors__prompt-btn {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #A65D43;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.fp-factors__prompt-btn:hover {
+    color: var(--mv-plum, #3B2348);
+}

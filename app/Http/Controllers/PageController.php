@@ -63,6 +63,11 @@ class PageController extends Controller
         return $this->render('for-families');
     }
 
+    public function financialPlanning(): View
+    {
+        return $this->render('financial-planning');
+    }
+
     private function render(string $slug): View
     {
         $page = $this->content->findPublishedPage($slug) ?? abort(404);

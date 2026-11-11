@@ -1,0 +1,258 @@
+/**
+ * Financial Planning Section 03: Grouped Inclusions Styles
+ */
+.fp-inc {
+    background-color: var(--mv-cream, #F7F4ED);
+    border-bottom: 1px solid rgba(59, 35, 72, 0.12);
+    padding: clamp(4rem, 6vw, 6.5rem) 0;
+}
+
+.fp-inc__inner {
+    width: 100%;
+    max-width: var(--mv-content-width, 1280px);
+    margin: 0 auto;
+    padding: 0 var(--mv-gutter, 1.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 3.5vw, 3rem);
+}
+
+.fp-inc__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    border-bottom: 1px solid rgba(59, 35, 72, 0.12);
+    padding-bottom: 1.75rem;
+}
+
+@media (min-width: 1024px) {
+    .fp-inc__header {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+}
+
+.fp-inc__header-copy {
+    max-width: 48rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.fp-inc__kicker {
+    font-size: clamp(1.4rem, 2vw, 1.75rem);
+    color: var(--mv-terracotta, #C98268);
+    display: block;
+}
+
+.fp-inc__title {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(1.95rem, 3.25vw, 3.3rem);
+    line-height: 1.15;
+    color: var(--mv-plum, #3B2348);
+    font-weight: 600;
+    text-wrap: balance;
+}
+
+.fp-inc__intro {
+    font-size: clamp(0.875rem, 1.1vw, 1rem);
+    line-height: 1.6;
+    color: rgba(41, 39, 43, 0.85);
+}
+
+.fp-inc__count-badge {
+    padding: 0.875rem 1.25rem;
+    border-radius: 1.25rem;
+    background-color: var(--mv-card, #FCFBF8);
+    border: 1px solid var(--mv-sand, #D8C7A5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    flex-shrink: 0;
+}
+
+.fp-inc__count-num {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--mv-plum, #3B2348);
+    line-height: 1;
+}
+
+.fp-inc__count-label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #A65D43;
+}
+
+/* Category Filter Tabs */
+.fp-inc__category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.fp-inc__cat-btn {
+    padding: 0.625rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    background-color: var(--mv-card, #FCFBF8);
+    color: var(--mv-plum, #3B2348);
+    border: 1px solid var(--mv-sand, #D8C7A5);
+}
+
+.fp-inc__cat-btn:hover {
+    background-color: rgba(216, 199, 165, 0.35);
+}
+
+.fp-inc__cat-btn--active {
+    background-color: var(--mv-plum, #3B2348);
+    color: var(--mv-cream, #F7F4ED);
+    border-color: var(--mv-plum, #3B2348);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.fp-inc__cat-btn--active:hover {
+    background-color: var(--mv-plum, #3B2348);
+}
+
+.fp-inc__cat-count {
+    margin-left: 0.375rem;
+    opacity: 0.75;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Grid */
+.fp-inc__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .fp-inc__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+.fp-inc__card {
+    border-radius: 1.5rem;
+    background-color: var(--mv-card, #FCFBF8);
+    border: 1px solid var(--mv-sand, #D8C7A5);
+    padding: clamp(1.25rem, 2vw, 1.75rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+    box-shadow: 0 2px 6px rgba(59, 35, 72, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fp-inc__card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 35, 72, 0.08);
+}
+
+.fp-inc__card-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    border-bottom: 1px solid rgba(59, 35, 72, 0.1);
+    padding-bottom: 0.75rem;
+}
+
+.fp-inc__card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--mv-terracotta, #C98268);
+}
+
+.fp-inc__card-group {
+    color: rgba(59, 35, 72, 0.75);
+}
+
+.fp-inc__status-pill {
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.fp-inc__status-pill--standard {
+    background-color: rgba(95, 127, 73, 0.15);
+    color: var(--mv-sage, #5F7F49);
+    border: 1px solid rgba(95, 127, 73, 0.3);
+}
+
+.fp-inc__status-pill--verify {
+    background-color: rgba(201, 130, 104, 0.15);
+    color: #A65D43;
+    border: 1px solid rgba(201, 130, 104, 0.3);
+}
+
+.fp-inc__card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.fp-inc__card-title {
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(1.2rem, 1.5vw, 1.35rem);
+    font-weight: 700;
+    color: var(--mv-plum, #3B2348);
+    line-height: 1.25;
+}
+
+.fp-inc__card-summary {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: rgba(41, 39, 43, 0.88);
+}
+
+.fp-inc__impact-box {
+    border-radius: 0.875rem;
+    background-color: var(--mv-cream, #F7F4ED);
+    border: 1px solid rgba(216, 199, 165, 0.6);
+    padding: 0.875rem 1rem;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: rgba(41, 39, 43, 0.85);
+}
+
+.fp-inc__impact-label {
+    color: var(--mv-plum, #3B2348);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.fp-inc__card-footer {
+    border-top: 1px solid rgba(59, 35, 72, 0.1);
+    padding-top: 0.75rem;
+}
+
+.fp-inc__verification-note {
+    font-size: 0.6875rem;
+    line-height: 1.5;
+    color: rgba(59, 35, 72, 0.75);
+}

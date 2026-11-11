@@ -27,7 +27,7 @@ class FooterTest extends TestCase
         $html = $this->get('/')->getContent();
         $footer = substr($html, strpos($html, '<footer class="site-footer"'));
 
-        // /memory-care, /respite-care, /suites-and-floor-plans, /life-at-mission-villa, /gallery, /about, and /for-families are now routed.
+        // /memory-care, /respite-care, /suites-and-floor-plans, /life-at-mission-villa, /gallery, /about, /for-families, and /financial-planning are now routed.
         $this->assertStringContainsString('href="'.url('/memory-care').'"', $footer);
         $this->assertStringContainsString('href="'.url('/respite-care').'"', $footer);
         $this->assertStringContainsString('href="'.url('/suites-and-floor-plans').'"', $footer);
@@ -35,8 +35,9 @@ class FooterTest extends TestCase
         $this->assertStringContainsString('href="'.url('/gallery').'"', $footer);
         $this->assertStringContainsString('href="'.url('/about').'"', $footer);
         $this->assertStringContainsString('href="'.url('/for-families').'"', $footer);
+        $this->assertStringContainsString('href="'.url('/financial-planning').'"', $footer);
 
-        foreach (['/financial-planning', '/contact'] as $path) {
+        foreach (['/contact'] as $path) {
             $this->assertStringNotContainsString('href="'.url($path).'"', $footer, $path);
         }
         $this->assertStringContainsString('href="'.url('/#visit').'"', $footer);
@@ -46,7 +47,7 @@ class FooterTest extends TestCase
         // /about is routed, so the #why-families fallback is no longer rendered.
         $this->assertStringNotContainsString('href="'.url('/#why-families').'"', $footer);
         $this->assertStringContainsString('For Families &amp; FAQs', $footer);
-        $this->assertStringNotContainsString('Financial Planning', $footer);
+        $this->assertStringContainsString('Financial Planning', $footer);
     }
 
     public function test_privacy_and_terms_show_as_placeholders_until_pages_exist(): void
