@@ -42,8 +42,12 @@
                                 loading="lazy"
                                 decoding="async"
                             >
-                            <div class="gvt-stop__cutout">
-                                <span>{{ $stop['stop_index'] }}</span>
+                            <div class="gvt-stop__badge-cutout">
+                                <span class="gvt-stop__pill-badge">{{ $stop['stop_index'] }}</span>
+                            </div>
+                            <div class="gvt-stop__prov-pill">
+                                <span class="gvt-stop__prov-dot gvt-stop__prov-dot--{{ $stop['image']['provenance'] === 'facility' ? 'facility' : 'illustrative' }}" aria-hidden="true"></span>
+                                <span>{{ $stop['image']['provenance'] === 'facility' ? 'Facility photo' : 'Illustrative' }}</span>
                             </div>
                         </div>
 

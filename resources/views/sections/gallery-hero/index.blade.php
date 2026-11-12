@@ -112,7 +112,7 @@
                                 loading="eager"
                                 decoding="async"
                             >
-                            <div class="gh-hero__plate-cutout">
+                            <div class="gh-hero__plate-tag">
                                 <span>{{ $prev['cutout_label'] }}</span>
                             </div>
                         </div>

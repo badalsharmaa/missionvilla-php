@@ -577,7 +577,7 @@ return [
                 'form' => [
                     'enabled' => true,
                     'heading' => 'Gallery & Virtual Tour Inquiry',
-                    'lede' => 'Our community director will reach out promptly to answer your questions and arrange a visit.',
+                    'lede' => 'Submissions save locally while we finalize direct staff notifications. For immediate assistance or current availability, please call us directly at (650) 756-1995.',
                 ],
             ],
         ],

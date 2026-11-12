@@ -131,8 +131,13 @@
                             </div>
                         </button>
 
-                        <div class="gm-plate__cutout">
-                            <span>{{ $plate['cutout_badge'] }}</span>
+                        <div class="gm-plate__badge-cutout">
+                            <span class="gm-plate__pill-badge">{{ $plate['cutout_badge'] }}</span>
+                        </div>
+
+                        <div class="gm-plate__prov-pill">
+                            <span class="gm-plate__prov-dot gm-plate__prov-dot--{{ $plate['image']['provenance'] === 'facility' ? 'facility' : 'illustrative' }}" aria-hidden="true"></span>
+                            <span>{{ $plate['image']['provenance'] === 'facility' ? 'Facility photo' : 'Illustrative' }}</span>
                         </div>
                     </div>
 
@@ -176,20 +181,32 @@
         </div>
     </div>
 
-    {{-- Accessible Lightbox Dialog --}}
+    {{-- Accessible Lightbox Dialog with Carousel Cycling --}}
     <dialog class="gm-lightbox" data-gm-dialog aria-label="Photo inspection lightbox">
         <div class="gm-lightbox__backdrop" data-gm-close></div>
         <div class="gm-lightbox__container">
             <button type="button" class="gm-lightbox__close" aria-label="Close photo inspection" data-gm-close>
                 <svg class="mv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
+
+            <button type="button" class="gm-lightbox__nav gm-lightbox__nav--prev" aria-label="Previous photograph" data-gm-prev>
+                <svg class="mv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+
+            <button type="button" class="gm-lightbox__nav gm-lightbox__nav--next" aria-label="Next photograph" data-gm-next>
+                <svg class="mv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+
             <div class="gm-lightbox__media">
                 <img src="" alt="" class="gm-lightbox__img" data-gm-dialog-img>
             </div>
             <div class="gm-lightbox__caption">
+                <div class="gm-lightbox__caption-meta">
+                    <span class="gm-lightbox__counter" data-gm-dialog-counter>Plate 01 of 10</span>
+                    <span class="gm-lightbox__prov" data-gm-dialog-prov></span>
+                </div>
                 <h4 class="gm-lightbox__title" data-gm-dialog-title></h4>
                 <p class="gm-lightbox__desc" data-gm-dialog-caption></p>
-                <span class="gm-lightbox__prov" data-gm-dialog-prov></span>
             </div>
         </div>
     </dialog>

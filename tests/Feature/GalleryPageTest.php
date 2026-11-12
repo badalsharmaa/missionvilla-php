@@ -76,6 +76,8 @@ class GalleryPageTest extends TestCase
         $this->assertStringContainsString('id="visit-form"', $html);
         $this->assertStringContainsString('name="care_interest" value="exploring"', $html);
         $this->assertStringContainsString('Gallery &amp; Virtual Tour Inquiry', $html);
+        $this->assertStringContainsString('Submissions save locally while we finalize direct staff notifications', $html);
+        $this->assertStringNotContainsString('Our community director will reach out promptly', $html);
         $this->assertStringContainsString('name="source" value="lo-cta"', $html);
     }
 
@@ -113,9 +115,15 @@ class GalleryPageTest extends TestCase
         $this->assertStringContainsString('Enclosed Garden Courtyard &amp; Patio', $html);
         $this->assertStringContainsString('Companion Unit Layout Arrangements', $html);
 
-        // Lightbox trigger attributes
+        // Lightbox trigger attributes and cycling controls
         $this->assertStringContainsString('data-gm-trigger', $html);
         $this->assertStringContainsString('data-gm-dialog', $html);
+        $this->assertStringContainsString('data-gm-prev', $html);
+        $this->assertStringContainsString('data-gm-next', $html);
+        $this->assertStringContainsString('data-gm-dialog-counter', $html);
+        $this->assertStringContainsString('gm-plate__badge-cutout', $html);
+        $this->assertStringContainsString('gm-plate__pill-badge', $html);
+        $this->assertStringContainsString('gm-plate__prov-pill', $html);
     }
 
     public function test_virtual_tour_renders_four_guided_spatial_stops(): void
@@ -131,6 +139,9 @@ class GalleryPageTest extends TestCase
         $this->assertStringContainsString('STOP 04', $html);
         $this->assertStringContainsString('Private &amp; Companion Suites with Attached Baths', $html);
         $this->assertStringContainsString('Prefer a Live Video Walkthrough?', $html);
+        $this->assertStringContainsString('gvt-stop__badge-cutout', $html);
+        $this->assertStringContainsString('gvt-stop__pill-badge', $html);
+        $this->assertStringContainsString('gvt-stop__prov-pill', $html);
     }
 
     public function test_pathways_bridge_links_to_suites_services_and_memory_care(): void
