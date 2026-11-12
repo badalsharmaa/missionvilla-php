@@ -34,8 +34,8 @@
                         </svg>
                         <span>{{ $help['phone_label'] }}</span>
                     </a>
-                    <button
-                        type="button"
+                    <a
+                        href="{{ $site['phone']['href'] }}"
                         class="lmv-faq__card-btn"
                         data-inquiry="{{ $help['cta_intent'] }}"
                         data-inquiry-source="lmv-faq-card"
@@ -46,7 +46,7 @@
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

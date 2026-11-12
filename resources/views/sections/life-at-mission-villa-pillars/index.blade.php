@@ -41,8 +41,9 @@
                             decoding="async"
                         >
                         <div class="lmv-pillars__cutout" aria-hidden="true">
-                            <span class="lmv-pillars__cutout-label">{{ $pillar['cutout_label'] }}</span>
+                            <span class="lmv-pillars__cutout-badge">{{ $pillar['cutout_label'] }}</span>
                         </div>
+                        <span class="lmv-pillars__provenance">{{ $pillar['image']['label'] }}</span>
                     </div>
 
                     <div class="lmv-pillars__body">

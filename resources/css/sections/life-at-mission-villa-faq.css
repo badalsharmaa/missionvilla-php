@@ -125,11 +125,13 @@
     font-weight: 600;
     cursor: pointer;
     border: none;
+    text-decoration: none;
     transition: background-color 0.2s ease;
 }
 
 .lmv-faq__card-btn:hover {
     background-color: #3C273F;
+    color: #FAF6F0;
 }
 
 .lmv-faq__list {

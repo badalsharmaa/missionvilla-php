@@ -175,12 +175,14 @@
     font-weight: 600;
     cursor: pointer;
     border: none;
+    text-decoration: none;
     box-shadow: 0 4px 14px rgba(200, 109, 81, 0.35);
     transition: all 0.2s ease;
 }
 
 .lmv-engagement__foot-btn:hover {
     background-color: #B55D42;
+    color: #FAF6F0;
     transform: translateY(-1px);
 }
 

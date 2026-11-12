@@ -362,7 +362,7 @@ return [
                 'form' => [
                     'enabled' => true,
                     'heading' => 'Life at Mission Villa Inquiry',
-                    'lede' => 'Our community director will reach out promptly to answer your questions and arrange a tour.',
+                    'lede' => 'A member of our Daly City care team will be in touch soon to answer your questions.',
                 ],
             ],
         ],

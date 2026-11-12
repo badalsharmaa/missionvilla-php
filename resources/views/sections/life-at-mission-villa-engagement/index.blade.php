@@ -1,5 +1,6 @@
 @php
     /** @var array $data Normalised by App\Content\Sections\LifeAtMissionVillaEngagementSection */
+    $site = config('missionvilla');
     $activities = $data['activities'];
     $action = $data['action'];
 @endphp
@@ -74,8 +75,8 @@
         </div>
 
         <div class="lmv-engagement__foot">
-            <button
-                type="button"
+            <a
+                href="{{ $site['phone']['href'] }}"
                 class="lmv-engagement__foot-btn"
                 data-inquiry="{{ $action['intent'] }}"
                 data-inquiry-source="lmv-engagement-foot"
@@ -86,7 +87,7 @@
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
-            </button>
+            </a>
             <p class="lmv-engagement__foot-note">{{ $action['note'] }}</p>
         </div>
     </div>

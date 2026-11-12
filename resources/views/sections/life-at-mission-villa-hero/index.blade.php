@@ -52,8 +52,8 @@
         <div class="lmv-hero__actions">
             @foreach ($actions as $action)
                 @if ($action['style'] === 'primary')
-                    <button
-                        type="button"
+                    <a
+                        href="{{ $site['phone']['href'] }}"
                         class="lmv-hero__btn lmv-hero__btn--primary"
                         data-inquiry="{{ $action['intent'] }}"
                         data-inquiry-source="lmv-hero"
@@ -66,10 +66,10 @@
                             <line x1="3" y1="2" x2="21" y2="10"/>
                         </svg>
                         <span>{{ $action['label'] }}</span>
-                    </button>
+                    </a>
                 @elseif ($action['style'] === 'secondary')
-                    <button
-                        type="button"
+                    <a
+                        href="{{ $site['phone']['href'] }}"
                         class="lmv-hero__btn lmv-hero__btn--secondary"
                         data-inquiry="{{ $action['intent'] }}"
                         data-inquiry-source="lmv-hero"
@@ -80,7 +80,7 @@
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
-                    </button>
+                    </a>
                 @elseif ($action['style'] === 'phone')
                     <a
                         href="{{ $action['href'] ?? $site['phone']['href'] }}"
