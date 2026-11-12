@@ -76,6 +76,8 @@ class AboutPageTest extends TestCase
         $this->assertStringContainsString('id="visit-form"', $html);
         $this->assertStringContainsString('name="care_interest" value="exploring"', $html);
         $this->assertStringContainsString('About Mission Villa Inquiry', $html);
+        $this->assertStringContainsString('Submissions save locally while we finalize direct staff notifications', $html);
+        $this->assertStringNotContainsString('Our community director will reach out promptly', $html);
     }
 
     public function test_hero_section_renders_trust_ledger_and_arched_study(): void
@@ -107,6 +109,8 @@ class AboutPageTest extends TestCase
 
         $this->assertStringContainsString('How Families See This in Daily Life at Mission Villa:', $html);
         $this->assertStringContainsString('Our Commitment to Your Family', $html);
+        $this->assertStringNotContainsString('APPROVED FOR PROTOTYPE', $html);
+        $this->assertStringContainsString('about-phil__prov-pill', $html);
     }
 
     public function test_geography_section_renders_landmarks_and_san_bruno_mountain_context(): void
@@ -124,6 +128,7 @@ class AboutPageTest extends TestCase
 
         $this->assertStringContainsString('Why This Location Matters for Residents &amp; Families:', $html);
         $this->assertStringContainsString('995 East Market Street, Daly City, CA 94014', $html);
+        $this->assertStringContainsString('about-geo__prov-pill', $html);
     }
 
     public function test_core_values_section_renders_four_values_with_activities(): void

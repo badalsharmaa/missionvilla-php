@@ -299,12 +299,35 @@
     border: 1px solid rgba(216, 199, 165, 0.3);
 }
 
-.about-geo__card-status {
-    font-size: 0.625rem;
-    background: rgba(0, 0, 0, 0.55);
-    color: rgba(247, 244, 237, 0.85);
-    padding: 0.25rem 0.625rem;
-    border-radius: 0.5rem;
+.about-geo__prov-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    background: rgba(34, 18, 43, 0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #F7F4ED;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+}
+
+.about-geo__prov-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.about-geo__prov-dot--facility {
+    background-color: #8FAF78;
+}
+
+.about-geo__prov-dot--illustrative {
+    background-color: #EDBE96;
 }
 
 .about-geo__card-header-text {

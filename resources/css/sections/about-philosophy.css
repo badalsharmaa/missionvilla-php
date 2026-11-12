@@ -405,7 +405,10 @@
     position: relative;
     z-index: 2;
     display: flex;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .about-phil__visual-badge {
@@ -418,6 +421,37 @@
     padding: 0.35rem 0.85rem;
     border-radius: 0.75rem;
     border: 1px solid rgba(216, 199, 165, 0.3);
+}
+
+.about-phil__prov-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    background: rgba(34, 18, 43, 0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #F7F4ED;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+}
+
+.about-phil__prov-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.about-phil__prov-dot--facility {
+    background-color: #8FAF78;
+}
+
+.about-phil__prov-dot--illustrative {
+    background-color: #EDBE96;
 }
 
 .about-phil__visual-bottom {
@@ -436,9 +470,4 @@
     color: #F7F4ED;
     line-height: 1.35;
     margin: 0;
-}
-
-.about-phil__visual-status {
-    font-size: 0.6875rem;
-    color: rgba(216, 199, 165, 0.8);
 }

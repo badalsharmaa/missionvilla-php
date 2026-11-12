@@ -147,11 +147,14 @@
                                     <span class="about-phil__visual-badge">
                                         {{ $chapter['chapter_number'] }} · {{ $chapter['kicker'] }}
                                     </span>
+                                    <div class="about-phil__prov-pill">
+                                        <span class="about-phil__prov-dot about-phil__prov-dot--{{ $chapter['image']['provenance'] === 'facility' ? 'facility' : 'illustrative' }}" aria-hidden="true"></span>
+                                        <span>{{ $chapter['image']['provenance'] === 'facility' ? 'Facility photo' : 'Illustrative' }}</span>
+                                    </div>
                                 </div>
 
                                 <div class="about-phil__visual-bottom">
                                     <p class="about-phil__visual-caption">{{ $chapter['image']['caption'] }}</p>
-                                    <span class="about-phil__visual-status">Status: {{ $chapter['image']['status'] }}</span>
                                 </div>
                             </div>
                         </div>

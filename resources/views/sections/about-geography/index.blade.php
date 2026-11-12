@@ -97,9 +97,10 @@
                                 <span class="about-geo__card-index">
                                     {{ $landmark['index_code'] }} · {{ $landmark['category'] }}
                                 </span>
-                                <span class="about-geo__card-status">
-                                    {{ $landmark['image']['status'] }}
-                                </span>
+                                <div class="about-geo__prov-pill">
+                                    <span class="about-geo__prov-dot about-geo__prov-dot--{{ $landmark['image']['provenance'] === 'facility' ? 'facility' : 'illustrative' }}" aria-hidden="true"></span>
+                                    <span>{{ $landmark['image']['provenance'] === 'facility' ? 'Facility photo' : 'Illustrative' }}</span>
+                                </div>
                             </div>
 
                             <div class="about-geo__card-header-text">
