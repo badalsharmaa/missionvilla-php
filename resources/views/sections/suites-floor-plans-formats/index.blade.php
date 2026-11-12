@@ -1,5 +1,6 @@
 @php
     /** @var array $data Normalised by App\Content\Sections\SuitesFloorPlansFormatsSection */
+    $site = config('missionvilla');
     $suites = $data['suites'];
     $cta = $data['cta'];
 @endphp
@@ -45,8 +46,9 @@
                             decoding="async"
                         >
                         <div class="sfp-formats__cutout" aria-hidden="true">
-                            <span class="sfp-formats__cutout-label">{{ $suite['cutout_label'] }}</span>
+                            <span class="sfp-formats__cutout-badge">{{ $suite['cutout_label'] }}</span>
                         </div>
+                        <span class="sfp-formats__provenance">{{ $suite['image']['label'] }}</span>
                     </div>
 
                     <div class="sfp-formats__body">
@@ -78,8 +80,8 @@
                         </div>
 
                         <div class="sfp-formats__card-actions">
-                            <button
-                                type="button"
+                            <a
+                                href="{{ $site['phone']['href'] }}"
                                 class="sfp-formats__card-btn"
                                 data-inquiry="request_availability"
                                 data-inquiry-source="sfp-formats-card"
@@ -91,7 +93,7 @@
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                     <polyline points="12 5 19 12 12 19"></polyline>
                                 </svg>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -99,8 +101,8 @@
         </div>
 
         <div class="sfp-formats__foot">
-            <button
-                type="button"
+            <a
+                href="{{ $site['phone']['href'] }}"
                 class="sfp-formats__foot-btn"
                 data-inquiry="{{ $cta['intent'] }}"
                 data-inquiry-source="sfp-formats-foot"
@@ -111,7 +113,7 @@
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
-            </button>
+            </a>
             <p class="sfp-formats__foot-note">
                 {{ $cta['note'] }}
             </p>

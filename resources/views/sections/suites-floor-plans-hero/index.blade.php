@@ -54,8 +54,8 @@
         <div class="sfp-hero__actions">
             @foreach ($actions as $action)
                 @if ($action['style'] === 'primary')
-                    <button
-                        type="button"
+                    <a
+                        href="{{ $site['phone']['href'] }}"
                         class="sfp-hero__btn sfp-hero__btn--primary"
                         data-inquiry="{{ $action['intent'] }}"
                         data-inquiry-source="sfp-hero"
@@ -68,10 +68,10 @@
                             <line x1="3" x2="21" y1="10" y2="10"/>
                         </svg>
                         <span>{{ $action['label'] }}</span>
-                    </button>
+                    </a>
                 @elseif ($action['style'] === 'secondary')
-                    <button
-                        type="button"
+                    <a
+                        href="{{ $site['phone']['href'] }}"
                         class="sfp-hero__btn sfp-hero__btn--secondary"
                         data-inquiry="{{ $action['intent'] }}"
                         data-inquiry-source="sfp-hero"
@@ -82,7 +82,7 @@
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
-                    </button>
+                    </a>
                 @elseif ($action['style'] === 'phone')
                     <a
                         href="{{ $action['href'] ?? $site['phone']['href'] }}"

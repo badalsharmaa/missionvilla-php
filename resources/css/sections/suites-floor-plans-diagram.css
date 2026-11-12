@@ -247,12 +247,14 @@
     font-weight: 600;
     cursor: pointer;
     border: none;
+    text-decoration: none;
     box-shadow: 0 4px 12px rgba(43, 27, 45, 0.2);
     transition: all 0.2s ease;
 }
 
 .sfp-diagram__action-btn:hover {
     background-color: #3C273F;
+    color: #FAF6F0;
     transform: translateY(-1px);
 }
 
