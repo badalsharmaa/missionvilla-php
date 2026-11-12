@@ -86,11 +86,78 @@
                 </div>
             </div>
 
-            {{-- 5-Category Quick Jump Command Dock --}}
-            <div class="sa-hero__dock" id="sa-quick-dock">
+            {{-- Right Column: Asymmetric Dual-Frame Photo Pairing & Archival Ledger --}}
+            <div class="sa-hero__media">
+                <div class="sa-hero__media-grid">
+                    {{-- Frame A: Full-Table Dining Bento --}}
+                    <div class="sa-hero__bento">
+                        <img
+                            src="{{ asset('images/illustrative/hero-life.webp') }}"
+                            alt="Illustrative photograph: Restaurant-style dining hospitality at Mission Villa"
+                            width="900"
+                            height="600"
+                            class="sa-hero__bento-img"
+                            loading="eager"
+                        >
+                        <div class="sa-hero__bento-overlay" aria-hidden="true"></div>
+
+                        {{-- Bento Top Header --}}
+                        <div class="sa-hero__bento-top">
+                            <span class="sa-hero__bento-kicker">01 · Dining &amp; Hospitality</span>
+                            <span class="sa-hero__bento-prov">Illustrative photo</span>
+                        </div>
+
+                        <div class="sa-hero__bento-caption">
+                            <blockquote class="sa-hero__bento-quote">
+                                “Chef-prepared meals with full-table service, private family dining, and tailored dietary options.”
+                            </blockquote>
+                            <p class="sa-hero__bento-note">Illustrative community life photography</p>
+                        </div>
+                    </div>
+
+                    {{-- Frame B: Botanical Arch Courtyard + Archival Summary Ledger --}}
+                    <div class="sa-hero__aside">
+                        <div class="sa-hero__arch">
+                            <img
+                                src="{{ asset('images/property/courtyard-patio.webp') }}"
+                                alt="Mission Villa sunny outdoor courtyard with patio tables and garden borders"
+                                width="600"
+                                height="450"
+                                class="sa-hero__arch-img"
+                                loading="eager"
+                            >
+                            <div class="sa-hero__arch-overlay" aria-hidden="true"></div>
+
+                            <div class="sa-hero__arch-top">
+                                <span class="sa-hero__arch-prov">Mission Villa photo</span>
+                            </div>
+
+                            <div class="sa-hero__arch-caption">
+                                <span class="sa-hero__arch-kicker">COURTYARD &amp; PATIO</span>
+                                <p class="sa-hero__arch-subtitle">Homelike indoor &amp; outdoor gathering</p>
+                            </div>
+                        </div>
+
+                        {{-- Archival Summary Ledger Box --}}
+                        <div class="sa-hero__ledger">
+                            <div class="sa-hero__ledger-top">
+                                <span class="sa-hero__ledger-kicker">AT A GLANCE</span>
+                                <span class="sa-hero__ledger-count">5 Categories</span>
+                            </div>
+                            <p class="sa-hero__ledger-title">9 Core Services · 9 Community Amenities</p>
+                            <p class="sa-hero__ledger-text">Grounded in Mission Villa’s authentic Daly City offerings at 995 East Market Street.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- 5-Category Quick Jump Command Dock Bar --}}
+        <div class="sa-hero__dock" id="sa-quick-dock">
+            <div class="sa-hero__dock-inner">
                 <div class="sa-hero__dock-header">
                     <span class="sa-hero__dock-kicker">DIRECTORY OVERVIEW</span>
-                    <h2 class="sa-hero__dock-title">Five Core Pillars of Care &amp; Comfort</h2>
+                    <h2 class="sa-hero__dock-title">Five Core Pillars of Care &amp; Hospitality</h2>
                 </div>
                 <div class="sa-hero__dock-grid">
                     @foreach ($dock as $item)
@@ -103,10 +170,8 @@
                         </a>
                     @endforeach
                 </div>
-                <div class="sa-hero__dock-footer">
-                    <span>Authentic source-grounded offerings at 995 East Market Street</span>
-                </div>
             </div>
+        </div>
         </div>
     </div>
 </section>

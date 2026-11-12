@@ -1,6 +1,7 @@
 @php
     /** @var array $data Normalised by App\Content\Sections\ServicesAmenitiesExplorerSection */
     $categories = $data['categories'];
+    $totalItemsCount = array_sum(array_map(fn ($cat) => count($cat['items']), $categories));
 @endphp
 @push('section-assets')
     @vite([
@@ -54,7 +55,7 @@
                 class="sa-explorer__tab"
                 data-sa-tab="all"
             >
-                <span>View All (17)</span>
+                <span>View All ({{ $totalItemsCount }})</span>
             </button>
             @foreach ($categories as $index => $cat)
                 <button
@@ -115,8 +116,11 @@
                                         decoding="async"
                                     >
                                     <div class="sa-category__badge-cutout">
-                                        <span class="sa-category__badge-text">{{ $cat['label'] }}</span>
+                                        <span class="sa-category__pill-badge">{{ $cat['label'] }}</span>
                                     </div>
+                                    <span class="sa-category__provenance-badge">
+                                        {{ $cat['pairing_image']['provenance'] === 'facility' ? 'Mission Villa facility photograph' : 'Illustrative photograph' }}
+                                    </span>
                                 </div>
                                 <div class="sa-category__photo-footer">
                                     <span class="sa-category__photo-label">{{ $cat['pairing_image']['label'] }}</span>

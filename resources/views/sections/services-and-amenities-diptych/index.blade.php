@@ -46,8 +46,13 @@
 
                     {{-- Top Left Cutout Badge --}}
                     <div class="sa-diptych__badge">
-                        <span>{{ $feature['cutout_label'] }}</span>
+                        <span class="sa-diptych__pill-badge">{{ $feature['cutout_label'] }}</span>
                     </div>
+
+                    {{-- Top Right Provenance Badge --}}
+                    <span class="sa-diptych__provenance-badge">
+                        Mission Villa facility photograph · Daly City, CA
+                    </span>
 
                     {{-- Bottom Caption Overlay --}}
                     <div class="sa-diptych__caption">

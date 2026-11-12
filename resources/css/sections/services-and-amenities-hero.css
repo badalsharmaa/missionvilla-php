@@ -93,14 +93,14 @@
 .sa-hero__content {
     display: grid;
     grid-template-columns: 1fr;
-    gap: clamp(2.5rem, 5vw, 4.5rem);
-    align-items: start;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    align-items: center;
 }
 
 @media (min-width: 1024px) {
     .sa-hero__content {
-        grid-template-columns: 1.2fr 0.8fr;
-        align-items: center;
+        grid-template-columns: 5fr 7fr;
+        gap: clamp(3rem, 5vw, 4.5rem);
     }
 }
 
@@ -217,103 +217,335 @@
     color: #F7F4ED;
 }
 
-/* --- Quick Command Dock --- */
-.sa-hero__dock {
-    background-color: rgba(24, 15, 23, 0.75);
-    border: 1px solid rgba(216, 199, 165, 0.25);
+/* --- Media Dual-Frame Asymmetric Triptych --- */
+.sa-hero__media {
+    width: 100%;
+}
+
+.sa-hero__media-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    align-items: stretch;
+}
+
+@media (min-width: 640px) {
+    .sa-hero__media-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+    }
+}
+
+.sa-hero__bento {
+    --card-bg: #22122B;
+    position: relative;
     border-radius: 28px;
-    padding: clamp(1.5rem, 3vw, 2.25rem);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    background-color: #3B2348;
+    border: 1px solid rgba(216, 199, 165, 0.3);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.sa-hero__bento-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.sa-hero__bento:hover .sa-hero__bento-img {
+    transform: scale(1.02);
+}
+
+.sa-hero__bento-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(34, 18, 43, 0.95) 0%, rgba(34, 18, 43, 0.35) 50%, transparent 100%);
+    pointer-events: none;
+}
+
+.sa-hero__bento-top {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    font-size: 0.6875rem;
+}
+
+.sa-hero__bento-kicker {
+    color: #D8C7A5;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.sa-hero__bento-prov {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(34, 18, 43, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(216, 199, 165, 0.35);
+    color: #F7F4ED;
+    font-size: 0.625rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+}
+
+.sa-hero__bento-caption {
+    position: relative;
+    z-index: 2;
+    padding: clamp(1.25rem, 2.5vw, 1.75rem);
+    color: #F7F4ED;
+}
+
+.sa-hero__bento-quote {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(0.95rem, 1.35vw, 1.125rem);
+    line-height: 1.4;
+    color: #F7F4ED;
+    margin: 0 0 0.5rem 0;
+}
+
+.sa-hero__bento-note {
+    font-size: 0.6875rem;
+    color: #D8C7A5;
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* --- Frame B: Botanical Arch & Aside --- */
+.sa-hero__aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.sa-hero__arch {
+    --card-bg: #22122B;
+    position: relative;
+    border-radius: 24px;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+    background-color: #3B2348;
+    border: 1px solid rgba(216, 199, 165, 0.35);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.sa-hero__arch-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.sa-hero__arch:hover .sa-hero__arch-img {
+    transform: scale(1.03);
+}
+
+.sa-hero__arch-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(34, 18, 43, 0.9) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.sa-hero__arch-top {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 2;
+}
+
+.sa-hero__arch-prov {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(34, 18, 43, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(216, 199, 165, 0.35);
+    color: #F7F4ED;
+    font-size: 0.625rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+}
+
+.sa-hero__arch-caption {
+    position: relative;
+    z-index: 2;
+    padding: 0.875rem 1rem;
+    color: #F7F4ED;
+}
+
+.sa-hero__arch-kicker {
+    display: block;
+    font-size: 0.625rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #8FAF78;
+}
+
+.sa-hero__arch-subtitle {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 0.8125rem;
+    color: #F7F4ED;
+    margin: 0.2rem 0 0 0;
+}
+
+.sa-hero__ledger {
+    border-radius: 20px;
+    background-color: rgba(59, 35, 72, 0.85);
+    border: 1px solid rgba(216, 199, 165, 0.3);
+    padding: 1rem 1.25rem;
+    backdrop-filter: blur(8px);
+}
+
+.sa-hero__ledger-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.625rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #D8C7A5;
+    margin-bottom: 0.35rem;
+}
+
+.sa-hero__ledger-title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #F7F4ED;
+    margin: 0 0 0.25rem 0;
+}
+
+.sa-hero__ledger-text {
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: rgba(247, 244, 237, 0.75);
+    margin: 0;
+}
+
+/* --- Quick Command Dock Bar (Full Width Below Grid) --- */
+.sa-hero__dock {
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+    background-color: #FCFBF8;
+    color: #29272B;
+    border: 1px solid #D8C7A5;
+    border-radius: 24px;
+    padding: clamp(1.25rem, 2.5vw, 1.75rem);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.25);
+}
+
+.sa-hero__dock-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .sa-hero__dock-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
 }
 
 .sa-hero__dock-header {
-    margin-bottom: 1.25rem;
-    padding-bottom: 0.875rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .sa-hero__dock-kicker {
     display: block;
-    font-size: 0.6875rem;
+    font-size: 0.625rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     font-weight: 700;
-    color: #8FAF78;
-    margin-bottom: 0.25rem;
+    color: #A65D43;
+    margin-bottom: 0.15rem;
 }
 
 .sa-hero__dock-title {
     font-family: 'Newsreader', Georgia, serif;
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: #F7F4ED;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #3B2348;
     margin: 0;
 }
 
 .sa-hero__dock-grid {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.625rem;
 }
 
 .sa-hero__dock-card {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.875rem 1.125rem;
-    border-radius: 14px;
-    background-color: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    color: #F7F4ED;
+    gap: 0.625rem;
+    padding: 0.625rem 1rem;
+    border-radius: 12px;
+    background-color: #F7F4ED;
+    border: 1px solid #D8C7A5;
+    color: #3B2348;
     text-decoration: none;
+    font-size: 0.8125rem;
+    font-weight: 600;
     transition: all 0.2s ease;
+    white-space: nowrap;
 }
 
 .sa-hero__dock-card:hover {
-    background-color: rgba(201, 130, 104, 0.15);
-    border-color: rgba(201, 130, 104, 0.4);
-    transform: translateX(3px);
+    background-color: #3B2348;
+    border-color: #3B2348;
+    color: #F7F4ED;
+    transform: translateY(-1px);
 }
 
 .sa-hero__dock-idx {
     font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
-    font-size: 0.9375rem;
+    font-size: 0.8125rem;
+    color: #A65D43;
+}
+
+.sa-hero__dock-card:hover .sa-hero__dock-idx {
     color: #D8C7A5;
-    opacity: 0.85;
-}
-
-.sa-hero__dock-label-wrap {
-    flex: 1;
-}
-
-.sa-hero__dock-label {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: inherit;
 }
 
 .sa-hero__dock-arrow {
-    width: 1rem;
-    height: 1rem;
-    color: #D8C7A5;
+    width: 0.875rem;
+    height: 0.875rem;
+    color: currentColor;
     opacity: 0.7;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 .sa-hero__dock-card:hover .sa-hero__dock-arrow {
-    opacity: 1;
     transform: translate(2px, -2px);
-    color: #F7F4ED;
-}
-
-.sa-hero__dock-footer {
-    margin-top: 1.25rem;
-    padding-top: 0.875rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    font-size: 0.75rem;
-    color: rgba(247, 244, 237, 0.6);
-    text-align: center;
+    opacity: 1;
 }
