@@ -16,18 +16,21 @@
         {{-- Section Header --}}
         <div class="contact-faq__header">
             <div class="contact-faq__header-left">
-                <span class="contact-faq__script font-script">{{ $data['script_title'] }}</span>
+                <span class="contact-faq__script">{{ $data['script_title'] }}</span>
                 <h2 id="contact-faq-heading" class="contact-faq__title">
                     {!! $data['heading'] !!}
                 </h2>
             </div>
             <div class="contact-faq__header-right">
                 <div class="contact-faq__search-wrapper">
+                    <label for="contact-faq-search" class="sr-only">Search contact and accessibility FAQs</label>
                     <svg class="contact-faq__search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <circle cx="11" cy="11" r="8"/>
                         <line x1="21" x2="16.65" y1="21" y2="16.65"/>
                     </svg>
                     <input
+                        id="contact-faq-search"
+                        name="faq_search"
                         type="search"
                         aria-label="Search contact and accessibility FAQs"
                         placeholder="{{ $data['search_placeholder'] }}"

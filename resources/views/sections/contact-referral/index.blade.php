@@ -13,7 +13,7 @@
         {{-- Section Header --}}
         <div class="contact-referral__header">
             <div class="contact-referral__header-left">
-                <span class="contact-referral__script font-script">{{ $data['script_title'] }}</span>
+                <span class="contact-referral__script">{{ $data['script_title'] }}</span>
                 <h2 id="contact-referral-heading" class="contact-referral__title">
                     {!! $data['heading'] !!}
                 </h2>

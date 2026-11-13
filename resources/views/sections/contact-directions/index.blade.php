@@ -17,7 +17,7 @@
         {{-- Section Header --}}
         <div class="contact-directions__header">
             <div class="contact-directions__header-left">
-                <span class="contact-directions__script font-script">{{ $data['script_title'] }}</span>
+                <span class="contact-directions__script">{{ $data['script_title'] }}</span>
                 <h2 id="contact-directions-heading" class="contact-directions__title">
                     {!! $data['heading'] !!}
                 </h2>

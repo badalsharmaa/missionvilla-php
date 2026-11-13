@@ -33,6 +33,12 @@
         <div class="contact-hero__scrim"></div>
     </div>
 
+    {{-- Top-Right Authentic Property Provenance Badge --}}
+    <div class="contact-hero__provenance" aria-label="Photography authenticity badge">
+        <span class="contact-hero__prov-dot" aria-hidden="true"></span>
+        <span class="contact-hero__prov-text">Mission Villa facility photograph · Daly City, CA</span>
+    </div>
+
     <div class="contact-hero__content">
         <div class="contact-hero__badge">
             <span class="contact-hero__badge-dot" aria-hidden="true"></span>
@@ -204,10 +210,5 @@
                 </a>
             @endforeach
         </div>
-    </div>
-
-    {{-- Authentic Photo Provenance Badge --}}
-    <div class="contact-hero__provenance" aria-hidden="true">
-        <span class="contact-hero__provenance-badge">● Mission Villa Courtyard Patio · 995 E Market St, Daly City</span>
     </div>
 </section>

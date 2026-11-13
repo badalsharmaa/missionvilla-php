@@ -62,7 +62,10 @@ class ContactPageTest extends TestCase
         $this->assertStringContainsString('contact-hero__backdrop', $html);
         $this->assertStringContainsString('contact-hero__scrim', $html);
         $this->assertStringContainsString('contact-hero__badge', $html);
-        $this->assertStringContainsString('Mission Villa Courtyard Patio', $html);
+        $this->assertStringContainsString('contact-hero__provenance', $html);
+        $this->assertStringContainsString('contact-hero__prov-dot', $html);
+        $this->assertStringContainsString('contact-hero__prov-text', $html);
+        $this->assertStringContainsString('Mission Villa facility photograph · Daly City, CA', $html);
 
         // Phone, Email, Address
         $this->assertStringContainsString('650-756-1995', $html);
@@ -103,11 +106,14 @@ class ContactPageTest extends TestCase
         $this->assertStringContainsString('Privacy &amp; Non-Clinical Form Guardrail', $html);
         $this->assertStringContainsString('never asks for medical diagnoses, medication lists, or clinical health histories', $html);
 
-        // Form Inputs
+        // Form Inputs & Accessibility
         $this->assertStringContainsString('name="full_name"', $html);
+        $this->assertStringContainsString('autocomplete="name"', $html);
         $this->assertStringContainsString('name="preferred_method"', $html);
         $this->assertStringContainsString('name="phone"', $html);
+        $this->assertStringContainsString('autocomplete="tel"', $html);
         $this->assertStringContainsString('name="email"', $html);
+        $this->assertStringContainsString('autocomplete="email"', $html);
         $this->assertStringContainsString('name="care_interest"', $html);
         $this->assertStringContainsString('name="suite_preference"', $html);
         $this->assertStringContainsString('name="preferred_window"', $html);
@@ -173,12 +179,17 @@ class ContactPageTest extends TestCase
         $html = $this->get('/contact')->assertOk()->getContent();
 
         $this->assertStringContainsString('data-faq-search', $html);
+        $this->assertStringContainsString('id="contact-faq-search"', $html);
+        $this->assertStringContainsString('for="contact-faq-search"', $html);
         $this->assertStringContainsString('data-faq-item="contact-faq-schedule-tour"', $html);
         $this->assertStringContainsString('data-faq-item="contact-faq-what-to-expect-on-tour"', $html);
         $this->assertStringContainsString('data-faq-item="contact-faq-parking-and-mobility"', $html);
         $this->assertStringContainsString('data-faq-item="contact-faq-phone-numbers"', $html);
         $this->assertStringContainsString('data-faq-item="contact-faq-no-medical-history"', $html);
         $this->assertStringContainsString('data-faq-item="contact-faq-digital-accessibility"', $html);
+
+        // Zero legacy font-script classes
+        $this->assertStringNotContainsString('font-script', $html, 'Legacy undefined font-script class must not be present');
 
         // Bridges
         $this->assertStringContainsString('For Families &amp; Visit Questions Guide', $html);

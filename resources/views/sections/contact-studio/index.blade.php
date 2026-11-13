@@ -189,6 +189,7 @@
                                     name="full_name"
                                     type="text"
                                     required
+                                    autocomplete="name"
                                     placeholder="e.g., Elena Martinez"
                                     class="contact-studio__input"
                                 />
@@ -215,6 +216,7 @@
                                     id="contact-phone"
                                     name="phone"
                                     type="tel"
+                                    autocomplete="tel"
                                     placeholder="(650) 555-0199"
                                     class="contact-studio__input"
                                 />
@@ -229,6 +231,7 @@
                                     id="contact-email"
                                     name="email"
                                     type="email"
+                                    autocomplete="email"
                                     placeholder="you@example.com"
                                     class="contact-studio__input"
                                 />

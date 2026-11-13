@@ -14,7 +14,7 @@
         {{-- Section Header --}}
         <div class="contact-workflow__header">
             <div class="contact-workflow__header-left">
-                <span class="contact-workflow__script font-script">{{ $data['script_title'] }}</span>
+                <span class="contact-workflow__script">{{ $data['script_title'] }}</span>
                 <h2 id="contact-workflow-heading" class="contact-workflow__title">
                     {!! $data['heading'] !!}
                 </h2>
