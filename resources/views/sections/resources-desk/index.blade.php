@@ -14,7 +14,7 @@
         {{-- Section Header & Search --}}
         <div class="res-desk__header-grid">
             <div class="res-desk__header-copy">
-                <span class="res-desk__kicker font-script">{{ $data['eyebrow'] }}</span>
+                <span class="res-desk__kicker">{{ $data['eyebrow'] }}</span>
                 <h2 id="resource-desk-heading" class="res-desk__title">
                     {!! $data['heading'] !!}
                 </h2>

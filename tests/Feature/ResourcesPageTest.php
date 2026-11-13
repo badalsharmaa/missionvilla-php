@@ -61,7 +61,10 @@ class ResourcesPageTest extends TestCase
         $this->assertStringContainsString('res-hero__scrim', $html);
         $this->assertStringContainsString('res-hero__badge', $html);
         $this->assertStringContainsString('res-hero__strip', $html);
-        $this->assertStringContainsString('Mission Villa Sitting Nook', $html);
+        $this->assertStringContainsString('res-hero__provenance', $html);
+        $this->assertStringContainsString('res-hero__prov-dot', $html);
+        $this->assertStringContainsString('res-hero__prov-text', $html);
+        $this->assertStringContainsString('Mission Villa facility photograph · Daly City, CA', $html);
 
         $this->assertSame(4, substr_count($html, 'data-hero-folio='));
         $this->assertStringContainsString('FOLIO 01', $html);
@@ -165,6 +168,9 @@ class ResourcesPageTest extends TestCase
         // DOCX & Architecture Rule: honest non-delivery notice, zero false promises
         $this->assertStringContainsString('Submissions save locally while we finalize direct staff notifications', $html);
         $this->assertStringNotContainsString('Our community director will reach out promptly', $html);
+
+        // Zero legacy font-script classes
+        $this->assertStringNotContainsString('font-script', $html, 'Legacy undefined font-script class must not be present');
     }
 
     public function test_schemas_validate_required_fields_and_reject_bad_data(): void

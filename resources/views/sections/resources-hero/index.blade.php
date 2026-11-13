@@ -30,6 +30,12 @@
         <div class="res-hero__scrim"></div>
     </div>
 
+    {{-- Top-Right Authentic Property Provenance Badge --}}
+    <div class="res-hero__provenance" aria-label="Photography authenticity badge">
+        <span class="res-hero__prov-dot" aria-hidden="true"></span>
+        <span class="res-hero__prov-text">Mission Villa facility photograph · Daly City, CA</span>
+    </div>
+
     <div class="res-hero__content">
         <div class="res-hero__badge">
             <span class="res-hero__badge-dot" aria-hidden="true"></span>
@@ -149,10 +155,5 @@
                 </a>
             @endforeach
         </div>
-    </div>
-
-    {{-- Authentic Photo Provenance Badge --}}
-    <div class="res-hero__provenance" aria-hidden="true">
-        <span class="res-hero__provenance-badge">● Mission Villa Sitting Nook · 995 E Market St, Daly City</span>
     </div>
 </section>

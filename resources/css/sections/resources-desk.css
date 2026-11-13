@@ -53,10 +53,13 @@
 }
 
 .res-desk__kicker {
-    display: block;
-    font-size: 1.5rem;
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(1.125rem, 1.5vw, 1.35rem);
+    font-style: italic;
+    font-weight: 500;
     line-height: 1.2;
     color: #C98268;
+    display: block;
 }
 
 .res-desk__title {

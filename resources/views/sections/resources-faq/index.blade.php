@@ -15,7 +15,7 @@
             {{-- Left 4 Columns: Header, Search & Filter --}}
             <div class="res-faq__sidebar">
                 <div class="res-faq__header">
-                    <span class="res-faq__kicker font-script">{{ $data['eyebrow'] }}</span>
+                    <span class="res-faq__kicker">{{ $data['eyebrow'] }}</span>
                     <h2 id="resources-faqs-heading" class="res-faq__title">
                         {!! $data['heading'] !!}
                     </h2>

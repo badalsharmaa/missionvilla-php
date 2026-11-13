@@ -16,7 +16,7 @@
             {{-- Left 5 Columns: Explanation & Guardrails --}}
             <div class="res-blog__story">
                 <div class="res-blog__header">
-                    <span class="res-blog__kicker font-script">{{ $data['eyebrow'] }}</span>
+                    <span class="res-blog__kicker">{{ $data['eyebrow'] }}</span>
                     <h2 id="blog-inventory-heading" class="res-blog__title">
                         {!! $data['heading'] !!}
                     </h2>

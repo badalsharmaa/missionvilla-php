@@ -16,7 +16,7 @@
             {{-- Left 5 Columns: Brochure Status Card --}}
             <div class="res-packet__story">
                 <div class="res-packet__header">
-                    <span class="res-packet__kicker font-script">{{ $data['eyebrow'] }}</span>
+                    <span class="res-packet__kicker">{{ $data['eyebrow'] }}</span>
                     <h2 id="brochure-packet-heading" class="res-packet__title">
                         {!! $data['heading'] !!}
                     </h2>
