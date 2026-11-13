@@ -562,7 +562,7 @@ return [
                 'form' => [
                     'enabled' => true,
                     'heading' => 'Financial Planning & Cost Inquiry',
-                    'lede' => 'Our community director will reach out promptly to review assessment factors, suite options, and personalized pricing.',
+                    'lede' => 'Submissions save locally while we finalize direct staff notifications. For immediate assistance or current availability, please call us directly at (650) 756-1995.',
                 ],
             ],
         ],

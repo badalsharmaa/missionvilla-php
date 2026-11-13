@@ -145,6 +145,14 @@ class FinancialPlanningPageTest extends TestCase
         $this->assertStringContainsString('data-inquiry-source="visit-cta"', $html);
         $this->assertStringContainsString('data-inquiry-source="fp-worksheet"', $html);
         $this->assertStringContainsString('href="tel:16507561995"', $html);
+
+        // Honest non-delivery notice in closing CTA
+        $this->assertStringContainsString('Submissions save locally while we finalize direct staff notifications', $html);
+        $this->assertStringNotContainsString('Our community director will reach out promptly', $html);
+
+        // Cinematic hero provenance
+        $this->assertStringContainsString('fp-hero__provenance-badge', $html);
+        $this->assertStringContainsString('Mission Villa facility photograph · Daly City, CA', $html);
     }
 
     public function test_schemas_validate_required_fields_and_reject_bad_data(): void
