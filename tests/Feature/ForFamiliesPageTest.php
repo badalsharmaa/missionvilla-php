@@ -93,15 +93,31 @@ class ForFamiliesPageTest extends TestCase
         $this->assertStringContainsString('id="inv-tab-staying-connected"', $html);
         $this->assertStringContainsString('id="inv-tab-evolving-partnership"', $html);
 
-        // Verified facility images
+        // Verified images across chapters
         $this->assertStringContainsString('/images/care/memory-care-companion-1122.webp', $html);
         $this->assertStringContainsString('/images/suites/suite-bedroom-facility-899.webp', $html);
         $this->assertStringContainsString('/images/suites/community-lounge-facility-899.webp', $html);
         $this->assertStringContainsString('/images/why-families/courtyard-patio-facility-1024.webp', $html);
 
-        // Verified provenance badges
-        $this->assertStringContainsString('ff-inv__prov-pill', $html);
+        // Strict provenance distinction: Chapter 01 is illustrative; Chapters 02-04 are authentic facility photos
+        $this->assertStringContainsString('ILLUSTRATIVE COMMUNITY PHOTO', $html);
+        $this->assertStringContainsString('Illustrative photograph', $html);
+        $this->assertStringContainsString('MISSION VILLA PROPERTY PHOTO', $html);
         $this->assertStringContainsString('Mission Villa facility photograph · Daly City, CA', $html);
+        $this->assertStringContainsString('ff-inv__prov-pill', $html);
+    }
+
+    public function test_hero_and_sections_have_no_orphan_font_script_classes(): void
+    {
+        $html = $this->get('/for-families')->assertOk()->getContent();
+
+        // Hero top-right provenance badge
+        $this->assertStringContainsString('class="ff-hero__provenance"', $html);
+        $this->assertStringContainsString('class="ff-hero__prov-dot"', $html);
+        $this->assertStringContainsString('Mission Villa facility photograph · Daly City, CA', $html);
+
+        // No residual/orphan font-script classes
+        $this->assertStringNotContainsString('font-script', $html);
     }
 
     public function test_grouped_faqs_renders_all_twelve_items_across_four_categories(): void

@@ -14,7 +14,7 @@
         {{-- Header --}}
         <div class="ff-guide__header">
             <div class="ff-guide__header-lead">
-                <span class="ff-guide__kicker font-script">{{ $data['eyebrow'] }}</span>
+                <span class="ff-guide__kicker">{{ $data['eyebrow'] }}</span>
                 <h2 id="ff-guide-heading" class="ff-guide__title">
                     {!! $data['heading'] !!}
                 </h2>

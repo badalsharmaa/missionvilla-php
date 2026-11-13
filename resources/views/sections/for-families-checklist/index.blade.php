@@ -14,7 +14,7 @@
         {{-- Header & Selected Actions --}}
         <div class="ff-check__header">
             <div class="ff-check__header-copy">
-                <span class="ff-check__kicker font-script">{{ $data['eyebrow'] }}</span>
+                <span class="ff-check__kicker">{{ $data['eyebrow'] }}</span>
                 <h2 id="ff-check-heading" class="ff-check__title">
                     {!! $data['heading'] !!}
                 </h2>

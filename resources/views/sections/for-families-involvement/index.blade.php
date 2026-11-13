@@ -13,7 +13,7 @@
         {{-- Header & Chapter Tabs --}}
         <div class="ff-inv__header">
             <div class="ff-inv__header-copy">
-                <span class="ff-inv__kicker font-script">{{ $data['eyebrow'] }}</span>
+                <span class="ff-inv__kicker">{{ $data['eyebrow'] }}</span>
                 <h2 id="ff-inv-heading" class="ff-inv__title">
                     {!! $data['heading'] !!}
                 </h2>

@@ -16,7 +16,7 @@
         {{-- Header & Expand/Collapse Controls --}}
         <div class="ff-faq__header">
             <div class="ff-faq__header-copy">
-                <span class="ff-faq__kicker font-script">{{ $data['eyebrow'] }}</span>
+                <span class="ff-faq__kicker">{{ $data['eyebrow'] }}</span>
                 <h2 id="ff-faq-heading" class="ff-faq__title">
                     {!! $data['heading'] !!}
                 </h2>

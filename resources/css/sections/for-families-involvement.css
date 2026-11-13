@@ -29,23 +29,17 @@
     border-bottom: 1px solid rgba(59, 35, 72, 0.15);
 }
 
-@media (min-width: 1024px) {
-    .ff-inv__header {
-        flex-direction: row;
-        align-items: flex-end;
-        justify-content: space-between;
-    }
-}
-
 .ff-inv__header-copy {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    max-width: 46rem;
+    gap: 0.625rem;
+    max-width: 54rem;
 }
 
 .ff-inv__kicker {
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(1.125rem, 1.5vw, 1.35rem);
+    font-style: italic;
     color: #C98268;
     line-height: 1.2;
 }

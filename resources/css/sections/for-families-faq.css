@@ -42,7 +42,9 @@
 }
 
 .ff-faq__kicker {
-    font-size: clamp(1.4rem, 2vw, 1.75rem);
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(1.125rem, 1.5vw, 1.35rem);
+    font-style: italic;
     color: var(--mv-terracotta, #C98268);
     display: block;
 }
