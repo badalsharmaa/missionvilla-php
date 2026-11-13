@@ -580,7 +580,7 @@ return [
                 'form' => [
                     'enabled' => true,
                     'heading' => 'Resources & Family Packet Inquiry',
-                    'lede' => 'Our community director will reach out promptly to answer your questions and arrange your personal tour packet.',
+                    'lede' => 'Submissions save locally while we finalize direct staff notifications. For immediate assistance or current availability, please call us directly at (650) 756-1995.',
                 ],
             ],
         ],

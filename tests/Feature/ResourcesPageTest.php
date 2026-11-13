@@ -54,6 +54,15 @@ class ResourcesPageTest extends TestCase
     {
         $html = $this->get('/resources')->assertOk()->getContent();
 
+        // Full-bleed cinematic hero elements
+        $this->assertStringContainsString('class="res-hero"', $html);
+        $this->assertStringContainsString('res-hero__backdrop', $html);
+        $this->assertStringContainsString('sitting-nook-detail.webp', $html);
+        $this->assertStringContainsString('res-hero__scrim', $html);
+        $this->assertStringContainsString('res-hero__badge', $html);
+        $this->assertStringContainsString('res-hero__strip', $html);
+        $this->assertStringContainsString('Mission Villa Sitting Nook', $html);
+
         $this->assertSame(4, substr_count($html, 'data-hero-folio='));
         $this->assertStringContainsString('FOLIO 01', $html);
         $this->assertStringContainsString('FOLIO 02', $html);
@@ -152,6 +161,10 @@ class ResourcesPageTest extends TestCase
         $this->assertStringContainsString('data-inquiry-source="res-packet"', $html);
         $this->assertStringContainsString('data-inquiry-source="visit-cta"', $html);
         $this->assertStringContainsString('href="tel:16507561995"', $html);
+
+        // DOCX & Architecture Rule: honest non-delivery notice, zero false promises
+        $this->assertStringContainsString('Submissions save locally while we finalize direct staff notifications', $html);
+        $this->assertStringNotContainsString('Our community director will reach out promptly', $html);
     }
 
     public function test_schemas_validate_required_fields_and_reject_bad_data(): void
