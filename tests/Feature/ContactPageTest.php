@@ -57,6 +57,13 @@ class ContactPageTest extends TestCase
     {
         $html = $this->get('/contact')->assertOk()->getContent();
 
+        // Full-bleed cinematic hero elements
+        $this->assertStringContainsString('class="contact-hero"', $html);
+        $this->assertStringContainsString('contact-hero__backdrop', $html);
+        $this->assertStringContainsString('contact-hero__scrim', $html);
+        $this->assertStringContainsString('contact-hero__badge', $html);
+        $this->assertStringContainsString('Mission Villa Courtyard Patio', $html);
+
         // Phone, Email, Address
         $this->assertStringContainsString('650-756-1995', $html);
         $this->assertStringContainsString('href="tel:16507561995"', $html);
@@ -236,5 +243,14 @@ class ContactPageTest extends TestCase
 
         $this->expectException(InvalidSectionData::class);
         $schema->normalize(['faqs' => []]);
+    }
+
+    public function test_closing_cta_displays_honest_notice_and_no_false_promises(): void
+    {
+        $html = $this->get('/contact')->assertOk()->getContent();
+
+        // DOCX Section 6 & 10: Honest non-delivery notice, zero false promises
+        $this->assertStringContainsString('Submissions save locally while we finalize direct staff notifications', $html);
+        $this->assertStringNotContainsString('Our Daly City community director will reach out promptly', $html);
     }
 }

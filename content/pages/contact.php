@@ -39,7 +39,7 @@ return [
                 'eyebrow' => 'Direct Community Desk · Phone, Guided Inquiry & Arrival Guide',
                 'license' => 'CA License #415601046',
                 'script_title' => 'A Warm Welcome in Daly City',
-                'heading' => 'Reach Out to Our Team or Schedule an Unhurried Personal Visit.',
+                'heading' => 'Reach Out to Our Team or Schedule an <em>Unhurried Personal Visit.</em>',
                 'lead' => 'Whether you are exploring <a href="/memory-care" class="underline decoration-[#C98268] underline-offset-4 font-semibold text-[#3B2348] hover:text-[#C98268] transition">Legacies™ Memory Care</a> for a loved one living with Alzheimer’s or dementia, planning a short-term <a href="/respite-care" class="underline decoration-[#C98268] underline-offset-4 font-semibold text-[#3B2348] hover:text-[#C98268] transition">Respite Care</a> stay, or simply want to walk through our suites and dining room in person, our team at <strong class="text-[#3B2348]">995 East Market Street, Daly City, CA 94014</strong> is here to listen and help without pressure.',
                 'phone' => [
                     'raw' => '650-756-1995',
@@ -594,7 +594,7 @@ return [
                 'form' => [
                     'enabled' => true,
                     'heading' => 'Schedule a Visit or Send an Inquiry',
-                    'lede' => 'Our Daly City community director will reach out promptly to confirm your visit time or answer questions.',
+                    'lede' => 'Submissions save locally while we finalize direct staff notifications. For immediate assistance or current availability, please call us directly at (650) 756-1995.',
                 ],
             ],
         ],
