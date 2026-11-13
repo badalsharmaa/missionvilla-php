@@ -6,6 +6,8 @@ tests
 .phpunit.cache
 .env
 .env.*
+public/hot
+/public/hot
 storage/logs/*
 storage/framework/cache/*
 storage/framework/sessions/*
