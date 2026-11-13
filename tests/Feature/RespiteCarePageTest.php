@@ -262,4 +262,15 @@ class RespiteCarePageTest extends TestCase
         unset($badData['guide']);
         $schema->normalize($badData);
     }
+
+    public function test_respite_care_closing_cta_displays_honest_notice_and_no_false_promises(): void
+    {
+        $response = $this->get('/respite-care');
+
+        $response->assertOk()
+            ->assertSee('Submissions save locally while we finalize direct staff notifications.', false)
+            ->assertSee('call us directly at (650) 756-1995', false)
+            ->assertDontSee('will be in touch soon to discuss availability', false)
+            ->assertDontSee('will reach out promptly', false);
+    }
 }

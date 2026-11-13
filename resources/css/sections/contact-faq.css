@@ -53,7 +53,8 @@
 }
 
 .contact-faq__script {
-    font-family: 'Allura', cursive;
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
     font-size: clamp(2rem, 3.5vw, 2.5rem);
     color: #C98268;
     line-height: 1.1;

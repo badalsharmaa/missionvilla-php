@@ -85,7 +85,7 @@ return [
             'general_inquiry' => [
                 'kind' => 'general_inquiry', 'label' => 'Ask a general question',
                 'title' => 'How Can We Help Your Family?',
-                'lede' => 'Tell us how to reach you and what you’d like to know. A member of our team will be in touch.',
+                'lede' => 'Tell us how to reach you and what you’d like to know. Submissions save locally while direct notifications are finalized.',
                 'submit' => 'Send Request',
             ],
         ],

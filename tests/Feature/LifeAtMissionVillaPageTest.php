@@ -205,4 +205,15 @@ class LifeAtMissionVillaPageTest extends TestCase
         unset($badData['faqs']);
         $schema->normalize($badData);
     }
+
+    public function test_life_at_mission_villa_closing_cta_displays_honest_notice_and_no_false_promises(): void
+    {
+        $response = $this->get('/life-at-mission-villa');
+
+        $response->assertOk()
+            ->assertSee('Submissions save locally while we finalize direct staff notifications.', false)
+            ->assertSee('call us directly at (650) 756-1995', false)
+            ->assertDontSee('our Daly City care team will be in touch soon', false)
+            ->assertDontSee('will reach out promptly', false);
+    }
 }

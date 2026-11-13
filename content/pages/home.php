@@ -487,7 +487,7 @@ return [
                 'form' => [
                     'enabled' => true,
                     'heading' => 'Request Information or Schedule a Visit',
-                    'lede' => 'Have a question or want to see Mission Villa in person? Let us know a few details, and our team will be in touch.',
+                    'lede' => 'Submissions save locally while we finalize direct staff notifications. For immediate assistance or current availability, please call us directly at (650) 756-1995.',
                 ],
             ],
         ],

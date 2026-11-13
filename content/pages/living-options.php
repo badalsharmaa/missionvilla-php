@@ -416,7 +416,7 @@ return [
                 'form' => [
                     'enabled' => true,
                     'heading' => 'Living Options Inquiry',
-                    'lede' => 'A member of our Daly City care team will be in touch soon to answer your questions.',
+                    'lede' => 'Submissions save locally while we finalize direct staff notifications. For immediate assistance or current availability, please call us directly at (650) 756-1995.',
                 ],
             ],
         ],

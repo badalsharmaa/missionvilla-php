@@ -54,7 +54,7 @@
         {{-- Primary Action Buttons --}}
         <div class="contact-hero__actions">
             <a
-                href="#schedule-visit"
+                href="{{ $phone['href'] }}"
                 class="contact-hero__btn contact-hero__btn--primary"
                 data-inquiry="schedule_visit"
                 data-care="exploring"

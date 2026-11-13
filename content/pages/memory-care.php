@@ -437,7 +437,7 @@ return [
                 'form' => [
                     'enabled' => true,
                     'heading' => 'Request Information or Schedule a Visit',
-                    'lede' => 'Have a question about Legacies™ Memory Care or want to visit in person? Share a few details, and our Daly City team will reach out.',
+                    'lede' => 'Submissions save locally while we finalize direct staff notifications. For immediate assistance or current availability, please call us directly at (650) 756-1995.',
                 ],
             ],
         ],

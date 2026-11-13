@@ -184,4 +184,15 @@ class MemoryCarePageTest extends TestCase
         $this->assertStringContainsString('name="care_interest" value="memory_care"', $html);
         $this->assertStringContainsString('data-instance="inline"', $html);
     }
+
+    public function test_memory_care_closing_cta_displays_honest_notice_and_no_false_promises(): void
+    {
+        $response = $this->get('/memory-care');
+
+        $response->assertOk()
+            ->assertSee('Submissions save locally while we finalize direct staff notifications.', false)
+            ->assertSee('call us directly at (650) 756-1995', false)
+            ->assertDontSee('our Daly City team will reach out', false)
+            ->assertDontSee('will reach out promptly', false);
+    }
 }

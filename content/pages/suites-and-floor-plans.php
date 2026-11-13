@@ -363,7 +363,7 @@ return [
                 'form' => [
                     'enabled' => true,
                     'heading' => 'Suite & Floor Plan Inquiry',
-                    'lede' => 'Our Daly City care coordinator will connect with you to discuss room availability and move-in options.',
+                    'lede' => 'Submissions save locally while we finalize direct staff notifications. For immediate assistance or current availability, please call us directly at (650) 756-1995.',
                 ],
             ],
         ],

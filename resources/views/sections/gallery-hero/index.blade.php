@@ -9,10 +9,32 @@
     @vite(['resources/css/sections/gallery-hero.css'])
 @endpush
 {{--
-    GALLERY SECTION 01 · EXHIBITION HERO
+    GALLERY SECTION 01 · OPTION A CINEMATIC PHOTO HERO
 --}}
 <section class="gh-hero" aria-labelledby="gh-hero-heading" data-gh-hero>
-    <div class="gh-hero__glow" aria-hidden="true"></div>
+    {{-- Full-Bleed Photographic Background Stage --}}
+    <div class="gh-hero__backdrop" aria-hidden="true">
+        <picture>
+            <img
+                src="{{ asset('images/property/sitting-nook-detail.webp') }}"
+                alt=""
+                width="1600"
+                height="1067"
+                class="gh-hero__bg-img"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+            >
+        </picture>
+        <div class="gh-hero__scrim"></div>
+    </div>
+
+    {{-- Top-Right Authentic Property Provenance Badge --}}
+    <div class="gh-hero__provenance" aria-label="Photography authenticity badge">
+        <span class="gh-hero__prov-dot" aria-hidden="true"></span>
+        <span class="gh-hero__prov-text">MISSION VILLA · ARCHIVAL PROPERTY PHOTOGRAPHY</span>
+    </div>
+
     <div class="gh-hero__inner">
         {{-- Top Bar: Breadcrumbs --}}
         <div class="gh-hero__topbar">

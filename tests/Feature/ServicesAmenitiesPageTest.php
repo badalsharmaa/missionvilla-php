@@ -214,4 +214,14 @@ class ServicesAmenitiesPageTest extends TestCase
         unset($badData['programs']);
         $schema->normalize($badData);
     }
+
+    public function test_services_amenities_closing_cta_displays_honest_notice_and_no_false_promises(): void
+    {
+        $response = $this->get('/services-and-amenities');
+
+        $response->assertOk()
+            ->assertSee('Submissions save locally while we finalize direct staff notifications.', false)
+            ->assertSee('call us directly at (650) 756-1995', false)
+            ->assertDontSee('will reach out promptly', false);
+    }
 }

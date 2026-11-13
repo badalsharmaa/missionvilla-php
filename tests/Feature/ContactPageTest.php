@@ -78,6 +78,7 @@ class ContactPageTest extends TestCase
 
         // 4 Quick Section Links & Modal Form CTA
         $this->assertStringContainsString('data-inquiry="schedule_visit"', $html);
+        $this->assertStringContainsString('class="contact-hero__btn contact-hero__btn--primary"', $html);
         $this->assertStringContainsString('href="#schedule-visit"', $html);
         $this->assertStringContainsString('href="#map-and-directions"', $html);
         $this->assertStringContainsString('href="#what-happens-next"', $html);

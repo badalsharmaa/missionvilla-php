@@ -12,10 +12,32 @@
     @vite(['resources/css/sections/about-hero.css'])
 @endpush
 {{--
-    ABOUT SECTION 01 · COMMUNITY MONOGRAPH HERO
+    ABOUT SECTION 01 · OPTION A CINEMATIC PHOTO HERO
 --}}
 <section class="about-hero" aria-labelledby="about-hero-heading" data-about-hero id="about-hero">
-    <div class="about-hero__glow" aria-hidden="true"></div>
+    {{-- Full-Bleed Photographic Background Stage --}}
+    <div class="about-hero__backdrop" aria-hidden="true">
+        <picture>
+            <img
+                src="{{ asset('images/why-families/courtyard-patio-facility-1024.webp') }}"
+                alt=""
+                width="1024"
+                height="683"
+                class="about-hero__bg-img"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+            >
+        </picture>
+        <div class="about-hero__scrim"></div>
+    </div>
+
+    {{-- Top-Right Authentic Property Provenance Badge --}}
+    <div class="about-hero__provenance" aria-label="Photography authenticity badge">
+        <span class="about-hero__prov-dot" aria-hidden="true"></span>
+        <span class="about-hero__prov-text">MISSION VILLA · COURTYARD PATIO PHOTOGRAPH</span>
+    </div>
+
     <div class="about-hero__inner">
         {{-- Top Bar: Breadcrumbs & Licensing --}}
         <div class="about-hero__topbar">
@@ -36,7 +58,7 @@
             {{-- Left Column: Mission Statement, Trust Ledger, and Conversion CTAs --}}
             <div class="about-hero__copy">
                 <div class="about-hero__heading-group">
-                    <span class="about-hero__tagline font-script">{{ $data['tagline'] }}</span>
+                    <span class="about-hero__tagline italic text-mv-terracotta">{{ $data['tagline'] }}</span>
                     <h1 id="about-hero-heading" class="about-hero__title">
                         {!! $data['heading'] !!}
                     </h1>

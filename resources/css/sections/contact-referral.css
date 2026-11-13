@@ -53,7 +53,8 @@
 }
 
 .contact-referral__script {
-    font-family: 'Allura', cursive;
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
     font-size: clamp(2rem, 3.5vw, 2.5rem);
     color: #A65D43;
     line-height: 1.1;

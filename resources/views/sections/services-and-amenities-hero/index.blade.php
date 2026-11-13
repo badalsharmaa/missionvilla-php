@@ -8,10 +8,31 @@
     @vite(['resources/css/sections/services-and-amenities-hero.css'])
 @endpush
 {{--
-    SERVICES & AMENITIES SECTION 01 · CONSERVATORY PLUM HERO
+    SERVICES & AMENITIES SECTION 01 · OPTION A CINEMATIC PHOTO HERO
 --}}
 <section class="sa-hero" aria-labelledby="sa-hero-heading" data-sa-hero>
-    <div class="sa-hero__glow" aria-hidden="true"></div>
+    {{-- Full-Bleed Photographic Background Stage --}}
+    <div class="sa-hero__backdrop" aria-hidden="true">
+        <picture>
+            <img
+                src="{{ asset('images/suites/community-lounge-facility-899.webp') }}"
+                alt=""
+                width="899"
+                height="600"
+                class="sa-hero__bg-img"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+            >
+        </picture>
+        <div class="sa-hero__scrim"></div>
+    </div>
+
+    {{-- Top-Right Authentic Facility Provenance Badge --}}
+    <div class="sa-hero__provenance" aria-label="Photography authenticity badge">
+        <span class="sa-hero__prov-dot" aria-hidden="true"></span>
+        <span class="sa-hero__prov-text">MISSION VILLA · COMMUNITY LOUNGE FACILITY PHOTO</span>
+    </div>
 
     <div class="sa-hero__inner">
         {{-- Top Bar: Breadcrumbs --}}

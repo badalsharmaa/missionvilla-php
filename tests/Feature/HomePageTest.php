@@ -108,4 +108,15 @@ class HomePageTest extends TestCase
             ->assertSee('<meta name="description"', false)
             ->assertSee('<meta property="og:image"', false);
     }
+
+    public function test_homepage_closing_cta_displays_honest_notice_and_no_false_promises(): void
+    {
+        $response = $this->get('/?skipIntro=1');
+
+        $response->assertOk()
+            ->assertSee('Submissions save locally while we finalize direct staff notifications.', false)
+            ->assertSee('call us directly at (650) 756-1995', false)
+            ->assertDontSee('our team will be in touch', false)
+            ->assertDontSee('will reach out promptly', false);
+    }
 }

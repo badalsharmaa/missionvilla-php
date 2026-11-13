@@ -186,4 +186,15 @@ class SuitesFloorPlansPageTest extends TestCase
         unset($badData['help_card']);
         $schema->normalize($badData);
     }
+
+    public function test_suites_floor_plans_closing_cta_displays_honest_notice_and_no_false_promises(): void
+    {
+        $response = $this->get('/suites-and-floor-plans');
+
+        $response->assertOk()
+            ->assertSee('Submissions save locally while we finalize direct staff notifications.', false)
+            ->assertSee('call us directly at (650) 756-1995', false)
+            ->assertDontSee('will connect with you to discuss room availability', false)
+            ->assertDontSee('will reach out promptly', false);
+    }
 }

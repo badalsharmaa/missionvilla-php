@@ -515,7 +515,7 @@ return [
                 'form' => [
                     'enabled' => true,
                     'heading' => 'Respite Care Inquiry',
-                    'lede' => 'A member of our team will be in touch soon to discuss availability and next steps.',
+                    'lede' => 'Submissions save locally while we finalize direct staff notifications. For immediate assistance or current availability, please call us directly at (650) 756-1995.',
                 ],
             ],
         ],

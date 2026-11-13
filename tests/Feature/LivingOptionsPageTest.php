@@ -287,4 +287,15 @@ class LivingOptionsPageTest extends TestCase
         unset($badData['help_card']);
         $schema->normalize($badData);
     }
+
+    public function test_living_options_closing_cta_displays_honest_notice_and_no_false_promises(): void
+    {
+        $response = $this->get('/living-options');
+
+        $response->assertOk()
+            ->assertSee('Submissions save locally while we finalize direct staff notifications.', false)
+            ->assertSee('call us directly at (650) 756-1995', false)
+            ->assertDontSee('our Daly City care team will be in touch soon', false)
+            ->assertDontSee('will reach out promptly', false);
+    }
 }
