@@ -1,219 +1,116 @@
-/* ==========================================================================
-   FOR FAMILIES SECTION 01 · EMPATHETIC PLUM HERO & COMPANION FOLIO
-   Deep plum canvas (#241624), Newsreader serif, 12-column asymmetric layout
-   ========================================================================== */
-
+/*
+ * FOR FAMILIES HERO SECTION · CINEMATIC DESIGN STANDARD
+ * Adheres strictly to Mission Villa design standard tokens:
+ * - Gutters: var(--mv-gutter, 76px / 72px / 68px / 38px / 24px)
+ * - Fonts: Newsreader (heading), Plus Jakarta Sans (body)
+ * - Colors: Deep Plum (#241624), Warm Cream (#FAF6F0), Terracotta (#C86D51)
+ */
 .ff-hero {
     position: relative;
-    width: 100%;
+    min-height: calc(100svh - 4.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: calc(6rem + var(--mv-gutter, 4rem)) var(--mv-gutter, 4.75rem) 4rem;
+    overflow: hidden;
     background-color: #241624;
     color: #FAF6F0;
-    border-bottom: 1px solid rgba(216, 199, 165, 0.25);
-    padding: clamp(3rem, 5.5vw, 5rem) var(--mv-gutter, clamp(1.25rem, 4vw, 4.75rem));
-    padding-top: calc(var(--site-header-height, 5.5rem) + clamp(1.5rem, 3vw, 2.5rem));
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
 }
 
-@media (max-width: 1023px) {
-    .ff-hero {
-        padding-top: calc(var(--site-header-height, 4.5rem) + 1.5rem);
-    }
-}
-
-.ff-hero__glow {
+.ff-hero__backdrop {
     position: absolute;
     inset: 0;
-    pointer-events: none;
-    background:
-        radial-gradient(ellipse 650px 400px at 15% 15%, rgba(201, 130, 104, 0.18), transparent 70%),
-        radial-gradient(ellipse 700px 420px at 85% 40%, rgba(143, 175, 120, 0.14), transparent 72%);
-    z-index: 0;
+    z-index: 1;
 }
 
-.ff-hero__inner {
-    position: relative;
-    z-index: 1;
+.ff-hero__bg-img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.82) saturate(1.08);
+}
+
+.ff-hero__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(36, 22, 36, 0.45) 0%,
+        rgba(36, 22, 36, 0.75) 55%,
+        rgba(36, 22, 36, 0.94) 100%
+    );
+}
+
+.ff-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 58rem;
     display: flex;
     flex-direction: column;
-    flex: 1;
-    justify-content: space-between;
-    gap: 2rem;
-}
-
-/* Top bar: Breadcrumb & Licensing */
-.ff-hero__topbar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    font-size: 0.8125rem;
-}
-
-.ff-hero__breadcrumbs {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: rgba(247, 244, 237, 0.75);
-}
-
-.ff-hero__crumb {
-    color: inherit;
-    text-decoration: underline;
-    text-decoration-color: rgba(201, 130, 104, 0.5);
-    text-underline-offset: 3px;
-    transition: color 0.2s ease;
-}
-
-.ff-hero__crumb:hover {
-    color: #FAF6F0;
-}
-
-.ff-hero__crumb--active {
-    color: #FAF6F0;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.ff-hero__crumb-sep {
-    opacity: 0.5;
+    gap: 1.25rem;
 }
 
 .ff-hero__badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.75rem;
-    color: #F0D9C8;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    padding: 0.35rem 0.85rem;
+    padding: 0.375rem 0.875rem;
     border-radius: 9999px;
+    background-color: rgba(250, 246, 240, 0.12);
+    border: 1px solid rgba(250, 246, 240, 0.22);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-size: 0.8125rem;
     font-weight: 600;
-}
-
-.ff-hero__badge-label {
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-}
-
-.ff-hero__badge-license {
-    font-weight: 700;
     letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #F0D9C8;
+    width: fit-content;
 }
 
-/* 12-Column Grid */
-.ff-hero__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: clamp(2rem, 4vw, 3.5rem);
-    align-items: start;
-}
-
-@media (min-width: 1024px) {
-    .ff-hero__grid {
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: clamp(2.5rem, 5vw, 4.5rem);
-    }
-}
-
-.ff-hero__copy {
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-}
-
-.ff-hero__heading-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-}
-
-.ff-hero__tagline {
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    font-size: clamp(1.125rem, 1.8vw, 1.4rem);
-    color: #EDBE96;
+.ff-hero__badge-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: #C86D51;
 }
 
 .ff-hero__title {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2.25rem, 4vw + 1rem, 3.35rem);
     font-weight: 600;
-    line-height: 1.12;
-    letter-spacing: -0.015em;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
     color: #FAF6F0;
     margin: 0;
-    text-wrap: balance;
 }
 
 .ff-hero__title em {
     font-style: italic;
-    font-weight: 400;
-    color: #C98268;
+    font-weight: 500;
+    color: #F0D9C8;
 }
 
-.ff-hero__lead {
-    font-size: clamp(1rem, 1.25vw, 1.125rem);
-    line-height: 1.65;
-    color: rgba(247, 244, 237, 0.85);
-    margin-top: 0.5rem;
-    max-width: 62ch;
+.ff-hero__editorial {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.125rem, 1.5vw + 0.5rem, 1.45rem);
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.4;
+    color: #E6D8D0;
+    margin: 0;
 }
 
-/* 3 Pillars Strip */
-.ff-hero__pillars {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    padding: 1.5rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+.ff-hero__intro {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(0.9375rem, 0.5vw + 0.75rem, 1.0625rem);
+    line-height: 1.6;
+    color: #D6C7BF;
+    max-width: 48rem;
+    margin: 0;
 }
 
-@media (min-width: 640px) {
-    .ff-hero__pillars {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-    }
-}
-
-.ff-hero__pillar {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    padding-left: 1rem;
-    border-left: 2px solid #C98268;
-}
-
-.ff-hero__pillar-code {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #D8C7A5;
-}
-
-.ff-hero__pillar-title {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #FAF6F0;
-}
-
-.ff-hero__pillar-summary {
-    font-size: 0.8125rem;
-    line-height: 1.5;
-    color: rgba(247, 244, 237, 0.75);
-}
-
-/* Actions */
 .ff-hero__actions {
     display: flex;
     flex-wrap: wrap;
@@ -225,233 +122,148 @@
 .ff-hero__btn {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 0.625rem;
     padding: 0.875rem 1.625rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
+    border-radius: 0.5rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9375rem;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.ff-hero__btn-icon {
-    width: 1rem;
-    height: 1rem;
-    flex-shrink: 0;
+    transition: all 0.2s ease-in-out;
+    border: none;
 }
 
 .ff-hero__btn--primary {
-    background-color: #C98268;
-    color: #FFFFFF;
-    border: 1px solid #C98268;
-    box-shadow: 0 4px 14px rgba(201, 130, 104, 0.35);
+    background-color: #C86D51;
+    color: #FAF6F0;
+    box-shadow: 0 4px 14px rgba(200, 109, 81, 0.35);
 }
 
 .ff-hero__btn--primary:hover {
-    background-color: #3B2348;
-    border-color: #D8C7A5;
+    background-color: #B55D42;
     transform: translateY(-1px);
 }
 
-.ff-hero__btn--jump {
-    background-color: rgba(255, 255, 255, 0.08);
+.ff-hero__btn--secondary {
+    background-color: rgba(250, 246, 240, 0.12);
     color: #FAF6F0;
-    border: 1px solid rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(250, 246, 240, 0.28);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
-.ff-hero__btn--jump:hover {
-    background-color: rgba(255, 255, 255, 0.16);
-    border-color: #FAF6F0;
+.ff-hero__btn--secondary:hover {
+    background-color: rgba(250, 246, 240, 0.22);
+    border-color: rgba(250, 246, 240, 0.45);
 }
 
-/* Visuals Column: Folio */
-.ff-hero__visuals {
-    width: 100%;
+.ff-hero__btn--phone {
+    background-color: transparent;
+    color: #F0D9C8;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
 }
 
-.ff-hero__folio {
-    border-radius: 20px;
-    overflow: hidden;
-    background-color: #1A0D22;
-    border: 1px solid rgba(216, 199, 165, 0.35);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+.ff-hero__btn--phone:hover {
+    color: #FAF6F0;
+}
+
+.ff-hero__strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(250, 246, 240, 0.16);
+}
+
+.ff-hero__strip-item {
     display: flex;
-    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
 }
 
-.ff-hero__folio-header {
+.ff-hero__strip-icon {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.5rem;
+    background-color: rgba(250, 246, 240, 0.1);
+    color: #F0D9C8;
+    flex-shrink: 0;
 }
 
-.ff-hero__folio-titles {
+.ff-hero__strip-text {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
 }
 
-.ff-hero__folio-eyebrow {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #EDBE96;
-}
-
-.ff-hero__folio-heading {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #FAF6F0;
-    margin: 0;
-}
-
-.ff-hero__folio-phone {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: #D8C7A5;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.ff-hero__folio-phone:hover {
-    color: #FFFFFF;
-}
-
-.ff-hero__folio-phone-icon {
-    width: 0.875rem;
-    height: 0.875rem;
-}
-
-/* Property Photo Plate */
-.ff-hero__folio-media {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-}
-
-.ff-hero__folio-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.9);
-}
-
-.ff-hero__folio-scrim {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(26, 13, 34, 0.2) 0%, rgba(26, 13, 34, 0.9) 100%);
-}
-
-.ff-hero__folio-caption-box {
-    position: absolute;
-    bottom: 0.875rem;
-    left: 1rem;
-    right: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    color: #FAF6F0;
-}
-
-.ff-hero__folio-tag {
-    font-size: 0.625rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #EDBE96;
-}
-
-.ff-hero__folio-quote {
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    font-size: 0.875rem;
-    line-height: 1.4;
-    color: #FAF6F0;
-    margin: 0;
-}
-
-/* Quick Jump Index */
-.ff-hero__folio-index {
-    display: flex;
-    flex-direction: column;
-}
-
-.ff-hero__folio-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.875rem 1.25rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    text-decoration: none;
-    color: inherit;
-    transition: background-color 0.2s ease;
-}
-
-.ff-hero__folio-row:last-child {
-    border-bottom: none;
-}
-
-.ff-hero__folio-row:hover {
-    background-color: rgba(201, 130, 104, 0.15);
-}
-
-.ff-hero__folio-row-main {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-}
-
-.ff-hero__folio-num {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 0.9375rem;
-    font-weight: 700;
-    color: #EDBE96;
-}
-
-.ff-hero__folio-texts {
-    display: flex;
-    flex-direction: column;
-}
-
-.ff-hero__folio-title {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: #FAF6F0;
-}
-
-.ff-hero__folio-meta {
-    font-size: 0.6875rem;
-    color: rgba(247, 244, 237, 0.7);
-}
-
-.ff-hero__folio-arrow {
-    width: 0.875rem;
-    height: 0.875rem;
-    color: #C98268;
-    transition: transform 0.2s ease;
-}
-
-.ff-hero__folio-row:hover .ff-hero__folio-arrow {
-    transform: translate(2px, -2px);
-}
-
-/* Bottom Strip */
-.ff-hero__footer {
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+.ff-hero__strip-kicker {
     font-size: 0.75rem;
-    color: rgba(247, 244, 237, 0.75);
-    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #C86D51;
+}
+
+.ff-hero__strip-title {
+    font-family: 'Newsreader', serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #FAF6F0;
+    line-height: 1.25;
+}
+
+.ff-hero__strip-desc {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: #C2B3AB;
+}
+
+.ff-hero__provenance {
+    position: absolute;
+    bottom: 1.5rem;
+    right: var(--mv-gutter, 4.75rem);
+    z-index: 2;
+}
+
+.ff-hero__provenance-badge {
+    display: inline-block;
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.25rem;
+    background-color: rgba(36, 22, 36, 0.75);
+    border: 1px solid rgba(250, 246, 240, 0.18);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    color: #D6C7BF;
+}
+
+@media (max-width: 1024px) {
+    .ff-hero__strip {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .ff-hero {
+        padding: calc(5rem + 2rem) 1.5rem 2.5rem;
+    }
+
+    .ff-hero__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ff-hero__btn {
+        justify-content: center;
+    }
+
+    .ff-hero__provenance {
+        display: none;
+    }
 }

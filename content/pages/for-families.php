@@ -32,7 +32,7 @@ return [
                 'eyebrow' => 'Family Guidance Monograph · Decision Guide & FAQs',
                 'license' => 'CA License #415601046',
                 'tagline' => 'Guidance for the Whole Family',
-                'heading' => 'A Calm, Honest Companion for Families Navigating Care Decisions.',
+                'heading' => 'A Calm, Honest Companion for Families <em>Navigating Care Decisions.</em>',
                 'lead' => 'Beginning a conversation about <a href="/memory-care" class="underline decoration-[#C98268] font-semibold text-[#3B2348]">Legacies™ Memory Care</a> or a temporary <a href="/respite-care" class="underline decoration-[#C98268] font-semibold text-[#3B2348]">Respite Care</a> stay is rarely just a logistical checklist—it is an act of love and stewardship for a parent, spouse, or relative. We created this family guide to help you weigh care options, prepare meaningful questions for your Daly City visit, and find straightforward answers on suites, transitions, and <a href="/financial-planning" class="underline decoration-[#C98268] font-semibold text-[#3B2348]">financial planning</a>.',
                 'pillars' => [
                     [
