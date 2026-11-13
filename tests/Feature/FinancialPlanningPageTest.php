@@ -150,9 +150,14 @@ class FinancialPlanningPageTest extends TestCase
         $this->assertStringContainsString('Submissions save locally while we finalize direct staff notifications', $html);
         $this->assertStringNotContainsString('Our community director will reach out promptly', $html);
 
-        // Cinematic hero provenance
-        $this->assertStringContainsString('fp-hero__provenance-badge', $html);
+        // Standardized top-right hero provenance badge
+        $this->assertStringContainsString('fp-hero__provenance', $html);
+        $this->assertStringContainsString('fp-hero__prov-dot', $html);
+        $this->assertStringContainsString('fp-hero__prov-text', $html);
         $this->assertStringContainsString('Mission Villa facility photograph · Daly City, CA', $html);
+
+        // Zero legacy font-script classes
+        $this->assertStringNotContainsString('font-script', $html, 'Legacy undefined font-script class must not be present');
     }
 
     public function test_schemas_validate_required_fields_and_reject_bad_data(): void

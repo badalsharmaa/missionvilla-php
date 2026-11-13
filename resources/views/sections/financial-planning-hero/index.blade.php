@@ -32,6 +32,12 @@
         <div class="fp-hero__scrim"></div>
     </div>
 
+    {{-- Top-Right Authentic Property Provenance Badge --}}
+    <div class="fp-hero__provenance" aria-label="Photography authenticity badge">
+        <span class="fp-hero__prov-dot" aria-hidden="true"></span>
+        <span class="fp-hero__prov-text">Mission Villa facility photograph · Daly City, CA</span>
+    </div>
+
     <div class="fp-hero__content">
         <div class="fp-hero__badge">
             <span class="fp-hero__badge-dot" aria-hidden="true"></span>
@@ -132,9 +138,5 @@
                 @endforeach
             </div>
         @endif
-    </div>
-
-    <div class="fp-hero__provenance">
-        <span class="fp-hero__provenance-badge">Mission Villa facility photograph · Daly City, CA</span>
     </div>
 </section>

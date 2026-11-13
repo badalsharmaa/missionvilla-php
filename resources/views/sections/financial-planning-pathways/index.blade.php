@@ -12,7 +12,7 @@
     <div class="fp-pathways__inner">
         {{-- Section Header --}}
         <div class="fp-pathways__header">
-            <span class="fp-pathways__kicker font-script">{{ $data['eyebrow'] }}</span>
+            <span class="fp-pathways__kicker">{{ $data['eyebrow'] }}</span>
             <h2 id="fp-pathways-heading" class="fp-pathways__title">
                 {!! $data['heading'] !!}
             </h2>

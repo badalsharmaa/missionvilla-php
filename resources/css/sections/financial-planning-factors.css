@@ -25,8 +25,12 @@
 }
 
 .fp-factors__kicker {
-    font-size: clamp(1.4rem, 2vw, 1.75rem);
+    font-family: var(--mv-font-serif, "Newsreader", Georgia, serif);
+    font-size: clamp(1.125rem, 1.5vw, 1.35rem);
+    font-style: italic;
+    font-weight: 500;
     color: var(--mv-terracotta, #C98268);
+    line-height: 1.2;
     display: block;
 }
 

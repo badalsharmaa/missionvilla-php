@@ -14,7 +14,7 @@
         {{-- Header & Total Count --}}
         <div class="fp-inc__header">
             <div class="fp-inc__header-copy">
-                <span class="fp-inc__kicker font-script">{{ $data['eyebrow'] }}</span>
+                <span class="fp-inc__kicker">{{ $data['eyebrow'] }}</span>
                 <h2 id="fp-inc-heading" class="fp-inc__title">
                     {!! $data['heading'] !!}
                 </h2>

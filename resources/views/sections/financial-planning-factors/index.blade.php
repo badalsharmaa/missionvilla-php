@@ -12,7 +12,7 @@
     <div class="fp-factors__inner">
         {{-- Section Header --}}
         <div class="fp-factors__header">
-            <span class="fp-factors__kicker font-script">{{ $data['eyebrow'] }}</span>
+            <span class="fp-factors__kicker">{{ $data['eyebrow'] }}</span>
             <h2 id="fp-factors-heading" class="fp-factors__title">
                 {!! $data['heading'] !!}
             </h2>

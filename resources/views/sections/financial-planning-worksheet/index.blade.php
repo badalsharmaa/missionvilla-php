@@ -13,7 +13,7 @@
         {{-- Section Top Header & Mode Switcher --}}
         <div class="fp-sheet__header">
             <div class="fp-sheet__header-copy">
-                <span class="fp-sheet__kicker font-script">{{ $data['eyebrow'] }}</span>
+                <span class="fp-sheet__kicker">{{ $data['eyebrow'] }}</span>
                 <h2 id="fp-sheet-heading" class="fp-sheet__title">
                     {!! $data['heading'] !!}
                 </h2>

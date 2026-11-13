@@ -13,7 +13,7 @@
         {{-- Section Header --}}
         <div class="fp-faq__header">
             <div class="fp-faq__header-copy">
-                <span class="fp-faq__kicker font-script">{{ $data['eyebrow'] }}</span>
+                <span class="fp-faq__kicker">{{ $data['eyebrow'] }}</span>
                 <h2 id="fp-faq-heading" class="fp-faq__title">
                     {!! $data['heading'] !!}
                 </h2>
