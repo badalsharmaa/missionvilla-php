@@ -665,7 +665,7 @@ return [
                 'form' => [
                     'enabled' => true,
                     'heading' => 'Family Guidance & Visit Inquiry',
-                    'lede' => 'Our community director will reach out promptly to answer your questions and arrange a personal walkthrough.',
+                    'lede' => 'Submissions save locally while we finalize direct staff notifications. For immediate assistance or current availability, please call us directly at (650) 756-1995.',
                 ],
             ],
         ],

@@ -98,6 +98,10 @@ class ForFamiliesPageTest extends TestCase
         $this->assertStringContainsString('/images/suites/suite-bedroom-facility-899.webp', $html);
         $this->assertStringContainsString('/images/suites/community-lounge-facility-899.webp', $html);
         $this->assertStringContainsString('/images/why-families/courtyard-patio-facility-1024.webp', $html);
+
+        // Verified provenance badges
+        $this->assertStringContainsString('ff-inv__prov-pill', $html);
+        $this->assertStringContainsString('Mission Villa facility photograph · Daly City, CA', $html);
     }
 
     public function test_grouped_faqs_renders_all_twelve_items_across_four_categories(): void
@@ -138,6 +142,10 @@ class ForFamiliesPageTest extends TestCase
         $this->assertStringContainsString('data-inquiry-source="ff-bridge"', $html);
         $this->assertStringContainsString('data-inquiry-source="ff-faq"', $html);
         $this->assertStringContainsString('href="tel:16507561995"', $html);
+
+        // Honest non-delivery notice in closing CTA
+        $this->assertStringContainsString('Submissions save locally while we finalize direct staff notifications', $html);
+        $this->assertStringNotContainsString('Our community director will reach out promptly', $html);
     }
 
     public function test_schema_validates_required_fields_and_rejects_bad_data(): void

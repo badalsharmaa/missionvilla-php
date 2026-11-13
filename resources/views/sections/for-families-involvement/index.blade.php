@@ -64,8 +64,17 @@
                             >
                             <div class="ff-inv__media-scrim" aria-hidden="true"></div>
 
-                            <div class="ff-inv__media-cutout">
-                                <span>{{ $chap['step_number'] }} · {{ $chap['kicker'] }}</span>
+                            <div class="ff-inv__media-top">
+                                <div class="ff-inv__media-cutout">
+                                    <span>{{ $chap['step_number'] }} · {{ $chap['kicker'] }}</span>
+                                </div>
+
+                                @if (!empty($chap['image']['provenance']))
+                                    <div class="ff-inv__prov-pill">
+                                        <span class="ff-inv__prov-dot ff-inv__prov-dot--{{ $chap['image']['provenance'] === 'facility' ? 'facility' : 'illustrative' }}" aria-hidden="true"></span>
+                                        <span>{{ $chap['image']['provenance'] === 'facility' ? 'Mission Villa facility photograph · Daly City, CA' : 'Illustrative photograph' }}</span>
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="ff-inv__media-caption-box">
