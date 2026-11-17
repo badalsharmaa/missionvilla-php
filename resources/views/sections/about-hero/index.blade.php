@@ -32,24 +32,24 @@
         <div class="about-hero__scrim"></div>
     </div>
 
-    {{-- Top-Right Authentic Property Provenance Badge --}}
-    <div class="about-hero__provenance" aria-label="Photography authenticity badge">
-        <span class="about-hero__prov-dot" aria-hidden="true"></span>
-        <span class="about-hero__prov-text">MISSION VILLA · COURTYARD PATIO PHOTOGRAPH</span>
-    </div>
-
     <div class="about-hero__inner">
-        {{-- Top Bar: Breadcrumbs & Licensing --}}
+        {{-- Top Bar: Breadcrumbs, Provenance & Licensing --}}
         <div class="about-hero__topbar">
             <nav aria-label="Breadcrumb" class="about-hero__breadcrumbs">
                 <a href="/" class="about-hero__crumb">Home</a>
                 <span class="about-hero__crumb-sep" aria-hidden="true">/</span>
                 <span class="about-hero__crumb about-hero__crumb--active" aria-current="page">About Us</span>
             </nav>
-            <div class="about-hero__badge">
-                <span class="about-hero__badge-label">{{ $data['eyebrow'] }}</span>
-                <span class="about-hero__badge-dot" aria-hidden="true">·</span>
-                <span class="about-hero__badge-license">{{ $data['license'] }}</span>
+            <div class="about-hero__topbar-meta">
+                <div class="about-hero__provenance" aria-label="Photography authenticity badge">
+                    <span class="about-hero__prov-dot" aria-hidden="true"></span>
+                    <span class="about-hero__prov-text">MISSION VILLA · COURTYARD PATIO PHOTOGRAPH</span>
+                </div>
+                <div class="about-hero__badge">
+                    <span class="about-hero__badge-label">{{ $data['eyebrow'] }}</span>
+                    <span class="about-hero__badge-dot" aria-hidden="true">·</span>
+                    <span class="about-hero__badge-license">{{ $data['license'] }}</span>
+                </div>
             </div>
         </div>
 

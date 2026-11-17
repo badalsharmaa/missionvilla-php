@@ -530,7 +530,17 @@
   }
   .wf-value + .wf-value { border-left: 1px solid rgba(237, 190, 150, 0.2); }
   .wf-value__icon { width: clamp(1.9rem, 2.1vw, 2.4rem); height: clamp(1.9rem, 2.1vw, 2.4rem); margin-bottom: 0.3rem; }
-  .wf__caption { right: auto; left: 31%; bottom: calc(var(--wf-wave) + 0.6rem); }
+  .wf__caption {
+    left: auto;
+    right: var(--wf-gutter);
+    top: 1.5rem;
+    bottom: auto;
+    background: rgba(47, 18, 40, 0.72);
+    border: 1px solid rgba(251, 245, 239, 0.18);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
 }
 
 @media (min-width: 1200px) and (max-width: 1439px) {

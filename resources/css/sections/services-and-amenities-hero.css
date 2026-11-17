@@ -44,11 +44,8 @@
     );
 }
 
-/* --- Top-Right Provenance Tag --- */
+/* --- Provenance Tag --- */
 .sa-hero__provenance {
-    position: absolute;
-    top: clamp(1rem, 2.5vw, 1.75rem);
-    right: var(--mv-gutter, clamp(1.25rem, 4vw, 4.75rem));
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -63,7 +60,13 @@
     text-transform: uppercase;
     color: rgba(247, 244, 237, 0.85);
     font-weight: 500;
-    z-index: 3;
+}
+
+.sa-hero__topbar-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
 }
 
 .sa-hero__prov-dot {

@@ -28,14 +28,8 @@
         <div class="sa-hero__scrim"></div>
     </div>
 
-    {{-- Top-Right Authentic Facility Provenance Badge --}}
-    <div class="sa-hero__provenance" aria-label="Photography authenticity badge">
-        <span class="sa-hero__prov-dot" aria-hidden="true"></span>
-        <span class="sa-hero__prov-text">MISSION VILLA · COMMUNITY LOUNGE FACILITY PHOTO</span>
-    </div>
-
     <div class="sa-hero__inner">
-        {{-- Top Bar: Breadcrumbs --}}
+        {{-- Top Bar: Breadcrumbs & Provenance --}}
         <div class="sa-hero__topbar">
             <nav aria-label="Breadcrumb" class="sa-hero__breadcrumbs">
                 <a href="/" class="sa-hero__crumb">Home</a>
@@ -44,10 +38,16 @@
                 <span class="sa-hero__crumb-sep" aria-hidden="true">·</span>
                 <span class="sa-hero__crumb sa-hero__crumb--active" aria-current="page">Services &amp; Amenities</span>
             </nav>
-            <div class="sa-hero__badge">
-                <span>Daly City, CA</span>
-                <span class="sa-hero__badge-dot" aria-hidden="true"></span>
-                <span>RCFE #415601046</span>
+            <div class="sa-hero__topbar-meta">
+                <div class="sa-hero__provenance" aria-label="Photography authenticity badge">
+                    <span class="sa-hero__prov-dot" aria-hidden="true"></span>
+                    <span class="sa-hero__prov-text">MISSION VILLA · COMMUNITY LOUNGE FACILITY PHOTO</span>
+                </div>
+                <div class="sa-hero__badge">
+                    <span>Daly City, CA</span>
+                    <span class="sa-hero__badge-dot" aria-hidden="true"></span>
+                    <span>RCFE #415601046</span>
+                </div>
             </div>
         </div>
 

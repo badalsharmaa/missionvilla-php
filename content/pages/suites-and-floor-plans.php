@@ -202,7 +202,7 @@ return [
                     'image' => [
                         'src' => '/images/suites/companion-suite-floorplan-1000.webp',
                         'width' => 1000,
-                        'height' => 750,
+                        'height' => 660,
                         'alt' => 'Mission Villa Companion Unit floor plan showing two private beds and en-suite bath',
                         'provenance' => 'facility',
                         'rights' => 'cleared',

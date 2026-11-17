@@ -47,11 +47,8 @@
     );
 }
 
-/* --- Top-Right Provenance Tag --- */
+/* --- Provenance Tag --- */
 .about-hero__provenance {
-    position: absolute;
-    top: clamp(1rem, 2.5vw, 1.75rem);
-    right: var(--mv-gutter, clamp(1.25rem, 4vw, 4.75rem));
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -66,7 +63,6 @@
     text-transform: uppercase;
     color: rgba(247, 244, 237, 0.85);
     font-weight: 500;
-    z-index: 3;
 }
 
 .about-hero__prov-dot {
@@ -75,6 +71,13 @@
     border-radius: 50%;
     background: #C98268;
     box-shadow: 0 0 6px rgba(201, 130, 104, 0.6);
+}
+
+.about-hero__topbar-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
 }
 
 @media (max-width: 1023px) {

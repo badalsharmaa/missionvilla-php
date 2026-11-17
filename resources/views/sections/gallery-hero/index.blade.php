@@ -29,14 +29,8 @@
         <div class="gh-hero__scrim"></div>
     </div>
 
-    {{-- Top-Right Authentic Property Provenance Badge --}}
-    <div class="gh-hero__provenance" aria-label="Photography authenticity badge">
-        <span class="gh-hero__prov-dot" aria-hidden="true"></span>
-        <span class="gh-hero__prov-text">MISSION VILLA · ARCHIVAL PROPERTY PHOTOGRAPHY</span>
-    </div>
-
     <div class="gh-hero__inner">
-        {{-- Top Bar: Breadcrumbs --}}
+        {{-- Top Bar: Breadcrumbs & Provenance --}}
         <div class="gh-hero__topbar">
             <nav aria-label="Breadcrumb" class="gh-hero__breadcrumbs">
                 <a href="/" class="gh-hero__crumb">Home</a>
@@ -45,10 +39,16 @@
                 <span class="gh-hero__crumb-sep" aria-hidden="true">·</span>
                 <span class="gh-hero__crumb gh-hero__crumb--active" aria-current="page">Gallery &amp; Virtual Tour</span>
             </nav>
-            <div class="gh-hero__badge">
-                <span>Visual Monograph</span>
-                <span class="gh-hero__badge-dot" aria-hidden="true"></span>
-                <span>Daly City, CA</span>
+            <div class="gh-hero__topbar-meta">
+                <div class="gh-hero__provenance" aria-label="Photography authenticity badge">
+                    <span class="gh-hero__prov-dot" aria-hidden="true"></span>
+                    <span class="gh-hero__prov-text">MISSION VILLA · ARCHIVAL PROPERTY PHOTOGRAPHY</span>
+                </div>
+                <div class="gh-hero__badge">
+                    <span>Visual Monograph</span>
+                    <span class="gh-hero__badge-dot" aria-hidden="true"></span>
+                    <span>Daly City, CA</span>
+                </div>
             </div>
         </div>
 

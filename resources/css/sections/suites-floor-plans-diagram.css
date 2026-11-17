@@ -198,7 +198,7 @@
     display: flex;
     align-items: flex-start;
     gap: 0.875rem;
-    padding: 1rem 1.25rem;
+    padding: 1.1rem 1.35rem;
     border-radius: 0.5rem;
     background-color: #F5EFEB;
     border-left: 3px solid #C86D51;
@@ -213,7 +213,9 @@
 .sfp-diagram__disclosure-body {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.35rem;
+    min-width: 0;
+    flex: 1;
 }
 
 .sfp-diagram__disclosure-badge {
@@ -226,9 +228,12 @@
 
 .sfp-diagram__disclosure-text {
     font-size: 0.8125rem;
-    line-height: 1.45;
+    line-height: 1.55;
     color: #4A3A48;
     margin: 0;
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
 .sfp-diagram__action-bar {

@@ -137,6 +137,9 @@ body:has(.site-header[data-variant="solid"]) main {
   list-style: none;
   transition: gap 0.32s var(--header-ease);
 }
+@media (min-width: 1280px) and (max-width: 1399.98px) {
+  .site-nav { gap: clamp(0.6rem, 0.85vw, 0.95rem); }
+}
 .site-header.is-compact .site-nav { gap: clamp(0.8rem, 1vw, 1.25rem); }
 
 .site-nav__item { position: relative; }
