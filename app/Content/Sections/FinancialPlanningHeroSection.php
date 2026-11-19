@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Validator;
  */
 final class FinancialPlanningHeroSection implements SectionSchema
 {
-    public const ICONS = ['calendar', 'calculator', 'list', 'help', 'arrow-down'];
+    public const ICONS = ['calendar', 'calculator', 'list', 'help', 'arrow-down', 'file-text'];
 
     public static function type(): string
     {

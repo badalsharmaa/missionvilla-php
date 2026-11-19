@@ -72,7 +72,7 @@ final class CareOptionsSection implements SectionSchema
             'cards.*.cta.style' => ['required', 'in:'.implode(',', self::CTA_STYLES)],
             'cards.*.back.kicker' => ['required', 'string', 'max:36'],
             'cards.*.back.statement' => ['required', 'string', 'max:130'],
-            'cards.*.back.benefits' => ['required', 'array', 'size:3'],
+            'cards.*.back.benefits' => ['required', 'array', 'between:2,3'],
             'cards.*.back.benefits.*.icon' => $icon,
             'cards.*.back.benefits.*.text' => ['required', 'string', 'max:56'],
             'cards.*.back.audience_label' => ['required', 'string', 'max:30'],

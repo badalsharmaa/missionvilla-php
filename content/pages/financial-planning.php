@@ -15,10 +15,10 @@
 
 return [
     'slug' => 'financial-planning',
-    'title' => 'Financial Planning & Pricing Clarity | Mission Villa Senior Living',
+    'title' => 'Memory Care & Respite Care Costs | Mission Villa',
     'seo' => [
-        'title' => 'Financial Planning & Cost Clarity: Memory Care in Daly City | Mission Villa',
-        'description' => 'Understand the four factors that shape Memory Care and Respite Care pricing in Daly City. Review typical inclusions and use our blank Paper-Ledger Worksheet.',
+        'title' => 'Memory Care & Respite Care Costs | Mission Villa',
+        'description' => 'Learn what can affect Memory Care and Respite Care pricing at Mission Villa in Daly City and request a personalized cost discussion.',
         'og_image' => '/images/property/dining-room.webp',
     ],
     'sections' => [
@@ -28,11 +28,11 @@ return [
             'enabled' => true,
             'order' => 10,
             'data' => [
-                'eyebrow' => 'Financial Planning & Cost Clarity · Daly City, California',
+                'eyebrow' => 'Financial Planning',
                 'license' => 'CA License #415601046',
                 'tagline' => 'Assessment-Informed Care Pricing',
-                'heading' => 'Understanding the Cost of Memory Care & Respite Care with <em>Clarity and Empathy</em>.',
-                'lead' => 'Planning for specialized <a href="/memory-care" class="underline decoration-[#C98268] font-semibold text-[#3B2348]">Memory Care</a> or a short-term <a href="/respite-care" class="underline decoration-[#C98268] font-semibold text-[#3B2348]">Respite Care</a> stay is one of the most important financial conversations a family will ever have. Because every resident’s daily support needs, routines, and suite preferences differ, generic rate cards and automated online calculators can be deeply misleading. We believe families deserve honest, personalized pricing grounded in an individualized care assessment and transparent review of grouped monthly inclusions.',
+                'heading' => 'Let\'s make the costs easier to understand.',
+                'lead' => 'Choosing senior care involves practical questions about price. We\'ll help your family understand how care needs, suite options, and stay length can affect the cost.',
                 'pillars' => [
                     [
                         'code' => '01 · Assessment-Informed',
@@ -52,11 +52,11 @@ return [
                 ],
                 'actions' => [
                     [
-                        'label' => 'Schedule a Tour Visit',
+                        'label' => 'Request Pricing',
                         'style' => 'primary',
-                        'icon' => 'calendar',
-                        'intent' => 'schedule_visit',
-                        'care' => 'memory_care',
+                        'icon' => 'file-text',
+                        'intent' => 'request_pricing',
+                        'care' => 'exploring',
                     ],
                     [
                         'label' => 'Paper Ledger ↓',
@@ -121,16 +121,16 @@ return [
             'enabled' => true,
             'order' => 20,
             'data' => [
-                'eyebrow' => 'Transparent Structure',
-                'heading' => 'The 4 Factors That Shape Senior Living Costs',
+                'eyebrow' => 'Cost Factors',
+                'heading' => 'What goes into a quote?',
                 'intro' => 'Rather than publishing an arbitrary flat fee, Mission Villa structures monthly pricing around four clear, verifiable factors. Understanding how these factors interact helps your family plan thoughtfully.',
                 'factors' => [
                     [
                         'id' => 'care-assessment',
                         'index' => 'Factor 01',
                         'kicker' => 'Individualized Support Level',
-                        'title' => 'Assessment-Informed Personal Care Needs',
-                        'subtitle' => 'Tailored around the daily support your loved one actually needs',
+                        'title' => 'Care needs',
+                        'subtitle' => 'The assistance your loved one requires, based on an individual review.',
                         'explanation' => 'No two residents experience Alzheimer’s disease or dementia in the exact same way. Rather than publishing a one-size-fits-all rate online, Mission Villa conducts a thoughtful care assessment to understand your loved one’s daily routines, personal care needs, mobility, and Legacies™ Memory Care preferences.',
                         'what_we_review_together' => [
                             'Level of daily assistance with bathing, dressing, grooming, and personal hygiene',
@@ -145,8 +145,8 @@ return [
                         'id' => 'suite-selection',
                         'index' => 'Factor 02',
                         'kicker' => 'Accommodation Format',
-                        'title' => 'Suite Layout & Shared vs. Private Living',
-                        'subtitle' => 'Private Suite, Companion Unit, or Jack & Jill floor-plan formats',
+                        'title' => 'Suite choice',
+                        'subtitle' => 'Private, companion, or another available accommodation.',
                         'explanation' => 'Accommodation costs vary depending on the suite format your family selects. Some families prefer the quiet sanctuary of an individual Private Suite, while others value the shared camaraderie and cost structure of a Companion Unit or Jack & Jill arrangement—each featuring an attached private bathroom.',
                         'what_we_review_together' => [
                             'Private Suite with dedicated sleeping/living area and attached private bathroom',
@@ -161,8 +161,8 @@ return [
                         'id' => 'stay-horizon',
                         'index' => 'Factor 03',
                         'kicker' => 'Program & Stay Duration',
-                        'title' => 'Long-Term Memory Care vs. Short-Term Respite Stays',
-                        'subtitle' => 'Ongoing residential living or temporary caregiver relief',
+                        'title' => 'Length of stay',
+                        'subtitle' => 'Ongoing Memory Care or short-term Respite Care.',
                         'explanation' => 'Financial planning looks different when preparing for a permanent move into Memory Care versus arranging a short-term Respite Care stay of a few days to several weeks while a primary family caregiver rests, travels, or recovers.',
                         'what_we_review_together' => [
                             'Monthly residential planning for ongoing Legacies™ Memory Care living',
@@ -177,8 +177,8 @@ return [
                         'id' => 'optional-services',
                         'index' => 'Factor 04',
                         'kicker' => 'Clarity on Everyday vs. Optional Items',
-                        'title' => 'Included Community Living vs. Personal Add-Ons',
-                        'subtitle' => 'Understanding what is part of base care versus optional conveniences',
+                        'title' => 'Additional services',
+                        'subtitle' => 'Any optional services or special arrangements not included in the quoted rate.',
                         'explanation' => 'A clear financial conversation separates everyday community inclusions—such as housing, three daily chef-prepared meals, housekeeping, laundry, and daily activities—from optional personal services or specialized requests that may carry separate charges.',
                         'what_we_review_together' => [
                             'Core residential inclusions (suite, utilities, dining, housekeeping, laundry, activities)',
@@ -199,9 +199,9 @@ return [
             'enabled' => true,
             'order' => 30,
             'data' => [
-                'eyebrow' => 'Grouped Inclusions',
-                'heading' => 'What Is Typically Included in Monthly Living',
-                'intro' => 'Monthly living at Mission Villa consolidates housing, chef-prepared dining, 24-hour staff availability, and life enrichment into a predictable monthly investment. Filter by category below to explore typical inclusions.',
+                'eyebrow' => 'Understanding Inclusions',
+                'heading' => 'Ask what\'s included.',
+                'intro' => 'The submitted community materials describe meals, housekeeping, laundry, daily activities, and on-site staff support. Your written quote should explain which of these are included, what level of personal care is covered, and whether any extras apply.',
                 'categories' => [
                     'All Categories',
                     'Housing & Suite Comfort',
@@ -321,9 +321,9 @@ return [
             'enabled' => true,
             'order' => 40,
             'data' => [
-                'eyebrow' => 'Interactive Paper-Ledger Comparison',
-                'heading' => 'Comparing Current Household Costs With Community Living',
-                'intro' => 'A meaningful comparison looks at the complete picture of home living expenses—housing, food, utilities, maintenance, and private caregiving hours. Use our blank paper-ledger worksheet below to enter your family’s actual monthly costs.',
+                'eyebrow' => 'Optional Cost Worksheet',
+                'heading' => 'Comparing care costs?',
+                'intro' => 'You may find it helpful to total monthly expenses at home, including housing, meals, utilities, transportation, and outside caregiving.',
                 'instructions' => 'Enter your current monthly household amounts into the blank fields below. The ledger will calculate your total estimated monthly home-living expenditure in real time. We never pre-fill fake numbers or claim guaranteed savings.',
                 'rows' => [
                     [
@@ -406,7 +406,7 @@ return [
         [
             'key' => 'fp-pathways',
             'type' => 'financial-planning.pathways',
-            'enabled' => true,
+            'enabled' => false,
             'order' => 50,
             'data' => [
                 'eyebrow' => 'Planning Resources',
@@ -494,8 +494,8 @@ return [
                     [
                         'id' => 'fp-faq-why-no-online-price',
                         'category' => 'How Pricing Works',
-                        'question' => 'Why doesn’t Mission Villa list fixed monthly prices or an automated calculator online?',
-                        'answer' => 'Every resident living with Alzheimer’s or dementia has distinct daily care needs, routines, and suite preferences. Online calculators that display pre-filled estimates or promised “savings” often mislead families. Instead, our Daly City team provides straightforward, personalized pricing information after learning about your loved one and discussing available Private, Companion, or Jack & Jill suites.',
+                        'question' => 'Can I get a price before visiting?',
+                        'answer' => 'Ask the team for current starting information and the steps needed for a personalized quote.',
                     ],
                     [
                         'id' => 'fp-faq-assessment-role',
@@ -512,14 +512,14 @@ return [
                     [
                         'id' => 'fp-faq-companion-vs-private',
                         'category' => 'Inclusions & Suites',
-                        'question' => 'How do Companion Units and Jack & Jill suites help families planning a budget?',
-                        'answer' => 'For many families, our Companion Unit (shared suite) and Jack & Jill suite formats offer two benefits at once: they provide a more approachable accommodation rate than a solo Private Suite while giving residents comforting daily camaraderie and a shared private bathroom.',
+                        'question' => 'Will the cost depend on the suite?',
+                        'answer' => 'It can. Room type and assessed assistance needs may affect pricing.',
                     ],
                     [
                         'id' => 'fp-faq-ltc-insurance',
                         'category' => 'Insurance & Assistance',
-                        'question' => 'Can we use Long-Term Care Insurance, referral credits, or state assistance programs?',
-                        'answer' => 'Many families draw on Long-Term Care (LTC) insurance benefits to help pay for Memory Care or Respite Care; our team can share licensing information (CA RCFE #415601046) and care documentation to assist with your insurer’s claim process. Because referral credits and state assistance participation mentioned on our historical website are subject to change and specific eligibility rules, please ask our team to confirm current program status directly.',
+                        'question' => 'What about insurance or benefits?',
+                        'answer' => 'Policy coverage and eligibility vary. Ask your insurer about long-term care benefits and discuss documentation with our team. Do not assume Mission Villa participates in a particular payment or assistance program without confirmation.',
                     ],
                     [
                         'id' => 'fp-faq-respite-rates',
@@ -538,19 +538,19 @@ return [
             'order' => 70,
             'data' => [
                 'script' => 'Begin the Conversation',
-                'heading' => 'Schedule a Financial Planning Walkthrough in Daly City',
-                'body' => 'Meet our care leadership, tour available suites and community spaces, and receive a clear, assessment-informed pricing overview with zero pressure.',
+                'heading' => 'Get answers about the cost of care.',
+                'body' => 'Start with a conversation about your family\'s situation and current options.',
                 'show_contact' => false,
-                'care' => 'memory_care',
+                'care' => 'exploring',
                 'actions' => [
                     [
                         'intent' => 'request_pricing',
-                        'label' => 'Request Pricing & Guide',
+                        'label' => 'Request Pricing',
                         'icon' => 'file-text',
                     ],
                     [
                         'intent' => 'schedule_visit',
-                        'label' => 'Schedule a Tour Visit',
+                        'label' => 'Schedule a Visit',
                         'icon' => 'calendar',
                     ],
                     [

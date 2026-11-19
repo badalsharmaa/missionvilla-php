@@ -14,10 +14,10 @@
 
 return [
     'slug' => 'living-options',
-    'title' => 'Living Options: Memory Care & Respite Care | Mission Villa Senior Living',
+    'title' => 'Living Options | Memory Care & Respite Care at Mission Villa',
     'seo' => [
-        'title' => 'Living Options: Memory Care & Respite Care in Daly City | Mission Villa',
-        'description' => 'Explore living options at Mission Villa in Daly City. Dedicated Legacies™ Memory Care and short-term Respite Care with private, companion, and Jack & Jill suites.',
+        'title' => 'Living Options | Memory Care & Respite Care at Mission Villa',
+        'description' => 'Compare Legacies™ Memory Care and short-term Respite Care at Mission Villa in Daly City and explore suite formats.',
         'og_image' => '/images/suites/suite-bedroom-facility-899.webp',
     ],
     'sections' => [
@@ -27,10 +27,10 @@ return [
             'enabled' => true,
             'order' => 10,
             'data' => [
-                'eyebrow' => 'Living Options at Mission Villa',
-                'heading' => 'Comfortable Living, <em>Personalized Support.</em>',
+                'eyebrow' => 'Living Options',
+                'heading' => 'Two care options. One welcoming community.',
                 'editorial' => 'Two dedicated care paths in a welcoming, homelike Daly City setting.',
-                'intro' => 'Mission Villa provides ongoing Legacies™ Memory Care and flexible Short-Term Respite Care—delivering personalized daily support, private and companion suites, and peace of mind for Bay Area families.',
+                'intro' => 'Mission Villa focuses on ongoing Memory Care and short-term Respite Care in Daly City. Explore the difference and talk with our team about what your family needs.',
                 'image' => [
                     'src' => '/images/suites/suite-bedroom-facility-899.webp',
                     'src_mobile' => '/images/suites/suite-bedroom-facility-640.webp',
@@ -91,8 +91,8 @@ return [
             'enabled' => true,
             'order' => 20,
             'data' => [
-                'eyebrow' => 'CARE OPTIONS AT MISSION VILLA',
-                'heading' => 'Choose the Care That <em>Fits Your Needs.</em>',
+                'eyebrow' => 'Finding the Right Fit',
+                'heading' => 'What kind of support are you looking for?',
                 'intro' => 'Mission Villa focuses exclusively on two specialized care paths: ongoing Legacies™ Memory Care and flexible Short-Term Respite Care—each delivered in a warm, residential community.',
                 'options' => [
                     [
@@ -101,8 +101,8 @@ return [
                         'number' => 'Living Option 01',
                         'title' => 'Legacies™ Memory Care',
                         'headline' => 'Person-Centered Support for Alzheimer’s & Dementia',
-                        'lead' => 'At Mission Villa, Memory Care is not a side wing—it is the heart of our community. Through our Legacies™ Memory Care program, we honor each resident’s life story, daily rhythms, and personal dignity in a calm, homelike environment.',
-                        'key_distinction' => 'Best suited for older adults seeking an ongoing, supportive home where 24-hour staff know their personal history and provide steady daily assistance.',
+                        'lead' => 'Personal care, familiar routines, and daily opportunities for connection.',
+                        'key_distinction' => 'Ongoing residential care for someone living with Alzheimer’s disease or another form of dementia.',
                         'ideal_for' => [
                             'Older adults living with Alzheimer’s disease or other forms of dementia',
                             'Families seeking a safe, nurturing residential setting with predictable daily rhythms',
@@ -116,7 +116,7 @@ return [
                         ],
                         'suite_summary' => 'Private Suite, Companion Unit, and Jack & Jill formats — personalizable with family furnishings.',
                         'route_href' => '/memory-care',
-                        'route_label' => 'Explore Full Memory Care Details',
+                        'route_label' => 'Explore Memory Care',
                         'inquiry_intent' => 'schedule_visit',
                         'inquiry_care' => 'memory_care',
                         'inquiry_label' => 'Schedule a Tour',
@@ -137,8 +137,8 @@ return [
                         'number' => 'Living Option 02',
                         'title' => 'Short-Term Respite Care',
                         'headline' => 'Welcoming Short-Term Stays & Caregiver Peace of Mind',
-                        'lead' => 'Caring for a loved one at home takes deep devotion. Our Respite Care program offers short-term stays of a few days to several weeks—welcoming guests into the full warmth, dining, and attentive support of Mission Villa while family caregivers rest, travel, or recharge.',
-                        'key_distinction' => 'Best suited for temporary stays when a family caregiver needs dependable relief, during post-rehabilitation transitions, or as a gentle introduction to community life.',
+                        'lead' => 'A short stay with daily assistance, meals, and community life, subject to assessment and availability.',
+                        'key_distinction' => 'Temporary support while a family caregiver rests, travels, or manages responsibilities.',
                         'ideal_for' => [
                             'Primary family caregivers needing time to rest, travel, or attend to personal obligations',
                             'Older adults transitioning after an illness or rehabilitation stay who benefit from temporary 24-hour support',
@@ -152,7 +152,7 @@ return [
                         ],
                         'suite_summary' => 'Furnished short-term suite accommodations with private bathroom access.',
                         'route_href' => '/respite-care',
-                        'route_label' => 'Explore Full Respite Care Details',
+                        'route_label' => 'Explore Respite Care',
                         'inquiry_intent' => 'request_availability',
                         'inquiry_care' => 'respite_care',
                         'inquiry_label' => 'Check Stay Availability',
@@ -173,29 +173,19 @@ return [
                     'intro' => 'Key distinctions and shared foundations between our two care programs.',
                     'rows' => [
                         [
-                            'dimension' => 'Primary Purpose',
-                            'memory_care' => 'Ongoing, long-term residential support with steady daily routines for Alzheimer’s or dementia.',
-                            'respite_care' => 'Short-term stays (days to weeks) for caregiver relief, recovery, or trial experience.',
+                            'dimension' => 'Stay',
+                            'memory_care' => 'Ongoing',
+                            'respite_care' => 'Temporary',
                         ],
                         [
-                            'dimension' => 'Who It Supports',
-                            'memory_care' => 'Seniors with memory loss who benefit from 24-hour specialized care in a nurturing setting.',
-                            'respite_care' => 'Seniors cared for at home whose caregivers need relief or seniors post-rehab.',
+                            'dimension' => 'Main purpose',
+                            'memory_care' => 'Consistent memory support',
+                            'respite_care' => 'Short-term family support',
                         ],
                         [
-                            'dimension' => 'Daily Support',
-                            'memory_care' => 'Signature Legacies™ approach with personalized help for bathing, dressing, and daily life.',
-                            'respite_care' => 'Tailored daily personal care, medication assistance, and warm orientation from day one.',
-                        ],
-                        [
-                            'dimension' => 'Accommodations',
-                            'memory_care' => 'Private Suites, Companion Units, and Jack & Jill formats with private bathroom access.',
-                            'respite_care' => 'Comfortable furnished suites with private bathroom access ready for move-in.',
-                        ],
-                        [
-                            'dimension' => 'Planning & Pricing',
-                            'memory_care' => 'Assessment-based monthly pricing tailored to care level and chosen suite format.',
-                            'respite_care' => 'Flexible short-term rates based on stay duration, suite availability, and care needs.',
+                            'dimension' => 'Getting started',
+                            'memory_care' => 'Care assessment',
+                            'respite_care' => 'Care review and date availability',
                         ],
                     ],
                     'shared_foundation' => 'Both programs include 24-hour on-site staff, private bathroom access, three chef-prepared meals daily, life enrichment, housekeeping, and CA RCFE License #415601046.',
@@ -209,9 +199,9 @@ return [
             'enabled' => true,
             'order' => 30,
             'data' => [
-                'eyebrow' => 'RESIDENTIAL ACCOMMODATIONS',
-                'heading' => 'Our Suite & <em>Floor-Plan Options</em>',
-                'intro' => 'Every suite at Mission Villa is designed with comfort, safety, and personal dignity in mind. Choose from three thoughtfully arranged residential configurations—each featuring private bathroom access.',
+                'eyebrow' => 'Accommodations',
+                'heading' => 'Space to settle in.',
+                'intro' => 'Ask about private suites, companion units, and Jack & Jill arrangements. All three formats are described in the source materials as offering an attached bathroom; the team can confirm the details of available rooms.',
                 'suites' => [
                     [
                         'id' => 'private-suite',
@@ -220,7 +210,7 @@ return [
                         'title' => 'Private Suite with Private Bath',
                         'badge' => 'Memory Care & Respite Care',
                         'bathroom' => 'Dedicated en-suite private bathroom designed for accessibility and comfort.',
-                        'summary' => 'A peaceful, individual residential suite offering dedicated sleeping and sitting space alongside an attached private bathroom—ideal for residents who value personal quiet and familiar surroundings.',
+                        'summary' => 'An individual room and attached bathroom.',
                         'features' => [
                             'Private living and sleeping quarters with natural light',
                             'Attached private bathroom with supportive fixtures',
@@ -246,7 +236,7 @@ return [
                         'title' => 'Companion Unit (Shared Suite)',
                         'badge' => 'Memory Care & Respite Care',
                         'bathroom' => 'Private en-suite bathroom shared exclusively between the two suite companions.',
-                        'summary' => 'Pairs two residents in a thoughtfully arranged shared suite with a private bathroom—fostering companionship, natural socialization, and mutual reassurance.',
+                        'summary' => 'Shared accommodation with a bathroom within the suite.',
                         'features' => [
                             'Distinct personal sleeping areas within a welcoming shared suite',
                             'Space for each resident’s favorite bedding, photos, and personal mementos',
@@ -272,7 +262,7 @@ return [
                         'title' => 'Jack & Jill Suite Format',
                         'badge' => 'Memory Care Only',
                         'bathroom' => 'Adjoining private bathroom connecting two individual sleeping rooms.',
-                        'summary' => 'Separate individual sleeping rooms connected by an adjoining private bathroom—combining personal privacy with homelike convenience and proximity to care.',
+                        'summary' => 'Separate rooms connected by a shared bathroom; described in the source as a Memory Care format.',
                         'features' => [
                             'Individual sleeping quarters connected by an adjoining private bathroom',
                             'Room to personalize walls, nightstands, and seating with familiar items',
@@ -293,7 +283,7 @@ return [
                     ],
                 ],
                 'cta' => [
-                    'label' => 'View Floor-Plan Details',
+                    'label' => 'View Suites',
                     'href' => '/suites-and-floor-plans',
                     'fallback_inquiry' => 'request_availability',
                     'note' => 'Ask our Daly City team about current suite openings and floor plans during your visit.',
@@ -304,7 +294,7 @@ return [
         [
             'key' => 'lo-setting',
             'type' => 'living-options.setting',
-            'enabled' => true,
+            'enabled' => false,
             'order' => 40,
             'data' => [
                 'eyebrow' => 'COMMUNITY LIFE',
@@ -358,28 +348,13 @@ return [
                 'faqs' => [
                     [
                         'id' => 'lo-faq-offerings',
-                        'question' => 'Which care options does Mission Villa offer?',
-                        'answer' => 'Mission Villa provides two dedicated programs: ongoing Legacies™ Memory Care for residents with Alzheimer’s or dementia, and Short-Term Respite Care for temporary stays. We do not operate standalone independent living or traditional assisted living, which allows our team to focus 100% of our attention and expertise on memory and respite support.',
-                    ],
-                    [
-                        'id' => 'lo-faq-difference',
-                        'question' => 'What is the difference between Memory Care and Respite Care?',
-                        'answer' => 'Memory Care is an ongoing, long-term residential program with 24-hour assistance, predictable daily rhythms, and life-story enrichment. Respite Care offers temporary stays ranging from a few days to several weeks—giving family caregivers dependable relief or providing recovery support after illness or rehabilitation.',
-                    ],
-                    [
-                        'id' => 'lo-faq-suites',
-                        'question' => 'What suite configurations are available?',
-                        'answer' => 'Mission Villa offers Private Suites, Companion Units (shared suites), and Jack & Jill suite layouts. Every suite includes private bathroom access, individual thermostat control, utilities, housekeeping, linen service, and emergency call systems. Jack & Jill suites are specifically arranged for Memory Care residents.',
+                        'question' => 'Does Mission Villa offer independent living or traditional assisted living?',
+                        'answer' => 'The submitted materials describe Mission Villa as focused on Memory Care and Respite Care, not separate independent-living or assisted-living programs.',
                     ],
                     [
                         'id' => 'lo-faq-choice',
-                        'question' => 'How do families choose the appropriate care option?',
-                        'answer' => 'Our Daly City care team conducts a comprehensive pre-admission conversation and assessment to understand your loved one’s daily routine, medical history, and care needs. If you are uncertain about long-term care, a short-term respite stay is often an ideal, low-pressure way to experience our community firsthand.',
-                    ],
-                    [
-                        'id' => 'lo-faq-tour',
-                        'question' => 'Can families tour Mission Villa and inquire about accommodations?',
-                        'answer' => 'Yes, we warmly encourage families to tour our community at 995 East Market Street in Daly City. You can walk through our suites, visit the dining room and secure courtyard, and meet our care team. Call (650) 756-1995 or schedule a visit online to arrange a convenient time.',
+                        'question' => 'How do we know which option is appropriate?',
+                        'answer' => 'Talk with the team about the length of support needed and your loved one’s daily care requirements. The team can explain its assessment process.',
                     ],
                 ],
             ],
@@ -392,8 +367,8 @@ return [
             'order' => 60,
             'data' => [
                 'script' => 'Let’s Connect',
-                'heading' => 'Talk With Our Care Team',
-                'body' => 'Explore living options, understand care choices, and schedule a tour of our welcoming Daly City community.',
+                'heading' => 'Have questions about the options?',
+                'body' => 'We’ll help you understand the differences and discuss current availability.',
                 'care' => 'exploring',
                 'actions' => [
                     [

@@ -360,8 +360,7 @@ class LifeGallerySectionTest extends TestCase
         $this->assertNotFalse($life);
         $this->assertGreaterThan($care, $life);
 
-        $this->assertStringContainsString('A Closer Look at', $html);
-        $this->assertStringContainsString('<em>Life Here</em>', $html);
+        $this->assertStringContainsString('A closer look at Mission Villa.', $html);
         $this->assertStringContainsString('role="tablist"', $html);
         $life = $this->lifeSection($html);
         $this->assertSame(3, preg_match_all('/role="tab"/', $life));

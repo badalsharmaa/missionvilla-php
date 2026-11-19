@@ -44,7 +44,7 @@ final class RespiteCareTimelineSection implements SectionSchema
             'intro' => ['required', 'string', 'max:350'],
             'note' => ['required', 'string', 'max:160'],
 
-            'steps' => ['required', 'array', 'size:5'],
+            'steps' => ['required', 'array', 'between:3,5'],
             'steps.*.step' => ['required', 'string', 'max:10'],
             'steps.*.title' => ['required', 'string', 'max:50'],
             'steps.*.icon' => ['required', 'in:'.implode(',', self::ICONS)],

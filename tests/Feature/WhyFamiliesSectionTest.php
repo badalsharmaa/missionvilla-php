@@ -56,7 +56,7 @@ class WhyFamiliesSectionTest extends TestCase
     {
         $data = $this->section()->normalize($this->shippedData());
 
-        $this->assertSame('A Trusted Partner in Your Family’s <em>Next Chapter</em>', $data['heading']);
+        $this->assertSame('Small details. Personal care.', $data['heading']);
         $this->assertCount(WhyFamiliesSection::FACT_COUNT, $data['glance']['facts']);
         $this->assertCount(WhyFamiliesSection::VALUE_COUNT, $data['values']);
         $this->assertFileExists(public_path(ltrim($data['image']['src'], '/')));
@@ -184,7 +184,7 @@ class WhyFamiliesSectionTest extends TestCase
 
         $this->assertSame(1, substr_count($html, 'class="why-families"'));
         $this->assertLessThan(strpos($html, 'id="why-families"'), strpos($html, 'id="life-at-mission-villa"'));
-        $this->assertStringContainsString('A Trusted Partner in Your Family’s <em>Next Chapter</em>', $html);
+        $this->assertStringContainsString('Small details. Personal care.', $html);
         $this->assertStringContainsString('data-wf-visit', $html);
         $this->assertStringContainsString('href="#life-at-mission-villa"', $html);
         $this->assertStringContainsString('Films in production', $html);

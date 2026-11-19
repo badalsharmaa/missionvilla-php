@@ -19,11 +19,11 @@
 
 return [
     'slug' => 'contact',
-    'title' => 'Contact Us & Schedule a Visit | Mission Villa Senior Living',
+    'title' => 'Contact & Schedule a Visit | Mission Villa Senior Living',
     'status' => 'published',
     'seo' => [
-        'title' => 'Contact Us & Schedule a Visit | Mission Villa Daly City',
-        'description' => 'Connect with Mission Villa Senior Living in Daly City. Call 650-756-1995, explore directions via I-280 and BART, or preview a personal visit request.',
+        'title' => 'Contact & Schedule a Visit | Mission Villa Senior Living',
+        'description' => 'Call or contact Mission Villa Senior Living at 995 East Market Street, Daly City, CA 94014. Ask about Memory Care, Respite Care, pricing, or visits.',
         'og_image' => '/images/property/courtyard-patio.webp',
     ],
     'sections' => [
@@ -36,11 +36,11 @@ return [
             'enabled' => true,
             'order' => 10,
             'data' => [
-                'eyebrow' => 'Direct Community Desk · Phone, Guided Inquiry & Arrival Guide',
+                'eyebrow' => 'Contact Mission Villa',
                 'license' => 'CA License #415601046',
                 'script_title' => 'A Warm Welcome in Daly City',
-                'heading' => 'Reach Out to Our Team or Schedule an <em>Unhurried Personal Visit.</em>',
-                'lead' => 'Whether you are exploring <a href="/memory-care" class="underline decoration-[#C98268] underline-offset-4 font-semibold text-[#3B2348] hover:text-[#C98268] transition">Legacies™ Memory Care</a> for a loved one living with Alzheimer’s or dementia, planning a short-term <a href="/respite-care" class="underline decoration-[#C98268] underline-offset-4 font-semibold text-[#3B2348] hover:text-[#C98268] transition">Respite Care</a> stay, or simply want to walk through our suites and dining room in person, our team at <strong class="text-[#3B2348]">995 East Market Street, Daly City, CA 94014</strong> is here to listen and help without pressure.',
+                'heading' => 'We\'re here to answer your questions.',
+                'lead' => 'Whether you\'re exploring care, asking about a short stay, or ready to visit, we\'d be glad to hear from you.',
                 'phone' => [
                     'raw' => '650-756-1995',
                     'formatted' => '(650) 756-1995',
@@ -67,7 +67,7 @@ return [
                 'directory_card' => [
                     'badge' => 'Verified Community Directory',
                     'title' => 'Direct Hospitality & Family Inquiries',
-                    'description' => 'Every call and visit request is handled by our compassionate local team—never an automated call center.',
+                    'description' => 'Every call and visit request is handled by our local team—never an automated call center.',
                     'care_programs' => 'Legacies™ Memory Care & Short-Term Respite Care',
                     'suite_formats' => 'Private Suites, Companion Units & Jack & Jill Formats (All with Private Baths)',
                     'licensing_info' => 'CA RCFE License #415601046 · Daly City, CA 94014',
@@ -76,7 +76,7 @@ return [
                 ],
                 'actions' => [
                     [
-                        'label' => 'Schedule a Visit or Request Info ↓',
+                        'label' => 'Schedule a Visit',
                         'style' => 'primary',
                         'icon' => 'calendar',
                         'target' => 'schedule-visit',
@@ -132,9 +132,9 @@ return [
             'enabled' => true,
             'order' => 20,
             'data' => [
-                'eyebrow' => '01 · Split Editorial Contact Studio',
-                'heading' => 'Connect By Phone, Email, or Guided Visit Request.',
-                'intro' => 'Choose the way you feel most comfortable reaching out. Call our Daly City desk directly for an immediate conversation, or use the guided form to outline your preferred contact method, care interest, and time window.',
+                'eyebrow' => 'Get in Touch',
+                'heading' => 'What would you like to know?',
+                'intro' => 'Choose the way you feel most comfortable reaching out. Call our Daly City desk directly at (650) 756-1995 for an immediate conversation, or select an option below.',
                 'primary_contact' => [
                     'badge' => 'Verified Primary Contact',
                     'community_name' => 'Mission Villa Senior Living',
@@ -152,7 +152,7 @@ return [
                 ],
                 'presets' => [
                     [
-                        'label' => 'Tour Memory Care Suites',
+                        'label' => 'Schedule a Visit',
                         'inquiry_intent' => 'Schedule a Personal Visit',
                         'care_interest' => 'Memory Care (Legacies™ Program)',
                         'suite_preference' => 'Open / Compare on Tour',
@@ -160,7 +160,7 @@ return [
                         'referral_note' => null,
                     ],
                     [
-                        'label' => 'Short-Term Respite Stay',
+                        'label' => 'Request Pricing',
                         'inquiry_intent' => 'Request Pricing & Program Info',
                         'care_interest' => 'Short-Term Respite Care',
                         'suite_preference' => 'Private Suite',
@@ -168,7 +168,7 @@ return [
                         'referral_note' => null,
                     ],
                     [
-                        'label' => 'Pricing & Paper-Ledger Chat',
+                        'label' => 'Ask About Respite Availability',
                         'inquiry_intent' => 'Request Pricing & Program Info',
                         'care_interest' => 'Both / Exploring Options',
                         'suite_preference' => 'Open / Compare on Tour',
@@ -176,7 +176,7 @@ return [
                         'referral_note' => null,
                     ],
                     [
-                        'label' => 'First Family Phone Call',
+                        'label' => 'Request a Call',
                         'inquiry_intent' => 'Request a Team Phone Call',
                         'care_interest' => 'Memory Care (Legacies™ Program)',
                         'suite_preference' => 'Open / Compare on Tour',
@@ -186,11 +186,11 @@ return [
                 ],
                 'privacy_guardrail' => [
                     'title' => 'Privacy & Non-Clinical Form Guardrail',
-                    'text' => 'For your family’s privacy, this inquiry form never asks for medical diagnoses, medication lists, or clinical health histories. Personal support needs are discussed privately with our care team.',
+                    'text' => 'Please don\'t include diagnoses, medication lists, or other sensitive medical information in this form.',
                 ],
                 'form_config' => [
                     'badge' => 'Guided Inquiry & Request-Visit Studio',
-                    'title' => 'Schedule a Visit or Request Information',
+                    'title' => 'How can we help?',
                     'demo_pill' => 'Demo only — no inquiry sent',
                     'intent_label' => '1. How Can Our Team Help You Today?',
                     'intents' => [
@@ -231,10 +231,10 @@ return [
                     'timing_label' => 'Preferred Visit Day or Timing (Optional)',
                     'timing_placeholder' => 'e.g., This Thursday afternoon or weekend',
                     'message_label' => '6. Questions or Notes for Our Team (Optional)',
-                    'message_disclaimer' => 'Please do not include medical diagnoses or health records',
-                    'message_placeholder' => 'Share any questions about Legacies™ Memory Care, short-term Respite Care, suites, or visiting with family...',
-                    'consent_text' => 'Consent & Privacy Notice *: I request that Mission Villa Senior Living contact me via my selected preference regarding community information, pricing, or scheduling a visit. I understand that this prototype form is for general inquiry purposes only (not medical history), and final consent wording is subject to legal/privacy review prior to production launch.',
-                    'submit_label' => 'Preview Guided Inquiry (Demo only — no inquiry sent)',
+                    'message_disclaimer' => 'Please don\'t include diagnoses, medication lists, or other sensitive medical information in this form',
+                    'message_placeholder' => 'Is there anything you\'d like us to know before we connect?',
+                    'consent_text' => 'I agree to be contacted by Mission Villa Senior Living about my inquiry using the contact information I\'ve provided. (Legal/privacy review required.)',
+                    'submit_label' => 'Send Inquiry',
                     'demo_explainer' => 'Demo only — no inquiry sent. Submitting validates fields locally without transmitting personal data.',
                 ],
             ],
@@ -249,9 +249,9 @@ return [
             'enabled' => true,
             'order' => 30,
             'data' => [
-                'script_title' => 'Reaching 995 East Market Street',
-                'heading' => 'Grounded Map, Peninsula Directions & Accessible Arrival.',
-                'intro' => 'Mission Villa Senior Living sits in an established Daly City neighborhood near the western foothills of San Bruno Mountain—offering straightforward access from I-280, southern San Francisco neighborhoods, and Peninsula transit.',
+                'script_title' => 'Visit Us',
+                'heading' => 'Find us in Daly City.',
+                'intro' => 'Call ahead to arrange a visit and ask any questions about arrival or accessibility.',
                 'maps_url' => 'https://www.google.com/maps/search/?api=1&query=995+East+Market+Street+Daly+City+CA+94014',
                 'maps_embed_url' => 'https://www.google.com/maps?q=995+East+Market+Street,+Daly+City,+CA+94014&output=embed',
                 'orientation_image' => [
@@ -348,7 +348,7 @@ return [
         [
             'key' => 'contact-workflow',
             'type' => 'contact.workflow',
-            'enabled' => true,
+            'enabled' => false,
             'order' => 40,
             'data' => [
                 'script_title' => 'Unhurried Follow-Through',
@@ -405,7 +405,7 @@ return [
         [
             'key' => 'contact-referral',
             'type' => 'contact.referral',
-            'enabled' => true,
+            'enabled' => false,
             'order' => 50,
             'data' => [
                 'script_title' => 'Community & Partner Introductions',
@@ -451,7 +451,7 @@ return [
         [
             'key' => 'contact-faq',
             'type' => 'contact.faq',
-            'enabled' => true,
+            'enabled' => false,
             'order' => 60,
             'data' => [
                 'script_title' => 'Practical Answers Before You Visit',
@@ -570,14 +570,14 @@ return [
             'order' => 70,
             'data' => [
                 'script' => 'Experience Mission Villa',
-                'heading' => 'Schedule Your Personal Visit in Daly City',
-                'body' => 'Meet our compassionate care team, walk through our suites, dining room, and courtyard gardens at 995 East Market Street, and ask any questions at your own pace.',
+                'heading' => 'Let\'s start with a conversation.',
+                'body' => 'Call (650) 756-1995 or choose the type of inquiry that\'s right for you.',
                 'show_contact' => true,
                 'care' => 'exploring',
                 'actions' => [
                     [
                         'intent' => 'schedule_visit',
-                        'label' => 'Schedule a Tour Visit',
+                        'label' => 'Schedule a Visit',
                         'icon' => 'calendar',
                     ],
                     [

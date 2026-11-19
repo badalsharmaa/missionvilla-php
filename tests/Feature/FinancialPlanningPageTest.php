@@ -20,12 +20,12 @@ class FinancialPlanningPageTest extends TestCase
         $response->assertOk();
         $html = $response->getContent();
 
-        $this->assertStringContainsString('Financial Planning &amp; Cost Clarity: Memory Care in Daly City | Mission Villa', $html);
+        $this->assertStringContainsString('Memory Care &amp; Respite Care Costs | Mission Villa', $html);
         $this->assertStringContainsString('415601046', $html);
         $this->assertStringContainsString('<link rel="canonical" href="'.url('/financial-planning').'"', $html);
     }
 
-    public function test_financial_planning_page_renders_all_seven_sections_in_order(): void
+    public function test_financial_planning_page_renders_all_sections_in_order(): void
     {
         $html = $this->get('/financial-planning')->assertOk()->getContent();
 
@@ -33,7 +33,6 @@ class FinancialPlanningPageTest extends TestCase
         $posFactors = strpos($html, 'id="factors-affecting-cost"');
         $posInclusions = strpos($html, 'id="grouped-cost-inclusions"');
         $posWorksheet = strpos($html, 'id="paper-ledger-worksheet"');
-        $posPathways = strpos($html, 'id="planning-pathways-and-benefits"');
         $posFaq = strpos($html, 'id="financial-planning-faqs"');
         $posCta = strpos($html, 'id="visit"');
 
@@ -41,15 +40,16 @@ class FinancialPlanningPageTest extends TestCase
         $this->assertNotFalse($posFactors, 'Factors section must exist');
         $this->assertNotFalse($posInclusions, 'Inclusions section must exist');
         $this->assertNotFalse($posWorksheet, 'Worksheet section must exist');
-        $this->assertNotFalse($posPathways, 'Pathways section must exist');
         $this->assertNotFalse($posFaq, 'FAQ section must exist');
         $this->assertNotFalse($posCta, 'Visit CTA section must exist');
+
+        // fp-pathways is disabled in Editorial V2
+        $this->assertStringNotContainsString('id="planning-pathways-and-benefits"', $html);
 
         $this->assertTrue($posHero < $posFactors, 'Hero must precede Factors');
         $this->assertTrue($posFactors < $posInclusions, 'Factors must precede Inclusions');
         $this->assertTrue($posInclusions < $posWorksheet, 'Inclusions must precede Worksheet');
-        $this->assertTrue($posWorksheet < $posPathways, 'Worksheet must precede Pathways');
-        $this->assertTrue($posPathways < $posFaq, 'Pathways must precede FAQs');
+        $this->assertTrue($posWorksheet < $posFaq, 'Worksheet must precede FAQs');
         $this->assertTrue($posFaq < $posCta, 'FAQs must precede Visit CTA');
     }
 
@@ -58,10 +58,10 @@ class FinancialPlanningPageTest extends TestCase
         $html = $this->get('/financial-planning')->assertOk()->getContent();
 
         $this->assertSame(4, substr_count($html, 'data-factor-card'));
-        $this->assertStringContainsString('Assessment-Informed Personal Care Needs', $html);
-        $this->assertStringContainsString('Suite Layout &amp; Shared vs. Private Living', $html);
-        $this->assertStringContainsString('Long-Term Memory Care vs. Short-Term Respite Stays', $html);
-        $this->assertStringContainsString('Included Community Living vs. Personal Add-Ons', $html);
+        $this->assertStringContainsString('Care needs', $html);
+        $this->assertStringContainsString('Suite choice', $html);
+        $this->assertStringContainsString('Length of stay', $html);
+        $this->assertStringContainsString('Additional services', $html);
 
         $this->assertStringContainsString('href="/memory-care"', $html);
         $this->assertStringContainsString('href="/suites-and-floor-plans"', $html);
@@ -110,17 +110,11 @@ class FinancialPlanningPageTest extends TestCase
         $this->assertStringContainsString('data-ledger-submit-btn', $html);
     }
 
-    public function test_pathways_section_renders_all_four_pathways_and_notes(): void
+    public function test_pathways_section_is_disabled_in_editorial_v2(): void
     {
-        $html = $this->get('/financial-planning')->assertOk()->getContent();
-
-        $this->assertSame(4, substr_count($html, 'data-pathway-card'));
-        $this->assertStringContainsString('Personalized Care Assessment &amp; Written Cost Overview', $html);
-        $this->assertStringContainsString('Long-Term Care Insurance Policies', $html);
-        $this->assertStringContainsString('Home Equity, Family Contributions &amp; Companion Suite Value', $html);
-        $this->assertStringContainsString('Referral Credits &amp; State Assistance Participation', $html);
-
-        $this->assertStringContainsString('CLIENT CONFIRMATION REQUIRED: Referral credit offers', $html);
+        $page = require base_path('content/pages/financial-planning.php');
+        $pathways = collect($page['sections'])->firstWhere('key', 'fp-pathways');
+        $this->assertFalse($pathways['enabled']);
     }
 
     public function test_financial_faq_section_renders_all_six_items(): void
@@ -128,11 +122,11 @@ class FinancialPlanningPageTest extends TestCase
         $html = $this->get('/financial-planning')->assertOk()->getContent();
 
         $this->assertSame(6, substr_count($html, 'data-faq-item'));
-        $this->assertStringContainsString('Why doesn’t Mission Villa list fixed monthly prices or an automated calculator online?', $html);
+        $this->assertStringContainsString('Can I get a price before visiting?', $html);
         $this->assertStringContainsString('How does the care assessment influence Memory Care costs?', $html);
         $this->assertStringContainsString('What is typically included in monthly Memory Care living at Mission Villa?', $html);
-        $this->assertStringContainsString('How do Companion Units and Jack &amp; Jill suites help families planning a budget?', $html);
-        $this->assertStringContainsString('Can we use Long-Term Care Insurance, referral credits, or state assistance programs?', $html);
+        $this->assertStringContainsString('Will the cost depend on the suite?', $html);
+        $this->assertStringContainsString('What about insurance or benefits?', $html);
         $this->assertStringContainsString('How does pricing work for a short-term Respite Care stay?', $html);
     }
 

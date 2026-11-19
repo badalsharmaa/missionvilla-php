@@ -86,7 +86,7 @@ final class ContactStudioSection implements SectionSchema
             'form_config.timing_label' => ['required', 'string', 'max:80'],
             'form_config.timing_placeholder' => ['required', 'string', 'max:100'],
             'form_config.message_label' => ['required', 'string', 'max:80'],
-            'form_config.message_disclaimer' => ['required', 'string', 'max:100'],
+            'form_config.message_disclaimer' => ['required', 'string', 'max:160'],
             'form_config.message_placeholder' => ['required', 'string', 'max:200'],
             'form_config.consent_text' => ['required', 'string', 'max:500'],
             'form_config.submit_label' => ['required', 'string', 'max:80'],

@@ -15,8 +15,8 @@
 return [
     'slug' => 'home',
     'seo' => [
-        'title' => 'Mission Villa Senior Living — Memory Care & Respite Care in Daly City, CA',
-        'description' => 'Legacies™ Memory Care and Short-Term Respite Care in an unhurried, residential community at 995 East Market Street, Daly City, CA. Call (650) 756-1995 to schedule a visit.',
+        'title' => 'Mission Villa Senior Living | Memory Care & Respite Care in Daly City',
+        'description' => 'Explore Legacies™ Memory Care and short-term Respite Care at Mission Villa Senior Living in Daly City. Learn about our community or schedule a visit.',
         'og_image' => '/images/hero/family-connection-1200.webp',
     ],
     'sections' => [
@@ -28,11 +28,11 @@ return [
             'data' => [
                 'left_script' => 'A Place to Belong',
                 'left_kicker' => 'Mission Villa',
-                'left_tagline' => '“The honor they deserve,”',
+                'left_tagline' => 'Care that feels personal.',
                 'left_footer' => 'Dignity · Connection · Purpose',
                 'right_top' => 'Daly City, California',
                 'right_kicker' => 'Senior Living',
-                'right_tagline' => '“the care you’ll love.”',
+                'right_tagline' => 'Memory Care & Respite Care',
                 'right_footer' => 'Memory Care · Respite Care',
                 'skip_label' => 'Skip Intro',
             ],
@@ -45,11 +45,11 @@ return [
                 'autoplay_seconds' => 6.0,
                 'slides' => [
                     [
-                        'eyebrow' => 'Chapter 01 · Welcome to Mission Villa',
-                        'line1' => 'A calm, trusted home',
-                        'line2' => 'where <em>your loved one</em>',
-                        'line3' => 'is genuinely known.',
-                        'body' => 'At Mission Villa Senior Living in Daly City, specialized <strong>Legacies™ Memory Care</strong> and flexible <strong>Short-Term Respite Care</strong> come together in an unhurried, residential community—supporting your family with warmth, clarity, and respect.',
+                        'eyebrow' => 'Welcome to Mission Villa',
+                        'line1' => 'A place',
+                        'line2' => 'to feel',
+                        'line3' => 'at home.',
+                        'body' => 'Personal attention, familiar routines, and a welcoming community in Daly City. We’re here for older adults and the families who care for them.',
                         'cta' => 'Schedule a Visit',
                         'chapter_title' => 'Welcome to Mission Villa',
                         'chapter_subtitle' => 'Memory Care & Respite in Daly City',
@@ -63,12 +63,12 @@ return [
                         ],
                     ],
                     [
-                        'eyebrow' => 'Chapter 02 · Legacies™ Memory Care',
-                        'line1' => 'When memory changes,',
-                        'line2' => '<em>dignity and rhythm</em>',
-                        'line3' => 'remain at the center.',
-                        'body' => 'Our <strong>Legacies™ Memory Care</strong> neighborhood honors your loved one’s personal history, familiar daily routines, and meaningful human connection—creating calm, reassuring days in the heart of Daly City.',
-                        'cta' => 'Schedule a Memory Care Visit',
+                        'eyebrow' => 'Legacies™ Memory Care',
+                        'line1' => 'Care that begins',
+                        'line2' => 'with knowing',
+                        'line3' => 'the person.',
+                        'body' => 'Support for people living with Alzheimer’s disease or other forms of dementia, shaped around their stories, preferences, and daily routines.',
+                        'cta' => 'Explore Memory Care',
                         'chapter_title' => 'Legacies™ Memory Care',
                         'chapter_subtitle' => 'Dignity, familiar routines & connection',
                         'image' => [
@@ -81,12 +81,12 @@ return [
                         ],
                     ],
                     [
-                        'eyebrow' => 'Chapter 03 · Short-Term Respite Care',
-                        'line1' => 'Trusted short-term care,',
-                        'line2' => '<em>peace of mind</em> for',
-                        'line3' => 'family caregivers.',
-                        'body' => 'Whether you need time to rest, travel, or recover, <strong>Short-Term Respite Care</strong> at Mission Villa welcomes your loved one into a warm, attentive residential community at 995 East Market Street.',
-                        'cta' => 'Inquire About Respite Stays',
+                        'eyebrow' => 'Short-Term Respite Care',
+                        'line1' => 'A little support',
+                        'line2' => 'can make a',
+                        'line3' => 'big difference.',
+                        'body' => 'A short stay for your loved one while you rest, travel, or take care of life’s demands.',
+                        'cta' => 'Ask About Respite Stays',
                         'chapter_title' => 'Short-Term Respite Care',
                         'chapter_subtitle' => 'Trusted support for family caregivers',
                         'image' => [
@@ -103,8 +103,8 @@ return [
                     'kicker' => 'A thoughtful place to begin',
                     'brand' => 'Mission Villa Care Guide',
                     'tag' => 'PREVIEW',
-                    'title' => 'How can we help your family today?',
-                    'description' => 'Explore care options, ask a question, or arrange a visit. Start wherever feels comfortable.',
+                    'title' => 'Not sure where to begin?',
+                    'description' => 'Learn about our two care options or ask the team a question.',
                     'choices' => [
                         ['label' => 'Explore Memory Care', 'question' => 'What does Legacies Memory Care offer?'],
                         ['label' => 'Understand Respite Care', 'question' => 'How does Short-Term Respite Care work?'],
@@ -124,7 +124,7 @@ return [
             'enabled' => true,
             'data' => [
                 'eyebrow' => 'Our Care Options',
-                'heading' => 'Two Paths. <em>One Commitment to Care.</em>',
+                'heading' => 'The right care for this stage of life.',
                 'subheading' => 'Specialized care and short-term support, all in a welcoming residential setting in Daly City.',
                 'cards' => [
                     [
@@ -132,7 +132,7 @@ return [
                         'icon' => 'brain',
                         'kicker' => 'Legacies™',
                         'title' => 'Memory Care',
-                        'summary' => 'Specialized, personalized support for seniors living with Alzheimer’s disease and other forms of dementia.',
+                        'summary' => 'Ongoing support for people living with memory loss, with attention to familiar routines and personal connections.',
                         'image' => [
                             'src' => '/images/care/memory-care-companion-1122.webp',
                             'src_mobile' => '/images/care/memory-care-companion-720.webp',
@@ -141,14 +141,13 @@ return [
                             'source_url' => null,
                             'position' => '50% 26%',
                         ],
-                        'cta' => ['label' => 'Explore Memory Care', 'href' => '/memory-care', 'style' => 'terracotta'],
+                        'cta' => ['label' => 'Learn About Memory Care', 'href' => '/memory-care', 'style' => 'terracotta'],
                         'back' => [
                             'kicker' => 'Legacies™ Memory Care',
-                            'statement' => 'Specialized, personalized support for seniors living with Alzheimer’s disease and other forms of dementia.',
+                            'statement' => 'Ongoing support for people living with memory loss, with attention to familiar routines and personal connections.',
                             'benefits' => [
-                                ['icon' => 'brain', 'text' => 'Care built around each life story and routine'],
-                                ['icon' => 'heart', 'text' => 'Calm, predictable rhythms that feel familiar'],
-                                ['icon' => 'people', 'text' => 'Compassionate support that preserves dignity'],
+                                ['icon' => 'brain', 'text' => 'Life-story-led care'],
+                                ['icon' => 'heart', 'text' => 'Supportive daily routines'],
                             ],
                             'audience_label' => 'Who this supports',
                             'audience' => 'Seniors living with Alzheimer’s disease or other forms of dementia.',
@@ -159,7 +158,7 @@ return [
                         'icon' => 'calendar',
                         'kicker' => 'Short-Term Stays',
                         'title' => 'Respite Care',
-                        'summary' => 'A welcoming short-term stay that provides caring support and gives family caregivers peace of mind.',
+                        'summary' => 'A comfortable, temporary stay that supports your loved one and gives family caregivers time away.',
                         'image' => [
                             'src' => '/images/care/respite-care-welcome-1402.webp',
                             'src_mobile' => '/images/care/respite-care-welcome-900.webp',
@@ -168,14 +167,13 @@ return [
                             'source_url' => null,
                             'position' => '72% 40%',
                         ],
-                        'cta' => ['label' => 'Explore Respite Care', 'href' => '/respite-care', 'style' => 'cream'],
+                        'cta' => ['label' => 'Learn About Respite Care', 'href' => '/respite-care', 'style' => 'cream'],
                         'back' => [
                             'kicker' => 'Short-Term Respite Care',
-                            'statement' => 'Welcoming short-term support in the same compassionate, homelike Daly City community.',
+                            'statement' => 'A comfortable, temporary stay that supports your loved one and gives family caregivers time away.',
                             'benefits' => [
-                                ['icon' => 'bed', 'text' => 'A comfortable suite with a private bathroom'],
-                                ['icon' => 'dining', 'text' => 'Chef-prepared meals and daily activities'],
-                                ['icon' => 'hands', 'text' => 'Personal attention from our care team'],
+                                ['icon' => 'hands', 'text' => 'Daily assistance'],
+                                ['icon' => 'dining', 'text' => 'Dining and activities'],
                             ],
                             'audience_label' => 'Who this supports',
                             'audience' => 'Families who need a short-term stay while a caregiver rests or travels.',
@@ -197,9 +195,9 @@ return [
             'type' => 'life.gallery',
             'enabled' => true,
             'data' => [
-                'eyebrow' => 'Life at Mission Villa',
-                'heading' => 'A Closer Look at <em>Life Here</em>',
-                'subheading' => 'A welcoming community designed for comfort, engagement, and meaningful connection.',
+                'eyebrow' => 'Everyday Life',
+                'heading' => 'A closer look at Mission Villa.',
+                'subheading' => 'Comfortable spaces, shared meals, and time for connection.',
                 'manifest' => '/media/mission-villa/life-at-mission-villa/media-manifest.json',
                 'chapters' => [
                     [
@@ -208,7 +206,7 @@ return [
                         'label' => 'Living Spaces',
                         'kicker' => 'Living Spaces',
                         'title' => 'Comfortable, Private, and Peaceful',
-                        'description' => 'Private and shared suites, each with a private bathroom, plus inviting lounges where residents relax and families visit.',
+                        'description' => 'A room to make your own.',
                         'cta' => ['label' => 'Explore Our Suites', 'href' => '/suites-and-floor-plans', 'fallback_label' => 'See Our Suites in Person'],
                         'media' => ['manifest_id' => 'living-spaces'],
                         'fallback_poster' => [
@@ -225,7 +223,7 @@ return [
                         'label' => 'Dining & Daily Life',
                         'kicker' => 'Dining & Daily Life',
                         'title' => 'Everyday Moments That Matter',
-                        'description' => 'Chef-prepared meals shared in a welcoming dining room, with group and one-on-one activities woven through each day.',
+                        'description' => 'Familiar meals and a welcoming table.',
                         'cta' => ['label' => 'Explore Daily Life', 'href' => '/life-at-mission-villa', 'fallback_label' => 'See Daily Life in Person'],
                         'media' => ['manifest_id' => 'dining-daily-life'],
                         'fallback_poster' => [
@@ -239,11 +237,11 @@ return [
                     [
                         'id' => 'meaningful-connection',
                         'icon' => 'people',
-                        'label' => 'Meaningful Connection',
-                        'kicker' => 'Meaningful Connection',
+                        'label' => 'Connection',
+                        'kicker' => 'Connection',
                         'title' => 'Connection Makes a Place Feel Like Home',
-                        'description' => 'Care shaped around each resident’s life story, with music, reminiscence, and comfortable spaces for family visits.',
-                        'cta' => ['label' => 'Explore Memory Care', 'href' => '/memory-care', 'fallback_label' => 'Meet Our Care Team'],
+                        'description' => 'Music, activities, and quiet moments together.',
+                        'cta' => ['label' => 'See Daily Life', 'href' => '/life-at-mission-villa', 'fallback_label' => 'Meet Our Care Team'],
                         'media' => ['manifest_id' => 'meaningful-connection'],
                         'fallback_poster' => [
                             'src' => '/images/life/meaningful-connection-illustrative-1402.webp',
@@ -276,9 +274,9 @@ return [
             'type' => 'trust.why-families',
             'enabled' => true,
             'data' => [
-                'eyebrow' => 'Why Families Choose Mission Villa',
-                'heading' => 'A Trusted Partner in Your Family’s <em>Next Chapter</em>',
-                'body' => 'At Mission Villa, we believe meaningful care begins with understanding each individual. Our Daly City community offers a welcoming setting where personal histories, familiar routines, and family connections are valued.',
+                'eyebrow' => 'Our Approach',
+                'heading' => 'Small details. Personal care.',
+                'body' => 'We learn what matters to each resident—from everyday preferences to the people and memories they hold close.',
                 'image' => [
                     // Authentic Mission Villa courtyard (same photo as React's Approach section).
                     // Retrieved from Mission Villa's public provider listing on PurpleDoor Finders
@@ -292,7 +290,7 @@ return [
                     'position' => '50% 30%',
                     'caption' => 'Our courtyard patio · Daly City',
                 ],
-                'primary_cta' => ['label' => 'Schedule a Visit', 'intent' => 'schedule_visit'],
+                'primary_cta' => ['label' => 'About Mission Villa', 'href' => '/about', 'intent' => null],
                 'tour_cta' => [
                     'label' => 'Take a Quick Tour',
                     'href' => '#life-at-mission-villa',
@@ -326,15 +324,15 @@ return [
             'type' => 'living.suites',
             'enabled' => true,
             'data' => [
-                'eyebrow' => 'Suites & Living Spaces',
-                'heading' => 'Comfortable Suites & <em>Welcoming Spaces</em>',
-                'intro' => 'Thoughtfully designed accommodations and inviting communal spaces create a sense of comfort, familiarity, and belonging at Mission Villa.',
+                'eyebrow' => 'Suites & Shared Spaces',
+                'heading' => 'Room to feel comfortable.',
+                'intro' => 'Explore private, companion, and Jack & Jill suite formats. Availability and room arrangements can be discussed during a visit.',
                 // Two actions below the composition (approved mockup 2026-11-10). A page link is used only once
                 // its page is routed; until then the fallback opens the shared inquiry modal (never a 404).
                 // Form actions open the modal; the pricing action also preselects the selected suite.
                 'actions' => [
                     [
-                        'label' => 'View Suite & Floor Plans',
+                        'label' => 'Explore Suites',
                         'href' => '/suites-and-floor-plans',
                         'fallback_label' => 'Request Suite Floor Plans',
                         'fallback_intent' => 'availability',
@@ -370,9 +368,9 @@ return [
                     ],
                     [
                         'id' => 'shared',
-                        'label' => 'Shared Suites',
+                        'label' => 'Companion Suites',
                         'icon' => 'people',
-                        'kicker' => 'Shared Suites',
+                        'kicker' => 'Companion Suites',
                         'caption' => 'Companionship, with space of your own.',
                         'image' => [
                             'src' => '/images/suites/companion-suite-floorplan-1000.webp',
@@ -418,15 +416,15 @@ return [
             'enabled' => true,
             'data' => [
                 'eyebrow' => 'Frequently Asked Questions',
-                'heading' => 'Questions Families Often Ask',
+                'heading' => 'A few common questions.',
                 'intro' => 'Get quick answers to common questions about care, accommodations, and visiting Mission Villa.',
                 // Shown only once /for-families is built in PHP.
                 'all_link' => ['label' => 'View All FAQs', 'href' => '/for-families'],
                 'entries' => [
                     [
                         'id' => 'legacies-memory-care',
-                        'question' => 'What is included in the Legacies™ Memory Care program?',
-                        'answer' => 'Our Legacies™ Memory Care program focuses on honoring each resident’s life story, personal preferences, and sense of dignity. By learning about each resident’s background, family connections, and comforting routines, our team provides compassionate daily support tailored to the individual.',
+                        'question' => 'What care does Mission Villa provide?',
+                        'answer' => 'Legacies™ Memory Care and short-term Respite Care.',
                         'icon' => 'sprout',
                         'order' => 10,
                         'enabled' => true,
@@ -434,8 +432,8 @@ return [
                     ],
                     [
                         'id' => 'respite-stay',
-                        'question' => 'Can we arrange a short-term Respite Care stay?',
-                        'answer' => 'Yes. Short-Term Respite Care offers a supportive stay when a family caregiver needs time to rest, travel, or manage personal obligations, with attentive care, a comfortable suite, chef-prepared dining, and daily activities. Call (650) 756-1995 to talk through your dates and current availability.',
+                        'question' => 'Can we tour the community?',
+                        'answer' => 'Yes. Call (650) 756-1995 or request a visit to discuss a convenient time.',
                         'actions' => [['label' => 'Request a Call', 'intent' => 'callback']],
                         'icon' => 'calendar',
                         'order' => 20,
@@ -443,25 +441,15 @@ return [
                         'featured' => true,
                     ],
                     [
-                        'id' => 'suite-options',
-                        'question' => 'What suite options are available?',
-                        'answer' => 'Mission Villa offers private suites and shared companion suites, each with a private bathroom. Residents also enjoy welcoming lounges and a dining room. Our team can confirm which suites are currently available by phone or during a visit.',
-                        'actions' => [['label' => 'Ask About Availability', 'intent' => 'availability']],
-                        'icon' => 'home',
-                        'order' => 30,
-                        'enabled' => true,
-                        'featured' => true,
-                    ],
-                    [
                         'id' => 'pricing-and-visits',
-                        'question' => 'How can we learn about pricing and schedule a visit?',
-                        'answer' => 'Pricing depends on your loved one’s daily support needs and the suite you choose, so our team discusses it with you personally rather than publishing set rates. Call (650) 756-1995 or send a request below, and ask to arrange a visit at the same time.',
+                        'question' => 'How do we find out about pricing?',
+                        'answer' => 'Speak with the team about care needs, suite options, and current rates.',
                         'actions' => [
                             ['label' => 'Request Pricing', 'intent' => 'pricing'],
                             ['label' => 'Schedule a Visit', 'intent' => 'visit'],
                         ],
                         'icon' => 'phone',
-                        'order' => 40,
+                        'order' => 30,
                         'enabled' => true,
                         'featured' => true,
                     ],
@@ -476,8 +464,8 @@ return [
             'enabled' => true,
             'data' => [
                 'script' => 'A Place to Belong',
-                'heading' => 'Come See Mission Villa for Yourself',
-                'body' => 'We welcome you to visit our Daly City community, meet our care team, and see firsthand the warm, supportive environment we’ve created for residents and their families.',
+                'heading' => 'Come see Mission Villa for yourself.',
+                'body' => 'Tour the community, meet the team, and ask what matters to your family.',
                 'actions' => [
                     ['intent' => 'schedule_visit', 'label' => 'Schedule a Visit', 'icon' => 'calendar'],
                     ['intent' => 'request_pricing', 'label' => 'Request Pricing', 'icon' => 'file-text'],

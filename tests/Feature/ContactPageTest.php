@@ -20,37 +20,33 @@ class ContactPageTest extends TestCase
 
         $html = $response->getContent();
         $this->assertStringContainsString('<link rel="canonical" href="'.url('/contact').'">', $html);
-        $this->assertStringContainsString('Contact Us &amp; Schedule a Visit | Mission Villa Daly City', $html);
+        $this->assertStringContainsString('Contact &amp; Schedule a Visit | Mission Villa Senior Living', $html);
         $this->assertStringContainsString('415601046', $html);
         $this->assertStringContainsString('995 East Market Street', $html);
     }
 
-    public function test_contact_page_renders_all_seven_sections_in_order(): void
+    public function test_contact_page_renders_active_sections_in_order(): void
     {
         $html = $this->get('/contact')->assertOk()->getContent();
 
         $heroPos = strpos($html, 'id="contact-hero"');
         $studioPos = strpos($html, 'id="schedule-visit"');
         $directionsPos = strpos($html, 'id="map-and-directions"');
-        $workflowPos = strpos($html, 'id="what-happens-next"');
-        $referralPos = strpos($html, 'id="referral-interest"');
-        $faqPos = strpos($html, 'id="contact-faqs"');
         $visitPos = strpos($html, 'id="visit"');
 
         $this->assertNotFalse($heroPos);
         $this->assertNotFalse($studioPos);
         $this->assertNotFalse($directionsPos);
-        $this->assertNotFalse($workflowPos);
-        $this->assertNotFalse($referralPos);
-        $this->assertNotFalse($faqPos);
         $this->assertNotFalse($visitPos);
+
+        // contact-workflow, contact-referral, and contact-faq are disabled in Editorial V2
+        $this->assertStringNotContainsString('id="what-happens-next"', $html);
+        $this->assertStringNotContainsString('id="referral-interest"', $html);
+        $this->assertStringNotContainsString('id="contact-faqs"', $html);
 
         $this->assertTrue($heroPos < $studioPos, 'Hero must appear before Studio');
         $this->assertTrue($studioPos < $directionsPos, 'Studio must appear before Directions');
-        $this->assertTrue($directionsPos < $workflowPos, 'Directions must appear before Workflow');
-        $this->assertTrue($workflowPos < $referralPos, 'Workflow must appear before Referral');
-        $this->assertTrue($referralPos < $faqPos, 'Referral must appear before FAQs');
-        $this->assertTrue($faqPos < $visitPos, 'FAQs must appear before closing Visit CTA');
+        $this->assertTrue($directionsPos < $visitPos, 'Directions must appear before Visit CTA');
     }
 
     public function test_contact_hero_renders_verified_contact_trio_and_arch_plate(): void
@@ -97,14 +93,14 @@ class ContactPageTest extends TestCase
         $this->assertStringContainsString('data-testid="contact-demo-confirmation"', $html);
 
         // 4 Presets
-        $this->assertStringContainsString('Tour Memory Care Suites', $html);
-        $this->assertStringContainsString('Short-Term Respite Stay', $html);
-        $this->assertStringContainsString('Pricing &amp; Paper-Ledger Chat', $html);
-        $this->assertStringContainsString('First Family Phone Call', $html);
+        $this->assertStringContainsString('Schedule a Visit', $html);
+        $this->assertStringContainsString('Request Pricing', $html);
+        $this->assertStringContainsString('Ask About Respite Availability', $html);
+        $this->assertStringContainsString('Request a Call', $html);
 
         // Non-Medical Privacy Notice
         $this->assertStringContainsString('Privacy &amp; Non-Clinical Form Guardrail', $html);
-        $this->assertStringContainsString('never asks for medical diagnoses, medication lists, or clinical health histories', $html);
+        $this->assertStringContainsString('Please don&#039;t include diagnoses, medication lists, or other sensitive medical information', $html);
 
         // Form Inputs & Accessibility
         $this->assertStringContainsString('name="full_name"', $html);
@@ -144,57 +140,25 @@ class ContactPageTest extends TestCase
         $this->assertStringContainsString('output=embed', $html);
     }
 
-    public function test_contact_workflow_renders_all_four_steps(): void
+    public function test_contact_workflow_is_disabled_in_editorial_v2(): void
     {
-        $html = $this->get('/contact')->assertOk()->getContent();
-
-        $this->assertStringContainsString('data-workflow-tab="post-step-01-acknowledgment"', $html);
-        $this->assertStringContainsString('data-workflow-tab="post-step-02-listening-call"', $html);
-        $this->assertStringContainsString('data-workflow-tab="post-step-03-personal-walkthrough"', $html);
-        $this->assertStringContainsString('data-workflow-tab="post-step-04-care-and-pricing-plan"', $html);
-
-        $this->assertStringContainsString('Step 01', $html);
-        $this->assertStringContainsString('Step 02', $html);
-        $this->assertStringContainsString('Step 03', $html);
-        $this->assertStringContainsString('Step 04', $html);
-
-        $this->assertStringContainsString('Once Live Backend Is Connected', $html);
-        $this->assertStringContainsString('Current Prototype Stage (Today)', $html);
+        $page = require base_path('content/pages/contact.php');
+        $workflow = collect($page['sections'])->firstWhere('key', 'contact-workflow');
+        $this->assertFalse($workflow['enabled']);
     }
 
-    public function test_contact_referral_renders_both_pathways(): void
+    public function test_contact_referral_is_disabled_in_editorial_v2(): void
     {
-        $html = $this->get('/contact')->assertOk()->getContent();
-
-        $this->assertStringContainsString('data-referral-tab="family-friend-referral"', $html);
-        $this->assertStringContainsString('data-referral-tab="professional-care-referral"', $html);
-        $this->assertStringContainsString('Referring a Friend or Relative to Mission Villa', $html);
-        $this->assertStringContainsString('Discharge Planners, Care Managers &amp; Peninsula Senior Advisors', $html);
-        $this->assertStringContainsString('CLIENT CONFIRMATION REQUIRED', $html);
-        $this->assertStringContainsString('data-referral-prefill', $html);
+        $page = require base_path('content/pages/contact.php');
+        $referral = collect($page['sections'])->firstWhere('key', 'contact-referral');
+        $this->assertFalse($referral['enabled']);
     }
 
-    public function test_contact_faqs_renders_search_categories_and_all_six_items(): void
+    public function test_contact_faqs_is_disabled_in_editorial_v2(): void
     {
-        $html = $this->get('/contact')->assertOk()->getContent();
-
-        $this->assertStringContainsString('data-faq-search', $html);
-        $this->assertStringContainsString('id="contact-faq-search"', $html);
-        $this->assertStringContainsString('for="contact-faq-search"', $html);
-        $this->assertStringContainsString('data-faq-item="contact-faq-schedule-tour"', $html);
-        $this->assertStringContainsString('data-faq-item="contact-faq-what-to-expect-on-tour"', $html);
-        $this->assertStringContainsString('data-faq-item="contact-faq-parking-and-mobility"', $html);
-        $this->assertStringContainsString('data-faq-item="contact-faq-phone-numbers"', $html);
-        $this->assertStringContainsString('data-faq-item="contact-faq-no-medical-history"', $html);
-        $this->assertStringContainsString('data-faq-item="contact-faq-digital-accessibility"', $html);
-
-        // Zero legacy font-script classes
-        $this->assertStringNotContainsString('font-script', $html, 'Legacy undefined font-script class must not be present');
-
-        // Bridges
-        $this->assertStringContainsString('For Families &amp; Visit Questions Guide', $html);
-        $this->assertStringContainsString('Financial Planning &amp; Paper Ledger', $html);
-        $this->assertStringContainsString('Suites, Floor Plans &amp; Gallery', $html);
+        $page = require base_path('content/pages/contact.php');
+        $faq = collect($page['sections'])->firstWhere('key', 'contact-faq');
+        $this->assertFalse($faq['enabled']);
     }
 
     public function test_contact_hero_schema_validation(): void

@@ -20,7 +20,7 @@ class HeroCinematicSectionTest extends TestCase
         $data = (new HeroCinematicSection)->normalize($this->homeHeroData());
 
         $this->assertCount(3, $data['slides']);
-        $this->assertSame('where <em>your loved one</em>', $data['slides'][0]['line2']);
+        $this->assertSame('to feel', $data['slides'][0]['line2']);
     }
 
     public function test_layout_requires_exactly_three_chapters(): void

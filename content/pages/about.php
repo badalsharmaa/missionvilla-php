@@ -16,10 +16,10 @@
 
 return [
     'slug' => 'about',
-    'title' => 'About Mission Villa Senior Living | Memory Care in Daly City, CA',
+    'title' => 'About Mission Villa Senior Living | Daly City, CA',
     'seo' => [
-        'title' => 'About Us: Compassionate Memory Care in Daly City | Mission Villa',
-        'description' => 'Discover Mission Villa Senior Living at 995 East Market Street in Daly City. Person-first Memory Care, Legacies™ philosophy, family support near San Bruno Mountain.',
+        'title' => 'About Mission Villa Senior Living | Daly City, CA',
+        'description' => 'Get to know Mission Villa Senior Living, a Daly City community offering Legacies™ Memory Care and short-term Respite Care.',
         'og_image' => '/images/property/sitting-nook-detail.webp',
     ],
     'sections' => [
@@ -29,11 +29,11 @@ return [
             'enabled' => true,
             'order' => 10,
             'data' => [
-                'eyebrow' => 'Community Monograph · Philosophy, Location & Stewardship',
+                'eyebrow' => 'About Mission Villa',
                 'license' => 'CA License #415601046',
                 'tagline' => 'Compassionate Memory Care in Daly City',
-                'heading' => 'Compassionate Memory Care Rooted in Dignity, Respect & Neighborhood Trust.',
-                'lead' => 'Located at 995 East Market Street in Daly City near the peaceful slopes of San Bruno Mountain, Mission Villa Senior Living is an intimate residential community dedicated to personalized Legacies™ Memory Care and short-term Respite Care. Every day, we honor the individual behind each life story while supporting the families who love them.',
+                'heading' => 'A caring community in Daly City.',
+                'lead' => 'At Mission Villa, we focus on two things: providing thoughtful care and helping residents feel at home. Our community offers Legacies™ Memory Care and short-term Respite Care, with families welcomed as partners.',
                 'trust_ledger' => [
                     [
                         'code' => '01 · Our Focus',
@@ -71,17 +71,17 @@ return [
                 ],
                 'actions' => [
                     [
-                        'label' => 'Schedule a Tour Visit',
+                        'label' => 'Schedule a Visit',
                         'style' => 'primary',
                         'icon' => 'calendar',
                         'intent' => 'schedule_visit',
                         'care' => 'exploring',
                     ],
                     [
-                        'label' => 'Read Our Philosophy',
+                        'label' => 'Our Care Options',
                         'style' => 'secondary',
                         'icon' => 'book',
-                        'href' => '#care-philosophy-narrative',
+                        'href' => '/living-options',
                     ],
                     [
                         'label' => '(650) 756-1995',
@@ -136,16 +136,16 @@ return [
             'enabled' => true,
             'order' => 20,
             'data' => [
-                'eyebrow' => 'What Guides Every Day',
-                'heading' => 'Our Care Philosophy: <em>Person-Centered Support Built on Relationship.</em>',
-                'intro' => 'At Mission Villa, Memory Care and Respite Care are never reduced to impersonal checklists. Select any of the four chapters below to explore how our philosophy shapes daily life for residents and families in Daly City.',
+                'eyebrow' => 'What Matters Here',
+                'heading' => 'We see the person, not just the care needs.',
+                'intro' => 'A favorite song. A familiar morning routine. The people who make someone smile. These details help us understand each resident and make daily life more comfortable.',
                 'chapters' => [
                     [
                         'id' => 'person-first-dignity',
                         'chapter_number' => 'Chapter I',
                         'kicker' => 'Dignity & Respect First',
-                        'title' => 'Honoring the Individual Behind Every Life Story',
-                        'subtitle' => 'Care shaped around lifelong identity, personal privacy, and self-respect',
+                        'title' => 'Dignity first',
+                        'subtitle' => 'Respect for personal preferences, privacy, and the pace of each day.',
                         'editorial_lead' => 'At Mission Villa Senior Living, we believe that living with Alzheimer’s disease or another form of dementia never diminishes a person’s right to dignity, warmth, and personal choice.',
                         'narrative_body' => 'Our philosophy starts with seeing the whole person—their accomplishments, sense of humor, treasured routines, and cultural traditions. Whether assisting with morning habits in a private or companion suite or welcoming a resident to the dining table, our 24-hour staff moves at a calm, human pace that protects self-esteem.',
                         'in_everyday_life' => [
@@ -174,8 +174,8 @@ return [
                         'id' => 'legacies-stewardship',
                         'chapter_number' => 'Chapter II',
                         'kicker' => 'Personalized Memory Care',
-                        'title' => 'The Legacies™ Philosophy of Familiar Connection',
-                        'subtitle' => 'Connecting past history with present comfort and daily purpose',
+                        'title' => 'Care that feels familiar',
+                        'subtitle' => 'Learning each resident\'s story and building on routines they know.',
                         'editorial_lead' => 'Through our signature Legacies™ Memory Care program and short-term Respite Care stays, we tailor daily support and engagement around what feels familiar and reassuring to each resident.',
                         'narrative_body' => 'Before and after a resident joins our community, we partner closely with family members to learn the details that matter—favorite melodies, career stories, preferred mealtime comforts, and calming routines. Our team weaves these insights into daily interactions and small-group programming.',
                         'in_everyday_life' => [
@@ -204,8 +204,8 @@ return [
                         'id' => 'family-peace-of-mind',
                         'chapter_number' => 'Chapter III',
                         'kicker' => 'Family Support & Partnership',
-                        'title' => 'Lifting the Caregiving Burden So Families Can Reconnect',
-                        'subtitle' => 'Standing beside spouses, adult children, and relatives at every step',
+                        'title' => 'Family connection',
+                        'subtitle' => 'Keeping loved ones involved in conversations about care and daily life.',
                         'editorial_lead' => 'We know that searching for Memory Care or Respite Care often comes after months or years of devoted family caregiving at home.',
                         'narrative_body' => 'Mission Villa exists to support the entire family. When our 24-hour staff takes on the physical and logistical responsibilities of daily care, housekeeping, laundry, and meal preparation, family members can return to being a loving spouse, son, daughter, or grandchild—enjoying unhurried visits in our lounges, dining room, and garden courtyard.',
                         'in_everyday_life' => [
@@ -245,8 +245,8 @@ return [
                         ],
                         'family_promise' => 'A comforting residential sanctuary where neighbors, staff, and families know one another by name.',
                         'related_route' => [
-                            'label' => 'Browse Our Photo Gallery & Tour',
-                            'href' => '/gallery',
+                            'label' => 'Browse Our Memory Care Approach',
+                            'href' => '/memory-care',
                         ],
                         'inquiry_note' => 'Would love to tour Mission Villa in person to experience the homelike environment and dining spaces.',
                         'image' => [
@@ -270,9 +270,9 @@ return [
             'enabled' => true,
             'order' => 30,
             'data' => [
-                'eyebrow' => 'Rooted in Daly City & the Peninsula',
-                'heading' => 'A Peaceful Neighborhood Setting <em>Near San Bruno Mountain.</em>',
-                'intro' => 'Where a community is located shapes both resident peace and how often family members can visit. At 995 East Market Street in Daly City, Mission Villa pairs tranquil hillside surroundings near San Bruno Mountain with effortless access to San Francisco and Peninsula amenities.',
+                'eyebrow' => 'Our Location',
+                'heading' => 'Close to the people who matter.',
+                'intro' => 'Located on East Market Street in Daly City, Mission Villa is near San Bruno Mountain and accessible to families across San Francisco and the Peninsula. We encourage families to visit and see the community firsthand.',
                 'address' => '995 East Market Street, Daly City, CA 94014',
                 'categories' => [
                     'All Landmarks',
@@ -389,7 +389,7 @@ return [
         [
             'key' => 'about-core-values',
             'type' => 'about.core-values',
-            'enabled' => true,
+            'enabled' => false,
             'order' => 40,
             'data' => [
                 'eyebrow' => 'Values in Action',
@@ -470,10 +470,10 @@ return [
             'enabled' => true,
             'order' => 50,
             'data' => [
-                'eyebrow' => 'People & Care Stewardship',
+                'eyebrow' => 'The People Behind the Care',
                 'badge' => 'Awaiting Official Team Bios & Portraits',
-                'heading' => 'Meet Our Team in Person at 995 East Market Street.',
-                'intro' => 'Rather than displaying stock portraits or generic staff profiles online, we invite families to meet our real Daly City caregivers, Activity Director, culinary team, and leadership in person during a visit. Select a team role below to see how each department supports your loved one and what questions to bring on your tour.',
+                'heading' => 'Come meet our team.',
+                'intro' => 'Our caregivers and community staff help with everyday routines, meals, activities, and family questions. A visit is the best way to meet the people who will be part of your loved one\'s day.',
                 'roles' => [
                     [
                         'id' => 'role-24hr-care-staff',
@@ -531,13 +531,13 @@ return [
             'order' => 60,
             'data' => [
                 'script' => 'Experience Our Community',
-                'heading' => 'Schedule a Visit to Mission Villa in Daly City',
-                'body' => 'Meet our care team, walk through our courtyard gardens and private suites, and discover how our person-first philosophy brings comfort to seniors and their families.',
+                'heading' => 'We\'d be glad to show you around.',
+                'body' => 'See the suites, shared spaces, and courtyard, and ask our team your questions.',
                 'care' => 'exploring',
                 'actions' => [
                     [
                         'intent' => 'schedule_visit',
-                        'label' => 'Schedule a Tour Visit',
+                        'label' => 'Schedule a Visit',
                         'icon' => 'calendar',
                     ],
                     [

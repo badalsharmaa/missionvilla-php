@@ -16,8 +16,8 @@ class HomePageTest extends TestCase
         $response->assertOk()
             ->assertSee('data-site-header', false)
             ->assertSee('data-hero-cinematic', false)
-            ->assertSee('A calm, trusted home')
-            ->assertSee('where <em>your loved one</em>', false)
+            ->assertSee('A place')
+            ->assertSee('to feel')
             ->assertSee('Mission Villa Care Guide')
             ->assertSee('Schedule a Visit')
             ->assertSee('(650) 756-1995')
@@ -65,8 +65,8 @@ class HomePageTest extends TestCase
         $html = $this->get('/')->assertOk()->getContent();
 
         $this->assertStringContainsString('id="conservatory-shutters"', $html);
-        $this->assertStringContainsString('“The honor they deserve,”', $html);
-        $this->assertStringContainsString('“the care you’ll love.”', $html);
+        $this->assertStringContainsString('Care that feels personal.', $html);
+        $this->assertStringContainsString('Memory Care &amp; Respite Care', $html);
         $this->assertStringContainsString('id="skip-intro-btn"', $html);
         // Pre-paint gate honours reduced motion and ?skipIntro=1.
         $this->assertStringContainsString('prefers-reduced-motion: reduce', $html);
@@ -104,7 +104,7 @@ class HomePageTest extends TestCase
     public function test_seo_metadata_comes_from_page_content(): void
     {
         $this->get('/')
-            ->assertSee('<title>Mission Villa Senior Living — Memory Care &amp; Respite Care in Daly City, CA</title>', false)
+            ->assertSee('<title>Mission Villa Senior Living | Memory Care &amp; Respite Care in Daly City</title>', false)
             ->assertSee('<meta name="description"', false)
             ->assertSee('<meta property="og:image"', false);
     }

@@ -24,28 +24,28 @@ class SuitesFloorPlansPageTest extends TestCase
         $html = $response->getContent();
 
         // SEO meta
-        $this->assertStringContainsString('<title>Suites &amp; Floor Plans: Memory Care Living in Daly City | Mission Villa</title>', $html);
-        $this->assertStringContainsString('Explore comfortable private and companion suites at Mission Villa', $html);
+        $this->assertStringContainsString('<title>Suites &amp; Floor Plans | Mission Villa Senior Living</title>', $html);
+        $this->assertStringContainsString('View private, companion, and Jack &amp; Jill suite options at Mission Villa in Daly City', $html);
 
         // Sections presence in order
         $heroPos = strpos($html, 'data-sfp-hero');
         $formatsPos = strpos($html, 'id="suite-formats"');
         $diagramPos = strpos($html, 'id="floor-plans"');
-        $featuresPos = strpos($html, 'id="suite-features"');
         $faqPos = strpos($html, 'id="suite-faq"');
         $visitPos = strpos($html, 'id="visit"');
 
         $this->assertNotFalse($heroPos, 'Hero section missing');
         $this->assertNotFalse($formatsPos, 'Suite formats section missing');
         $this->assertNotFalse($diagramPos, 'Floor plan diagram section missing');
-        $this->assertNotFalse($featuresPos, 'Features section missing');
         $this->assertNotFalse($faqPos, 'FAQ section missing');
         $this->assertNotFalse($visitPos, 'Closing visit CTA section missing');
 
+        // Withheld/retired section must be disabled
+        $this->assertFalse(strpos($html, 'id="suite-features"'), 'Features section must be disabled in Editorial V2');
+
         $this->assertTrue($heroPos < $formatsPos, 'Hero must precede Formats');
         $this->assertTrue($formatsPos < $diagramPos, 'Formats must precede Diagram');
-        $this->assertTrue($diagramPos < $featuresPos, 'Diagram must precede Features');
-        $this->assertTrue($featuresPos < $faqPos, 'Features must precede FAQ');
+        $this->assertTrue($diagramPos < $faqPos, 'Diagram must precede FAQ');
         $this->assertTrue($faqPos < $visitPos, 'FAQ must precede Visit CTA');
 
         // Global footer & inquiry dialog present
@@ -100,9 +100,9 @@ class SuitesFloorPlansPageTest extends TestCase
     {
         $html = $this->get('/suites-and-floor-plans')->assertOk()->getContent();
 
-        $this->assertStringContainsString('Are suites furnished, or can we bring our loved one’s own furniture?', $html);
-        $this->assertStringContainsString('Do all suites include a private bathroom?', $html);
-        $this->assertStringContainsString('How does Mission Villa match residents in companion suites?', $html);
+        $this->assertStringContainsString('Can we personalize a suite?', $html);
+        $this->assertStringContainsString('Do suites have attached bathrooms?', $html);
+        $this->assertStringContainsString('How do we compare suite prices?', $html);
 
         // Schema.org FAQPage
         $this->assertStringContainsString('"@type": "FAQPage"', $html);
@@ -116,7 +116,7 @@ class SuitesFloorPlansPageTest extends TestCase
         $heroData = collect($page['sections'])->firstWhere('key', 'sfp-hero')['data'];
 
         $normalized = $schema->normalize($heroData);
-        $this->assertSame('Accommodations & Living Spaces', $normalized['eyebrow']);
+        $this->assertSame('Suites & Floor Plans', $normalized['eyebrow']);
         $this->assertCount(3, $normalized['strip']);
 
         $this->expectException(InvalidSectionData::class);
@@ -179,7 +179,7 @@ class SuitesFloorPlansPageTest extends TestCase
         $data = collect($page['sections'])->firstWhere('key', 'sfp-faq')['data'];
 
         $normalized = $schema->normalize($data);
-        $this->assertCount(6, $normalized['faqs']);
+        $this->assertCount(3, $normalized['faqs']);
 
         $this->expectException(InvalidSectionData::class);
         $badData = $data;

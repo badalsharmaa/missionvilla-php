@@ -42,7 +42,7 @@ final class GalleryMasonrySection implements SectionSchema
             'heading' => ['required', 'string', 'max:120'],
             'intro' => ['required', 'string', 'max:400'],
 
-            'plates' => ['required', 'array', 'min:6', 'max:14'],
+            'plates' => ['required', 'array', 'between:5,14'],
             'plates.*.id' => ['required', 'string', 'max:60'],
             'plates.*.code' => ['required', 'string', 'max:20'],
             'plates.*.category' => ['required', 'in:'.implode(',', self::CATEGORIES)],

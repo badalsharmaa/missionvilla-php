@@ -26,18 +26,16 @@ class RespiteCarePageTest extends TestCase
         $html = $response->getContent();
 
         // SEO meta
-        $this->assertStringContainsString('<title>Short-Term Respite Care in Daly City | Mission Villa Senior Living</title>', $html);
-        $this->assertStringContainsString('Flexible short-term respite care stays in Daly City', $html);
+        $this->assertStringContainsString('<title>Short-Term Respite Care in Daly City | Mission Villa</title>', $html);
+        $this->assertStringContainsString('Explore short-term Respite Care at Mission Villa Senior Living in Daly City', $html);
 
         // Header active state for Respite Care
         $this->assertStringContainsString('class="site-nav__link is-active"  aria-current="page" >Respite Care</a>', $html);
 
-        // All 8 sections present in order
+        // Active sections present in order
         $heroPos = strpos($html, 'id="rc-hero"');
         $scenariosPos = strpos($html, 'id="respite-scenarios"');
         $inclusionsPos = strpos($html, 'id="respite-inclusions"');
-        $storyPos = strpos($html, 'id="respite-story"');
-        $caregiverPos = strpos($html, 'id="respite-caregiver"');
         $timelinePos = strpos($html, 'id="respite-planning"');
         $faqPos = strpos($html, 'id="respite-faq"');
         $visitPos = strpos($html, 'id="visit"');
@@ -45,17 +43,17 @@ class RespiteCarePageTest extends TestCase
         $this->assertNotFalse($heroPos, 'Hero section missing');
         $this->assertNotFalse($scenariosPos, 'Scenarios section missing');
         $this->assertNotFalse($inclusionsPos, 'Inclusions section missing');
-        $this->assertNotFalse($storyPos, 'Story section missing');
-        $this->assertNotFalse($caregiverPos, 'Caregiver section missing');
         $this->assertNotFalse($timelinePos, 'Timeline section missing');
         $this->assertNotFalse($faqPos, 'FAQ section missing');
         $this->assertNotFalse($visitPos, 'Closing visit CTA section missing');
 
+        // Retired sections disabled
+        $this->assertFalse(strpos($html, 'id="respite-story"'), 'Story section must be disabled in Editorial V2');
+        $this->assertFalse(strpos($html, 'id="respite-caregiver"'), 'Caregiver section must be disabled in Editorial V2');
+
         $this->assertTrue($heroPos < $scenariosPos, 'Hero must precede Scenarios');
         $this->assertTrue($scenariosPos < $inclusionsPos, 'Scenarios must precede Inclusions');
-        $this->assertTrue($inclusionsPos < $storyPos, 'Inclusions must precede Story');
-        $this->assertTrue($storyPos < $caregiverPos, 'Story must precede Caregiver');
-        $this->assertTrue($caregiverPos < $timelinePos, 'Caregiver must precede Timeline');
+        $this->assertTrue($inclusionsPos < $timelinePos, 'Inclusions must precede Timeline');
         $this->assertTrue($timelinePos < $faqPos, 'Timeline must precede FAQ');
         $this->assertTrue($faqPos < $visitPos, 'FAQ must precede Visit CTA');
 
@@ -114,12 +112,10 @@ class RespiteCarePageTest extends TestCase
 
         $this->assertStringContainsString('id="respite-planning"', $html);
         $this->assertStringContainsString('data-rc-step="1"', $html);
-        $this->assertStringContainsString('data-rc-step="5"', $html);
-        $this->assertStringContainsString('Reach Out', $html);
+        $this->assertStringContainsString('data-rc-step="3"', $html);
+        $this->assertStringContainsString("Let&#039;s talk", $html);
         $this->assertStringContainsString('Care Review', $html);
-        $this->assertStringContainsString('Choose Dates', $html);
-        $this->assertStringContainsString('Prepare for Arrival', $html);
-        $this->assertStringContainsString('Welcome to Mission Villa', $html);
+        $this->assertStringContainsString('Plan the stay', $html);
     }
 
     public function test_respite_faq_accordion_and_planning_guide_card(): void
@@ -131,9 +127,9 @@ class RespiteCarePageTest extends TestCase
         $this->assertStringContainsString('data-inquiry-source="rc-faq"', $html);
 
         // Accordion questions present
-        $this->assertStringContainsString('How long can a respite stay be?', $html);
-        $this->assertStringContainsString('What’s included in a short-term stay?', $html);
-        $this->assertStringContainsString('Can you support someone with memory loss during a respite stay?', $html);
+        $this->assertStringContainsString('How long can someone stay?', $html);
+        $this->assertStringContainsString('Can someone with memory loss use Respite Care?', $html);
+        $this->assertStringContainsString('How do I get a quote?', $html);
         $this->assertStringContainsString('aria-expanded="true"', $html);
         $this->assertStringContainsString('aria-expanded="false"', $html);
     }
@@ -160,7 +156,7 @@ class RespiteCarePageTest extends TestCase
         $heroData = collect($page['sections'])->firstWhere('key', 'rc-hero')['data'];
 
         $normalized = $schema->normalize($heroData);
-        $this->assertSame('Short-Term Stays at Mission Villa', $normalized['eyebrow']);
+        $this->assertSame('Short-Term Respite Care', $normalized['eyebrow']);
         $this->assertCount(3, $normalized['strip']);
         $this->assertSame('respite_care', $normalized['actions'][0]['care']);
 
@@ -178,7 +174,7 @@ class RespiteCarePageTest extends TestCase
 
         $normalized = $schema->normalize($data);
         $this->assertCount(4, $normalized['scenarios']);
-        $this->assertSame('Caregiver Rest & Renewal', $normalized['scenarios'][0]['title']);
+        $this->assertSame('A break for caregivers', $normalized['scenarios'][0]['title']);
 
         $this->expectException(InvalidSectionData::class);
         $badData = $data;
@@ -239,11 +235,11 @@ class RespiteCarePageTest extends TestCase
         $data = collect($page['sections'])->firstWhere('key', 'rc-timeline')['data'];
 
         $normalized = $schema->normalize($data);
-        $this->assertCount(5, $normalized['steps']);
+        $this->assertCount(3, $normalized['steps']);
 
         $this->expectException(InvalidSectionData::class);
         $badData = $data;
-        array_pop($badData['steps']); // requires exactly 5 steps
+        $badData['steps'] = array_slice($badData['steps'], 0, 2); // fewer than 3 steps
         $schema->normalize($badData);
     }
 
@@ -254,7 +250,7 @@ class RespiteCarePageTest extends TestCase
         $data = collect($page['sections'])->firstWhere('key', 'rc-faq')['data'];
 
         $normalized = $schema->normalize($data);
-        $this->assertCount(5, $normalized['faqs']);
+        $this->assertCount(3, $normalized['faqs']);
         $this->assertSame('Respite Stay Planning Guide', $normalized['guide']['title']);
 
         $this->expectException(InvalidSectionData::class);

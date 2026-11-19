@@ -24,27 +24,27 @@ class ServicesAmenitiesPageTest extends TestCase
         $html = $response->getContent();
 
         // SEO meta
-        $this->assertStringContainsString('<title>Services &amp; Amenities: 24/7 Support, Dining &amp; Care in Daly City | Mission Villa</title>', $html);
-        $this->assertStringContainsString('Explore services and amenities at Mission Villa Senior Living in Daly City', $html);
+        $this->assertStringContainsString('<title>Services &amp; Amenities | Mission Villa Senior Living</title>', $html);
+        $this->assertStringContainsString('Explore everyday support, dining, activities, suites, and shared spaces at Mission Villa Senior Living in Daly City.', $html);
 
         // Sections presence in order
         $heroPos = strpos($html, 'data-sa-hero');
         $explorerPos = strpos($html, 'id="services-explorer"');
-        $diptychPos = strpos($html, 'id="photographic-feature"');
         $disclosuresPos = strpos($html, 'id="ask-us-about"');
         $bridgePos = strpos($html, 'id="care-programs-bridge"');
         $visitPos = strpos($html, 'id="visit"');
 
         $this->assertNotFalse($heroPos, 'Hero section missing');
         $this->assertNotFalse($explorerPos, 'Explorer section missing');
-        $this->assertNotFalse($diptychPos, 'Diptych section missing');
         $this->assertNotFalse($disclosuresPos, 'Disclosures section missing');
         $this->assertNotFalse($bridgePos, 'Care bridge section missing');
         $this->assertNotFalse($visitPos, 'Closing visit CTA section missing');
 
+        // Retired section disabled
+        $this->assertFalse(strpos($html, 'id="photographic-feature"'), 'Diptych section must be disabled in Editorial V2');
+
         $this->assertTrue($heroPos < $explorerPos, 'Hero must precede Explorer');
-        $this->assertTrue($explorerPos < $diptychPos, 'Explorer must precede Diptych');
-        $this->assertTrue($diptychPos < $disclosuresPos, 'Diptych must precede Disclosures');
+        $this->assertTrue($explorerPos < $disclosuresPos, 'Explorer must precede Disclosures');
         $this->assertTrue($disclosuresPos < $bridgePos, 'Disclosures must precede Care Bridge');
         $this->assertTrue($bridgePos < $visitPos, 'Care Bridge must precede Visit CTA');
 
@@ -69,7 +69,7 @@ class ServicesAmenitiesPageTest extends TestCase
 
         // Form buttons must use data-inquiry
         $this->assertStringContainsString('data-inquiry="schedule_visit"', $html);
-        $this->assertStringContainsString('data-inquiry="general_inquiry"', $html);
+        $this->assertStringContainsString('data-inquiry="request_pricing"', $html);
     }
 
     public function test_closing_section_contains_inline_inquiry_form(): void
@@ -105,11 +105,7 @@ class ServicesAmenitiesPageTest extends TestCase
     {
         $html = $this->get('/services-and-amenities')->assertOk()->getContent();
 
-        $this->assertStringContainsString('community-lounge-facility-899.webp', $html);
-        $this->assertStringContainsString('Community Gathering Lounge', $html);
-        $this->assertStringContainsString('Unrushed Dining Hospitality', $html);
-        $this->assertStringContainsString('Protected Courtyard Air', $html);
-        $this->assertStringContainsString('24-Hour Attentive Vigilance', $html);
+        $this->assertFalse(strpos($html, 'id="photographic-feature"'), 'Diptych section must not be rendered when disabled');
     }
 
     public function test_disclosures_section_details_transparent_guidance_topics(): void
@@ -139,7 +135,7 @@ class ServicesAmenitiesPageTest extends TestCase
         $heroData = collect($page['sections'])->firstWhere('key', 'sa-hero')['data'];
 
         $normalized = $schema->normalize($heroData);
-        $this->assertSame('Services & Amenities Directory', $normalized['eyebrow']);
+        $this->assertSame('Services & Amenities', $normalized['eyebrow']);
         $this->assertCount(5, $normalized['categories_dock']);
         $this->assertCount(3, $normalized['actions']);
 

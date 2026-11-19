@@ -15,10 +15,10 @@
 
 return [
     'slug' => 'services-and-amenities',
-    'title' => 'Services & Amenities | Memory Care Community Features in Daly City',
+    'title' => 'Services & Amenities | Mission Villa Senior Living',
     'seo' => [
-        'title' => 'Services & Amenities: 24/7 Support, Dining & Care in Daly City | Mission Villa',
-        'description' => 'Explore services and amenities at Mission Villa Senior Living in Daly City. 24-hour care team, chef-prepared dining, courtyard gardens, housekeeping, and life enrichment.',
+        'title' => 'Services & Amenities | Mission Villa Senior Living',
+        'description' => 'Explore everyday support, dining, activities, suites, and shared spaces at Mission Villa Senior Living in Daly City.',
         'og_image' => '/images/suites/community-lounge-facility-899.webp',
     ],
     'sections' => [
@@ -28,10 +28,10 @@ return [
             'enabled' => true,
             'order' => 10,
             'data' => [
-                'eyebrow' => 'Services & Amenities Directory',
-                'heading' => 'Thoughtful Support & Comfort, <em>Rooted in Everyday Dignity.</em>',
+                'eyebrow' => 'Services & Amenities',
+                'heading' => 'Thoughtful support for everyday living.',
                 'editorial' => '24-hour on-site care, chef-prepared dining, and peaceful indoor-outdoor spaces in Daly City.',
-                'intro' => 'At Mission Villa, practical assistance is woven seamlessly into everyday life. From chef-prepared restaurant-style meals and personal laundry to 24-hour attentive caregivers and secure courtyard gardens, our community provides everything needed for comfort, safety, and joy.',
+                'intro' => 'The comforts of home matter. At Mission Villa, daily assistance, shared meals, welcoming spaces, and opportunities to connect are part of community life.',
                 'categories_dock' => [
                     [
                         'id' => 'support',
@@ -66,17 +66,17 @@ return [
                 ],
                 'actions' => [
                     [
-                        'label' => 'Explore Offerings by Need',
+                        'label' => 'Schedule a Visit',
                         'style' => 'primary',
                         'icon' => 'calendar',
                         'intent' => 'schedule_visit',
                         'care' => 'exploring',
                     ],
                     [
-                        'label' => 'Ask About Inclusions',
+                        'label' => 'Ask What\'s Included',
                         'style' => 'secondary',
                         'icon' => 'arrow',
-                        'intent' => 'general_inquiry',
+                        'intent' => 'request_pricing',
                         'care' => 'exploring',
                     ],
                     [
@@ -95,17 +95,17 @@ return [
             'enabled' => true,
             'order' => 20,
             'data' => [
-                'eyebrow' => 'Categorized Directory & Explorer',
-                'heading' => 'Explore Services & Amenities by <em>Daily Need.</em>',
+                'eyebrow' => 'Everyday Comforts',
+                'heading' => 'What life here can include.',
                 'intro' => 'Select any of the five categories below to explore how Mission Villa’s on-site services and community amenities support residents and visiting families.',
                 'categories' => [
                     [
                         'id' => 'support',
                         'code' => '01',
                         'label' => 'Support',
-                        'title' => '24-Hour Support & Personalized Care',
+                        'title' => 'Support When It\'s Needed',
                         'subtitle' => '24-hour staff presence, routine assessments, escort assistance, and emergency alert confidence',
-                        'narrative' => 'Practical care at Mission Villa is woven quietly into daily life so residents feel supported without feeling managed. Our on-site team is present 24 hours a day to assist with daily routines, help residents move comfortably between their suites and common areas, and adjust care plans through routine assessments as needs evolve.',
+                        'narrative' => 'On-site staff are available day and night. Personal assistance is guided by each resident\'s assessed care needs.',
                         'reassurance' => 'Whether your loved one joins us for full-time Legacies™ Memory Care or a short-term Respite Care stay, daily assistance is shaped around personal history, comfort, and respect.',
                         'pairing_image' => [
                             'src' => '/images/care/memory-care-companion-1122.webp',
@@ -184,9 +184,9 @@ return [
                         'id' => 'dining',
                         'code' => '02',
                         'label' => 'Dining',
-                        'title' => 'Dining & Table Hospitality',
+                        'title' => 'Meals & Dining',
                         'subtitle' => 'Restaurant-style full-table service, fresh recipes, and private family dining',
-                        'narrative' => 'Dining at Mission Villa is an unhurried social anchor of the day. Residents gather in our welcoming dining room for chef-prepared meals served directly at the table, where familiar flavors, attentive hospitality, and conversation with neighbors turn every meal into a moment of belonging.',
+                        'narrative' => 'Three prepared meals each day, served in a shared dining setting, with individual needs discussed with the team.',
                         'reassurance' => 'Visiting spouses, adult children, and grandchildren can also arrange private dining moments to celebrate birthdays, anniversaries, or quiet family lunches together.',
                         'pairing_image' => [
                             'src' => '/images/life/dining-daily-life-illustrative-1672.webp',
@@ -251,9 +251,9 @@ return [
                         'id' => 'lifestyle',
                         'code' => '03',
                         'label' => 'Lifestyle',
-                        'title' => 'Lifestyle & Enrichment',
+                        'title' => 'Activities & Community Life',
                         'subtitle' => 'Dedicated activity director, on-site salon/spa comfort, and volunteer connection',
-                        'narrative' => 'A meaningful day balances purposeful activity with personal pride and relaxation. Guided by our dedicated activity director, daily life includes creative art, tabletop games, gentle fitness, live entertainment, and volunteer programs—alongside an on-site salon/spa setting where residents can enjoy familiar grooming and self-care.',
+                        'narrative' => 'Residents can enjoy music, creative activities, gentle movement, conversation, or quiet time.',
                         'reassurance' => 'All programming is adapted to how a resident feels each day, weaving Legacies™ Memory Care life-story touchpoints into group and one-on-one moments.',
                         'pairing_image' => [
                             'src' => '/images/life/meaningful-connection-illustrative-1402.webp',
@@ -399,9 +399,9 @@ return [
                         'id' => 'convenience',
                         'code' => '05',
                         'label' => 'Everyday Convenience',
-                        'title' => 'Practical Household & Concierge Services',
+                        'title' => 'Everyday Conveniences',
                         'subtitle' => 'Personal laundry, concierge coordination, scheduled transportation, and visitor parking',
-                        'narrative' => 'Moving into senior living should free both residents and relatives from exhausting household logistics. From personal laundry and linen care to concierge assistance, scheduled transportation, and convenient on-site parking for visitors, our everyday conveniences make life smoother for everyone.',
+                        'narrative' => 'Housekeeping, laundry, and linen services help make day-to-day living simpler.',
                         'reassurance' => 'When laundry, housekeeping, and coordination are handled reliably on-site, family visits can focus entirely on companionship and connection.',
                         'pairing_image' => [
                             'src' => '/images/suites/community-lounge-facility-899.webp',
@@ -482,7 +482,7 @@ return [
         [
             'key' => 'sa-diptych',
             'type' => 'services-and-amenities.diptych',
-            'enabled' => true,
+            'enabled' => false,
             'order' => 30,
             'data' => [
                 'eyebrow' => 'Hospitality in Practice',
@@ -529,9 +529,9 @@ return [
             'enabled' => true,
             'order' => 40,
             'data' => [
-                'eyebrow' => 'Transparent Guidance for Families',
-                'heading' => 'Ask Us About Eligibility, Inclusions &amp; <em>Current Availability.</em>',
-                'intro' => 'The services and amenities shown on this page reflect authentic community offerings. Because each resident’s health profile and mobility needs are unique, we encourage families to review specific details with our Daly City team.',
+                'eyebrow' => 'Clear Answers',
+                'heading' => 'Know the details before you decide.',
+                'intro' => 'Services and charges can vary with care needs, stay type, and optional requests. Ask the team for a current explanation of what\'s included and what may cost extra.',
                 'disclosures' => [
                     [
                         'id' => 'care-eligibility',
@@ -586,7 +586,7 @@ return [
                     'title' => 'Have Questions About What’s Included?',
                     'text' => 'We invite your family to walk through our community, meet our care team, and discuss your loved one’s specific care plan in detail.',
                     'phone_label' => 'Call (650) 756-1995',
-                    'cta_label' => 'Schedule an In-Person Tour',
+                    'cta_label' => 'Request Pricing & Inclusions',
                     'cta_intent' => 'schedule_visit',
                 ],
             ],
@@ -599,14 +599,14 @@ return [
             'order' => 50,
             'data' => [
                 'eyebrow' => 'Connected Care Pathways',
-                'heading' => 'How Services & Amenities Support Our <em>Two Care Programs.</em>',
+                'heading' => 'Care shaped around your family\'s needs.',
                 'intro' => 'At Mission Villa Senior Living in Daly City, these services and amenities are dedicated to our two core care programs: full-time Memory Care and short-term Respite Care.',
                 'programs' => [
                     [
                         'tag' => 'Program 01 · Dedicated Dementia Support',
                         'page_badge' => 'Full-Time Care',
                         'title' => 'Memory Care & Legacies™ Program',
-                        'summary' => 'Long-term residential memory care that surrounds residents with warmth, familiar routines, and continuous 24-hour dignified caregiver support.',
+                        'summary' => 'Ongoing support.',
                         'highlights' => [
                             'Structured daily rhythms that ease anxiety and sundowning',
                             'Personalized memory boxes and suite life-story touchpoints',
@@ -619,7 +619,7 @@ return [
                         'tag' => 'Program 02 · Short-Term Relief & Recovery',
                         'page_badge' => 'Short-Term Stay',
                         'title' => 'Respite Care & Caregiver Relief',
-                        'summary' => 'Temporary, fully furnished stays that give family caregivers peace of mind while your loved one enjoys professional memory care and fellowship.',
+                        'summary' => 'Temporary stays.',
                         'highlights' => [
                             'Fully furnished suites with all utilities, meals, and care included',
                             'Ideal for family travel, caregiver recovery, or trial stays',
@@ -639,8 +639,8 @@ return [
             'order' => 60,
             'data' => [
                 'script' => 'Experience Our Community',
-                'heading' => 'Schedule an In-Person Tour or Lunch Visit',
-                'body' => 'See our comfortable dining room, meet our attentive care team, and experience the warm fellowship of Mission Villa Senior Living in Daly City.',
+                'heading' => 'See our community in person.',
+                'body' => 'Walk through the shared spaces and talk with us about daily support and services.',
                 'care' => 'exploring',
                 'actions' => [
                     [

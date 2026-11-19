@@ -24,28 +24,28 @@ class AboutPageTest extends TestCase
         $html = $response->getContent();
 
         // SEO meta
-        $this->assertStringContainsString('<title>About Us: Compassionate Memory Care in Daly City | Mission Villa</title>', $html);
-        $this->assertStringContainsString('Discover Mission Villa Senior Living at 995 East Market Street in Daly City', $html);
+        $this->assertStringContainsString('<title>About Mission Villa Senior Living | Daly City, CA</title>', $html);
+        $this->assertStringContainsString('Get to know Mission Villa Senior Living, a Daly City community offering Legacies™ Memory Care and short-term Respite Care.', $html);
 
         // Sections presence in order
         $heroPos = strpos($html, 'data-about-hero');
         $philPos = strpos($html, 'id="care-philosophy-narrative"');
         $geoPos = strpos($html, 'id="daly-city-geography"');
-        $valsPos = strpos($html, 'id="values-and-activities"');
         $teamPos = strpos($html, 'id="team-and-policies"');
         $visitPos = strpos($html, 'id="visit"');
 
         $this->assertNotFalse($heroPos, 'Hero section missing');
         $this->assertNotFalse($philPos, 'Care Philosophy section missing');
         $this->assertNotFalse($geoPos, 'Daly City Geography section missing');
-        $this->assertNotFalse($valsPos, 'Values and Activities section missing');
         $this->assertNotFalse($teamPos, 'Team and Policies section missing');
         $this->assertNotFalse($visitPos, 'Closing visit CTA section missing');
 
+        // Core values section is disabled in Editorial V2
+        $this->assertStringNotContainsString('id="values-and-activities"', $html);
+
         $this->assertTrue($heroPos < $philPos, 'Hero must precede Philosophy');
         $this->assertTrue($philPos < $geoPos, 'Philosophy must precede Geography');
-        $this->assertTrue($geoPos < $valsPos, 'Geography must precede Values');
-        $this->assertTrue($valsPos < $teamPos, 'Values must precede Team');
+        $this->assertTrue($geoPos < $teamPos, 'Geography must precede Team');
         $this->assertTrue($teamPos < $visitPos, 'Team must precede Visit CTA');
 
         // Global footer & inquiry dialogs present
@@ -99,11 +99,11 @@ class AboutPageTest extends TestCase
         $html = $this->get('/about')->assertOk()->getContent();
 
         $this->assertStringContainsString('Chapter I', $html);
-        $this->assertStringContainsString('Honoring the Individual Behind Every Life Story', $html);
+        $this->assertStringContainsString('Dignity first', $html);
         $this->assertStringContainsString('Chapter II', $html);
-        $this->assertStringContainsString('The Legacies™ Philosophy of Familiar Connection', $html);
+        $this->assertStringContainsString('Care that feels familiar', $html);
         $this->assertStringContainsString('Chapter III', $html);
-        $this->assertStringContainsString('Lifting the Caregiving Burden So Families Can Reconnect', $html);
+        $this->assertStringContainsString('Family connection', $html);
         $this->assertStringContainsString('Chapter IV', $html);
         $this->assertStringContainsString('A Homelike Community Rather Than an Institution', $html);
 
@@ -131,20 +131,11 @@ class AboutPageTest extends TestCase
         $this->assertStringContainsString('about-geo__prov-pill', $html);
     }
 
-    public function test_core_values_section_renders_four_values_with_activities(): void
+    public function test_core_values_section_is_disabled_in_editorial_v2(): void
     {
-        $html = $this->get('/about')->assertOk()->getContent();
-
-        $this->assertStringContainsString('Core Value 01', $html);
-        $this->assertStringContainsString('Unconditional Dignity &amp; Respect', $html);
-        $this->assertStringContainsString('Core Value 02', $html);
-        $this->assertStringContainsString('Engaging Daily Community Activities', $html);
-        $this->assertStringContainsString('Core Value 03', $html);
-        $this->assertStringContainsString('Warm Hospitality &amp; Shared Table', $html);
-        $this->assertStringContainsString('Core Value 04', $html);
-        $this->assertStringContainsString('Transparent Family Partnership', $html);
-
-        $this->assertStringContainsString('Connected Community Activities &amp; Experiences:', $html);
+        $page = $this->aboutPageData();
+        $values = collect($page['sections'])->firstWhere('key', 'about-core-values');
+        $this->assertFalse($values['enabled']);
     }
 
     public function test_team_stewardship_renders_without_invented_portraits(): void
@@ -152,7 +143,7 @@ class AboutPageTest extends TestCase
         $html = $this->get('/about')->assertOk()->getContent();
 
         $this->assertStringContainsString('Awaiting Official Team Bios &amp; Portraits', $html);
-        $this->assertStringContainsString('Meet Our Team in Person at 995 East Market Street.', $html);
+        $this->assertStringContainsString('Come meet our team.', $html);
         $this->assertStringContainsString('24-Hour Dedicated Care Staff', $html);
         $this->assertStringContainsString('Activity Director &amp; Life Enrichment', $html);
         $this->assertStringContainsString('Culinary &amp; Full-Table Dining Team', $html);

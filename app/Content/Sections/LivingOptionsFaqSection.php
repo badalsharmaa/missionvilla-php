@@ -46,7 +46,7 @@ final class LivingOptionsFaqSection implements SectionSchema
             'help_card.cta_label' => ['required', 'string', 'max:50'],
             'help_card.cta_intent' => ['required', 'in:'.implode(',', InquiryIntents::accepted())],
 
-            'faqs' => ['required', 'array', 'min:3', 'max:10'],
+            'faqs' => ['required', 'array', 'min:2', 'max:10'],
             'faqs.*.id' => ['required', 'string', 'max:60'],
             'faqs.*.question' => ['required', 'string', 'max:160'],
             'faqs.*.answer' => ['required', 'string', 'max:600'],

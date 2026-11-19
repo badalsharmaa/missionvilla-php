@@ -48,7 +48,7 @@ class SuitesSpacesSectionTest extends TestCase
 
         $this->assertCount(2, $actions);
         // Never a 404: the unrouted floor-plan page becomes an availability request (alias resolved).
-        $this->assertSame('View Suite & Floor Plans', $actions[0]['label']);
+        $this->assertSame('Explore Suites', $actions[0]['label']);
         $this->assertSame('/suites-and-floor-plans', $actions[0]['href']);
         $this->assertNull($actions[0]['intent']);
         $this->assertSame('secondary', $actions[0]['style']);
@@ -65,7 +65,7 @@ class SuitesSpacesSectionTest extends TestCase
 
         $action = $this->normalize($this->shippedData())['actions'][0];
 
-        $this->assertSame('View Suite & Floor Plans', $action['label']);
+        $this->assertSame('Explore Suites', $action['label']);
         $this->assertSame('/suites-and-floor-plans', $action['href']);
         $this->assertNull($action['intent']);
     }

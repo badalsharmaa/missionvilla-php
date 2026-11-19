@@ -24,28 +24,28 @@ class LifeAtMissionVillaPageTest extends TestCase
         $html = $response->getContent();
 
         // SEO meta
-        $this->assertStringContainsString('<title>Life at Mission Villa: Dining, Routine &amp; Connection in Daly City</title>', $html);
-        $this->assertStringContainsString('Discover daily life at Mission Villa in Daly City. Chef-prepared dining', $html);
+        $this->assertStringContainsString('<title>Life at Mission Villa | Dining, Activities &amp; Community</title>', $html);
+        $this->assertStringContainsString('See daily life at Mission Villa Senior Living in Daly City: shared meals, music, activities, and time outdoors.', $html);
 
         // Sections presence in order
         $heroPos = strpos($html, 'data-lmv-hero');
         $pillarsPos = strpos($html, 'id="lifestyle-pillars"');
         $rhythmPos = strpos($html, 'id="daily-rhythm"');
-        $engagementPos = strpos($html, 'id="engagement-activities"');
         $faqPos = strpos($html, 'id="lifestyle-faq"');
         $visitPos = strpos($html, 'id="visit"');
 
         $this->assertNotFalse($heroPos, 'Hero section missing');
         $this->assertNotFalse($pillarsPos, 'Pillars section missing');
         $this->assertNotFalse($rhythmPos, 'Daily rhythm section missing');
-        $this->assertNotFalse($engagementPos, 'Engagement section missing');
         $this->assertNotFalse($faqPos, 'FAQ section missing');
         $this->assertNotFalse($visitPos, 'Closing visit CTA section missing');
 
+        // Retired section disabled
+        $this->assertFalse(strpos($html, 'id="engagement-activities"'), 'Engagement section must be disabled in Editorial V2');
+
         $this->assertTrue($heroPos < $pillarsPos, 'Hero must precede Pillars');
         $this->assertTrue($pillarsPos < $rhythmPos, 'Pillars must precede Rhythm');
-        $this->assertTrue($rhythmPos < $engagementPos, 'Rhythm must precede Engagement');
-        $this->assertTrue($engagementPos < $faqPos, 'Engagement must precede FAQ');
+        $this->assertTrue($rhythmPos < $faqPos, 'Rhythm must precede FAQ');
         $this->assertTrue($faqPos < $visitPos, 'FAQ must precede Visit CTA');
 
         // Global footer & inquiry dialog present
@@ -69,7 +69,6 @@ class LifeAtMissionVillaPageTest extends TestCase
 
         // Form buttons must use data-inquiry
         $this->assertStringContainsString('data-inquiry="schedule_visit"', $html);
-        $this->assertStringContainsString('data-inquiry="general_inquiry"', $html);
     }
 
     public function test_closing_section_contains_inline_inquiry_form(): void
@@ -86,39 +85,35 @@ class LifeAtMissionVillaPageTest extends TestCase
     {
         $html = $this->get('/life-at-mission-villa')->assertOk()->getContent();
 
-        $this->assertStringContainsString('A Culture of <em>Nourishment, Sanctuary &amp; Friendship.</em>', $html);
-        $this->assertStringContainsString('Chef-Prepared Daily Meals', $html);
-        $this->assertStringContainsString('Thoughtful Daily Engagement', $html);
-        $this->assertStringContainsString('Sunlit Courtyard &amp; Gardens', $html);
+        $this->assertStringContainsString('The little things matter.', $html);
+        $this->assertStringContainsString('Dining Together', $html);
+        $this->assertStringContainsString('Activities &amp; Connection', $html);
+        $this->assertStringContainsString('Outdoor Moments', $html);
     }
 
     public function test_rhythm_section_renders_daily_routine_schedule(): void
     {
         $html = $this->get('/life-at-mission-villa')->assertOk()->getContent();
 
-        $this->assertStringContainsString('Unhurried Awakening &amp; Breakfast', $html);
-        $this->assertStringContainsString('Active Engagement &amp; Shared Lunch', $html);
-        $this->assertStringContainsString('Creative Expression &amp; Garden Time', $html);
-        $this->assertStringContainsString('Comforting Dinner &amp; Wind-Down', $html);
+        $this->assertStringContainsString('Breakfast and help with daily routines as needed.', $html);
+        $this->assertStringContainsString('Activities, a shared meal, conversation, or some quiet time.', $html);
+        $this->assertStringContainsString('Dinner followed by a calm, familiar routine.', $html);
     }
 
     public function test_engagement_programs_render_authentic_activities(): void
     {
         $html = $this->get('/life-at-mission-villa')->assertOk()->getContent();
 
-        $this->assertStringContainsString('Music &amp; Reminiscence Therapy', $html);
-        $this->assertStringContainsString('Creative Arts &amp; Crafts', $html);
-        $this->assertStringContainsString('Scenic Drives &amp; Outings', $html);
-        $this->assertStringContainsString('Gardening &amp; Gentle Movement', $html);
+        $this->assertFalse(strpos($html, 'id="engagement-activities"'), 'Engagement section must not be rendered when disabled');
     }
 
     public function test_faq_section_renders_accordion_and_schema_json_ld(): void
     {
         $html = $this->get('/life-at-mission-villa')->assertOk()->getContent();
 
-        $this->assertStringContainsString('Can family members join residents for meals or celebrate special occasions?', $html);
-        $this->assertStringContainsString('How does Mission Villa handle special dietary needs and preferences?', $html);
-        $this->assertStringContainsString('What if my loved one is quiet or reluctant to participate in group activities?', $html);
+        $this->assertStringContainsString('Do residents have to join group activities?', $html);
+        $this->assertStringContainsString('Can families visit?', $html);
+        $this->assertStringContainsString('Can we see an activity calendar?', $html);
 
         // Schema.org FAQPage
         $this->assertStringContainsString('"@type": "FAQPage"', $html);
@@ -132,7 +127,7 @@ class LifeAtMissionVillaPageTest extends TestCase
         $heroData = collect($page['sections'])->firstWhere('key', 'lmv-hero')['data'];
 
         $normalized = $schema->normalize($heroData);
-        $this->assertSame('Community Culture & Daily Life', $normalized['eyebrow']);
+        $this->assertSame('Life at Mission Villa', $normalized['eyebrow']);
         $this->assertCount(3, $normalized['strip']);
 
         $this->expectException(InvalidSectionData::class);
@@ -149,7 +144,7 @@ class LifeAtMissionVillaPageTest extends TestCase
 
         $normalized = $schema->normalize($data);
         $this->assertCount(3, $normalized['pillars']);
-        $this->assertSame('Chef-Prepared Daily Meals', $normalized['pillars'][0]['title']);
+        $this->assertSame('Dining Together', $normalized['pillars'][0]['title']);
 
         $this->expectException(InvalidSectionData::class);
         $badData = $data;
@@ -196,7 +191,7 @@ class LifeAtMissionVillaPageTest extends TestCase
         $data = collect($page['sections'])->firstWhere('key', 'lmv-faq')['data'];
 
         $normalized = $schema->normalize($data);
-        $this->assertCount(6, $normalized['faqs']);
+        $this->assertCount(3, $normalized['faqs']);
         $this->assertArrayHasKey('question', $normalized['faqs'][0]);
         $this->assertArrayHasKey('answer', $normalized['faqs'][0]);
 

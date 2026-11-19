@@ -19,35 +19,33 @@ class ResourcesPageTest extends TestCase
         $response->assertOk();
         $html = $response->getContent();
 
-        $this->assertStringContainsString('Caregiver &amp; Family Resources: Guides, Brochure &amp; Blog Status | Mission Villa', $html);
+        $this->assertStringContainsString('Family Resources | Mission Villa Senior Living', $html);
         $this->assertStringContainsString('415601046', $html);
         $this->assertStringContainsString('995 East Market Street', $html);
         $this->assertStringContainsString('<link rel="canonical" href="'.url('/resources').'"', $html);
     }
 
-    public function test_resources_page_renders_all_six_sections_in_order(): void
+    public function test_resources_page_renders_active_sections_in_order(): void
     {
         $html = $this->get('/resources')->assertOk()->getContent();
 
         $posHero = strpos($html, 'id="resources-hero"');
         $posDesk = strpos($html, 'id="resource-pillars-desk"');
         $posPacket = strpos($html, 'id="brochure-and-packet"');
-        $posBlog = strpos($html, 'id="blog-inventory-status"');
-        $posFaq = strpos($html, 'id="resources-faqs"');
         $posCta = strpos($html, 'id="visit"');
 
         $this->assertNotFalse($posHero, 'Hero section must exist');
         $this->assertNotFalse($posDesk, 'Desk section must exist');
         $this->assertNotFalse($posPacket, 'Packet builder section must exist');
-        $this->assertNotFalse($posBlog, 'Blog status section must exist');
-        $this->assertNotFalse($posFaq, 'FAQ section must exist');
         $this->assertNotFalse($posCta, 'Visit CTA section must exist');
+
+        // res-blog and res-faq are disabled in Editorial V2
+        $this->assertStringNotContainsString('id="blog-inventory-status"', $html);
+        $this->assertStringNotContainsString('id="resources-faqs"', $html);
 
         $this->assertTrue($posHero < $posDesk, 'Hero must precede Resource Desk');
         $this->assertTrue($posDesk < $posPacket, 'Resource Desk must precede Brochure Packet');
-        $this->assertTrue($posPacket < $posBlog, 'Brochure Packet must precede Blog Status');
-        $this->assertTrue($posBlog < $posFaq, 'Blog Status must precede FAQs');
-        $this->assertTrue($posFaq < $posCta, 'FAQs must precede Visit CTA');
+        $this->assertTrue($posPacket < $posCta, 'Brochure Packet must precede Visit CTA');
     }
 
     public function test_hero_renders_four_folio_pillars_and_quick_links(): void
@@ -96,6 +94,11 @@ class ResourcesPageTest extends TestCase
         $this->assertStringContainsString('data-desk-filter="Care &amp; Suite Guides"', $html);
         $this->assertStringContainsString('data-desk-filter="Brochure &amp; Blog Status"', $html);
 
+        $this->assertStringContainsString('Costs &amp; Planning', $html);
+        $this->assertStringContainsString('Preparing for a Visit', $html);
+        $this->assertStringContainsString('Choosing Care', $html);
+        $this->assertStringContainsString('Daily Life &amp; Suites', $html);
+
         $this->assertStringContainsString('href="'.url('/financial-planning').'"', $html);
         $this->assertStringContainsString('href="'.url('/for-families').'"', $html);
         $this->assertStringContainsString('href="'.url('/living-options').'"', $html);
@@ -117,42 +120,18 @@ class ResourcesPageTest extends TestCase
         $this->assertStringContainsString('data-packet-attach-btn', $html);
     }
 
-    public function test_blog_status_renders_guardrails_four_stages_and_verified_router(): void
+    public function test_blog_status_is_disabled_in_editorial_v2(): void
     {
-        $html = $this->get('/resources')->assertOk()->getContent();
-
-        // 3 Guardrails
-        $this->assertStringContainsString('Zero fabricated articles', $html);
-        $this->assertStringContainsString('Zero invented authors or dates', $html);
-        $this->assertStringContainsString('No dead navigation links', $html);
-
-        // 4 Stages
-        $this->assertSame(4, substr_count($html, 'data-blog-tab='));
-        $this->assertSame(4, substr_count($html, 'data-blog-panel='));
-        $this->assertStringContainsString('Stage 01', $html);
-        $this->assertStringContainsString('Stage 02', $html);
-        $this->assertStringContainsString('Stage 03', $html);
-        $this->assertStringContainsString('Stage 04', $html);
-
-        // Verified Topic Router & 4 bridges
-        $this->assertSame(4, substr_count($html, 'data-bridge-card='));
-        $this->assertStringContainsString('href="'.url('/memory-care').'"', $html);
-        $this->assertStringContainsString('href="'.url('/respite-care').'"', $html);
-        $this->assertStringContainsString('href="'.url('/financial-planning').'"', $html);
-        $this->assertStringContainsString('href="'.url('/for-families').'"', $html);
+        $page = require base_path('content/pages/resources.php');
+        $blog = collect($page['sections'])->firstWhere('key', 'res-blog');
+        $this->assertFalse($blog['enabled']);
     }
 
-    public function test_resources_faqs_renders_all_six_items_across_four_categories(): void
+    public function test_resources_faqs_is_disabled_in_editorial_v2(): void
     {
-        $html = $this->get('/resources')->assertOk()->getContent();
-
-        $this->assertSame(6, substr_count($html, 'data-faq-item='));
-        $this->assertStringContainsString('Which resource should our family read first if we are just beginning to explore care in Daly City?', $html);
-        $this->assertStringContainsString('Does the Financial Planning resource include a cost comparison worksheet we can fill out ourselves?', $html);
-        $this->assertStringContainsString('How can we get a copy of the Mission Villa community brochure, floor plans, or sample activity calendar?', $html);
-        $this->assertStringContainsString('Why is the Mission Villa Blog marked &quot;Inventory Pending&quot; instead of showing sample articles?', $html);
-        $this->assertStringContainsString('What if I am a current family member looking for community updates, activity calendars, or administrative assistance?', $html);
-        $this->assertStringContainsString('Can we talk through these financial and care guides in person with the Mission Villa team?', $html);
+        $page = require base_path('content/pages/resources.php');
+        $faq = collect($page['sections'])->firstWhere('key', 'res-faq');
+        $this->assertFalse($faq['enabled']);
     }
 
     public function test_all_cta_triggers_bind_modal_intent_and_whitelisted_sources(): void

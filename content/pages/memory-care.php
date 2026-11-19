@@ -13,10 +13,10 @@
 
 return [
     'slug' => 'memory-care',
-    'title' => 'Legacies™ Memory Care | Mission Villa Senior Living',
+    'title' => 'Legacies™ Memory Care in Daly City | Mission Villa',
     'seo' => [
-        'title' => 'Legacies™ Memory Care in Daly City | Mission Villa Senior Living',
-        'description' => 'Dedicated Memory Care in Daly City featuring the Legacies™ program. Dignity, familiar routines, personalized Alzheimer’s & dementia support, and 24/7 care.',
+        'title' => 'Legacies™ Memory Care in Daly City | Mission Villa',
+        'description' => 'Learn about Legacies™ Memory Care at Mission Villa in Daly City: personalized routines, meaningful activities, and family involvement.',
         'og_image' => '/images/hero/memory-care-conversation-2000.webp',
     ],
     'sections' => [
@@ -26,10 +26,10 @@ return [
             'enabled' => true,
             'order' => 10,
             'data' => [
-                'eyebrow' => 'Memory Care at Mission Villa',
-                'heading' => 'Legacies™ Memory Care',
+                'eyebrow' => 'Legacies™ Memory Care',
+                'heading' => 'Memory care that starts with the person.',
                 'editorial' => 'Dignity, familiar routines, and <em>meaningful connection.</em>',
-                'intro' => 'A warm, nurturing environment with personalized care, familiar daily routines, and compassionate 24/7 support in Daly City. Where your loved one is genuinely known, and dignity always comes first.',
+                'intro' => 'When someone is living with Alzheimer’s disease or another form of dementia, familiar things matter. At Mission Villa, care is shaped around personal history, daily routines, and respectful support.',
                 'image' => [
                     'src' => '/images/hero/memory-care-conversation-2000.webp',
                     'src_mobile' => '/images/hero/memory-care-conversation-1200.webp',
@@ -66,10 +66,10 @@ return [
                         'care' => 'memory_care',
                     ],
                     [
-                        'label' => 'Explore the Legacies™ Approach',
+                        'label' => 'See Our Living Options',
                         'style' => 'secondary',
                         'icon' => 'arrow',
-                        'href' => '#legacies-difference',
+                        'href' => '/living-options',
                     ],
                     [
                         'label' => '(650) 756-1995',
@@ -87,18 +87,18 @@ return [
             'enabled' => true,
             'order' => 20,
             'data' => [
-                'eyebrow' => 'The Legacies™ Difference',
-                'heading' => 'Personalized Memory Care <em>with Purpose</em>',
-                'intro' => 'Thoughtful, person-centered care that celebrates each resident’s history, abilities, and sense of self.',
+                'eyebrow' => 'Our Approach',
+                'heading' => 'A life story is part of the care plan.',
+                'intro' => 'We listen to families and learn about each resident’s interests, habits, and ways of finding comfort. That understanding guides everyday interactions.',
                 'touchpoints' => [
                     [
                         'id' => 'life-story',
                         'chapter' => 'Chapter 01',
                         'tab_label' => 'Personal Histories',
                         'icon' => 'book-open',
-                        'title' => 'Knowing the Person Behind the Memory',
+                        'title' => 'Personal history',
                         'subtitle' => 'Care shaped by your loved one’s life story, vocation, and cherished traditions',
-                        'description' => 'In our Legacies™ Memory Care program, support begins with listening. We partner with families to understand each resident’s background, lifelong habits, favorite music, and personal accomplishments so our team can connect with who they have always been.',
+                        'description' => 'Favorite music, memories, and meaningful relationships.',
                         'in_practice' => [
                             'Learning personal histories, family relationships, and comforting conversation topics',
                             'Honoring lifelong preferences in how a resident likes to be addressed and supported',
@@ -124,9 +124,9 @@ return [
                         'chapter' => 'Chapter 02',
                         'tab_label' => 'Familiar Routines',
                         'icon' => 'compass',
-                        'title' => 'Calm, Predictable Days Without Rigidity',
+                        'title' => 'Familiar routines',
                         'subtitle' => 'Gentle structure that reduces overwhelm while respecting personal pace',
-                        'description' => 'For older adults living with memory loss, a calm and recognizable daily flow creates a natural sense of ease. Rather than enforcing a rigid institutional timetable, we guide each day with gentle cues, unhurried mornings, and familiar transitions.',
+                        'description' => 'Gentle support with daily activities at an individual pace.',
                         'in_practice' => [
                             'Unhurried morning routines aligned with personal waking and grooming habits',
                             'Consistent, welcoming cues for chef-prepared meals and social gatherings',
@@ -152,9 +152,9 @@ return [
                         'chapter' => 'Chapter 03',
                         'tab_label' => 'Meaningful Connection',
                         'icon' => 'heart',
-                        'title' => 'Everyday Moments of Joy & Belonging',
+                        'title' => 'Connection',
                         'subtitle' => 'Activities adapted to individual interests, sensory comfort, and current abilities',
-                        'description' => 'Through Legacies™ Memory Care and our daily activity programming, residents are invited into small-group and one-on-one experiences that spark recognition, creativity, and camaraderie—without pressure or frustration.',
+                        'description' => 'Opportunities for conversation, activities, and family visits.',
                         'in_practice' => [
                             'Music, reminiscence, art, and gentle movement tailored to resident abilities',
                             'Shared mealtimes with freshly prepared, comforting dishes in our dining room',
@@ -213,15 +213,15 @@ return [
             'enabled' => true,
             'order' => 30,
             'data' => [
-                'eyebrow' => 'Daily Life in Memory Care',
-                'heading' => 'A Day Shaped <em>Around the Individual</em>',
+                'eyebrow' => 'A Typical Day',
+                'heading' => 'Support throughout the day.',
                 'intro' => 'A familiar rhythm, engaging experiences, and plenty of meaningful moments throughout the day.',
                 'scenes' => [
                     [
                         'id' => 'morning',
                         'rhythm' => 'Morning · Personal Pace',
                         'title' => 'A Reassuring Start to the Day',
-                        'narrative' => 'Mornings begin at a human pace. Attentive assistance with bathing, dressing, and grooming honors privacy while gently guiding residents toward breakfast.',
+                        'narrative' => 'Help with personal routines and a welcoming breakfast.',
                         'highlights' => [
                             'Individualized assistance with dressing, grooming, and personal hygiene',
                             'Private bathroom access inside private and companion suites',
@@ -241,7 +241,7 @@ return [
                         'id' => 'midday',
                         'rhythm' => 'Midday · Shared Table',
                         'title' => 'Chef-Prepared Dining & Familiar Flavors',
-                        'narrative' => 'Meals are familiar anchors of the day. Residents gather in our dining room for freshly prepared meals served with attentive table support and companionship.',
+                        'narrative' => 'Shared meals, music or other activities, and quiet time when needed.',
                         'highlights' => [
                             'Three chef-prepared daily meals plus snacks in an inviting dining room',
                             'Attentive dining support accommodating personal preferences and needs',
@@ -261,7 +261,7 @@ return [
                         'id' => 'evening',
                         'rhythm' => 'Evening · Quiet Sanctuary',
                         'title' => 'Afternoon Engagement & Restful Evenings',
-                        'narrative' => 'Music, reminiscence, art, and patio time transition naturally into calm evening routines that help residents feel peaceful, secure, and settled.',
+                        'narrative' => 'A familiar pace and assistance with settling in.',
                         'highlights' => [
                             'Engaging activities adapted to resident abilities and interests',
                             'Comfortable lounges and outdoor patio spaces for family visits',
@@ -287,8 +287,8 @@ return [
             'enabled' => true,
             'order' => 40,
             'data' => [
-                'eyebrow' => 'A Supportive Place to Live',
-                'heading' => 'Care, Comfort & <em>Home</em>',
+                'eyebrow' => 'At Home at Mission Villa',
+                'heading' => 'Care, comfort, and room for family.',
                 'intro' => 'Specialized memory care, a welcoming environment, and the comfort of home — all in one supportive setting in Daly City.',
                 'checklist' => [
                     '24/7 compassionate, trained care staff on-site',
@@ -299,7 +299,7 @@ return [
                 ],
                 'reassurance_box' => [
                     'title' => 'Personalized Care Planning',
-                    'text' => 'Every resident’s support plan is shaped around an individual assessment and ongoing family conversation. Ask our team how we accommodate specific routines.',
+                    'text' => 'We encourage families to talk with the team about their loved one’s specific needs before making a decision.',
                 ],
                 'image' => [
                     'src' => '/images/suites/suite-bedroom-facility-899.webp',
@@ -340,12 +340,12 @@ return [
                 'eyebrow' => 'Questions Families Often Ask',
                 'heading' => 'Questions Families <em>Often Ask</em>',
                 'intro' => 'Clear answers about our Legacies™ Memory Care program, everyday support, and visiting Mission Villa.',
-                'display_count' => 5,
+                'display_count' => 3,
                 'entries' => [
                     [
                         'id' => 'mc-faq-program',
-                        'question' => 'What makes the Legacies™ Memory Care approach meaningful for residents?',
-                        'answer' => 'Legacies™ Memory Care centers on honoring who each resident is—their personal history, life accomplishments, family relationships, and comforting routines. By learning your loved one’s story, our staff can provide individualized care and activities that foster dignity, familiarity, and connection.',
+                        'question' => 'Who is Memory Care for?',
+                        'answer' => 'Older adults living with Alzheimer’s disease or other forms of dementia who may benefit from ongoing residential support. Admission depends on an individual care assessment.',
                         'actions' => [
                             ['label' => 'Schedule a Visit', 'intent' => 'visit'],
                         ],
@@ -355,50 +355,26 @@ return [
                         'featured' => true,
                     ],
                     [
-                        'id' => 'mc-faq-support',
-                        'question' => 'What kind of everyday assistance and 24-hour safety support do residents receive?',
-                        'answer' => 'Staff members are on-site 24 hours a day to provide compassionate help with everyday tasks such as bathing, dressing, grooming, escorting to meals and activities, housekeeping, and laundry. Routine assessments help us tailor support as a resident’s needs change.',
+                        'id' => 'mc-faq-visiting',
+                        'question' => 'Can our family stay involved?',
+                        'answer' => 'Yes. Family knowledge, regular conversations, and visits are important parts of our approach.',
                         'actions' => [
-                            ['label' => 'Request a Call', 'intent' => 'callback'],
+                            ['label' => 'Plan a Visit', 'intent' => 'visit'],
                         ],
-                        'icon' => 'shield',
+                        'icon' => 'people',
                         'order' => 20,
                         'enabled' => true,
                         'featured' => true,
                     ],
                     [
-                        'id' => 'mc-faq-activities',
-                        'question' => 'What types of activities, dining, and daily routines are offered?',
-                        'answer' => 'Days are guided by gentle rhythms rather than a rigid timetable. Residents enjoy three chef-prepared meals daily, snacks, and ability-adapted activities including music, reminiscence, gentle movement, art, and quiet moments in our lounges and patio.',
+                        'id' => 'mc-faq-support',
+                        'question' => 'How do we get started?',
+                        'answer' => 'Call (650) 756-1995 or request a visit to discuss care needs and current suite options.',
                         'actions' => [
-                            ['label' => 'Ask Our Team', 'intent' => 'general'],
+                            ['label' => 'Request a Call', 'intent' => 'callback'],
                         ],
-                        'icon' => 'heart',
+                        'icon' => 'shield',
                         'order' => 30,
-                        'enabled' => true,
-                        'featured' => true,
-                    ],
-                    [
-                        'id' => 'mc-faq-suites',
-                        'question' => 'What suite options are available in Memory Care?',
-                        'answer' => 'Mission Villa offers both private and shared companion suites with private bathrooms. Families are warmly encouraged to personalize suites with familiar photographs, favorite bedding, and comforting keepsakes from home.',
-                        'actions' => [
-                            ['label' => 'Ask About Availability', 'intent' => 'availability'],
-                        ],
-                        'icon' => 'home',
-                        'order' => 40,
-                        'enabled' => true,
-                        'featured' => true,
-                    ],
-                    [
-                        'id' => 'mc-faq-visiting',
-                        'question' => 'How can family members visit and stay involved after move-in?',
-                        'answer' => 'Families are always an essential part of life at Mission Villa. We welcome regular visits in our lounges, dining room, and courtyard patio, maintain open communication regarding wellbeing, and partner with you on care planning.',
-                        'actions' => [
-                            ['label' => 'Plan a Visit', 'intent' => 'visit'],
-                        ],
-                        'icon' => 'people',
-                        'order' => 50,
                         'enabled' => true,
                         'featured' => true,
                     ],
@@ -413,8 +389,8 @@ return [
             'order' => 60,
             'data' => [
                 'script' => 'Let’s Connect',
-                'heading' => 'Talk With Our Memory Care Team',
-                'body' => 'We’re here to help you explore care options and see what personalized Memory Care looks like at Mission Villa. Schedule a tour, request pricing, or speak directly with our Daly City team.',
+                'heading' => 'Let’s talk about your loved one.',
+                'body' => 'We’ll answer your questions and help you decide whether Mission Villa is a good fit.',
                 'care' => 'memory_care',
                 'actions' => [
                     [

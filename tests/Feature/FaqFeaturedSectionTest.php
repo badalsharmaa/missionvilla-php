@@ -37,15 +37,14 @@ class FaqFeaturedSectionTest extends TestCase
         return ['entries' => $entries] + $this->shippedData();
     }
 
-    public function test_shipped_content_has_the_four_approved_questions_in_order(): void
+    public function test_shipped_content_has_the_three_approved_questions_in_order(): void
     {
         $items = $this->normalize($this->shippedData())['items'];
 
         $this->assertSame([
-            'What is included in the Legacies™ Memory Care program?',
-            'Can we arrange a short-term Respite Care stay?',
-            'What suite options are available?',
-            'How can we learn about pricing and schedule a visit?',
+            'What care does Mission Villa provide?',
+            'Can we tour the community?',
+            'How do we find out about pricing?',
         ], array_column($items, 'question'));
     }
 

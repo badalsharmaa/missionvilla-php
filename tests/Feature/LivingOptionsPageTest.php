@@ -24,31 +24,29 @@ class LivingOptionsPageTest extends TestCase
         $html = $response->getContent();
 
         // SEO meta
-        $this->assertStringContainsString('<title>Living Options: Memory Care &amp; Respite Care in Daly City | Mission Villa</title>', $html);
-        $this->assertStringContainsString('Dedicated Legacies™ Memory Care and short-term Respite Care', $html);
+        $this->assertStringContainsString('<title>Living Options | Memory Care &amp; Respite Care at Mission Villa</title>', $html);
+        $this->assertStringContainsString('Compare Legacies™ Memory Care and short-term Respite Care', $html);
 
         // Header active state for Living Options
         $this->assertStringContainsString('class="site-nav__link site-nav__toggle is-active"', $html);
 
-        // All 6 sections present in order
+        // Active sections present in order
         $heroPos = strpos($html, 'id="lo-hero"');
         $carePos = strpos($html, 'id="choose-care"');
         $suitesPos = strpos($html, 'id="suites-floor-plans"');
-        $settingPos = strpos($html, 'id="homelike-setting"');
         $faqPos = strpos($html, 'id="living-options-faq"');
         $visitPos = strpos($html, 'id="visit"');
 
         $this->assertNotFalse($heroPos, 'Hero section missing');
         $this->assertNotFalse($carePos, 'Care selector section missing');
         $this->assertNotFalse($suitesPos, 'Suites section missing');
-        $this->assertNotFalse($settingPos, 'Homelike setting section missing');
+        $this->assertFalse(strpos($html, 'id="homelike-setting"'), 'Homelike setting section should be disabled');
         $this->assertNotFalse($faqPos, 'FAQ section missing');
         $this->assertNotFalse($visitPos, 'Closing visit CTA section missing');
 
         $this->assertTrue($heroPos < $carePos, 'Hero must precede Care selector');
         $this->assertTrue($carePos < $suitesPos, 'Care selector must precede Suites');
-        $this->assertTrue($suitesPos < $settingPos, 'Suites must precede Homelike setting');
-        $this->assertTrue($settingPos < $faqPos, 'Homelike setting must precede FAQ');
+        $this->assertTrue($suitesPos < $faqPos, 'Suites must precede FAQ');
         $this->assertTrue($faqPos < $visitPos, 'FAQ must precede Visit CTA');
 
         // Global footer & inquiry dialog present
@@ -131,11 +129,9 @@ class LivingOptionsPageTest extends TestCase
         $html = $this->get('/living-options')->assertOk()->getContent();
 
         $this->assertStringContainsString('At-a-Glance Comparison', $html);
-        $this->assertStringContainsString('Primary Purpose', $html);
-        $this->assertStringContainsString('Who It Supports', $html);
-        $this->assertStringContainsString('Daily Support', $html);
-        $this->assertStringContainsString('Accommodations', $html);
-        $this->assertStringContainsString('Planning &amp; Pricing', $html);
+        $this->assertStringContainsString('Stay', $html);
+        $this->assertStringContainsString('Main purpose', $html);
+        $this->assertStringContainsString('Getting started', $html);
         $this->assertStringContainsString('CA RCFE License #415601046', $html);
     }
 
@@ -159,29 +155,26 @@ class LivingOptionsPageTest extends TestCase
 
         // Floor plan details CTA uses fallback inquiry modal safely
         $this->assertStringContainsString('data-inquiry="request_availability"', $html);
-        $this->assertStringContainsString('View Floor-Plan Details', $html);
+        $this->assertStringContainsString('View Suites', $html);
     }
 
     public function test_homelike_setting_four_feature_cards(): void
     {
-        $html = $this->get('/living-options')->assertOk()->getContent();
+        $schema = new LivingOptionsSettingSection();
+        $page = $this->livingOptionsPageData();
+        $data = collect($page['sections'])->firstWhere('key', 'lo-setting')['data'];
 
-        $this->assertStringContainsString('Chef-Prepared Dining', $html);
-        $this->assertStringContainsString('Meaningful Engagement', $html);
-        $this->assertStringContainsString('Enclosed Courtyard &amp; Patio', $html);
-        $this->assertStringContainsString('24-Hour Attentive Support', $html);
+        $normalized = $schema->normalize($data);
+        $this->assertCount(4, $normalized['features']);
     }
 
     public function test_faq_section_accordion_and_schema_markup(): void
     {
         $html = $this->get('/living-options')->assertOk()->getContent();
 
-        // 5 specific verified questions
-        $this->assertStringContainsString('Which care options does Mission Villa offer?', $html);
-        $this->assertStringContainsString('What is the difference between Memory Care and Respite Care?', $html);
-        $this->assertStringContainsString('What suite configurations are available?', $html);
-        $this->assertStringContainsString('How do families choose the appropriate care option?', $html);
-        $this->assertStringContainsString('Can families tour Mission Villa and inquire about accommodations?', $html);
+        // 2 specific verified questions per Editorial V2
+        $this->assertStringContainsString('Does Mission Villa offer independent living or traditional assisted living?', $html);
+        $this->assertStringContainsString('How do we know which option is appropriate?', $html);
 
         // Accordion triggers
         $this->assertStringContainsString('data-faq-trigger', $html);
@@ -214,7 +207,7 @@ class LivingOptionsPageTest extends TestCase
         $heroData = collect($page['sections'])->firstWhere('key', 'lo-hero')['data'];
 
         $normalized = $schema->normalize($heroData);
-        $this->assertSame('Living Options at Mission Villa', $normalized['eyebrow']);
+        $this->assertSame('Living Options', $normalized['eyebrow']);
         $this->assertCount(3, $normalized['strip']);
         $this->assertSame('exploring', $normalized['actions'][0]['care']);
 
@@ -234,7 +227,7 @@ class LivingOptionsPageTest extends TestCase
         $this->assertCount(2, $normalized['options']);
         $this->assertSame('Legacies™ Memory Care', $normalized['options'][0]['title']);
         $this->assertSame('Short-Term Respite Care', $normalized['options'][1]['title']);
-        $this->assertCount(5, $normalized['comparison']['rows']);
+        $this->assertCount(3, $normalized['comparison']['rows']);
 
         $this->expectException(InvalidSectionData::class);
         $badData = $data;
@@ -280,7 +273,7 @@ class LivingOptionsPageTest extends TestCase
         $data = collect($page['sections'])->firstWhere('key', 'lo-faq')['data'];
 
         $normalized = $schema->normalize($data);
-        $this->assertCount(5, $normalized['faqs']);
+        $this->assertCount(2, $normalized['faqs']);
 
         $this->expectException(InvalidSectionData::class);
         $badData = $data;

@@ -23,26 +23,26 @@ class GalleryPageTest extends TestCase
         $html = $response->getContent();
 
         // SEO meta
-        $this->assertStringContainsString('<title>Photo Gallery &amp; Virtual Tour: Suites, Dining &amp; Courtyard | Mission Villa</title>', $html);
-        $this->assertStringContainsString('Explore the photo gallery and virtual walkthrough of Mission Villa in Daly City', $html);
+        $this->assertStringContainsString('<title>Photo Gallery | Mission Villa Senior Living in Daly City</title>', $html);
+        $this->assertStringContainsString('Take a look inside Mission Villa Senior Living in Daly City', $html);
 
         // Sections presence in order
         $heroPos = strpos($html, 'data-gh-hero');
         $masonryPos = strpos($html, 'id="editorial-masonry-gallery"');
         $tourPos = strpos($html, 'id="virtual-tour"');
-        $bridgePos = strpos($html, 'id="gallery-visit-bridge"');
         $visitPos = strpos($html, 'id="visit"');
 
         $this->assertNotFalse($heroPos, 'Hero section missing');
         $this->assertNotFalse($masonryPos, 'Masonry section missing');
         $this->assertNotFalse($tourPos, 'Virtual tour section missing');
-        $this->assertNotFalse($bridgePos, 'Pathways bridge section missing');
         $this->assertNotFalse($visitPos, 'Closing visit CTA section missing');
+
+        // gallery-pathways is disabled in Editorial V2
+        $this->assertStringNotContainsString('id="gallery-visit-bridge"', $html);
 
         $this->assertTrue($heroPos < $masonryPos, 'Hero must precede Masonry');
         $this->assertTrue($masonryPos < $tourPos, 'Masonry must precede Virtual Tour');
-        $this->assertTrue($tourPos < $bridgePos, 'Virtual Tour must precede Pathways Bridge');
-        $this->assertTrue($bridgePos < $visitPos, 'Pathways Bridge must precede Visit CTA');
+        $this->assertTrue($tourPos < $visitPos, 'Virtual Tour must precede Visit CTA');
 
         // Global footer, lightbox & inquiry dialogs present
         $this->assertStringContainsString('<footer class="site-footer"', $html);
@@ -92,28 +92,24 @@ class GalleryPageTest extends TestCase
         $this->assertStringContainsString('Common Lounges', $html);
     }
 
-    public function test_masonry_section_renders_ten_plates_with_cutouts_and_lightbox(): void
+    public function test_masonry_section_renders_five_verified_plates_with_cutouts_and_lightbox(): void
     {
         $html = $this->get('/gallery')->assertOk()->getContent();
 
-        // 10 plates codes
+        // 5 plates codes
         $this->assertStringContainsString('PLATE 01', $html);
         $this->assertStringContainsString('PLATE 02', $html);
         $this->assertStringContainsString('PLATE 03', $html);
         $this->assertStringContainsString('PLATE 04', $html);
         $this->assertStringContainsString('PLATE 05', $html);
-        $this->assertStringContainsString('PLATE 06', $html);
-        $this->assertStringContainsString('PLATE 07', $html);
-        $this->assertStringContainsString('PLATE 08', $html);
-        $this->assertStringContainsString('PLATE 09', $html);
-        $this->assertStringContainsString('PLATE 10', $html);
+        $this->assertStringNotContainsString('PLATE 06', $html);
 
         // Core titles
-        $this->assertStringContainsString('Sunlit Private Suite Sanctuary', $html);
-        $this->assertStringContainsString('Restaurant-Style Community Dining', $html);
-        $this->assertStringContainsString('Homelike Fireside &amp; Conversation Lounge', $html);
-        $this->assertStringContainsString('Enclosed Garden Courtyard &amp; Patio', $html);
-        $this->assertStringContainsString('Companion Unit Layout Arrangements', $html);
+        $this->assertStringContainsString('Private Suite', $html);
+        $this->assertStringContainsString('Community Lounge', $html);
+        $this->assertStringContainsString('Courtyard &amp; Patio', $html);
+        $this->assertStringContainsString('Dining Space', $html);
+        $this->assertStringContainsString('Quiet Sitting Area', $html);
 
         // Lightbox trigger attributes and cycling controls
         $this->assertStringContainsString('data-gm-trigger', $html);
@@ -126,31 +122,11 @@ class GalleryPageTest extends TestCase
         $this->assertStringContainsString('gm-plate__prov-pill', $html);
     }
 
-    public function test_virtual_tour_renders_four_guided_spatial_stops(): void
+    public function test_pathways_bridge_is_disabled_in_editorial_v2(): void
     {
-        $html = $this->get('/gallery')->assertOk()->getContent();
-
-        $this->assertStringContainsString('STOP 01', $html);
-        $this->assertStringContainsString('Main Reception &amp; Welcoming Foyer', $html);
-        $this->assertStringContainsString('STOP 02', $html);
-        $this->assertStringContainsString('Community Dining Room &amp; Private Dining', $html);
-        $this->assertStringContainsString('STOP 03', $html);
-        $this->assertStringContainsString('Enclosed Courtyard &amp; Patio Sanctuary', $html);
-        $this->assertStringContainsString('STOP 04', $html);
-        $this->assertStringContainsString('Private &amp; Companion Suites with Attached Baths', $html);
-        $this->assertStringContainsString('Prefer a Live Video Walkthrough?', $html);
-        $this->assertStringContainsString('gvt-stop__badge-cutout', $html);
-        $this->assertStringContainsString('gvt-stop__pill-badge', $html);
-        $this->assertStringContainsString('gvt-stop__prov-pill', $html);
-    }
-
-    public function test_pathways_bridge_links_to_suites_services_and_memory_care(): void
-    {
-        $html = $this->get('/gallery')->assertOk()->getContent();
-
-        $this->assertStringContainsString('href="/suites-and-floor-plans"', $html);
-        $this->assertStringContainsString('href="/services-and-amenities"', $html);
-        $this->assertStringContainsString('href="/memory-care"', $html);
+        $page = $this->galleryPageData();
+        $pathways = collect($page['sections'])->firstWhere('key', 'gallery-pathways');
+        $this->assertFalse($pathways['enabled']);
     }
 
     public function test_hero_schema_validation(): void
@@ -160,7 +136,7 @@ class GalleryPageTest extends TestCase
         $heroData = collect($page['sections'])->firstWhere('key', 'gallery-hero')['data'];
 
         $normalized = $schema->normalize($heroData);
-        $this->assertSame('Visual Monograph & Photographic Tour', $normalized['eyebrow']);
+        $this->assertSame('Photo Gallery', $normalized['eyebrow']);
         $this->assertCount(3, $normalized['previews']);
         $this->assertCount(5, $normalized['categories']);
 
@@ -177,8 +153,8 @@ class GalleryPageTest extends TestCase
         $data = collect($page['sections'])->firstWhere('key', 'gallery-masonry')['data'];
 
         $normalized = $schema->normalize($data);
-        $this->assertCount(10, $normalized['plates']);
-        $this->assertSame('Rooms · Private Suite', $normalized['plates'][0]['cutout_badge']);
+        $this->assertCount(5, $normalized['plates']);
+        $this->assertSame('Private Suite', $normalized['plates'][0]['title']);
 
         $this->expectException(InvalidSectionData::class);
         $badData = $data;

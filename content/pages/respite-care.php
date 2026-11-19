@@ -14,10 +14,10 @@
 
 return [
     'slug' => 'respite-care',
-    'title' => 'Short-Term Respite Care | Mission Villa Senior Living',
+    'title' => 'Short-Term Respite Care in Daly City | Mission Villa',
     'seo' => [
-        'title' => 'Short-Term Respite Care in Daly City | Mission Villa Senior Living',
-        'description' => 'Flexible short-term respite care stays in Daly City. Welcoming accommodations, 24/7 personalized care, chef-prepared meals, and peace of mind for family caregivers.',
+        'title' => 'Short-Term Respite Care in Daly City | Mission Villa',
+        'description' => 'Explore short-term Respite Care at Mission Villa Senior Living in Daly City. Learn about stays, daily support, and how to ask about availability.',
         'og_image' => '/images/hero/respite-quiet-reading-2000.webp',
     ],
     'sections' => [
@@ -27,10 +27,10 @@ return [
             'enabled' => true,
             'order' => 10,
             'data' => [
-                'eyebrow' => 'Short-Term Stays at Mission Villa',
-                'heading' => 'Short-Term Respite Care',
+                'eyebrow' => 'Short-Term Respite Care',
+                'heading' => 'Caring support, for the time you need.',
                 'editorial' => 'Flexible support, welcoming stays, and <em>peace of mind for families.</em>',
-                'intro' => 'Temporary stays that provide compassionate care, a comfortable place to stay, and supportive daily routines—while caregivers rest, travel, or navigate recovery.',
+                'intro' => 'Looking after someone you love is important work. A short stay at Mission Villa can give family caregivers time to rest, travel, or manage other responsibilities while their loved one receives daily support.',
                 'image' => [
                     'src' => '/images/hero/respite-quiet-reading-2000.webp',
                     'src_mobile' => '/images/hero/respite-quiet-reading-1200.webp',
@@ -63,14 +63,14 @@ return [
                 ],
                 'actions' => [
                     [
-                        'label' => 'Inquire About Respite Availability',
+                        'label' => 'Ask About Availability',
                         'style' => 'primary',
                         'icon' => 'calendar',
                         'intent' => 'request_availability',
                         'care' => 'respite_care',
                     ],
                     [
-                        'label' => 'See How a Short-Term Stay Works',
+                        'label' => 'How Respite Works',
                         'style' => 'secondary',
                         'icon' => 'arrow',
                         'href' => '#respite-planning',
@@ -91,17 +91,17 @@ return [
             'enabled' => true,
             'order' => 20,
             'data' => [
-                'eyebrow' => 'Why Families Choose Respite Care',
-                'heading' => 'Support When You Need It <em>Most.</em>',
+                'eyebrow' => 'Is Respite Right for Us?',
+                'heading' => 'A short stay can help in different ways.',
                 'intro' => 'A flexible, short-term care option that brings relief, support, and confidence—for both you and your loved one.',
                 'scenarios' => [
                     [
                         'id' => 'caregiver-recharge',
-                        'tab_label' => 'Caregiver Rest & Renewal',
+                        'tab_label' => 'A break for caregivers',
                         'icon' => 'heart',
                         'kicker' => 'Featured Scenario',
-                        'title' => 'Caregiver Rest & Renewal',
-                        'subtitle' => 'A trusted place to stay while you take time for yourself.',
+                        'title' => 'A break for caregivers',
+                        'subtitle' => 'Time to recharge while a loved one stays in a supportive community.',
                         'narrative' => 'Caring for a loved one is meaningful—and at times, demanding. A short-term respite stay at Mission Villa gives you time to rest, recharge, and tend to your own well-being, knowing your loved one is in a safe, supportive environment with a caring team.',
                         'points' => [
                             'A comfortable, engaging stay with caring support',
@@ -126,7 +126,7 @@ return [
                         'icon' => 'briefcase',
                         'kicker' => 'Featured Scenario',
                         'title' => 'Family Travel or Commitments',
-                        'subtitle' => 'When work, travel, or family milestones call you away.',
+                        'subtitle' => 'Care while you\'re away for work, travel, or personal responsibilities.',
                         'narrative' => 'Instead of piecing together rotating in-home coverage while you are away for travel, business, or family milestones, Respite Care provides a consistent, homelike environment. Your loved one enjoys furnished accommodations, dining, and attentive 24-hour support.',
                         'points' => [
                             'Short-term stays tailored to your family’s travel dates',
@@ -152,7 +152,7 @@ return [
                         'kicker' => 'Featured Scenario',
                         'title' => 'Recovery & Transitional Support',
                         'subtitle' => 'When extra daily assistance helps after an illness or hospital stay.',
-                        'narrative' => 'Returning directly home after an illness or hospital stay can feel challenging without extra help. A temporary stay at Mission Villa offers a calm, supportive setting where daily living assistance, nutritious meals, and attentive staff help your loved one regain everyday comfort.',
+                        'narrative' => 'If your loved one is leaving a hospital or rehabilitation setting, ask the team about admission requirements and whether their needs can be safely supported. Respite Care is not a substitute for skilled nursing or medical rehabilitation.',
                         'points' => [
                             'Pre-stay care review to understand daily assistance preferences',
                             'Respectful help with bathing, dressing, and daily routines',
@@ -172,11 +172,11 @@ return [
                     ],
                     [
                         'id' => 'community-introduction',
-                        'tab_label' => 'Gentle Introduction to Community Life',
+                        'tab_label' => 'Exploring community life',
                         'icon' => 'people',
                         'kicker' => 'Featured Scenario',
-                        'title' => 'Gentle Introduction to Community Life',
-                        'subtitle' => 'Experience Mission Villa firsthand before making longer-term plans.',
+                        'title' => 'Exploring community life',
+                        'subtitle' => 'An opportunity to experience Mission Villa before considering a longer-term move.',
                         'narrative' => 'A Respite Care stay can serve as a gentle, reassuring introduction to life at Mission Villa. Guests experience our homelike setting, meet staff and neighbors, and participate in daily activities—helping families make longer-term care decisions with confidence.',
                         'points' => [
                             'Full participation in community dining and social gatherings',
@@ -205,10 +205,10 @@ return [
             'enabled' => true,
             'order' => 30,
             'data' => [
-                'eyebrow' => 'What’s Included in a Stay',
-                'heading' => 'Comfort, Care & <em>Everyday Support.</em>',
+                'eyebrow' => 'During a Stay',
+                'heading' => 'Familiar comforts and daily support.',
                 'intro' => 'A complete, worry-free stay with the comforts of home, personalized care, and a welcoming community experience.',
-                'note' => 'Availability and specific inclusions are confirmed with our team for each stay.',
+                'note' => 'The team will review care needs, dates, and specific inclusions before confirming a stay.',
                 'items' => [
                     [
                         'id' => 'meals',
@@ -277,7 +277,7 @@ return [
         [
             'key' => 'rc-story',
             'type' => 'respite-care.story',
-            'enabled' => true,
+            'enabled' => false,
             'order' => 40,
             'data' => [
                 'eyebrow' => 'What a Short-Term Stay Can Look Like',
@@ -339,7 +339,7 @@ return [
         [
             'key' => 'rc-caregiver',
             'type' => 'respite-care.caregiver',
-            'enabled' => true,
+            'enabled' => false,
             'order' => 50,
             'data' => [
                 'eyebrow' => 'Caregiver Support',
@@ -387,45 +387,31 @@ return [
             'enabled' => true,
             'order' => 60,
             'data' => [
-                'eyebrow' => 'A Simple, Supportive Process',
-                'heading' => 'A Simple Stay-Planning <em>Timeline.</em>',
+                'eyebrow' => 'Getting Started',
+                'heading' => 'Three simple steps.',
                 'intro' => 'Getting started is straightforward. Our team is here to guide you at every step.',
                 'note' => 'Arrangements, dates, and stay guidelines are confirmed with our team.',
                 'steps' => [
                     [
                         'step' => '1',
-                        'title' => 'Reach Out',
+                        'title' => "Let's talk",
                         'icon' => 'phone',
-                        'summary' => 'Contact our team to talk about your needs and ask questions.',
+                        'summary' => "Tell us about the dates you're considering and the support your loved one needs.",
                         'detail' => 'Call our Daly City team at (650) 756-1995 or send an inquiry. We’ll discuss your timeline, care goals, and current availability.',
                     ],
                     [
                         'step' => '2',
                         'title' => 'Care Review',
                         'icon' => 'file-text',
-                        'summary' => 'We’ll learn about your loved one’s preferences, routines, and any care needs.',
+                        'summary' => 'Our team discusses suitability, accommodations, and current availability.',
                         'detail' => 'A relaxed conversation to understand daily habits, favorite foods, mobility support, and any memory-loss considerations.',
                     ],
                     [
                         'step' => '3',
-                        'title' => 'Choose Dates',
+                        'title' => 'Plan the stay',
                         'icon' => 'calendar',
-                        'summary' => 'Select a stay length that works for your family (from days to weeks).',
-                        'detail' => 'Coordinate dates that match your travel schedule or recovery window, based on available furnished suites.',
-                    ],
-                    [
-                        'step' => '4',
-                        'title' => 'Prepare for Arrival',
-                        'icon' => 'briefcase',
-                        'summary' => 'We’ll share what to bring and help you get ready for a smooth stay.',
+                        'summary' => "If appropriate and available, we'll explain the next steps and what to bring.",
                         'detail' => 'We’ll provide simple packing recommendations, paperwork guidance, and coordinate arrival timing with your family.',
-                    ],
-                    [
-                        'step' => '5',
-                        'title' => 'Welcome to Mission Villa',
-                        'icon' => 'heart',
-                        'summary' => 'Your loved one is greeted by our caring team and supported from day one.',
-                        'detail' => 'Our staff greets your loved one warmly, helps them unpack familiar belongings, and introduces them to dining and neighbors.',
                     ],
                 ],
             ],
@@ -457,28 +443,18 @@ return [
                 'faqs' => [
                     [
                         'id' => 'rc-faq-duration',
-                        'question' => 'How long can a respite stay be?',
-                        'answer' => 'Respite Care at Mission Villa is designed for flexible short-term stays—often ranging from a few days to several weeks depending on your family’s needs and current suite availability. Contact our Daly City team at (650) 756-1995 to check current openings for your desired dates.',
-                    ],
-                    [
-                        'id' => 'rc-faq-included',
-                        'question' => 'What’s included in a short-term stay?',
-                        'answer' => 'A Respite Care stay includes comfortable furnished accommodations with a private bathroom, 24-hour on-site staff support, personalized assistance with daily routines (such as bathing, dressing, and grooming), three chef-prepared meals and snacks daily, engaging community activities, housekeeping, and linen service.',
+                        'question' => 'How long can someone stay?',
+                        'answer' => 'Stay lengths and minimum requirements depend on availability and current community policies. Ask our team about your dates.',
                     ],
                     [
                         'id' => 'rc-faq-memory',
-                        'question' => 'Can you support someone with memory loss during a respite stay?',
-                        'answer' => 'Yes. Because Mission Villa specializes in compassionate Memory Care through our Legacies™ program, our staff and homelike setting are well suited to welcoming short-term guests living with memory loss—provided our pre-stay care review confirms we can safely meet their individual needs.',
+                        'question' => 'Can someone with memory loss use Respite Care?',
+                        'answer' => "The team can discuss this with you and assess whether Mission Villa can meet the person's needs during a short stay.",
                     ],
                     [
-                        'id' => 'rc-faq-choice',
-                        'question' => 'How do we know if respite care is the right choice?',
-                        'answer' => 'Respite Care is ideal when family caregivers need time to rest, when upcoming travel requires temporary support, during recovery after illness, or when families want to gently experience Mission Villa before making a longer-term memory care decision.',
-                    ],
-                    [
-                        'id' => 'rc-faq-start',
-                        'question' => 'How do I check availability and get started?',
-                        'answer' => 'Getting started is as simple as calling our Daly City team at (650) 756-1995 or submitting an availability inquiry online. We will discuss your dates, care needs, and guide you through each planning step.',
+                        'id' => 'rc-faq-quote',
+                        'question' => 'How do I get a quote?',
+                        'answer' => 'Request pricing and share your preferred dates so the team can explain options.',
                     ],
                 ],
             ],
@@ -491,8 +467,8 @@ return [
             'order' => 80,
             'data' => [
                 'script' => 'Let’s Connect',
-                'heading' => 'Talk With Our Respite Care Team',
-                'body' => 'Explore short-term stay options, get answers to your questions, and see how Mission Villa can provide the support you need—for your loved one and for you.',
+                'heading' => "Let's plan the next step together.",
+                'body' => 'Talk with our team about timing, support, and availability.',
                 'care' => 'respite_care',
                 'actions' => [
                     [

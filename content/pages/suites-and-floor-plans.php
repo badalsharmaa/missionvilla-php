@@ -17,8 +17,8 @@ return [
     'slug' => 'suites-and-floor-plans',
     'title' => 'Suites & Floor Plans | Mission Villa Senior Living',
     'seo' => [
-        'title' => 'Suites & Floor Plans: Memory Care Living in Daly City | Mission Villa',
-        'description' => 'Explore comfortable private and companion suites at Mission Villa in Daly City. Each suite includes a private en-suite bathroom, natural daylight, and 24/7 care support.',
+        'title' => 'Suites & Floor Plans | Mission Villa Senior Living',
+        'description' => 'View private, companion, and Jack & Jill suite options at Mission Villa in Daly City. Ask about current availability and arrange a tour.',
         'og_image' => '/images/suites/suite-bedroom-facility-899.webp',
     ],
     'sections' => [
@@ -28,10 +28,10 @@ return [
             'enabled' => true,
             'order' => 10,
             'data' => [
-                'eyebrow' => 'Accommodations & Living Spaces',
-                'heading' => 'Calm Personal Sanctuaries, <em>Designed for Dignity.</em>',
+                'eyebrow' => 'Suites & Floor Plans',
+                'heading' => 'A comfortable space to call your own.',
                 'editorial' => 'Sunlit suites with private en-suite bathrooms and personalized comforts in Daly City.',
-                'intro' => 'Every suite at Mission Villa provides a peaceful, personal retreat where familiar furnishings, favorite keepsakes, and caring 24-hour support create an immediate sense of home and belonging.',
+                'intro' => 'Whether your loved one prefers privacy or companionship, we can help you explore available suite layouts and the everyday comforts of Mission Villa.',
                 'image' => [
                     'src' => '/images/suites/suite-bedroom-facility-899.webp',
                     'src_mobile' => '/images/suites/suite-bedroom-facility-640.webp',
@@ -72,10 +72,10 @@ return [
                         'care' => 'exploring',
                     ],
                     [
-                        'label' => 'Request Pricing & Plans',
+                        'label' => 'Request Availability',
                         'style' => 'secondary',
                         'icon' => 'arrow',
-                        'intent' => 'request_pricing',
+                        'intent' => 'request_availability',
                         'care' => 'exploring',
                     ],
                     [
@@ -94,8 +94,8 @@ return [
             'enabled' => true,
             'order' => 20,
             'data' => [
-                'eyebrow' => 'Suite Layout Options',
-                'heading' => 'Thoughtfully Arranged for <em>Comfort & Connection.</em>',
+                'eyebrow' => 'Your Options',
+                'heading' => 'Find the space that feels right.',
                 'intro' => 'Choose between private personal sanctuaries and companion arrangements designed to foster daily warmth and reassurance.',
                 'suites' => [
                     [
@@ -105,7 +105,7 @@ return [
                         'title' => 'Private Suite Living',
                         'badge' => 'Private Suite with Attached Bathroom',
                         'bathroom' => 'Private En-Suite Bathroom Included',
-                        'summary' => 'Our private suites offer older adults an unhurried, quiet sanctuary where favorite chairs, family photos, and personal routines create an immediate feeling of ownership.',
+                        'summary' => 'An individual room with an attached bathroom and room for familiar personal belongings.',
                         'features' => [
                             'Dedicated sleeping and sitting space for restful downtime',
                             'Attached private bathroom designed for safety and dignity',
@@ -131,7 +131,7 @@ return [
                         'title' => 'Companion Suite Living',
                         'badge' => 'Companion Unit with Private Bathroom',
                         'bathroom' => 'Private Bathroom Shared Within Suite',
-                        'summary' => 'For residents who find reassurance in daily friendship, our Companion Unit balances camaraderie with defined personal sleeping zones and a shared en-suite bathroom.',
+                        'summary' => 'A shared living arrangement with personal sleeping areas and a bathroom within the suite.',
                         'features' => [
                             'Dedicated sleeping and keepsake zones for each resident',
                             'Attached private bathroom shared only within the suite',
@@ -157,7 +157,7 @@ return [
                         'title' => 'Jack & Jill Suite Living',
                         'badge' => 'Connected Suites with Shared Bath',
                         'bathroom' => 'Adjoining Bathroom Between Rooms',
-                        'summary' => 'A versatile accommodation featuring two individual private bedrooms connected by a shared central bathroom—ideal for privacy with familiar neighborly closeness.',
+                        'summary' => 'Two separate rooms connected by a shared bathroom. The original draft lists this as a Memory Care option; check current availability.',
                         'features' => [
                             'Two independent private sleeping and living quarters',
                             'Central en-suite bathroom accessible from both rooms',
@@ -178,9 +178,9 @@ return [
                     ],
                 ],
                 'cta' => [
-                    'label' => 'Check Current Suite Availability',
+                    'label' => 'Ask About Available Suites',
                     'intent' => 'request_availability',
-                    'note' => 'Suite configurations and availability vary. Our Daly City team provides personalized guidance during tours.',
+                    'note' => 'Room sizes, furnishings, configurations, and openings vary. Ask the community for details before making plans.',
                 ],
             ],
         ],
@@ -191,9 +191,9 @@ return [
             'enabled' => true,
             'order' => 30,
             'data' => [
-                'eyebrow' => 'Architectural Layout & Transparency',
-                'heading' => 'Authentic Floor Plans, <em>Walked in Person.</em>',
-                'intro' => 'We believe in complete transparency. Rather than displaying fabricated blueprints, we share our authentic companion layout and invite you to tour each available room in person.',
+                'eyebrow' => 'See a Layout',
+                'heading' => 'A closer look at companion living.',
+                'intro' => 'View the companion-suite diagram, then visit to see how available rooms are arranged in person.',
                 'diagram' => [
                     'badge' => 'AUTHENTIC MISSION VILLA FLOOR PLAN',
                     'title' => 'Companion Unit Layout',
@@ -232,7 +232,7 @@ return [
                     'text' => 'Mission Villa does not publish artificial CAD drawings or unverified square-footage figures. Specific window exposures, hallway locations, and room arrangements are walked and verified in person during your visit to 995 East Market Street in Daly City.',
                 ],
                 'action' => [
-                    'label' => 'Tour Available Suites in Person',
+                    'label' => 'See the Suites in Person',
                     'intent' => 'schedule_visit',
                     'care' => 'exploring',
                 ],
@@ -242,7 +242,7 @@ return [
         [
             'key' => 'sfp-features',
             'type' => 'suites-floor-plans.features',
-            'enabled' => true,
+            'enabled' => false,
             'order' => 40,
             'data' => [
                 'eyebrow' => 'Safety, Dignity & Comfort',
@@ -299,34 +299,19 @@ return [
                 ],
                 'faqs' => [
                     [
-                        'id' => 'faq-furnished-or-unfurnished',
-                        'question' => 'Are suites furnished, or can we bring our loved one’s own furniture?',
-                        'answer' => 'Families are warmly encouraged to bring familiar bedroom furniture, favorite recliners, cherished quilts, and framed family photos to make the suite feel truly like home. If needed, Mission Villa can also assist with comfortable furnishings to ensure an easy transition.',
+                        'id' => 'faq-personalize',
+                        'question' => 'Can we personalize a suite?',
+                        'answer' => 'Ask the team about bringing photographs, bedding, and other familiar items; suitability depends on the room and safety requirements.',
                     ],
                     [
-                        'id' => 'faq-private-bathrooms',
-                        'question' => 'Do all suites include a private bathroom?',
-                        'answer' => 'Yes. Both our private suites and companion units include private en-suite bathrooms located directly inside the accommodation, rather than communal corridor-style restrooms. This ensures personal dignity and comfort at all hours.',
+                        'id' => 'faq-bathrooms',
+                        'question' => 'Do suites have attached bathrooms?',
+                        'answer' => 'The source materials describe attached bathrooms for these formats. Confirm the specific room layout during your tour.',
                     ],
                     [
-                        'id' => 'faq-companion-matching',
-                        'question' => 'How does Mission Villa match residents in companion suites?',
-                        'answer' => 'We take great care in companion placement, considering daily sleep routines, background, interests, and personality traits. A well-matched roommate often becomes a reassuring daily friend and comforting presence.',
-                    ],
-                    [
-                        'id' => 'faq-suite-pricing',
-                        'question' => 'How does pricing differ between private and companion suites?',
-                        'answer' => 'Pricing reflects the selected suite layout (private vs. companion) alongside individual care support requirements determined during your initial wellness assessment. Our team provides clear, transparent cost sheets during your visit.',
-                    ],
-                    [
-                        'id' => 'faq-safety-features',
-                        'question' => 'What safety features are built into each suite?',
-                        'answer' => 'Suites feature emergency call systems, step-free threshold transitions, bathroom safety grab bars, secure window limiters, and 24-hour monitoring by our trained memory care caregiving staff.',
-                    ],
-                    [
-                        'id' => 'faq-personalization',
-                        'question' => 'How can we personalize our loved one’s suite for memory support?',
-                        'answer' => 'We encourage memory boxes outside the suite door with favorite career mementos, wedding photos, or artwork. Inside, familiar bedside arrangements and favorite music players help create immediate calm and reassurance.',
+                        'id' => 'faq-pricing',
+                        'question' => 'How do we compare suite prices?',
+                        'answer' => 'Room type and care needs can affect pricing. The team can explain current options and provide details.',
                     ],
                 ],
             ],
@@ -339,8 +324,8 @@ return [
             'order' => 60,
             'data' => [
                 'script' => 'Walk Our Suites in Person',
-                'heading' => 'Experience the Comfort & Warmth',
-                'body' => 'Schedule a personal tour to walk our private and companion suites, meet our memory care team, and explore our secure courtyard in Daly City.',
+                'heading' => 'See the available spaces for yourself.',
+                'body' => 'Tour a suite, ask about layouts, and discuss the options for your loved one.',
                 'care' => 'exploring',
                 'actions' => [
                     [

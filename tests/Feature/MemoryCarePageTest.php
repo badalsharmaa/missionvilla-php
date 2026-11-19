@@ -23,8 +23,8 @@ class MemoryCarePageTest extends TestCase
         $html = $response->getContent();
 
         // SEO meta
-        $this->assertStringContainsString('<title>Legacies™ Memory Care in Daly City | Mission Villa Senior Living</title>', $html);
-        $this->assertStringContainsString('Dedicated Memory Care in Daly City featuring the Legacies™ program', $html);
+        $this->assertStringContainsString('<title>Legacies™ Memory Care in Daly City | Mission Villa</title>', $html);
+        $this->assertStringContainsString('Learn about Legacies™ Memory Care at Mission Villa in Daly City', $html);
 
         // Header active state for Memory Care
         $this->assertStringContainsString('class="site-nav__link is-active"  aria-current="page" >Memory Care</a>', $html);
@@ -96,7 +96,7 @@ class MemoryCarePageTest extends TestCase
         $heroData = collect($page['sections'])->firstWhere('key', 'mc-hero')['data'];
 
         $normalized = $schema->normalize($heroData);
-        $this->assertSame('Memory Care at Mission Villa', $normalized['eyebrow']);
+        $this->assertSame('Legacies™ Memory Care', $normalized['eyebrow']);
         $this->assertCount(3, $normalized['badges']);
         $this->assertCount(3, $normalized['actions']);
 
@@ -160,19 +160,17 @@ class MemoryCarePageTest extends TestCase
         $schema->normalize(['checklist' => []] + $careData);
     }
 
-    public function test_faq_accordion_renders_five_featured_questions_on_memory_care_page(): void
+    public function test_faq_accordion_renders_three_featured_questions_on_memory_care_page(): void
     {
         $html = $this->get('/memory-care')->assertOk()->getContent();
 
-        $this->assertStringContainsString('What makes the Legacies™ Memory Care approach meaningful for residents?', $html);
-        $this->assertStringContainsString('What kind of everyday assistance and 24-hour safety support do residents receive?', $html);
-        $this->assertStringContainsString('What types of activities, dining, and daily routines are offered?', $html);
-        $this->assertStringContainsString('What suite options are available in Memory Care?', $html);
-        $this->assertStringContainsString('How can family members visit and stay involved after move-in?', $html);
+        $this->assertStringContainsString('Who is Memory Care for?', $html);
+        $this->assertStringContainsString('Can our family stay involved?', $html);
+        $this->assertStringContainsString('How do we get started?', $html);
 
-        // 5 questions rendered
+        // 3 questions rendered
         $count = substr_count($html, 'class="faq-item"');
-        $this->assertSame(5, $count);
+        $this->assertSame(3, $count);
     }
 
     public function test_visit_cta_renders_inline_inquiry_form_with_memory_care_preset(): void

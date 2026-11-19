@@ -20,12 +20,12 @@ class ForFamiliesPageTest extends TestCase
         $response->assertOk();
         $html = $response->getContent();
 
-        $this->assertStringContainsString('Family Guide &amp; Grouped FAQs: Memory Care in Daly City | Mission Villa', $html);
+        $this->assertStringContainsString('For Families | Questions About Care at Mission Villa', $html);
         $this->assertStringContainsString('415601046', $html);
         $this->assertStringContainsString('<link rel="canonical" href="'.url('/for-families').'"', $html);
     }
 
-    public function test_for_families_page_renders_all_seven_sections_in_order(): void
+    public function test_for_families_page_renders_all_sections_in_order(): void
     {
         $html = $this->get('/for-families')->assertOk()->getContent();
 
@@ -34,7 +34,6 @@ class ForFamiliesPageTest extends TestCase
         $posChecklist = strpos($html, 'id="questions-for-your-visit"');
         $posInv = strpos($html, 'id="family-involvement-and-personalization"');
         $posFaq = strpos($html, 'id="grouped-family-faqs"');
-        $posBridge = strpos($html, 'id="contextual-planning-bridge"');
         $posCta = strpos($html, 'id="visit"');
 
         $this->assertNotFalse($posHero, 'Hero section must exist');
@@ -42,23 +41,24 @@ class ForFamiliesPageTest extends TestCase
         $this->assertNotFalse($posChecklist, 'Checklist section must exist');
         $this->assertNotFalse($posInv, 'Involvement section must exist');
         $this->assertNotFalse($posFaq, 'FAQ section must exist');
-        $this->assertNotFalse($posBridge, 'Planning bridge section must exist');
         $this->assertNotFalse($posCta, 'Visit CTA section must exist');
+
+        // ff-bridge is disabled in Editorial V2
+        $this->assertStringNotContainsString('id="contextual-planning-bridge"', $html);
 
         $this->assertTrue($posHero < $posGuide, 'Hero must precede Decision Guide');
         $this->assertTrue($posGuide < $posChecklist, 'Decision Guide must precede Checklist');
         $this->assertTrue($posChecklist < $posInv, 'Checklist must precede Involvement');
         $this->assertTrue($posInv < $posFaq, 'Involvement must precede FAQs');
-        $this->assertTrue($posFaq < $posBridge, 'FAQs must precede Bridge');
-        $this->assertTrue($posBridge < $posCta, 'Bridge must precede Visit CTA');
+        $this->assertTrue($posFaq < $posCta, 'FAQs must precede Visit CTA');
     }
 
     public function test_decision_guide_renders_all_four_steps(): void
     {
         $html = $this->get('/for-families')->assertOk()->getContent();
 
-        $this->assertStringContainsString('Ongoing Daily Living &amp; Memory Support', $html);
-        $this->assertStringContainsString('Caregiver Rest, Travel or Family Obligations', $html);
+        $this->assertStringContainsString('Ongoing memory support', $html);
+        $this->assertStringContainsString('Temporary support', $html);
         $this->assertStringContainsString('Bridge Support After Illness or Rehabilitation', $html);
         $this->assertStringContainsString('Early Exploration &amp; Suite Comparison', $html);
 
@@ -131,22 +131,16 @@ class ForFamiliesPageTest extends TestCase
         $this->assertStringContainsString('data-faq-filter="Visits"', $html);
 
         $this->assertSame(12, substr_count($html, 'data-faq-item'));
-        $this->assertStringContainsString('What care programs does Mission Villa Senior Living offer in Daly City?', $html);
-        $this->assertStringContainsString('How is monthly pricing determined, and why aren’t fixed rates or calculators shown online?', $html);
+        $this->assertStringContainsString('What care does Mission Villa offer?', $html);
+        $this->assertStringContainsString('Can I find prices online?', $html);
         $this->assertStringContainsString('Can families use Long-Term Care Insurance, referral credits, or state assistance programs?', $html);
     }
 
-    public function test_planning_bridge_renders_three_next_step_cards(): void
+    public function test_planning_bridge_is_disabled_in_editorial_v2(): void
     {
-        $html = $this->get('/for-families')->assertOk()->getContent();
-
-        $this->assertStringContainsString('Financial Planning &amp; Paper-Ledger Worksheet', $html);
-        $this->assertStringContainsString('Explore Memory Care, Respite Care &amp; Suites', $html);
-        $this->assertStringContainsString('Talk With Our Daly City Team Today', $html);
-
-        $this->assertStringContainsString('href="/financial-planning"', $html);
-        $this->assertStringContainsString('href="/memory-care"', $html);
-        $this->assertStringContainsString('href="/respite-care"', $html);
+        $page = require base_path('content/pages/for-families.php');
+        $bridge = collect($page['sections'])->firstWhere('key', 'ff-bridge');
+        $this->assertFalse($bridge['enabled']);
     }
 
     public function test_all_cta_triggers_bind_modal_intent_and_whitelisted_source(): void
@@ -155,7 +149,6 @@ class ForFamiliesPageTest extends TestCase
 
         $this->assertStringContainsString('data-inquiry="schedule_visit"', $html);
         $this->assertStringContainsString('data-inquiry-source="visit-cta"', $html);
-        $this->assertStringContainsString('data-inquiry-source="ff-bridge"', $html);
         $this->assertStringContainsString('data-inquiry-source="ff-faq"', $html);
         $this->assertStringContainsString('href="tel:16507561995"', $html);
 

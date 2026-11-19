@@ -15,10 +15,10 @@
 
 return [
     'slug' => 'life-at-mission-villa',
-    'title' => 'Life at Mission Villa | Memory Care Community Culture & Dining',
+    'title' => 'Life at Mission Villa | Dining, Activities & Community',
     'seo' => [
-        'title' => 'Life at Mission Villa: Dining, Routine & Connection in Daly City',
-        'description' => 'Discover daily life at Mission Villa in Daly City. Chef-prepared dining, reassuring daily routines, music, creative enrichment, and sunny courtyard garden strolls.',
+        'title' => 'Life at Mission Villa | Dining, Activities & Community',
+        'description' => 'See daily life at Mission Villa Senior Living in Daly City: shared meals, music, activities, and time outdoors.',
         'og_image' => '/images/life/dining-daily-life-illustrative-1672.webp',
     ],
     'sections' => [
@@ -28,10 +28,10 @@ return [
             'enabled' => true,
             'order' => 10,
             'data' => [
-                'eyebrow' => 'Community Culture & Daily Life',
-                'heading' => 'Where Every Day Feels <em>Familiar, Connected & Warm.</em>',
+                'eyebrow' => 'Life at Mission Villa',
+                'heading' => 'There is comfort in the everyday.',
                 'editorial' => 'Nourishing meals, unhurried routines, and purposeful engagement in Daly City.',
-                'intro' => 'Life at Mission Villa is shaped around what brings each resident comfort and joy—from the aroma of morning coffee and chef-prepared meals to gentle music, creative workshops, and peaceful courtyard garden walks.',
+                'intro' => 'A familiar meal. A favorite song. Time outdoors or a visit with family. We make space for the moments that help each day feel like their own.',
                 'image' => [
                     'src' => '/images/life/dining-daily-life-illustrative-1672.webp',
                     'src_mobile' => '/images/life/dining-daily-life-illustrative-960.webp',
@@ -64,18 +64,17 @@ return [
                 ],
                 'actions' => [
                     [
-                        'label' => 'Experience Daily Life on Tour',
+                        'label' => 'Experience Mission Villa',
                         'style' => 'primary',
                         'icon' => 'calendar',
                         'intent' => 'schedule_visit',
                         'care' => 'exploring',
                     ],
                     [
-                        'label' => 'Request Life & Care Guide',
+                        'label' => 'Browse the Gallery',
                         'style' => 'secondary',
                         'icon' => 'arrow',
-                        'intent' => 'general_inquiry',
-                        'care' => 'exploring',
+                        'href' => '/gallery',
                     ],
                     [
                         'label' => '(650) 756-1995',
@@ -93,17 +92,17 @@ return [
             'enabled' => true,
             'order' => 20,
             'data' => [
-                'eyebrow' => 'Core Lifestyle Pillars',
-                'heading' => 'A Culture of <em>Nourishment, Sanctuary & Friendship.</em>',
+                'eyebrow' => 'Living Here',
+                'heading' => 'The little things matter.',
                 'intro' => 'Three central pillars shape each day at Mission Villa, blending homelike comfort with personalized memory support.',
                 'pillars' => [
                     [
                         'id' => 'pillar-dining',
                         'code' => 'PILLAR 01 · CULINARY WARMTH',
-                        'cutout_label' => 'Dining & Hospitality',
-                        'title' => 'Chef-Prepared Daily Meals',
+                        'cutout_label' => 'Dining Together',
+                        'title' => 'Dining Together',
                         'subtitle' => 'Restaurant-style table hospitality and comforting recipes',
-                        'summary' => 'Our dining room is the social heart of the house. Residents gather three times daily for chef-crafted meals served with attentive table hospitality—turning mealtime into an unhurried celebration of flavor and connection.',
+                        'summary' => 'Freshly prepared meals offer time to eat, relax, and enjoy company in the dining room.',
                         'highlights' => [
                             'Freshly prepared menus crafted for nutritional balance and flavor',
                             'Restaurant-style table service encouraging appetite and unhurried conversation',
@@ -123,10 +122,10 @@ return [
                     [
                         'id' => 'pillar-enrichment',
                         'code' => 'PILLAR 02 · CREATIVE VITALITY',
-                        'cutout_label' => 'Music & Engagement',
-                        'title' => 'Thoughtful Daily Engagement',
+                        'cutout_label' => 'Activities & Connection',
+                        'title' => 'Activities & Connection',
                         'subtitle' => 'Music, creative expression, and reminiscence',
-                        'summary' => 'Meaningful engagement sparks joy and self-expression. Guided by our activities team, residents take part in music therapy, creative art workshops, gentle exercise, and trivia that celebrate lifelong passions.',
+                        'summary' => 'Music, art, gentle movement, and other activities give residents different ways to participate at their own pace.',
                         'highlights' => [
                             'Daily scheduled activities tailored to varied cognitive abilities',
                             'Music programs and playlist therapy that stimulate memory recall',
@@ -146,10 +145,10 @@ return [
                     [
                         'id' => 'pillar-courtyard',
                         'code' => 'PILLAR 03 · SANCTUARY & OUTDOORS',
-                        'cutout_label' => 'Courtyard & Patio',
-                        'title' => 'Sunlit Courtyard & Gardens',
+                        'cutout_label' => 'Outdoor Moments',
+                        'title' => 'Outdoor Moments',
                         'subtitle' => 'Secure outdoor patio and peaceful coastal breezes',
-                        'summary' => 'Our secure central courtyard allows residents to step outside freely into fresh coastal air. Shaded umbrella seating, raised flower beds, and walking pathways provide a peaceful connection to nature.',
+                        'summary' => 'The community courtyard and patio offer a change of scenery and space to spend time together.',
                         'highlights' => [
                             'Enclosed, secure courtyard designed specifically for memory care safety',
                             'Comfortable patio tables with umbrellas for alfresco visits with loved ones',
@@ -176,8 +175,8 @@ return [
             'enabled' => true,
             'order' => 30,
             'data' => [
-                'eyebrow' => 'A Day in the Life',
-                'heading' => 'A Reassuring Daily Rhythm, <em>Never Rushed.</em>',
+                'eyebrow' => 'A Familiar Rhythm',
+                'heading' => 'Each day has room to be different.',
                 'intro' => 'Rather than a rigid, stressful schedule, days at Mission Villa flow with gentle structure that fosters confidence, orientation, and peace.',
                 'moments' => [
                     [
@@ -185,7 +184,7 @@ return [
                         'icon' => 'sun',
                         'title' => 'Unhurried Awakening & Breakfast',
                         'lead' => 'Gentle Awakening at Personal Pace',
-                        'body' => 'Residents wake naturally without jarring bells. Caregivers provide respectful grooming and dressing support before escorting residents to a freshly prepared breakfast with warm coffee.',
+                        'body' => 'Breakfast and help with daily routines as needed.',
                         'touchpoint' => 'Aroma of morning roast and warm bakery dishes in the dining room.',
                     ],
                     [
@@ -193,7 +192,7 @@ return [
                         'icon' => 'utensils',
                         'title' => 'Active Engagement & Shared Lunch',
                         'lead' => 'Social Warmth and Lively Tables',
-                        'body' => 'Morning chair fitness or music reminiscence transitions into a sociable, chef-prepared lunch. Full-table service and dietary modifications ensure enjoyable dining for all.',
+                        'body' => 'Activities, a shared meal, conversation, or some quiet time.',
                         'touchpoint' => 'Restaurant-style table hospitality fostering friendship.',
                     ],
                     [
@@ -209,18 +208,18 @@ return [
                         'icon' => 'moon',
                         'title' => 'Comforting Dinner & Wind-Down',
                         'lead' => 'Calming Transitions into Night',
-                        'body' => 'An evening meal shared with friends is followed by soothing music, warm tea, and quiet bedtime rituals that minimize sundowning and promote restful sleep.',
+                        'body' => 'Dinner followed by a calm, familiar routine.',
                         'touchpoint' => 'Dimmed lighting and familiar bedtime reassurance in private suites.',
                     ],
                 ],
-                'disclaimer' => 'Daily rhythms adapt flexibly to each individual resident’s preferences, stamina, and wakefulness patterns rather than adhering to rigid institutional timetables.',
+                'disclaimer' => 'Each person\'s schedule and participation depend on preferences and care needs.',
             ],
         ],
 
         [
             'key' => 'lmv-engagement',
             'type' => 'life-at-mission-villa.engagement',
-            'enabled' => true,
+            'enabled' => false,
             'order' => 40,
             'data' => [
                 'eyebrow' => 'Programs & Activities',
@@ -298,34 +297,19 @@ return [
                 ],
                 'faqs' => [
                     [
-                        'id' => 'faq-dining-family',
-                        'question' => 'Can family members join residents for meals or celebrate special occasions?',
-                        'answer' => 'Yes, absolutely! Families are always welcome to join loved ones for meals in our dining room, or reserve our private family dining room to celebrate birthdays, anniversaries, and holidays together with a customized chef-prepared meal.',
-                    ],
-                    [
-                        'id' => 'faq-dietary-accommodations',
-                        'question' => 'How does Mission Villa handle special dietary needs and preferences?',
-                        'answer' => 'Our culinary and nursing teams accommodate low-sodium, diabetic, vegetarian, mechanical soft, and pureed diets. We also consult closely with families to prepare favorite comforting cultural dishes that residents have enjoyed all their lives.',
-                    ],
-                    [
                         'id' => 'faq-reluctant-activities',
-                        'question' => 'What if my loved one is quiet or reluctant to participate in group activities?',
-                        'answer' => 'Participation is always an invitation, never an obligation. Our care team introduces residents to gentle one-on-one activities, quiet reading time in the lounge, or simple garden walks until they feel naturally comfortable joining small groups.',
+                        'question' => 'Do residents have to join group activities?',
+                        'answer' => 'Activities are offered with each person\'s interests and comfort in mind. Quiet time is also part of daily life.',
                     ],
                     [
                         'id' => 'faq-visiting-hours',
-                        'question' => 'What are the community visiting hours for families?',
-                        'answer' => 'Mission Villa welcomes family visits 7 days a week. We consider families essential partners in their loved one’s care and happiness, and there are comfortable indoor lounges and garden seating for peaceful visits.',
+                        'question' => 'Can families visit?',
+                        'answer' => 'Family connection is encouraged. Contact the team to confirm current visiting arrangements and meal participation.',
                     ],
                     [
-                        'id' => 'faq-religious-cultural',
-                        'question' => 'Are religious, spiritual, or cultural services offered?',
-                        'answer' => 'Yes. We host volunteer chaplain visits, spiritual reading groups, and celebrate diverse cultural and faith-based holidays throughout the year to honor each resident’s personal background.',
-                    ],
-                    [
-                        'id' => 'faq-leaving-for-outings',
-                        'question' => 'Can families take their loved one out for day trips or doctor appointments?',
-                        'answer' => 'Yes. Families may sign out their loved one for doctor appointments, family dinners, or weekend outings whenever clinically appropriate. Our care staff will ensure medications and travel instructions are prepared in advance.',
+                        'id' => 'faq-activity-calendar',
+                        'question' => 'Can we see an activity calendar?',
+                        'answer' => 'Ask our team for the current calendar during your visit.',
                     ],
                 ],
             ],
@@ -338,8 +322,8 @@ return [
             'order' => 60,
             'data' => [
                 'script' => 'Experience Our Warmth',
-                'heading' => 'Join Us for Lunch or a Community Tour',
-                'body' => 'See our vibrant dining room, meet our engaging life enrichment team, and experience the warm fellowship of Mission Villa in Daly City.',
+                'heading' => 'Come experience a day at Mission Villa.',
+                'body' => 'See the dining room and shared spaces, and ask about activities and daily routines.',
                 'care' => 'exploring',
                 'actions' => [
                     [

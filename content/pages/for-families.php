@@ -16,10 +16,10 @@
 
 return [
     'slug' => 'for-families',
-    'title' => 'For Families & FAQs | Mission Villa Senior Living in Daly City',
+    'title' => 'For Families | Questions About Care at Mission Villa',
     'seo' => [
-        'title' => 'Family Guide & Grouped FAQs: Memory Care in Daly City | Mission Villa',
-        'description' => 'A calm companion for families considering Memory Care or Respite Care in Daly City. Review decision pathways, tour questions, transitions, and grouped FAQs.',
+        'title' => 'For Families | Questions About Care at Mission Villa',
+        'description' => 'Find simple answers about Memory Care, short-term Respite Care, tours, suites, and pricing at Mission Villa Senior Living in Daly City.',
         'og_image' => '/images/property/sitting-nook-detail.webp',
     ],
     'sections' => [
@@ -29,11 +29,11 @@ return [
             'enabled' => true,
             'order' => 10,
             'data' => [
-                'eyebrow' => 'Family Guidance Monograph · Decision Guide & FAQs',
+                'eyebrow' => 'For Families',
                 'license' => 'CA License #415601046',
                 'tagline' => 'Guidance for the Whole Family',
-                'heading' => 'A Calm, Honest Companion for Families <em>Navigating Care Decisions.</em>',
-                'lead' => 'Beginning a conversation about <a href="/memory-care" class="underline decoration-[#C98268] font-semibold text-[#3B2348]">Legacies™ Memory Care</a> or a temporary <a href="/respite-care" class="underline decoration-[#C98268] font-semibold text-[#3B2348]">Respite Care</a> stay is rarely just a logistical checklist—it is an act of love and stewardship for a parent, spouse, or relative. We created this family guide to help you weigh care options, prepare meaningful questions for your Daly City visit, and find straightforward answers on suites, transitions, and <a href="/financial-planning" class="underline decoration-[#C98268] font-semibold text-[#3B2348]">financial planning</a>.',
+                'heading' => 'You don\'t need every answer today.',
+                'lead' => 'Looking for care can bring up a lot of questions. Start with the basics, explore the options, and talk with us when you\'re ready.',
                 'pillars' => [
                     [
                         'code' => '01 · Family-Decision Guide',
@@ -53,17 +53,18 @@ return [
                 ],
                 'actions' => [
                     [
-                        'label' => 'Schedule a Tour Visit',
+                        'label' => 'Talk With Our Team',
                         'style' => 'primary',
-                        'icon' => 'calendar',
-                        'intent' => 'schedule_visit',
-                        'care' => 'memory_care',
+                        'icon' => 'phone',
+                        'intent' => 'request_callback',
+                        'care' => 'exploring',
                     ],
                     [
-                        'label' => 'Decision Guide ↓',
-                        'style' => 'jump',
-                        'icon' => 'compass',
-                        'target' => 'family-decision-guide',
+                        'label' => 'Schedule a Visit',
+                        'style' => 'secondary',
+                        'icon' => 'calendar',
+                        'intent' => 'schedule_visit',
+                        'care' => 'exploring',
                     ],
                     [
                         'label' => 'Grouped FAQs ↓',
@@ -122,14 +123,14 @@ return [
             'enabled' => true,
             'order' => 20,
             'data' => [
-                'eyebrow' => 'Family-Decision Guide',
-                'heading' => 'How to Consider Full-Time Memory Care vs. <em>Temporary Respite Care</em>',
+                'eyebrow' => 'A Starting Point',
+                'heading' => 'What does your family need right now?',
                 'intro' => 'Mission Villa focuses exclusively on two interconnected offerings in Daly City: ongoing <strong class="text-[#D8C7A5]">Legacies™ Memory Care</strong> and short-term <strong class="text-[#D8C7A5]">Respite Care</strong>. Select the reflection below that sounds closest to your family’s current conversation.',
                 'pathways' => [
                     [
                         'id' => 'ongoing-memory-support',
                         'index' => 'Pathway 01',
-                        'kicker' => 'Ongoing Daily Living & Memory Support',
+                        'kicker' => 'Ongoing memory support',
                         'title' => 'When Daily Routines & Memory Changes Call for Steady Community Support',
                         'family_situation' => '“My parent or spouse is living with Alzheimer’s disease or dementia, and our family wants a calm, nurturing community where they are known personally and supported around the clock.”',
                         'primary_option' => 'Memory Care (Legacies™ Program)',
@@ -149,7 +150,7 @@ return [
                     [
                         'id' => 'short-term-caregiver-relief',
                         'index' => 'Pathway 02',
-                        'kicker' => 'Caregiver Rest, Travel or Family Obligations',
+                        'kicker' => 'Temporary support',
                         'title' => 'When a Primary Family Caregiver Needs Dependable Time to Rest or Travel',
                         'family_situation' => '“I care for my loved one at home and want them welcomed into a safe, compassionate community for a few days or several weeks while I recharge, travel, or handle family commitments.”',
                         'primary_option' => 'Short-Term Respite Care',
@@ -253,8 +254,8 @@ return [
             'enabled' => true,
             'order' => 30,
             'data' => [
-                'eyebrow' => 'Preparing for Your Walkthrough',
-                'heading' => 'Questions to Bring to a Visit in Daly City',
+                'eyebrow' => 'Preparing for a Tour',
+                'heading' => 'Three questions worth asking.',
                 'intro' => 'Walking into a senior living community for the first time is much easier when you have a clear set of questions in hand. Check the questions below that matter most to your family—then click <strong class="text-[#3B2348]">Bring Selected Questions to Visit Form</strong> so our team can prepare thoughtful answers for your visit.',
                 'themes' => [
                     'All Themes',
@@ -268,7 +269,7 @@ return [
                         'id' => 'vq-legacies-story',
                         'code' => 'Q01',
                         'theme' => 'Daily Care & Legacies™',
-                        'question' => 'How does the Legacies™ Memory Care team learn about my loved one’s life story, habits, and personal preferences before move-in?',
+                        'question' => 'How will the team learn about my loved one\'s daily habits and needs?',
                         'why_it_matters' => 'Person-centered care depends on knowing who your loved one has always been—their family bonds, career, favorite music, and comforting routines.',
                         'what_to_listen_for' => 'Look for a collaborative intake process where staff actively ask for family insights and share them across the daily care team.',
                     ],
@@ -276,7 +277,7 @@ return [
                         'id' => 'vq-24hr-support',
                         'code' => 'Q02',
                         'theme' => 'Daily Care & Legacies™',
-                        'question' => 'What does 24-hour on-site staff support look like during the day and overnight, and how are routine assessments handled?',
+                        'question' => 'What care, meals, and services are included in the quoted rate?',
                         'why_it_matters' => 'Understanding how staff assist with bathing, dressing, grooming, transfers, and nighttime reassurance gives families confidence in everyday safety.',
                         'what_to_listen_for' => 'Clear, plain-language explanations of how staff respond to resident needs and how families are updated when care plans adjust.',
                     ],
@@ -284,7 +285,7 @@ return [
                         'id' => 'vq-suite-formats',
                         'code' => 'Q03',
                         'theme' => 'Suites & Personalization',
-                        'question' => 'May we walk through available Private Suites, Companion Units, and Jack & Jill layouts to see the private bathrooms and lighting in person?',
+                        'question' => 'Which rooms are currently available, and what would the next step be?',
                         'why_it_matters' => 'Seeing the physical scale, natural light, and bathroom layout helps you picture which suite format best matches your loved one’s personality.',
                         'what_to_listen_for' => 'How companion matching is thoughtfully approached for shared suites and which apartment features (such as thermostat and emergency alert) apply.',
                     ],
@@ -338,9 +339,9 @@ return [
             'enabled' => true,
             'order' => 40,
             'data' => [
-                'eyebrow' => 'Transitions & Partnership',
-                'heading' => 'Family Involvement & <em>Personalizing Your Loved One’s Space</em>',
-                'intro' => 'Moving into Memory Care or arriving for a Respite stay never means stepping back from family life. Explore the four chapters below to see how families shape daily routines, personalize suites, and stay connected in Daly City.',
+                'eyebrow' => 'Family Partnership',
+                'heading' => 'Your connection still matters.',
+                'intro' => 'Share favorite routines, photographs, and details that help the team get to know your loved one. Keep asking questions and stay part of conversations as their needs change.',
                 'chapters' => [
                     [
                         'id' => 'first-conversations',
@@ -463,8 +464,8 @@ return [
                         'id' => 'ff-faq-care-programs',
                         'code' => 'CARE 01',
                         'category' => 'Care',
-                        'question' => 'What care programs does Mission Villa Senior Living offer in Daly City?',
-                        'answer' => 'Mission Villa Senior Living specializes in two dedicated programs at 995 East Market Street in Daly City: full-time Memory Care (featuring our signature Legacies™ Memory Care program for seniors living with Alzheimer’s disease or other forms of dementia) and short-term Respite Care stays that support both seniors and family caregivers.',
+                        'question' => 'What care does Mission Villa offer?',
+                        'answer' => 'Legacies™ Memory Care and short-term Respite Care.',
                         'related_route_href' => '/memory-care',
                         'related_route_label' => 'Explore Memory Care',
                     ],
@@ -491,8 +492,8 @@ return [
                         'id' => 'ff-faq-suites-formats',
                         'code' => 'SUITES 01',
                         'category' => 'Suites',
-                        'question' => 'What types of suites and floor-plan formats are available at Mission Villa?',
-                        'answer' => 'Mission Villa offers both private suites and shared suites—including our Companion Unit and Jack & Jill floor-plan formats—each equipped with a private bathroom. During your visit in Daly City, our team will gladly show you available suite layouts so you can see the rooms and bathrooms in person.',
+                        'question' => 'What suite options are there?',
+                        'answer' => 'Private suites, companion units, and Jack & Jill formats are described in the source materials. Ask about current openings.',
                         'related_route_href' => '/suites-and-floor-plans',
                         'related_route_label' => 'View Suites & Floor Plans',
                     ],
@@ -519,8 +520,8 @@ return [
                         'id' => 'ff-faq-cost-determination',
                         'code' => 'COST 01',
                         'category' => 'Cost',
-                        'question' => 'How is monthly pricing determined, and why aren’t fixed rates or calculators shown online?',
-                        'answer' => 'Because every resident’s daily support needs, care assessment, and suite preference (Private, Companion Unit, or Jack & Jill) are unique, automated online calculators or flat rate estimates can be misleading. Instead, our Daly City team provides clear, assessment-informed pricing tailored to your loved one after a personal conversation.',
+                        'question' => 'Can I find prices online?',
+                        'answer' => 'Request current pricing based on the care and accommodation being considered.',
                         'related_route_href' => '/financial-planning',
                         'related_route_label' => 'Open Financial Planning & Paper Ledger',
                     ],
@@ -548,8 +549,8 @@ return [
                         'id' => 'ff-faq-visits-schedule',
                         'code' => 'VISITS 01',
                         'category' => 'Visits',
-                        'question' => 'How can our family schedule a tour of Mission Villa in Daly City, and what happens during a visit?',
-                        'answer' => 'You can call us directly at (650) 756-1995, email mktg.missionvilla@missionvillaseniorliving.com, or use the inquiry form on this page to request a visit at 995 East Market Street, Daly City, CA 94014. During your visit, we walk through our dining room, communal lounges, courtyard, and available suites, and take time to answer your family’s questions without pressure.',
+                        'question' => 'How can we arrange a tour?',
+                        'answer' => 'Call (650) 756-1995 or submit a visit request.',
                         'related_route_href' => '#visit',
                         'related_route_label' => 'Schedule a Personal Visit',
                     ],
@@ -578,7 +579,7 @@ return [
         [
             'key' => 'ff-bridge',
             'type' => 'for-families.bridge',
-            'enabled' => true,
+            'enabled' => false,
             'order' => 60,
             'data' => [
                 'cards' => [
@@ -641,13 +642,13 @@ return [
             'order' => 70,
             'data' => [
                 'script' => 'Begin the Conversation',
-                'heading' => 'Schedule a Visit to Mission Villa in Daly City',
-                'body' => 'Meet our care leadership, walk through our suites, lounges, and garden courtyard, and discuss your family’s unique situation with no pressure.',
-                'care' => 'memory_care',
+                'heading' => 'Let\'s take the next step at your pace.',
+                'body' => 'Visit Mission Villa or start with a phone conversation.',
+                'care' => 'exploring',
                 'actions' => [
                     [
                         'intent' => 'schedule_visit',
-                        'label' => 'Schedule a Tour Visit',
+                        'label' => 'Schedule a Visit',
                         'icon' => 'calendar',
                     ],
                     [

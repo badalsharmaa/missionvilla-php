@@ -25,11 +25,12 @@ class CareOptionsSectionTest extends TestCase
     {
         $data = (new CareOptionsSection)->normalize($this->shippedData());
 
-        $this->assertSame('Two Paths. <em>One Commitment to Care.</em>', $data['heading']);
+        $this->assertSame('The right care for this stage of life.', $data['heading']);
         $this->assertCount(2, $data['cards']);
         $this->assertSame(['memory-care', 'respite-care'], array_column($data['cards'], 'id'));
         foreach ($data['cards'] as $card) {
-            $this->assertCount(3, $card['back']['benefits']);
+            $this->assertGreaterThanOrEqual(2, count($card['back']['benefits']));
+            $this->assertLessThanOrEqual(3, count($card['back']['benefits']));
             $this->assertFileExists(public_path(ltrim($card['image']['src'], '/')));
             $this->assertFileExists(public_path(ltrim($card['image']['src_mobile'], '/')));
         }
@@ -43,9 +44,10 @@ class CareOptionsSectionTest extends TestCase
         $this->assertRejected($data);
     }
 
-    public function test_back_face_requires_exactly_three_benefits(): void
+    public function test_back_face_requires_between_two_and_three_benefits(): void
     {
         $data = $this->shippedData();
+        $data['cards'][0]['back']['benefits'][] = ['icon' => 'heart', 'text' => 'A third benefit'];
         $data['cards'][0]['back']['benefits'][] = ['icon' => 'heart', 'text' => 'A fourth benefit'];
 
         $this->assertRejected($data);
@@ -108,7 +110,7 @@ class CareOptionsSectionTest extends TestCase
 
         $this->assertStringContainsString('id="care-options"', $html);
         $this->assertLessThan(strpos($html, 'id="care-options"'), strpos($html, 'data-hero-cinematic'));
-        $this->assertStringContainsString('Two Paths. <em>One Commitment to Care.</em>', $html);
+        $this->assertStringContainsString('The right care for this stage of life.', $html);
 
         // Two cards, each with a keyboard toggle wired to its back face, which starts inert.
         $this->assertSame(2, substr_count($html, 'data-care-card'));
