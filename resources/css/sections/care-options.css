@@ -370,6 +370,7 @@
   width: 2.75rem;
   height: 2.75rem;
   padding: 0;
+  cursor: pointer;
   border-radius: 999px;
   border: 1px solid rgba(255, 233, 214, 0.28);
   background: rgba(30, 12, 26, 0.32);
