@@ -43,7 +43,12 @@
                         <div class="lmv-pillars__cutout" aria-hidden="true">
                             <span class="lmv-pillars__cutout-badge">{{ $pillar['cutout_label'] }}</span>
                         </div>
-                        <span class="lmv-pillars__provenance">{{ $pillar['image']['label'] }}</span>
+                    </div>
+
+                    {{-- Image Provenance Strip (Non-overlapping) --}}
+                    <div class="lmv-pillars__provenance">
+                        <span class="lmv-pillars__prov-dot" aria-hidden="true"></span>
+                        <span class="lmv-pillars__prov-text">{{ $pillar['image']['label'] }}</span>
                     </div>
 
                     <div class="lmv-pillars__body">

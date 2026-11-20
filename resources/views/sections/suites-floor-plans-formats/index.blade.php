@@ -48,7 +48,12 @@
                         <div class="sfp-formats__cutout" aria-hidden="true">
                             <span class="sfp-formats__cutout-badge">{{ $suite['cutout_label'] }}</span>
                         </div>
-                        <span class="sfp-formats__provenance">{{ $suite['image']['label'] }}</span>
+                    </div>
+
+                    {{-- Image Provenance Strip (Non-overlapping) --}}
+                    <div class="sfp-formats__provenance">
+                        <span class="sfp-formats__prov-dot" aria-hidden="true"></span>
+                        <span class="sfp-formats__prov-text">{{ $suite['image']['label'] }}</span>
                     </div>
 
                     <div class="sfp-formats__body">

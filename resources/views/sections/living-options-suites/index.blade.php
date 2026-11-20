@@ -57,14 +57,17 @@
                             <span class="lo-suites__cutout-badge">{{ $suite['cutout_label'] }}</span>
                         </div>
 
-                        {{-- Top-Right Provenance Tag --}}
-                        <span class="lo-suites__provenance">{{ $suite['image']['label'] }}</span>
-
                         {{-- Bottom Image Overlay Meta --}}
                         <div class="lo-suites__overlay-meta">
                             <span class="lo-suites__program-badge">{{ $suite['badge'] }}</span>
                             <h3 id="suite-title-{{ $suite['id'] }}" class="lo-suites__card-title">{{ $suite['title'] }}</h3>
                         </div>
+                    </div>
+
+                    {{-- Image Provenance Strip (Non-overlapping) --}}
+                    <div class="lo-suites__provenance">
+                        <span class="lo-suites__prov-dot" aria-hidden="true"></span>
+                        <span class="lo-suites__prov-text">{{ $suite['image']['label'] }}</span>
                     </div>
 
                     {{-- Card Narrative & Features --}}
