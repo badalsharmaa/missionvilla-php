@@ -79,16 +79,6 @@
                 >
                     <span>Outdoor Spaces</span>
                 </button>
-                <button
-                    type="button"
-                    role="tab"
-                    aria-selected="false"
-                    class="gm-masonry__filter-btn"
-                    data-gm-filter="Activities"
-                    id="gallery-category-activities"
-                >
-                    <span>Activities</span>
-                </button>
             </div>
         </div>
 
@@ -131,14 +121,16 @@
                             </div>
                         </button>
 
-                        <div class="gm-plate__badge-cutout">
+                        {{-- Top-Left Inverted Clipped Corner Tab --}}
+                        <div class="gm-plate__badge-cutout" aria-hidden="true">
                             <span class="gm-plate__pill-badge">{{ $plate['cutout_badge'] }}</span>
                         </div>
+                    </div>
 
-                        <div class="gm-plate__prov-pill">
-                            <span class="gm-plate__prov-dot gm-plate__prov-dot--{{ $plate['image']['provenance'] === 'facility' ? 'facility' : 'illustrative' }}" aria-hidden="true"></span>
-                            <span>{{ $plate['image']['provenance'] === 'facility' ? 'Facility photo' : 'Illustrative' }}</span>
-                        </div>
+                    {{-- Image Provenance Strip (Non-overlapping) --}}
+                    <div class="gm-plate__provenance-strip gm-plate__prov-pill">
+                        <span class="gm-plate__prov-dot gm-plate__prov-dot--{{ $plate['image']['provenance'] === 'facility' ? 'facility' : 'illustrative' }}" aria-hidden="true"></span>
+                        <span class="gm-plate__prov-text">{{ $plate['image']['provenance'] === 'facility' ? 'Mission Villa facility photograph' : 'Illustrative community photograph' }}</span>
                     </div>
 
                     {{-- Plate Details Card --}}

@@ -119,12 +119,15 @@
     position: relative;
 }
 
-.ff-guide__pathway-btn:hover {
+.ff-guide__pathway-btn:hover:not(.ff-guide__pathway-btn--active) {
     background-color: #3B2348;
     border-color: rgba(216, 199, 165, 0.5);
+    color: #F7F4ED;
 }
 
-.ff-guide__pathway-btn--active {
+.ff-guide__pathway-btn--active,
+.ff-guide__pathway-btn--active:hover,
+.ff-guide__pathway-btn--active:focus {
     background-color: #F7F4ED;
     color: #3B2348;
     border-color: #D8C7A5;
@@ -145,7 +148,8 @@
     color: #D8C7A5;
 }
 
-.ff-guide__pathway-btn--active .ff-guide__pathway-idx {
+.ff-guide__pathway-btn--active .ff-guide__pathway-idx,
+.ff-guide__pathway-btn--active:hover .ff-guide__pathway-idx {
     color: #A65D43;
 }
 
@@ -153,7 +157,8 @@
     color: rgba(247, 244, 237, 0.75);
 }
 
-.ff-guide__pathway-btn--active .ff-guide__pathway-tag {
+.ff-guide__pathway-btn--active .ff-guide__pathway-tag,
+.ff-guide__pathway-btn--active:hover .ff-guide__pathway-tag {
     color: rgba(59, 35, 72, 0.75);
 }
 
@@ -173,7 +178,8 @@
     margin: 0;
 }
 
-.ff-guide__pathway-btn--active .ff-guide__pathway-quote {
+.ff-guide__pathway-btn--active .ff-guide__pathway-quote,
+.ff-guide__pathway-btn--active:hover .ff-guide__pathway-quote {
     color: rgba(41, 39, 43, 0.8);
 }
 
@@ -186,7 +192,8 @@
     color: #D8C7A5;
 }
 
-.ff-guide__pathway-btn--active .ff-guide__pathway-arrow {
+.ff-guide__pathway-btn--active .ff-guide__pathway-arrow,
+.ff-guide__pathway-btn--active:hover .ff-guide__pathway-arrow {
     color: #A65D43;
 }
 
