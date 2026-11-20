@@ -137,7 +137,8 @@
   position: relative;
   display: grid;
   transform-style: preserve-3d;
-  transition: transform 0.95s cubic-bezier(0.2, 0.75, 0.2, 1);
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.85s cubic-bezier(0.2, 0.75, 0.2, 1);
   will-change: transform;
 }
 .care-card[data-flipped="true"] .care-card__inner { transform: rotateY(180deg); }
@@ -152,9 +153,50 @@
   color: var(--co-ivory);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
+
+.care-card__face--front {
+  transform: rotateY(0deg) translateZ(1px);
+  -webkit-transform: rotateY(0deg) translateZ(1px);
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.2s ease 0.15s, visibility 0.2s ease 0.15s;
+}
+
 .care-card__face--back {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateZ(1px);
+  -webkit-transform: rotateY(180deg) translateZ(1px);
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease 0.15s, visibility 0.2s ease 0.15s;
+}
+
+/* Flipped state: Front face is guaranteed 100% hidden, Back face is guaranteed 100% visible */
+.care-card[data-flipped="true"] .care-card__face--front {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.care-card[data-flipped="true"] .care-card__face--back {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.care-card__media,
+.care-card__scrim,
+.care-card__content,
+.care-card__back-body {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Front: photo + plum scrim ------------------------------------------------ */
@@ -548,10 +590,33 @@
     transform: none;
     transition: none;
   }
-  .care-card__face { transition: opacity 0.2s linear; }
-  .care-card__face--back { transform: none; opacity: 0; }
-  .care-card[data-flipped="true"] .care-card__face--back { opacity: 1; }
-  .care-card[data-flipped="true"] .care-card__face--front { opacity: 0; }
+  .care-card__face {
+    transform: none !important;
+    -webkit-transform: none !important;
+    transition: opacity 0.2s linear, visibility 0.2s linear;
+  }
+  .care-card__face--front {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .care-card__face--back {
+    transform: none !important;
+    -webkit-transform: none !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .care-card[data-flipped="true"] .care-card__face--back {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .care-card[data-flipped="true"] .care-card__face--front {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
   .care-card__toggle-icon,
   .care-btn,
   .care-btn__arrow { transition: none; }
