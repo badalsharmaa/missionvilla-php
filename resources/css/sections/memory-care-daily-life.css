@@ -53,9 +53,10 @@
 }
 
 .mc-daily__card {
+  --card-bg: #FFFDFB;
   display: flex;
   flex-direction: column;
-  background: #FFFDFB;
+  background: var(--card-bg);
   border: 1px solid var(--mv-line, #E6D7C8);
   border-radius: var(--mv-radius, 1.25rem);
   overflow: hidden;
@@ -104,38 +105,77 @@
   pointer-events: none;
 }
 
-.mc-daily__badge {
+/* Top-Left Clipped Cutout */
+.mc-daily__cutout {
+  --curve-r: 16px;
   position: absolute;
-  top: 1rem;
-  left: 1rem;
-  padding: 0.3rem 0.75rem;
-  background: linear-gradient(180deg, var(--mv-plum, #47243D), var(--mv-plum-mid, #3A1A31));
-  border-radius: 999px;
-  box-shadow: 0 6px 14px -4px rgba(47, 18, 40, 0.5);
-  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: var(--card-bg, #FFFDFB);
+  border-bottom-right-radius: var(--curve-r);
+  padding: 0.55rem 0.85rem 0.5rem 0.65rem;
+  z-index: 5;
 }
 
-.mc-daily__badge-text {
+.mc-daily__cutout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: calc(var(--curve-r) * -1);
+  width: var(--curve-r);
+  height: var(--curve-r);
+  border-top-left-radius: var(--curve-r);
+  box-shadow: -6px -6px 0 6px var(--card-bg, #FFFDFB);
+  pointer-events: none;
+}
+
+.mc-daily__cutout::after {
+  content: "";
+  position: absolute;
+  bottom: calc(var(--curve-r) * -1);
+  left: 0;
+  width: var(--curve-r);
+  height: var(--curve-r);
+  border-top-left-radius: var(--curve-r);
+  box-shadow: -6px -6px 0 6px var(--card-bg, #FFFDFB);
+  pointer-events: none;
+}
+
+.mc-daily__cutout-badge {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(71, 36, 61, 0.08);
+  border: 1px solid rgba(71, 36, 61, 0.16);
+  color: var(--mv-plum, #47243D);
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--mv-peach, #EDBE96);
+  letter-spacing: 0.12em;
+  white-space: nowrap;
 }
 
+/* Image Provenance Strip (Non-overlapping) */
 .mc-daily__provenance {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
-  background: rgba(24, 15, 23, 0.65);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(251, 245, 239, 0.18);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1.25rem;
+  background: rgba(24, 15, 23, 0.04);
+  border-bottom: 1px solid var(--mv-line-soft, #EFE4D8);
   font-size: 0.68rem;
-  color: rgba(251, 245, 239, 0.85);
-  z-index: 2;
+  font-weight: 500;
+  color: var(--mv-ink-soft, #6A5A5D);
+  letter-spacing: 0.02em;
+}
+
+.mc-daily__prov-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8FAF78;
+  flex-shrink: 0;
 }
 
 /* Body */

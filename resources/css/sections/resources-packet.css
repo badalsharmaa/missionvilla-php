@@ -19,9 +19,9 @@
 
 .res-packet__inner {
     width: 100%;
-    max-width: 1320px;
-    margin-left: auto;
-    margin-right: auto;
+    padding-inline: var(--mv-gutter, 4.75rem);
+    margin-inline: auto;
+    box-sizing: border-box;
 }
 
 .res-packet__grid {

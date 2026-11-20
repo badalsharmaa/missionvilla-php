@@ -131,6 +131,12 @@
   transition: transform 0.6s ease;
 }
 
+.lo-suites__img[src*="floorplan"],
+.lo-suites__img[src*="diagram"] {
+  object-fit: contain;
+  background: #FFFFFF;
+}
+
 .lo-suites__card:hover .lo-suites__img {
   transform: scale(1.04);
 }

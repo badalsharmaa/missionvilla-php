@@ -118,6 +118,12 @@
     transition: transform 0.4s ease;
 }
 
+.sfp-formats__img[src*="floorplan"],
+.sfp-formats__img[src*="diagram"] {
+    object-fit: contain;
+    background: #FFFFFF;
+}
+
 .sfp-formats__card:hover .sfp-formats__img {
     transform: scale(1.04);
 }

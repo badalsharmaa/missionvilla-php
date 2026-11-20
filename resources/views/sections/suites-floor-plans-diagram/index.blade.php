@@ -36,15 +36,18 @@
                     <div class="sfp-diagram__badge-bar">
                         <span class="sfp-diagram__badge">{{ $diagram['badge'] }}</span>
                     </div>
-                    <img
-                        src="{{ asset(ltrim($diagram['image']['src'], '/')) }}"
-                        alt="{{ $diagram['image']['alt'] }}"
-                        width="{{ $diagram['image']['width'] }}"
-                        height="{{ $diagram['image']['height'] }}"
-                        class="sfp-diagram__img"
-                        loading="lazy"
-                        decoding="async"
-                    >
+                    <picture class="sfp-diagram__picture">
+                        <source media="(max-width: 639px)" srcset="{{ asset('images/suites/companion-suite-floorplan-640.webp') }}">
+                        <img
+                            src="{{ asset(ltrim($diagram['image']['src'], '/')) }}"
+                            alt="{{ $diagram['image']['alt'] }}"
+                            width="{{ $diagram['image']['width'] }}"
+                            height="{{ $diagram['image']['height'] }}"
+                            class="sfp-diagram__img"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </picture>
                     <div class="sfp-diagram__caption">
                         <span>{{ $diagram['image']['label'] }}</span>
                     </div>

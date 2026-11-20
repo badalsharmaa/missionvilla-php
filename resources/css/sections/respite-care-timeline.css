@@ -54,32 +54,27 @@
   margin: 0;
 }
 
-/* 5-Step Track */
+/* 3-Step Track */
 .rc-timeline__track {
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 1.25rem;
+  width: 100%;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .rc-timeline__track {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1024px) {
-  .rc-timeline__track {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.25rem, 2vw, 2rem);
     align-items: stretch;
   }
   .rc-timeline__track::before {
     content: '';
     position: absolute;
     top: 2.75rem;
-    left: 10%;
-    right: 10%;
+    left: calc(100% / 6);
+    right: calc(100% / 6);
     height: 2px;
     background: var(--mv-line, #E6D7C8);
     z-index: 0;

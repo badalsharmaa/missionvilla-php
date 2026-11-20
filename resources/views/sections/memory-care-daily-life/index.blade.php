@@ -50,13 +50,16 @@
                         </picture>
                         <div class="mc-daily__media-scrim" aria-hidden="true"></div>
 
-                        {{-- Rhythm Badge --}}
-                        <div class="mc-daily__badge">
-                            <span class="mc-daily__badge-text">{{ $scene['rhythm'] }}</span>
+                        {{-- Top-Left Inverted Clipped Corner Tab --}}
+                        <div class="mc-daily__cutout" aria-hidden="true">
+                            <span class="mc-daily__cutout-badge">{{ $scene['rhythm'] }}</span>
                         </div>
+                    </div>
 
-                        {{-- Provenance Pill --}}
-                        <span class="mc-daily__provenance">{{ $scene['image']['label'] }}</span>
+                    {{-- Image Provenance Strip (Non-overlapping) --}}
+                    <div class="mc-daily__provenance">
+                        <span class="mc-daily__prov-dot" aria-hidden="true"></span>
+                        <span class="mc-daily__prov-text">{{ $scene['image']['label'] }}</span>
                     </div>
 
                     {{-- Scene Body --}}
