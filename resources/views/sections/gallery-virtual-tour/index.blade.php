@@ -42,9 +42,11 @@
                                 loading="lazy"
                                 decoding="async"
                             >
-                            <div class="gvt-stop__badge-cutout">
+                            {{-- Top-Left Inverted Clipped Corner Tab --}}
+                            <div class="gvt-stop__badge-cutout" aria-hidden="true">
                                 <span class="gvt-stop__pill-badge">{{ $stop['stop_index'] }}</span>
                             </div>
+                            {{-- Image Provenance Pill (Bottom-Right, non-colliding) --}}
                             <div class="gvt-stop__prov-pill">
                                 <span class="gvt-stop__prov-dot gvt-stop__prov-dot--{{ $stop['image']['provenance'] === 'facility' ? 'facility' : 'illustrative' }}" aria-hidden="true"></span>
                                 <span>{{ $stop['image']['provenance'] === 'facility' ? 'Facility photo' : 'Illustrative' }}</span>
