@@ -69,16 +69,23 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3.5rem;
-    align-items: center;
+    align-items: start;
 }
 
 .sfp-diagram__media-col {
     position: relative;
 }
 
+@media (min-width: 1024px) {
+    .sfp-diagram__media-col {
+        position: sticky;
+        top: 6rem;
+    }
+}
+
 .sfp-diagram__frame {
     background-color: #FFFFFF;
-    border-radius: 0.75rem;
+    border-radius: var(--mv-radius, 1.25rem);
     padding: 1.5rem;
     border: 1px solid rgba(43, 27, 45, 0.12);
     box-shadow: 0 10px 30px rgba(43, 27, 45, 0.08);
@@ -104,16 +111,23 @@
 }
 
 .sfp-diagram__picture {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    aspect-ratio: 1000 / 660;
     background-color: #FFFFFF;
     border-radius: 0.5rem;
     overflow: hidden;
+    padding: 0.75rem;
+    box-sizing: border-box;
 }
 
 .sfp-diagram__img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     aspect-ratio: 1000 / 660;
     object-fit: contain;
     object-position: center;
